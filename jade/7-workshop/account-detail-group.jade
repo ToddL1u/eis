@@ -1,0 +1,117 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-3
+      nav.nav
+      .wrap
+        include ../include/header-workshop-account-detail
+        .content
+          .text-right.account-action
+            button.btn.btn-failed.btn-flat-table 處理失敗
+            button.btn.btn-success.btn-flat-table 確定匯款
+          section.form-block.section-block
+            .info-row(href="#R22345" data-toggle="collapse")
+              .tag-wait R22345
+            .collapse.in#R22345
+              include ../include/table-account-detail-group
+              include ../include/table-account-detail-group
+              include ../include/table-account-detail-group1
+          section.form-block.section-block
+            .info-row(href="#R22346" data-toggle="collapse")
+              .tag-wait R22346
+            .collapse.in#R22346
+              include ../include/table-account-detail-group1
+          .text-right.m-t-5
+            a(href="account.html")
+              button.btn.btn-default.btn-flat-table 回前頁
+            button(data-toggle="modal" data-target="#modalSubmit").btn.btn-default.btn-warn.btn-flat-table 儲存
+            
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    var tag_success = '<li class="tag-success">結清</li>';  
+    var tag_failed = '<li class="tag-failed">處理失敗</li>';
+
+    $('.btn-success').click(function(){
+      $(this).parent().siblings().find('input:checkbox:checked').prop('checked', false).siblings('ul').append().html(tag_success);
+    });
+
+    $('.btn-failed').click(function(){
+      $(this).parent().siblings().find('input:checkbox:checked').prop('checked', false).siblings('ul').append().html(tag_failed);
+    });
+
+    function check(){
+      textarea();
+      $('table').each(function(){
+        if($(this).find('li').hasClass('tag-success')){
+          $(this).find('ul').remove();
+          $(this).find('input:checkbox').remove();
+          $(this).find('textarea').prop("disabled", true);
+          $(this).find('td:first-child').find('input.text-green').val("結清").removeClass('text-green');
+          $(this).find('.fa-pencil-square-o, .fileinput-remove-button, .btn-primary').hide();
+        }else if($(this).find('li').hasClass('tag-failed')){
+          $(this).find('ul').remove();
+          $(this).find('input:checkbox').remove();
+          $(this).find('textarea').prop("disabled", true);
+          $(this).find('td:first-child').find('input.text-green').val("處理失敗").removeClass('text-green');
+          $(this).find('.fa-pencil-square-o, .fileinput-remove-button, .btn-primary').hide();
+        }
+      });
+    };
+
+    function textarea(){
+      $('table').each(function(){
+        if($(this).find('li').hasClass('tag-success') && $(this).find('li').hasClass('tag-failed')){
+          $(this).find('textarea').prop("disabled", true);
+        }
+      });
+    };
+
+    $('body').on('click','button[type="submit"]',function(){
+      check();
+    });
+
+    $(".file-loading").fileinput({
+      showCaption: false,
+      removeIcon: '<i class="fa fa-trash"></i>',
+      browseIcon: '<i class="fa fa-upload"></i>',
+      zoomInd: '<i class="fa fa-picture-o"></i>',
+      maxFileCount: 1,
+    });
+    $('.hidden-xs').text('');
+    $('.fileinput-upload-button,.file-upload-indicator,.file-footer-caption').remove();
+
+    $('.fa-pencil-square-o').click(function(){
+      var total_price = $(this).parents('td').siblings().find('.total-price').val();
+      $(this).hide();
+      $(this).siblings().attr('readonly',false);
+      $(this).parent().siblings('.price-old').text(total_price).show();
+      $(this).parents('.form-group').css('height','80px');
+      edit_money();
+    });
+
+    function edit_money(){
+      $('.click-input').blur(function(){
+        var price = $(this).val();
+        var old_price = $(this).parents('td').siblings().find('.total-price').val();
+        if(price == old_price){
+          $(this).parent().siblings('.price-old').hide();
+          $(this).attr('readonly',true);
+          $(this).siblings().show();
+          $(this).parents('.form-group').css('height','55px');
+          $(this).parents('.form-group').siblings().find('input').val(price);
+        }else{
+          $(this).attr('readonly',true);
+          $(this).parents('.form-group').siblings().find('input').val(price);
+          $(this).siblings().show();
+        }
+      })
+    }
+

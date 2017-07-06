@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="training" class="container nav-training-1 nav-training-detail">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>教育訓練</li>
+              <li><a href="index.html">受訓單</a></li>
+              <li>Murry</li>
+            </ul>
+            <div class="subnav-subtitle">2016-19-11</div>
+          </div>
+        </header>
+        <div class="content form-block">
+          <aside class="section-version">
+            <ul class="nav-version">
+              <li class="version-is-active">2016/10/10</li>
+              <li>2016/10/09</li>
+            </ul>
+          </aside>
+          <ul class="toolbar">
+            <li class="btn-tack"></li>
+            <li class="btn-export"></li>
+            <li class="btn-clip toolbar-btn-hide"></li>
+            <li class="btn-export toolbar-btn-hide"></li>
+            <li class="btn-view"></li>
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+          </ul>
+          <section class="section-block">
+            <form class="from-group">
+              <table class="table table-form table-side-header">
+                <tbody>
+                  <tr class="field-state">
+                    <td>狀態</td>
+                    <td>待審</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2">部門</td>
+                    <td>RD</td>
+                  </tr>
+                  <tr>
+                    <td>人員</td>
+                    <td>Fill Murray</td>
+                  </tr>
+                  <tr>
+                    <td>員工編號</td>
+                    <td>9528</td>
+                  </tr>
+                  <tr>
+                    <td>類別</td>
+                    <td>自行提報</td>
+                  </tr>
+                  <tr>
+                    <td>課程名稱</td>
+                    <td>abc</td>
+                  </tr>
+                  <tr>
+                    <td>課程網址</td>
+                    <td>abc</td>
+                  </tr>
+                  <tr>
+                    <td>課程費用</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>受訓原因</td>
+                    <td>test</td>
+                  </tr>
+                  <tr>
+                    <td>受訓區間</td>
+                    <td>2016/11/11 18:00 ~ 2016/11/11 18:00</td>
+                  </tr>
+                  <tr>
+                    <td>簡報區間</td>
+                    <td>2016/11/11 18:00 (120分鐘)</td>
+                  </tr>
+                  <tr class="filed-attach">
+                    <td>附加檔案</td>
+                    <td><a href="http://eshare.stust.edu.tw/EshareFile/2010_6/2010_6_409b0224.doc"><span class="btn-clip"></span>檔案下載</a></td>
+                  </tr>
+                  <tr>
+                    <td style="background-color: #ffe8f2">服務到期日</td>
+                    <td style="position:relative">
+                      <ul class="select-date">
+                        <li><span class="select">
+                            <select class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select class="select-days form-control"></select></span></li>
+                      </ul><span>(前次服務到期日   2017/01/02) </span>
+                      <ul class="toolbar section-toolbar">
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="field-reply">
+                    <td>回覆內容</td>
+                    <td>Very good</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+            <div class="btns-group">
+              <button data-toggle="modal" data-target="#modalReject" class="btn btn-danger">退回</button>
+              <button data-toggle="modal" data-target="#modalConfirm" class="btn btn-success">通過</button>
+            </div>
+          </section>
+          <section class="section-block section-history"></section>
+        </div>
+        <footer></footer>
+        <div id="modalAnnouce" tabindex="-1" role="dialog" aria-labelledby="modalCancel" class="modal fade bs-example-modal-lg">
+          <div role="document" class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+              </div>
+              <div class="modal-body"> 
+                <h4>發佈至公司公告</h4>
+                <div class="btns-group">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn modal-btn-cancel">取消</button>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn modal-btn-2 btn-success">確定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../../assets/js/function.js"></script>
+<script>
+  $('select').prop('disabled','true');
+  $('.field-reply').hide();
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    goBack();
+  });
+  $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+    setReplied();
+  });
+  $('body').on('click','#modalReject .modal-btn-2',function(event){
+    //- setReplied();
+  });
+  
+  function setReplied(){
+    $('.field-reply').show();
+    $('.content .btns-group').hide();
+  }
+  
+  $('.filed-attach').hide();
+  $('.btn-export').hide();
+  $('.btn-tack').hide();
+  
+  var id = getUrlParameter('id');
+  if(id == '2'){
+    $('.field-state').html('<td>狀態</td><td>完訓</td>');
+    $('.content .btns-group').hide();
+    $('.field-reply').show();
+    $('.btn-tack').hide();
+    $('.btn-export').show();
+    $('.filed-attach').show();
+  }else if(id == '1'){
+    $('.field-state').html('<td>狀態</td><td>待受訓</td>');
+    $('.content .btns-group').hide();
+    $('.btn-tack').show();
+    $('.field-reply').show();
+    $('.btn-export').show();
+  }
+  
+  $('.btn-tack').click(function(){
+    $('#modalAnnouce').modal('show');
+  })
+  
+  $('body').on('click','#modalAnnouce .modal-btn-2',function(){
+    window.location.href="../index/announcement.html?action=edit&id=1";
+  })
+  
+  
+  
+  $('body').on('click','#modalVersion .modal-btn-1',function(){
+    $('#bonus .toolbar li').not('.btn-delete').not('.btn-view').toggleClass('toolbar-btn-hide');
+    setInput(true);
+  })
+    
+  var data = [
+    {'date':'2016-10-10','state':'未通過', 'type' :2, 'reason':'reson1','apply_time':'2012-12-11','content':'content1'},
+    {'date':'2016-12-12','state':'通過','type':2, 'reason':'reson1','apply_time':'2012-12-11','content':'Lorem'}];
+  
+  $('.nav-version li').click(function(){
+    var select_data = data[$(this).index()];
+    var strVar='';
+    strVar += '<div class="section-title"><br/></div>';
+    strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+    strVar += '<table class="table table-form table-side-header">';
+    strVar += '<tbody>';
+    strVar += '<tr>';
+    strVar += '<td class="col-sm-2">狀態</td>';
+    strVar += '<td>'+ select_data.state +'</td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>類別</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>課程名稱</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    if(select_data.type >1){
+      strVar += '<td>課程網址</td>';
+      strVar += '<td> </td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+    }
+    strVar += '<td>課程費用</td>';
+    strVar += '<td></td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>受訓原因</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>受訓區間</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>提報區間</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td >服務到期日</td>';
+    strVar += '<td >';
+    strVar += '</td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>回覆內容</td>';
+    strVar += '<td>'+ select_data.content +' </td>';
+    strVar += '</tr>';
+    strVar += '</tbody>';
+    strVar += '</table>';
+  
+    $('.section-history').html(strVar).show();
+  });
+</script>

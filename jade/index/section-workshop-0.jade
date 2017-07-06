@@ -1,0 +1,332 @@
+section#workshop-0
+  .collapse-header(data-toggle="collapse" data-target="#account")
+    .table-header 帳戶設定
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  .section-block.collapse.in.in#account
+    .table-header.table-header-primary 公司帳戶設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 主要收入帳戶
+          th.col-sm-2 主要支出帳戶
+          th.col-sm-2 銀行代號
+          th.col-sm-4 銀行帳戶
+          td.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            input(type="checkbox" disabled checked).checkbox-square
+          td 
+            input(type="checkbox" disabled).checkbox-square
+          td
+            input.form-control(type="number" readonly value="700") 
+          td
+            input.form-control(type="number" readonly value="12345671234567") 
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input(type="checkbox" disabled).checkbox-square
+          td 
+            input(type="checkbox" disabled).checkbox-square
+          td
+            input.form-control(type="number" readonly) 
+          td
+            input.form-control(type="number" readonly) 
+          td
+            include ../include/toolbar-delete-edit
+  .collapse-header(data-toggle="collapse" data-target="#rent")
+    .table-header 國定假日
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#rent
+    .section-block
+      .table-header.table-header-primary 國定假日
+      table.table.table-form.table-side-header.holiday
+        tr
+          td.col-sm-3 啟用國定假日
+          td.col-sm-9(colspan="2")
+            .form-block
+              input(type="checkbox" disabled checked).checkbox-square
+              | &nbsp;&nbsp;國定假日 = 週日計費
+              include ../include/toolbar-delete-edit
+        tr
+          td.col-sm-3 選擇年份
+          td.col-sm-3
+            span.select
+              select.form-control
+                option 2017
+                option 2018
+                option 2019
+                option 2020
+                option 2021
+          td(style="background-color: #fff;")
+            button.btn
+              i.fa.fa-plus-square-o
+              |新增國定假日
+        tr
+      form.form-group
+        table.table-form.table-row
+          tbody
+            tr
+              td
+                .form-block.table-row-group
+                  input.form-control(type="text" readonly value="1/2")
+                  include ../include/toolbar-delete-edit
+                .form-block.table-row-group
+                  input.form-control(type="text" readonly value="1/2")
+                  include ../include/toolbar-delete-edit
+                .form-block.table-row-group
+                  input.form-control(type="text" readonly value="1/2")
+                  include ../include/toolbar-delete-edit
+                .form-block.table-row-group
+                  input.form-control(type="text") 
+                  include ../include/toolbar-delete-edit
+            tr
+  .collapse-header(data-toggle="collapse" data-target="#locationDetail")
+    .table-header 場地設定
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#locationDetail
+    .section-block
+      .table-header.table-header-primary 場地
+        ul.toolbar.toolbar-right.section-toolbar
+          li.btn-add-only
+    form.form-horizontal.form-block.section-block
+      .table-header.table-header-primary 01 場地名稱A
+      .section-toolbar
+        include ../include/toolbar-delete-edit
+      table.table.table-form.table-side-header
+        tr
+          td 啟用場地
+          td(colspan="3")
+            input(type="checkbox" disabled checked).checkbox-square
+            | &nbsp;&nbsp;啟用場地
+        tr
+          td 場地名稱
+          td(colspan="3")
+            input.form-control(type="text" readonly value="AYDYN總公司")
+        tr
+          td 地址
+          td(colspan="3")
+            input.form-control(type="text" readonly value="台北市內湖區新湖一路85號4樓")
+        tr
+          td 坪數
+          td
+            input.form-control(type="number" readonly value="30")
+        tr
+          td 最大容納人數
+          td
+            input.form-control(type="number" readonly value="15")
+        tr
+          td 環境描述
+          td(colspan="3")
+            input.form-control(type="text" readonly value="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        tr
+          td 設備提供
+          td(colspan="3")
+            input.form-control(type="text" readonly value="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        tr
+          td 照片
+          td(colspan="3")
+            input.file-loading(name="input24[]" type="file" multiple)
+        tr
+          td.col-sm-3 小時出租
+          td.col-sm-3
+            input(type="checkbox" disabled).checkbox-square
+            | &nbsp;&nbsp;啟用
+          td(style="background-color: #fff;")
+            a.btn(href="rent.html?type=hr" style="background-color: #ddd;")
+              i.fa.fa-pencil-square-o
+              |小時出租設定
+        tr
+          td.col-sm-3 時段出租
+          td.col-sm-3
+            input(type="checkbox" disabled).checkbox-square
+            | &nbsp;&nbsp;啟用
+          td(style="background-color: #fff;")
+            a.btn(href="rent.html" style="background-color: #ddd;")
+              i.fa.fa-pencil-square-o
+              |時段出租設定
+        tr
+          td.col-sm-3 人數出租
+          td.col-sm-3
+            input(type="checkbox" disabled checked).checkbox-square
+            | &nbsp;&nbsp;啟用
+          td(style="background-color: #fff;")
+            a.btn(href="rent.html?type=people" style="background-color: #ddd;") 
+              i.fa.fa-pencil-square-o
+              |人數出租設定
+        tr
+  .collapse-header(data-toggle="collapse" data-target="#class")
+    .table-header 課程設定
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#class
+    .section-block
+      .table-header.table-header-primary 課程類別
+        ul.toolbar.toolbar-right.section-toolbar
+          li.btn-add-row
+      form.form-group
+        table.table-form.table-row
+          thead.table-subheader
+            tr
+              th 新增類別
+            tbody
+              tr
+                td
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="生活")
+                    include ../include/toolbar-delete-edit
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="科技")
+                    include ../include/toolbar-delete-edit
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="美術")
+                    include ../include/toolbar-delete-edit
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="音樂")
+                    include ../include/toolbar-delete-edit
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly) 
+                    include ../include/toolbar-delete-edit
+              tr
+    form.form-horizontal.form-block.section-block
+      .table-header.table-header-primary 課程管理
+      .section-toolbar
+        include ../include/toolbar-delete-edit
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-4 隱藏留言管理-隱藏留言顯示文字
+          td.col-sm-6
+            input.form-control(type="text" placeholder="公司名稱" name="c_name" readonly value="AYDYN請大家妥善發言 : )")
+        tr
+          td.col-sm-4 評價顯示管理-需大於_筆才顯示
+          td.col-sm-6
+            input.form-control(type="number" readonly value="3")
+        tr
+          td.col-sm-4 報名截止時間-課程開課日前_天
+          td.col-sm-6
+            input.form-control(type="number" readonly value="30")
+        tr
+          td.col-sm-4 最慢發佈時間-課程開課日前_天
+          td.col-sm-6
+            input.form-control(type="number" readonly value="60")
+        tr
+  .collapse-header(data-toggle="collapse" data-target="#declare")
+    .table-header 公告設定
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  .section-block.collapse.in#declare
+    .table-header.table-header-primary 課程發佈至公告-預設內文範本
+      ul.toolbar.toolbar-right.section-toolbar
+        li
+          input.form-control(type="text" placeholder="search")
+        li(data-toggle="modal" data-target="#modalMarkdown")
+        .btn-add-only
+    table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 啟用
+          th.col-sm-8 範本標題
+          th.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            input(type="checkbox" disabled checked).checkbox-square
+          td
+            input.form-control(type="text" value="(一) 新開課" readonly data-toggle="popover" data-trigger="hover").field-content-title
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+        -for(var i=0;i<4;i++){
+          tr.form-block
+            td 
+              input(type="checkbox" disabled).checkbox-square
+            td
+              input.form-control(type="text" value="(二) 課程異動" readonly data-toggle="popover" data-trigger="hover").field-content-title 
+            td
+              ul.toolbar
+                include ../include/toolbar-delete
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+        -}
+        tr.form-block
+          td 
+            input(type="checkbox" disabled ).checkbox-square
+          td
+            input.form-control(type="text" value="" readonly).field-content-title
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+    include ../include/pagination
+    .float-content
+
+  .collapse-header(data-toggle="collapse" data-target="#inform")
+    .table-header 通知信件
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#inform
+    .section-block
+      .table-header.table-header-primary 通知信件-預設內文範本
+      table.table-form
+        thead.table-subheader
+          tr
+            th.col-sm-10 範本標題
+            th.col-sm-2
+        tbody
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="報名成功" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="候補通知" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="開課通知(發佈)" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="課程異動通知 (二次發佈)" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="退課通知" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="帳戶異動通知" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+          tr.form-block
+            td 
+              input.form-control(type="text" placeholder="範本標題" readonly value="帳戶異動通知" data-toggle="popover" data-trigger="hover").field-content-title
+            td
+              ul.toolbar
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+      .float-content
+
+

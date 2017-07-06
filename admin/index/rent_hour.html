@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"> </script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/daterangepicker.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+  </head>
+  <body>
+    <div id="rent" class="container">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li data-toggle="modal" data-target="#modalLeaveRent">設定檔</li>
+              <li>時段出租設定</li>
+            </ul>
+          </div>
+        </header>
+        <div class="content">
+          <p>小時出租範本</p>
+          <select class="form-control sample">
+            <option>範本名稱1</option>
+            <option>範本名稱2</option>
+            <option>範本名稱3</option>
+          </select>
+          <div class="add-sample">
+            <select class="form-control">
+              <option disabled selected>選擇帶入歷史範本</option>
+              <option>範本名稱1</option>
+              <option>範本名稱2</option>
+              <option>範本名稱3</option>
+            </select>
+            <button class="btn"><i class="fa fa-plus-square-o"></i>新增範本</button>
+          </div>
+          <div class="section-block form-block sample-block">
+            <div class="table-header table-header-primary">範本內容
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </div>
+            <table class="table-form">
+              <thead class="table-subheader">
+                <tr>
+                  <th class="col-sm-4">標題</th>
+                  <th class="col-sm-4">生效區間</th>
+                  <th class="col-sm-4">每小時收費</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="form-block">
+                  <td> 
+                    <input type="text" placeholder="範本標題" class="form-control">
+                  </td>
+                  <td> 
+                    <input name="datefilter" class="form-control">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="add-item">
+            <button class="btn"><i class="fa fa-plus-square-o"></i>新增項目</button>
+          </div>
+          <div class="section-block item-block">
+            <table class="table-form table-sort">
+              <thead class="table-subheader">
+                <tr>
+                  <th style="width: 13%;">項目</th>
+                  <th style="width: 32%;">週間</th>
+                  <th style="width: 28%;">時段設定</th>
+                  <th style="width: 8%;">總時數</th>
+                  <th style="width: 8%;">每小時折扣(%)</th>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="form-block">
+                  <td>
+                    <input type="text" placeholder="項目名稱" class="form-control">
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(一)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(二)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(三)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(四)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(五)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(六)
+                          </label>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" class="checkbox-square">(日)
+                          </label>
+                        </div>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li> 
+                        <div class="input-group bootstrap-timepicker">
+                          <input type="text" class="timepicker form-control input-small"><span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                      </li>
+                      <li> <span style="padding-bottom:10px">至</span></li>
+                      <li>
+                        <div class="input-group bootstrap-timepicker">
+                          <input type="text" class="timepicker form-control input-small"><span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <input type="number" class="form-control">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control">
+                  </td>
+                  <td>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li class="btn-edit"></li>
+                      <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                      <li class="btn-confirm toolbar-btn-hide"></li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="table-pagination">
+              <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+              <li> <a href="#" class="page-active">1</a>
+              </li>
+              <li> <a href="#">2</a>
+              </li>
+              <li> <a href="#">3</a>
+              </li>
+              <li> <a href="#">4</a>
+              </li>
+              <li> <a href="#">5</a>
+              </li>
+              <li> <a href="#">6</a>
+              </li>
+              <li> <a href="#">7</a>
+              </li>
+              <li> <a href="#">8</a>
+              </li>
+              <li> <a href="#">9</a>
+              </li>
+              <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+            </ul>
+          </div><br>
+          <section class="item-refresh">
+            <div class="item-detail">
+              <div>09:00 ~ 13:00</div>
+              <div>01月<span>2,3,9,10,16,17,23,24,30,31</span><br>02月 <span>2,6,7,13,21,27,28</span></div>
+            </div>
+          </section><br>
+          <section>
+            <div class="item-detail">
+              <div>09:00 ~ 13:00</div>
+              <div>01月<span>2,3,9,10,16,17,23,24,30,31</span><br>02月 <span>2,6,7,13,21,27,28</span></div>
+            </div>
+            <div class="item-detail">
+              <div>09:00 ~ 13:00</div>
+              <div>01月<span>2,3,9,10,16,17,23,24,30,31</span><br>02月 <span>2,6,7,13,14,20,21,27,28</span></div>
+            </div>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../../assets/js/function.js"></script>
+<script>
+  $('.sample-block, .item-block, .add-item, section').hide();
+  
+  var $tr = $('.item-block tbody tr:last-child');
+  $tr.find('.btn-edit').trigger('click');
+  $tr.hide();
+  
+  $('button:contains("新增範本")').click(function(){
+    $(this).attr('disabled',true);
+    $(this).siblings().show();//history-sample select show
+    $('.sample').attr('disabled',true);//sample select disabled
+    $('.add-item').show();
+    $('.sample-block').find('input').val('');
+    $('.sample-block').show().find('.btn-edit').trigger('click');
+  
+    //delete sample
+    $('body').on('click','#modalDelete .modal-btn-2',function(){
+      $('.sample-block').hide();
+      $('.add-sample select').hide();//history-sample select hide
+      $('.add-sample button').attr('disabled',false);
+      $('.add-item').hide();
+    })
+  
+    //confirm check input
+    $('.table-header .btn-confirm').click(function(){
+      var input_value = $('.sample-block td input').val();
+      $('.sample-block td input').each(function(){
+        if(input_value.length > 0){
+          alert(input_value.length);
+          $(this).css('border','2px #ea6374 solid');
+          $('#modalCheck').modal('show');
+        }else{
+          alert(input_value.length);
+          $(this).css('border','none');
+        }
+      })
+    })
+  
+  })
+  
+  $('button:contains("新增項目")').click(function(){
+    $(this).attr('disabled',true);
+    $('.item-block, section:not(.item-refresh)').show();
+    var $row = $(this).parent().next().find('tbody').children('tr:last-child');
+    $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+  
+    $('.item-block .btn-confirm').click(function(){
+      $('button:contains("新增項目")').attr('disabled',false);
+    })
+  
+    $('.item-block input').blur(function(){
+      var item_check = '<i class="btn btn-default fa fa-refresh"></i>';
+      $(this).parents('tr').find('td:last-child .fa-refresh').remove();
+      $(this).parents('tr').find('td:last-child').prepend(item_check);
+  
+      $('.fa-refresh').click(function(){
+        $('.item-refresh').show();
+      })
+    })
+  
+  })
+  
+  $('.sample').change(function(){
+    $('.sample-block, .add-item, .item-block').show();
+  })
+  
+  
+  //daterangepicker
+  $('input[name="datefilter"]').daterangepicker({
+      autoUpdateInput: false,
+      locale: {
+          cancelLabel: 'Clear'
+      }
+  });
+  
+  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+  });
+  
+  $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+  });
+  
+  //timepicker
+  $('body').on('focus',".timepicker", function(){
+    $(this).timepicker();
+  });
+  
+  
+  //不同租賃方式
+  
+  if(type == 'rent')
+</script>

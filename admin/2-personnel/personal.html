@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="personnel" class="container nav-personal">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li> <a href="../2-personnel">人事作業</a></li>
+              <li>Fill Murry</li>
+            </ul>
+            <ul class="subnav-tabs">
+              <li id="tabProfile" class="subnav-tab-active"><a href="#">基本資料</a></li>
+              <li id="tabEnf"><a href="#">學經歷及家庭</a></li>
+              <li id="tabAbilities"> <a href="#">其他能力</a></li>
+              <li id="tabAssets"><a href="#">固定資產</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="content">
+          <section id="profile" class="form-block">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+            <div class="section-block">
+              <form id="formProfile" class="form-group">
+                <div id="kv-avatar-errors-1" class="center-block"></div>
+                <form action="/avatar_upload.php" method="post" enctype="multipart/form-data" class="text-center">
+                  <div class="kv-avatar center-block">
+                    <input id="avatar-1" name="avatar-1" type="file" class="file-loading">
+                  </div>
+                </form>
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">中文姓名</td>
+                    <td class="col-sm-4">
+                      <input type="text" placeholder="姓氏" readonly value="陳" class="form-control">
+                      <input type="text" placeholder="名字" readonly value="圈圈" class="form-control">
+                    </td>
+                    <td class="col-sm-2">英文姓名</td>
+                    <td class="col-sm-4">
+                      <input type="text" placeholder="First name" readonly value="Circle" class="form-control">
+                      <input type="text" placeholder="Last name" readonly value="Chen" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2">帳號</td>
+                    <td class="col-sm-4">
+                      <input type="text" placeholder="帳號" readonly value="" class="form-control">
+                    </td>
+                    <td class="col-sm-2">密碼</td>
+                    <td class="col-sm-4">
+                      <input type="text" placeholder="密碼" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>部門</td>
+                    <td colspan="3">
+                      <input type="text" placeholder="部門" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>職稱</td>
+                    <td>
+                      <input type="text" placeholder="職稱" readonly value="" class="form-control">
+                    </td>
+                    <td>職級</td>
+                    <td>
+                      <input type="text" placeholder="職級" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>員工編號</td>
+                    <td>
+                      <input type="text" placeholder="員工編號" readonly value="" class="form-control">
+                    </td>
+                    <td>出勤卡號</td>
+                    <td>
+                      <input type="text" placeholder="出勤卡號" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>到職日</td>
+                    <td colspan="3">
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>預計轉正職日</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td>實際轉正職日</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="table-row-highligh">
+                    <td>預計離職日</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td>實際離職日</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>生日</td>
+                    <td colspan="3"> 
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>身分證字號</td>
+                    <td>
+                      <input type="text" placeholder="身分證字號" readonly value="" class="form-control">
+                    </td>
+                    <td>國別</td>
+                    <td><span class="select">
+                        <select disabled class="form-control">
+                          <option selected disabled>請選擇國別</option>
+                          <option>台灣</option>
+                          <option>國家A</option>
+                          <option>國家B</option>
+                          <option>國家C</option>
+                        </select></span></td>
+                  </tr>
+                  <tr>
+                    <td>性別</td>
+                    <td><span class="select">
+                        <select disabled id="gender" class="form-control">
+                          <option value="0">男</option>
+                          <option value="1">女</option>
+                        </select></span></td>
+                    <td>血型</td>
+                    <td><span class="select">
+                        <select disabled class="form-control">
+                          <option value="">O</option>
+                          <option value="">A</option>
+                          <option value="">B</option>
+                          <option value="">AB</option>
+                        </select></span></td>
+                  </tr>
+                  <tr>
+                    <td>身高(cm)</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                    <td>體重(kg)</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>婚姻狀況</td>
+                    <td colspan="3"><span class="select">
+                        <select disabled class="form-control">
+                          <option value="">未婚</option>
+                          <option value="">已婚</option>
+                        </select></span></td>
+                  </tr>
+                  <tr class="female-group">
+                    <td>懷孕</td>
+                    <td>
+                      <select disabled class="form-control">
+                        <option value="">懷孕</option>
+                        <option value="">未懷孕</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="male-group">
+                    <td>役別</td>
+                    <td><span class="select">
+                        <select disabled class="form-control">
+                          <option selected disabled>請選擇役別</option>
+                          <option value="">義務役</option>
+                          <option value="">國民役</option>
+                          <option value="">志願役</option>
+                          <option value="">替代役</option>
+                          <option value="">免役</option>
+                        </select></span></td>
+                    <td>兵種</td>
+                    <td><span class="select">
+                        <select disabled class="form-control">
+                          <option selected disabled>請選擇軍種</option>
+                          <option value="">陸軍</option>
+                          <option value="">海軍</option>
+                          <option value="">空軍</option>
+                        </select></span></td>
+                  </tr>
+                  <tr class="male-group">
+                    <td>期間</td>
+                    <td>
+                      <input type="text" placeholder="期間" readonly value="" class="form-control">
+                    </td>
+                    <td>免役原因</td>
+                    <td>
+                      <input type="text" placeholder="免役原因" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>連絡電話</td>
+                    <td colspan="3">
+                      <input type="email" readonly value="XXXX-XXX-XXX" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td colspan="3">
+                      <input type="email" readonly value="Email" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>通訊地址</td>
+                    <td colspan="3">
+                      <ul class="select-address">
+                        <li><span class="select">
+                            <select disabled class="county form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="district form-control"></select></span></li>
+                        <li>
+                          <input type="text" placeholder="通訊地址" readonly value="" class="form-control">
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>戶籍地址</td>
+                    <td colspan="3">
+                      <ul class="select-address">
+                        <li><span class="select">
+                            <select disabled class="county form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="district form-control"></select></span></li>
+                        <li>
+                          <input type="text" placeholder="戶籍地址" readonly value="" class="form-control">
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>緊急聯絡人</td>
+                    <td>
+                      <input type="text" placeholder="緊急聯絡人" readonly value="" class="form-control">
+                    </td>
+                    <td>關係</td>
+                    <td>
+                      <input type="text" placeholder="關係" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>聯絡人電話</td>
+                    <td>
+                      <input type="text" placeholder="XXXX-XXX-XXX" readonly value="" class="form-control">
+                    </td>
+                    <td>飲食禁忌</td>
+                    <td>
+                      <input type="text" placeholder="飲食習慣" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </section>
+          <section id="enf">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <div class="section-block">
+              <div class="table-header table-header-primary">學歷
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table id="education" class="table table-form">
+                  <thead class="table-subheader">
+                    <tr>
+                      <th class="col-sm-2">學校名稱</th>
+                      <th class="col-sm-2">學歷</th>
+                      <th class="col-sm-2">就讀系所</th>
+                      <th class="col-sm-5">就讀時間</th>
+                      <th class="col-sm-2"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="form-block">
+                      <td>
+                        <input type="text" readonly value="雲林科技大學" class="form-control">
+                      </td>
+                      <td>
+                        <input type="text" readonly value="商業設計" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="text" readonly value="創意生活設計系" class="form-control">
+                      </td>
+                      <td>
+                        <ul class="select-date">
+                          <li>
+                            <ul class="select-date">
+                              <li><span class="select-date-label"></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-years form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-months form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-days form-control"></select></span></li>
+                            </ul>
+                          </li>
+                          <li>至</li>
+                          <li>
+                            <ul class="select-date">
+                              <li><span class="select-date-label"></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-years form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-months form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-days form-control"></select></span></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </td>
+                      <td>
+                        <ul class="toolbar toolbar-right">
+                          <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                          <li class="btn-edit"></li>
+                          <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                          <li class="btn-confirm toolbar-btn-hide"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr class="form-block">
+                      <td> 
+                        <input type="text" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="text" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="text" class="form-control">
+                      </td>
+                      <td> 
+                        <ul class="select-date">
+                          <li>
+                            <ul class="select-date">
+                              <li><span class="select-date-label"></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-years form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-months form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-days form-control"></select></span></li>
+                            </ul>
+                          </li>
+                          <li>至</li>
+                          <li>
+                            <ul class="select-date">
+                              <li><span class="select-date-label"></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-years form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-months form-control"></select></span></li>
+                              <li><span class="select">
+                                  <select disabled class="select-days form-control"></select></span></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </td>
+                      <td>
+                        <ul class="toolbar toolbar-right">
+                          <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                          <li class="btn-edit"></li>
+                          <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                          <li class="btn-confirm toolbar-btn-hide"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
+            <div class="section-block"> 
+              <div class="table-header table-header-primary">工作經歷
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <table class="table table-form">
+                <thead class="table-subheader">
+                  <tr>
+                    <th class="col-sm-2">服務單位</th>
+                    <th class="col-sm-2">職稱</th>
+                    <th class="col-sm-2">薪資</th>
+                    <th class="col-sm-5">服務期間</th>
+                    <td class="col-sm-2"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" readonly value="TR550094" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="筆記型電腦" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="TY-2334QR" class="form-control">
+                    </td>
+                    <td> 
+                      <ul class="select-date">
+                        <li>
+                          <ul class="select-date">
+                            <li><span class="select-date-label"></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-years form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-months form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-days form-control"></select></span></li>
+                          </ul>
+                        </li>
+                        <li>至</li>
+                        <li>
+                          <ul class="select-date">
+                            <li><span class="select-date-label"></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-years form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-months form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-days form-control"></select></span></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <ul class="select-date">
+                        <li>
+                          <ul class="select-date">
+                            <li><span class="select-date-label"></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-years form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-months form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-days form-control"></select></span></li>
+                          </ul>
+                        </li>
+                        <li>至</li>
+                        <li>
+                          <ul class="select-date">
+                            <li><span class="select-date-label"></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-years form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-months form-control"></select></span></li>
+                            <li><span class="select">
+                                <select disabled class="select-days form-control"></select></span></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="section-block">
+              <div class="table-header table-header-primary">家庭成員
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <table class="table table-form">
+                <thead class="table-subheader">
+                  <tr>
+                    <th class="col-sm-1">姓名</th>
+                    <th class="col-sm-1">關係</th>
+                    <th class="col-sm-3">生日</th>
+                    <th>服務單位</th>
+                    <th>職稱</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" readonly value="Fill Murry" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="父子" class="form-control">
+                    </td>
+                    <td> 
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="AYDYN" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="設計師" class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <ul class="select-date">
+                        <li><span class="select">
+                            <select class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section id="abilities">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <form class="section-block">
+              <div class="table-header table-header-primary">語言能力
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <table class="table table-form">
+                <thead class="table-subheader">
+                  <tr>
+                    <th class="col-sm-2">語言種類</th>
+                    <th>聽</th>
+                    <th>說</th>
+                    <th>讀</th>
+                    <th>寫</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" readonly value="英文" class="form-control">
+                    </td>
+                    <td>
+                      <input type="number" readonly class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" readonly class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" readonly class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" readonly class="rb-rating">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <input type="number" class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" class="rb-rating">
+                    </td>
+                    <td>
+                      <input type="number" class="rb-rating">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+            <div class="section-block">
+              <div class="table-header table-header-primary">證照
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <table class="table table-form">
+                <thead class="table-subheader">
+                  <tr>
+                    <th class="col-sm-2">證照類別</th>
+                    <th>名稱</th>
+                    <th>成績</th>
+                    <th>備註</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="form-block">
+                    <td>
+                      <input type="text" readonly value="英文" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" readonly value="TOEIC" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" readonly value="699" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" readonly class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="form-block">
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section id="assets"> 
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <div class="section-block">
+              <div class="table-header table-header-primary">固定資產
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <table class="table table-form">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>編號</th>
+                    <th>項目</th>
+                    <th>品牌</th>
+                    <th>規格型號</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" readonly value="TR550094" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="筆記型電腦" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="DELL" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" readonly value="TY-2334QR" class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr class="form-block">
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td> 
+                      <input type="text" class="form-control">
+                    </td>
+                    <td>
+                      <ul class="toolbar toolbar-right">
+                        <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                        <li class="btn-edit"></li>
+                        <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                        <li class="btn-confirm toolbar-btn-hide"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      var section_block = $form_section.parents('.form-block');
+      section_block.remove();
+    });
+    
+    genderField($('#gender').val() == 0);
+    $('#gender').change(function(){
+      genderField($('#gender').val() == 0);
+    });
+    
+    function genderField(male){
+      if(male){//male
+        $('.male-group').show();
+        $('.female-group').hide();
+      }else{ //female
+        $('.male-group').hide();
+        $('.female-group').show();
+      }
+    }
+    
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+    //- $('#enf').hide();
+    
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabEnf', function(event){
+      $('#enf').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAbilities', function(event){
+      $('#abilities').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAssets', function(event){
+      $('#assets').show().siblings('section').hide();
+    });
+    
+    $section = $('section:not(#profile) .section-block tbody tr:last-child')
+    $section.hide();
+    $section.find('.btn-edit').trigger('click');
+    
+    var star_option =  {'showCaption':false, 'stars':'5', 'min':'0', 'max':'5', 'step':'1', 'size':'xs', 
+    'starCaptions': {0:'', 1:'', 2:'status:geht', 3:'status:laeuft'}};
+    
+    $('.btn-add').click(function(){
+      $('.rb-rating').rating('destroy');
+      var $row = $(this).parents('.section-block').find('tbody').children('tr:last');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+      
+      $('.rb-rating').rating('refresh',star_option);  
+      
+    });  
+    $('.rb-rating').rating('create', star_option);  
+    
+    $('body').on('click','.btn-edit' ,function(){
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: false, showClear: true, showCaption: false});
+      $('.fileinput-remove-button, .text-muted').show();
+    });     
+    
+    $('body').on('click','.btn-confirm' ,function(){
+      
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: true, showClear: false, showCaption: false});
+      $('.fileinput-remove-button, .text-muted').hide();
+    });   
+    
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: true, showClear: false, showCaption: false});
+    });     
+    
+    $('form').tw_citySelector('.county', '.district');
+    
+    $('#enf').ready(function(){
+      $('.select-days').parent().remove();
+    });
+    
+    //大頭貼上傳==========================================================
+    var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' + 
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="glyphicon glyphicon-tag"></i>' +
+    '</button>'; 
+    $("#avatar-1").fileinput({
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        showBrowse: false,
+        browseOnZoneClick: true,
+        removeLabel: '',
+        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        removeTitle: 'Cancel or reset changes',
+        elErrorContainer: '#kv-avatar-errors-1',
+        msgErrorClass: 'alert alert-block alert-danger',
+        defaultPreviewContent: '<img src="../../assets/img/default_avatar_male.jpg" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',
+        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
+    
+    
+    var action = getUrlParameter('action');
+    if(action == 'add'){
+      $('input').attr({'readonly':false, 'value':''});
+      $('.aydyn-breakcrumb').children('li:last-child').html('新增人員');
+      $('.btn-edit').trigger('click');
+      $('.fileinput-remove-button, .text-muted').show();
+    }else{
+      $('.fileinput-remove-button, .text-muted').hide();
+    }
+  </script>
+</html>

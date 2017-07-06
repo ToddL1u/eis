@@ -1,0 +1,63 @@
+section#adjustment
+  .section-block#adjustmentDetail.form-block
+    .section-title 2016-09-09
+    include ../include/toolbar-delete-edit
+    table.table.table-form.table-side-header
+      tr
+        td.col-sm-3 生效日期
+        td 
+          include ../include/select-date-disabled
+      tr
+        td 調前全薪
+        td 底薪45,000  +  伙食津貼  1,200    =   全薪45,000
+          input(type="hidden" value="45000" id="origin")
+      tr
+        td 調整原因
+        td 
+          input.form-control(type="text" readonly value="專家學者4人；勞動部、經濟部、國發會各派代表1人，總共21人。")
+      tr
+        td 調薪幅度
+        td
+          input.form-control(type="number" readonly value="5,000" name="field_adjustment") 
+      tr
+        td 調後全薪
+        td 
+          span#total 底薪45000  +  伙食津貼  1200    =   全薪 50000
+    button.btn.btn-primary.btn-back(style="float:right") 回上頁
+        
+  #adjustmentSection.section-show
+    ul.toolbar
+      include ../include/toolbar-export
+        li.btn-print
+          li.btn-add
+    .section-block.salary-chart-group
+      span(style="position:absolute;") 目前全薪
+      div.salary-chart-info
+        div(style="display: flex; align-items: flex-end")
+          h1 55,000
+          strong.currency-unit NTD
+        div 距上次調薪3個月
+      div
+        div.salary-chart
+          canvas#salaryChart(height="50")
+    form.form-group
+    table.table.table-list.table-sort#tableAdjustment
+      thead.table-subheader
+        tr
+          th 生效日期
+          th 調前全薪
+          th 調薪幅度
+          th 調整原因
+          th 調後全薪
+          td
+      tbody
+        tr
+          td 2012/02/03
+          td 45000
+          td +5000
+          td 
+          td 5000
+          td
+            ul.toolbar
+              li(data-toggle="modal" data-target="#modalSalary").btn-edit-only
+    include ../include/pagination

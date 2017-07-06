@@ -1,0 +1,282 @@
+adoctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="../../assets/js/bootstrap/bootstrap.min.js")  
+    script(src="../../assets/js/moment.js")
+    script(src="../../assets/js/daterangepicker.js")
+    script(src="../../assets/js/bootstrap-timepicker.js")
+  body
+    #rent.container
+      nav.nav
+      .wrap(style="position: absolute; width: calc(100% - 300px);")
+        include ../include/header-rent
+        .content
+          p 時段出租範本
+          span.select
+            select.form-control.sample
+              option 範本名稱1
+              option 範本名稱2
+              option 範本名稱3
+          .add-sample
+            span.select
+              select.form-control
+                option(disabled selected) 選擇帶入歷史範本
+                option 範本名稱1
+                option 範本名稱2
+                option 範本名稱3
+            button.btn
+              i.fa.fa-plus-square-o
+              |新增範本
+          .section-block.form-block.sample-block
+            .table-header.table-header-primary 範本內容
+              span
+              include ../include/toolbar-delete-edit
+            table.table-form.table-form-1
+              thead.table-subheader
+                tr
+                  th.col-sm-4 標題
+                  th.col-sm-4 生效區間
+                  th.col-sm-4 每小時收費
+              tbody
+                tr.form-block
+                  td 
+                    input.form-control(type="text" placeholder="範本標題")
+                  td 
+                    input.form-control(name="datefilter" placeholder="請選擇生效區間")
+                  td
+                    input.form-control(type="number")
+            table.table-form.table-form-2
+              thead.table-subheader
+                tr
+                  th 標題
+                  th 生效區間
+                  th 每人每小時收費
+                  th 最低收費(人)
+                  th 最高收費(人)
+              tbody
+                tr.form-block
+                  td 
+                    input.form-control(type="text" placeholder="範本標題")
+                  td 
+                    input.form-control(name="datefilter" placeholder="請選擇生效區間")
+                  td
+                    input.form-control(type="number")
+                  td
+                    input.form-control(type="number")
+                  td
+                    input.form-control(type="number")
+          .add-item
+            button.btn
+              i.fa.fa-plus-square-o
+              |新增項目
+          .section-block.item-block
+            table.table-form.table-sort
+              thead.table-subheader
+                tr
+                  th(style="width: 13%;") 項目
+                  th(style="width: 34%;") 週間
+                  th(style="width: 28%;") 時段設定
+                  th(style="width: 8%;") 總時數
+                  th(style="width: 8%;") 折扣%
+                  td
+              tbody
+                tr.form-block
+                  td
+                    input.form-control(type="text" placeholder="項目名稱")
+                  td
+                    ul
+                      -var states = ["(一)","(二)","(三)","(四)","(五)","(六)","(日)"]
+                      -each state in states
+                        li
+                          .checkbox
+                            label 
+                              input(type="checkbox").checkbox-square
+                              =state
+                  td
+                    ul
+                      li 
+                        .input-group.bootstrap-timepicker
+                          input.timepicker.form-control.input-small( type='text')
+                          span.input-group-addon
+                            i.glyphicon.glyphicon-time
+                      li 
+                        span(style="padding-bottom:10px") 至
+                      li
+                        .input-group.bootstrap-timepicker
+                          input.timepicker.form-control.input-small( type='text')
+                          span.input-group-addon
+                            i.glyphicon.glyphicon-time
+                    
+                  td
+                    input.form-control(type="number") 
+                  td
+                    input.form-control(type="number") 
+                  td
+                    include ../include/toolbar-delete-edit
+            include ../include/pagination
+          br
+          section.item-refresh
+            .item-detail
+              div 09:00 ~ 13:00
+              div 
+                h4 01月
+                span 2,3,9,10,16,17,23,24,30,31
+                br
+                h4 02月 
+                span 2,6,7,13,21,27,28
+              div 衝突：平日上午
+          br
+          section
+            .item-detail
+              div 09:00 ~ 13:00
+              div
+                h4 01月
+                span 2,3,9,10,16,17,23,24,30,31
+                br
+                h4 02月 
+                span 2,6,7,13,21,27,28
+            .item-detail
+              div 09:00 ~ 13:00
+              div
+                h4 01月
+                span 2,3,9,10,16,17,23,24,30,31
+                br
+                h4 02月 
+                span 2,6,7,13,14,20,21,27,28
+        footer
+                  
+script(src="../../assets/js/function.js")
+script.
+  $('.sample-block, .item-block, .add-item, section, .table-form-2').hide();
+
+  var $tr = $('.item-block tbody tr:last-child');
+  $tr.find('.btn-edit').trigger('click');
+  $tr.hide();
+
+  $('button:contains("新增範本")').click(function(){
+    $(this).attr('disabled',true);
+    $(this).siblings().show();//history-sample select show
+    $('.sample').attr('disabled',true);//sample select disabled
+    $('.add-item').show().attr('disabled',false);
+    $('.sample-block').find('input').val('');
+    $('.sample-block').show().find('.btn-edit').trigger('click');
+    $('.item-block, section').hide();
+
+    //footer margin-top
+    $('footer').css('margin-top','250px');
+
+    //delete sample
+    $('body').on('click','#modalDelete .modal-btn-2',function(){
+      $('.sample-block').hide();
+      $('.add-sample select').hide();//history-sample select hide
+      $('.add-sample button').attr('disabled',false);
+      $('.add-item').hide();
+    })
+
+    //confirm check input
+    $('.table-header .btn-confirm').click(function(){
+      var seconds = new Date().getTime();
+      if(seconds%2 == 0){//偶數呈現正面結果
+        $('.table-header span').text('');
+        $(this).parents('.table-header').next().find('td').css('background-color','#eee');
+      }else{//奇數呈現衝突結果
+        $('.table-header span').text('與範本 2017上半年 衝突');
+        $(this).parents('.table-header').next().find('td').css('background-color','#FFE8F2');
+        $('.table-header .btn-edit').trigger('click');
+        $('#modalCheck').modal('show');
+      }
+    })
+
+  })
+
+  $('button:contains("新增項目")').click(function(){
+    $(this).attr('disabled',true);
+    $('.item-block, section:not(.item-refresh)').show();
+    var $row = $(this).parent().next().find('tbody').children('tr:last-child');
+    $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+
+    $('.item-block .btn-confirm').click(function(){
+      $('button:contains("新增項目")').attr('disabled',false);
+    })
+
+    $('.item-block input').blur(function(){
+      var item_check = '<i class="fa fa-refresh"></i>';
+      $(this).parents('tr').find('td:last-child .fa-refresh').remove();
+      $(this).parents('tr').find('td:last-child').prepend(item_check);
+
+      $('.fa-refresh').click(function(){
+        //- $(this).toggleClass('rotate');
+        var seconds = new Date().getTime();
+        if(seconds%2 == 0){//偶數呈現正面結果
+          $('.item-refresh .item-detail div:nth-child(3)').hide();
+          $(this).parents('tr').find('td').css('background-color','#eee');
+          $('.item-refresh').show();
+        }else{//奇數呈現衝突結果
+          $('.item-refresh .item-detail div:nth-child(3)').show();
+          $('.item-refresh').show();
+          $(this).parents('tr').find('td').css('background-color','#FFE8F2');
+          $('#modalCheck').modal('show');
+        }
+      })
+    })
+
+  })
+
+  $('.sample').change(function(){
+    $('.sample-block, .add-item, .item-block, section:not(.item-refresh)').show();
+  })
+
+  $('.add-sample select').change(function(){
+    $('.item-block, section:not(.item-refresh)').show();
+  })
+
+
+  //daterangepicker
+  $('input[name="datefilter"]').daterangepicker({
+      autoUpdateInput: false,
+      locale: {
+          cancelLabel: 'Clear',
+          format: 'YYYY/MM/DD'
+      }
+  });
+
+  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('YYYY/MM/DD') + ' - ' + picker.endDate.format('YYYY/MM/DD'));
+  });
+
+  $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+  });
+
+  //timepicker
+  $('body').on('focus',".timepicker", function(){
+    $(this).timepicker();
+  });
+
+
+  //不同租賃方式
+
+  var type = getUrlParameter('type');
+
+  if(type == 'hr'){
+    $('.aydyn-breakcrumb li:last-child').text('小時出租設定');
+    $('p:contains("時段出租範本")').text('小時出租範本');
+    var hide_table = $('.item-block table tr');
+    hide_table.find('td:nth-child(4),th:nth-child(4)').hide();
+  }
+
+  if(type == 'people'){
+    $('.aydyn-breakcrumb li:last-child').text('人數出租設定');
+    $('p:contains("時段出租範本")').text('人數出租範本');
+    var hide_table = $('.item-block table tr');
+    hide_table.find('td:nth-child(4),td:nth-child(5),th:nth-child(4),th:nth-child(5)').hide();
+    $('.sample-block .table-form-1').remove();
+    $('.sample-block .table-form-2').show();
+  }
+

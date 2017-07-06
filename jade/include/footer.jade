@@ -1,0 +1,605 @@
+.footer
+  div copyright AYDYN Company ⓒ2016
+  div 
+    | 10G of 
+    strong 250GB 
+    | free
+  
+.modal.fade.bs-example-modal-lg#modalDelete(tabindex="-1" role="dialog" aria-labelledby="modalDelete")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定刪除
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-2.btn-danger 刪除
+.modal.fade.bs-example-modal-md#modalLeaveRent(tabindex="-1" role="dialog" aria-labelledby="modalDelete")
+  .modal-dialog.modal-md(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 是否離開當前頁面
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          a(href="config.html")
+            button(type="button").btn.modal-btn-2.btn-danger 離開
+.modal.fade.bs-example-modal-lg#modalCancel(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定取消編輯?
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 繼續編輯
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-2.btn-warning 確定
+.modal.fade.bs-example-modal-lg#modalCancel1(tabindex="-1" role="dialog" aria-labelledby="modalCancel1")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定取消發佈?
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 繼續編輯
+          a(href="course.html")
+            button(type="button").btn.modal-btn-2.btn-warning 確定
+.modal.fade.bs-example-modal-lg#modalPost(tabindex="-1" role="dialog" aria-labelledby="modalPost")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定發佈課程?
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          a(href="course.html")
+            button(type="button").btn.modal-btn-2.btn-primary 發佈
+.modal.fade.bs-example-modal-lg#modalOverTime(tabindex="-1" role="dialog" aria-labelledby="modalPost")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 距離開課時間僅剩○○天
+          br
+          |確定發佈嗎?
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button(type="button").btn.modal-btn-2.btn-primary.btn-revise 開放講師修改
+          a(href="course-post.html")
+            button(type="button").btn.modal-btn-2.btn-warning 發佈
+.modal.fade.bs-example-modal-lg#modalCancelcourse(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定取消此門課程?
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          a(href="course-post.html")
+            button(type="button" style="width: 140px;").btn.modal-btn-2.btn-danger1 確定並發佈公告
+.modal.fade.bs-example-modal-lg#modalCancelstudent(tabindex="-1" role="dialog" aria-labelledby="modalCancelstudent")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 該學生確定退出課程?
+          br
+          | 一旦確定退課，系統會自動退費且無法回復
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-2.btn-danger 確定
+.modal.fade.bs-example-modal-lg#modalExport(tabindex="-1" role="dialog" aria-labelledby="modalExport")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 請選擇匯出範圍
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-info.modal-btn-1 全部頁面
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-primary.modal-btn-2 當前頁面
+.modal.fade.bs-example-modal-lg#modalReject(tabindex="-1" role="dialog" aria-labelledby="modalReject")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        textarea.form-control(placeholder="退件原因" rows="5")
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button.btn.tag-success.modal-btn-2 退件
+.modal.fade.bs-example-modal-lg#modalConfirm(tabindex="-1" role="dialog" aria-labelledby="modalConfirm")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        textarea.form-control(placeholder="回覆內容" rows="5")
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-success.modal-btn-2 通過
+.modal.fade.bs-example-modal-lg#modalConfirm-ws(tabindex="-1" role="dialog" aria-labelledby="modalConfirm-ws")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        form.form-horizontal
+          label.col-sm-3.control-label 預計發佈日期
+          .col-sm-9
+            input.form-control.datetimepicker3(placeholder="選擇一個日期")
+        textarea.form-control(placeholder="回覆內容" rows="5")
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          a(href="course.html")
+            button(type="button").btn.tag-pass.modal-btn-2 通過
+.modal.fade.bs-example-modal-lg#modalSubmit(tabindex="-1" role="dialog" aria-labelledby="modalSubmit")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 確定儲存? 儲存後就無法再更改
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          button(type="submit" data-dismiss="modal" aria-label="Close").btn.modal-btn-2.btn-warning 確定
+//- #modalAvatar.modal.fade(role='dialog')
+//-   .modal-dialog(role='document')
+//-     .modal-content
+//-       button.close(type='button', data-dismiss='modal', aria-label='Close')
+//-         span.fa.fa-window-close
+//-       .modal-title
+//-         h2 上傳大頭貼
+//-       .modal-body
+//-         #kv-avatar-errors-2.center-block(style='width:800px; display:none')
+//-         form.text-center(action='/avatar_upload.php', method='post', enctype='multipart/form-data')
+//-         .kv-avatar.center-block(style='width:200px')
+//-           input#avatar-2.file-loading(name='avatar-2', type='file')
+//-       .form-group
+//-         .col-sm-12.text-center
+//-           button.btn.btn-default.fileinput-remove.fileinput-remove-button(type='reset', data-dismiss='modal', aria-label='Close') Cancel
+//-           a.btn.btn-submit(type='submit', data-dismiss='modal', aria-label='Close') Save
+.modal.fade.bs-example-modal-sm#modalAvatar(tabindex="-1" role="dialog" aria-labelledby="modalAvatar")
+  .modal-dialog.modal-sm(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        #kv-avatar-errors-2.center-block(style='width:800px;display:none')
+        form.text-center(action='/avatar_upload.php', method='post', enctype='multipart/form-data')
+        .kv-avatar.center-block(style='width:200px;margin: 0 auto;')
+          input#avatar-2.file-loading(name='avatar-2', type='file')
+        h5 Murry
+        p CEO    
+#imagemodal.modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-body
+        button.close(type='button', data-dismiss='modal')
+          span(aria-hidden='true') ×
+          span.sr-only Close
+        img.imagepreview(src='', style='width: 100%;')
+.modal.fade.bs-example-modal-md#modalCheck(tabindex="-1" role="dialog" aria-labelledby="modalSubmit")
+  .modal-dialog.modal-md(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h4 請檢查衝突部分
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 關閉
+.modal.fade.bs-example-modal-lg#modalStudentpay(tabindex="-1" role="dialog" aria-labelledby="modalStudentpay")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body 
+        h3 繳費資訊
+        form.form-horizontal
+          .form-group
+            label.col-sm-2.control-label.required 繳費方式
+            .col-sm-10
+              span.select
+                select.form-control
+                  option(selected disabled) 選擇繳費方式
+                  option ATM/WebATM
+                  option 臨櫃匯款
+                  option 劃撥
+                  option 信用卡
+                  option 現金
+          .form-group
+            label.col-sm-2.control-label.required 繳費時間
+            .col-sm-4
+              input.form-control.datetimepicker4(placeholder="選擇繳費時間")
+            label.col-sm-2.control-label 備註
+            .col-sm-4
+              textarea.form-control(placeholder="備註...")
+          .form-group
+            label.col-sm-2.control-label.required 繳費金額
+            .col-sm-4
+              input.form-control(type="number" placeholder="0")
+          .form-group
+            label.col-sm-2.control-label 上傳憑證
+            .col-sm-10
+              input.form-control#input-1a.file(type="file" data-show-preview="false")
+
+        .btns-group
+          button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+          a(href="course-post.html")
+            button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-warn 確定
+.modal.fade.bs-example-modal-lg#modalList(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        span.title 未符合範本名單
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body
+        input.searchTable.form-control(type="text" placeholder="Search in table...")
+        table.table-form.table-sort.table-list-pay
+          thead.table-subheader
+            tr
+              th 姓名
+              th 生日
+              th Email
+              th 免綁狀態
+              td
+                strong 特別名單
+          tbody
+            -for(var i=0;i<5;i++){
+              tr
+                td Todd
+                td 1989/11/10
+                td example@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Apple
+                td 1989/11/10
+                td apple@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox" checked)
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Apple
+                td 1989/11/10
+                td apple@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<1;i++){
+              tr
+                td Apple
+                td 1989/11/10
+                td apple@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox" checked)
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+        include ../include/pagination    
+.modal.fade.bs-example-modal-lg#modalListAll(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        span.title 尾款名單
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body
+        input.searchTable.form-control(type="text" placeholder="Search in table...")
+        table.table-form.table-sort.table-list-pay
+          thead.table-subheader
+            tr
+              th 姓名
+              th 生日
+              th Email
+              th 免綁狀態
+              td
+                strong 特別名單
+          tbody
+            -for(var i=0;i<3;i++){
+              tr
+                td Todd
+                td 1989/11/10
+                td example@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Pear
+                td 1989/11/10
+                td example@aydyn.com
+                td 高級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<1;i++){
+              tr
+                td Apple
+                td 1989/11/10
+                td apple@aydyn.com
+                td --
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox" checked)
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Emma
+                td 1989/11/10
+                td apple@aydyn.com
+                td 中級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox" checked)
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Emma
+                td 1989/11/10
+                td apple@aydyn.com
+                td 中級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox" )
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+        include ../include/pagination       
+.modal.fade.bs-example-modal-lg#modalListSample(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        span.title 範本名單
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body
+        input.searchTable.form-control(type="text" placeholder="Search in table...")
+        table.table-form.table-sort.table-list-pay
+          thead.table-subheader
+            tr
+              th 姓名
+              th 生日
+              th Email
+              th 免綁狀態
+              td
+                strong 特別名單
+          tbody
+            -for(var i=0;i<5;i++){
+              tr
+                td Todd
+                td 1989/11/10
+                td example@aydyn.com
+                td 高級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<2;i++){
+              tr
+                td Todd
+                td 1989/11/10
+                td example@aydyn.com
+                td 高級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox" checked)
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+            -for(var i=0;i<3;i++){
+              tr
+                td Todd
+                td 1989/11/10
+                td example@aydyn.com
+                td 高級VIP
+                td 
+                  div
+                    label.btn.btn-black
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |必綁(黑)
+                    label.btn.btn-white
+                      input(type="checkbox")
+                      i.fa.fa-check
+                      |免綁(白)
+            -}
+        include ../include/pagination
+.modal.fade.bs-example-modal-lg#modalListPersonal(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+  .modal-dialog.modal-lg(role="document")
+    .modal-content
+      .modal-header
+        span.title 特別名單
+        button(type="button" data-dismiss="modal" aria-label="Close").close
+          span &times;
+      .modal-body
+        table.table-form.table-list-pay
+          thead.table-subheader
+            tr
+              th 姓名
+              th 生日
+              th Email
+              th 免綁狀態
+              td
+                strong 特別名單
+          tbody
+            tr
+              td Todd
+              td 1989/11/10
+              td example@aydyn.com
+              td 高級VIPw
+              td 
+                div
+                  label.btn.btn-black
+                    input(type="checkbox")
+                    i.fa.fa-check
+                    |必綁(黑)
+                  label.btn.btn-white
+                    input(type="checkbox" checked)
+                    i.fa.fa-check
+                    |免綁(白)
+  
+script.
+  $('.btn-revise').click(function(){
+    $(this).attr('disabled','disabled');
+    $('#modalOverTime').modal('hide');
+  })
+
+  modalList();
+ 
+  function modalList(){
+    check_input();
+
+    $(".table-list-pay tbody td div input:checkbox").on('click', function() {
+      if ($(this).is(":checked")) {
+        $(this).parent().parent().find('input').prop("checked", false);
+        $(this).prop("checked", true);
+      } else {
+        $(this).prop("checked", false);
+      }
+
+      check_input();
+    });
+
+    function check_input(){
+      $('.table-list-pay').find('input').parent().css('background-color','transparent').css('color','#333');
+      $('.table-list-pay').find('.btn-white input:checked').parent().css('background-color','#7cb967').css('color','#fff');
+      $('.table-list-pay').find('.btn-black input:checked').parent().css('background-color','#ea6374').css('color','#fff');
+    }
+
+    $('body').on('keyup','.searchTable',function(){
+      var inputVal = $(this).val();
+      var table = $(this).next();
+      table.find('tbody>tr').each(function(index, row){
+        var allCells = $(row).find('td');
+        if(allCells.length > 0){
+          var found = false;
+          allCells.each(function(index, td){
+            var regExp = new RegExp(inputVal, 'i');
+            if(regExp.test($(td).text())){
+              found = true;
+              return false;
+            }
+          });
+          if(found == true)$(row).show();else $(row).hide();
+        }
+      });
+    });
+  }
+
+  $('.datetimepicker4').datetimepicker({
+    format: 'YYYY/MM/DD HH:mm'
+  });
+
+  $('.datetimepicker3').datetimepicker({
+    format: 'YYYY/MM/DD'
+  });

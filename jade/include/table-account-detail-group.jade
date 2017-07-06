@@ -1,0 +1,90 @@
+table.table.table-account-detail
+  thead.table-subheader
+    tr
+      th 
+        input(type="checkbox").checkbox-circle
+        |基本資料
+        ul
+          //- li.tag-failed 處理失敗
+          //- li.tag-success 結清
+      th 提領明細
+      th 匯款資訊
+  tbody
+    tr
+      td
+        form
+          .form-group
+            label.control-label.col-sm-5 請款日
+            .col-sm-7
+              input.form-control(readonly value="2016/10/10")
+          .form-group
+            label.control-label.col-sm-5 姓名
+            .col-sm-7
+              input.form-control(readonly value="Jake Gyllenhaal")
+          .form-group
+            label.control-label.col-sm-5 類別
+            .col-sm-7
+              input.form-control(readonly value="講師請款")
+          .form-group
+            label.control-label.col-sm-5 狀態
+            .col-sm-7
+              input.form-control.text-green(readonly value="處理中")
+          .form-group
+            label.control-label.col-sm-5 請款編號
+            .col-sm-7
+              input.form-control(readonly value="A12345")
+      td
+        form.form-course-list
+          .form-group
+            label.control-label.col-sm-7 
+              |JavaScript程式設計新手村(上)
+              p 11/16~11/19
+                span 9堂
+            .col-sm-5
+              input.form-control.text-warn(readonly type="number" value="50000")
+          .form-group
+            label.control-label.col-sm-7 
+              |JavaScript程式設計新手村(上)
+              p 11/16~11/19
+                span 9堂
+            .col-sm-5
+              input.form-control.text-warn(readonly type="number" value="50000")
+          .form-group
+            label.control-label.col-sm-7 金額
+            .col-sm-5
+              input.form-control.text-warn(readonly type="number" value="100000")
+      td
+        form.form-course-list.form-info
+          .form-group
+            .col-sm-8
+              p 808
+                span 1234567123567
+              label.control-label.col-sm-5 手續費0
+              .col-sm-7
+                input.form-control.text-warn(readonly type="number" value="50000")
+            .col-sm-4
+              input.file-loading(name="input4[]" type="file" multiple)
+          .form-group
+            .col-sm-8
+              p 808
+                span 1234567123567
+              label.control-label.col-sm-5 手續費0
+              .col-sm-7
+                input.form-control.text-warn(readonly type="number" value="50000")
+            .col-sm-4
+              input.file-loading(name="input4[]" type="file" multiple)
+              //- input#input-4.file-loading(name="input4[]" type="file" multiple)
+          .form-group
+            .col-sm-8
+              label.control-label.col-sm-7
+              .col-sm-5
+                input.form-control.text-warn(readonly type="number" value="100000")
+            .col-sm-4
+              
+  tfoot
+    tr
+      td
+      td
+      td
+        textarea(placeholder="備註...")
+

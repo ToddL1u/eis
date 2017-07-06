@@ -1,0 +1,297 @@
+
+<section id="profile" class="form-block">
+  <ul class="toolbar toolbar-right">
+    <li class="btn-print"></li>
+    <li class="btn-edit"></li>
+    <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+    <li class="btn-confirm toolbar-btn-hide"></li>
+  </ul>
+  <div class="section-block">
+    <form id="formProfile" class="form-group">
+      <div id="kv-avatar-errors-1" class="center-block"></div>
+      <form action="/avatar_upload.php" method="post" enctype="multipart/form-data" class="text-center">
+        <div class="kv-avatar center-block">
+          <input id="avatar-1" name="avatar-1" type="file" class="file-loading"/>
+        </div>
+      </form>
+      <table class="table table-form table-side-header">
+        <tr>
+          <td class="col-sm-2">中文姓名</td>
+          <td class="col-sm-4">
+            <input type="text" placeholder="姓氏" readonly="readonly" value="陳" class="form-control"/>
+            <input type="text" placeholder="名字" readonly="readonly" value="圈圈" class="form-control"/>
+          </td>
+          <td class="col-sm-2">英文姓名</td>
+          <td class="col-sm-4">
+            <input type="text" placeholder="First name" readonly="readonly" value="Circle" class="form-control"/>
+            <input type="text" placeholder="Last name" readonly="readonly" value="Chen" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-sm-2">帳號</td>
+          <td class="col-sm-4">
+            <input type="text" placeholder="帳號" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td class="col-sm-2">密碼</td>
+          <td class="col-sm-4">
+            <input type="text" placeholder="密碼" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>部門</td>
+          <td colspan="3">
+            <input type="text" placeholder="部門" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>職稱</td>
+          <td>
+            <input type="text" placeholder="職稱" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>職級</td>
+          <td>
+            <input type="text" placeholder="職級" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>員工編號</td>
+          <td>
+            <input type="text" placeholder="員工編號" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>出勤卡號</td>
+          <td>
+            <input type="text" placeholder="出勤卡號" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>到職日</td>
+          <td colspan="3">
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>預計轉正職日</td>
+          <td>
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+          <td>實際轉正職日</td>
+          <td>
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="table-row-highligh">
+          <td>預計離職日</td>
+          <td>
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+          <td>實際離職日</td>
+          <td>
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>生日</td>
+          <td colspan="3"> 
+            <ul class="select-date">
+              <li><span class="select-date-label"></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-years form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-months form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="select-days form-control"></select></span></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>身分證字號</td>
+          <td>
+            <input type="text" placeholder="身分證字號" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>國別</td>
+          <td><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option selected="selected" disabled="disabled">請選擇國別</option>
+                <option>台灣</option>
+                <option>國家A</option>
+                <option>國家B</option>
+                <option>國家C</option>
+              </select></span></td>
+        </tr>
+        <tr>
+          <td>性別</td>
+          <td><span class="select">
+              <select disabled="disabled" id="gender" class="form-control">
+                <option value="0">男</option>
+                <option value="1">女</option>
+              </select></span></td>
+          <td>血型</td>
+          <td><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option value="">O</option>
+                <option value="">A</option>
+                <option value="">B</option>
+                <option value="">AB</option>
+              </select></span></td>
+        </tr>
+        <tr>
+          <td>身高(cm)</td>
+          <td>
+            <input type="number" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>體重(kg)</td>
+          <td>
+            <input type="number" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td>婚姻狀況</td>
+          <td colspan="3"><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option value="">未婚</option>
+                <option value="">已婚</option>
+              </select></span></td>
+        </tr>
+        <tr class="female-group">
+          <td>懷孕</td>
+          <td>
+            <select disabled="disabled" class="form-control">
+              <option value="">懷孕</option>
+              <option value="">未懷孕</option>
+            </select>
+          </td>
+        </tr>
+        <tr class="male-group">
+          <td>役別</td>
+          <td><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option selected="selected" disabled="disabled">請選擇役別</option>
+                <option value="">義務役</option>
+                <option value="">國民役</option>
+                <option value="">志願役</option>
+                <option value="">替代役</option>
+                <option value="">免役</option>
+              </select></span></td>
+          <td>兵種</td>
+          <td><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option selected="selected" disabled="disabled">請選擇軍種</option>
+                <option value="">陸軍</option>
+                <option value="">海軍</option>
+                <option value="">空軍</option>
+              </select></span></td>
+        </tr>
+        <tr class="male-group">
+          <td>期間</td>
+          <td>
+            <input type="text" placeholder="期間" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>免役原因</td>
+          <td>
+            <input type="text" placeholder="免役原因" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td>連絡電話</td>
+          <td colspan="3">
+            <input type="email" readonly="readonly" value="XXXX-XXX-XXX" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td colspan="3">
+            <input type="email" readonly="readonly" value="Email" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td>通訊地址</td>
+          <td colspan="3">
+            <ul class="select-address">
+              <li><span class="select">
+                  <select disabled="disabled" class="county form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="district form-control"></select></span></li>
+              <li>
+                <input type="text" placeholder="通訊地址" readonly="readonly" value="" class="form-control"/>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>戶籍地址</td>
+          <td colspan="3">
+            <ul class="select-address">
+              <li><span class="select">
+                  <select disabled="disabled" class="county form-control"></select></span></li>
+              <li><span class="select">
+                  <select disabled="disabled" class="district form-control"></select></span></li>
+              <li>
+                <input type="text" placeholder="戶籍地址" readonly="readonly" value="" class="form-control"/>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>緊急聯絡人</td>
+          <td>
+            <input type="text" placeholder="緊急聯絡人" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>關係</td>
+          <td>
+            <input type="text" placeholder="關係" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td>聯絡人電話</td>
+          <td>
+            <input type="text" placeholder="XXXX-XXX-XXX" readonly="readonly" value="" class="form-control"/>
+          </td>
+          <td>飲食禁忌</td>
+          <td>
+            <input type="text" placeholder="飲食習慣" readonly="readonly" value="" class="form-control"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</section>

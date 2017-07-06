@@ -1,0 +1,127 @@
+.nav-salary-personal
+  .subnav:after
+    display: none
+  .content
+    $subnav-margin: 55px
+    margin-top: 187px + $subnav-margin
+    min-height: calc(100vh - 187px - 55.6px - #{$subnav-margin})
+
+
+.salary-chart-group
+  display: flex
+  height: 220px
+  >div
+    flex: 1
+    &:last-child
+      flex: 3
+
+  .salary-chart-info
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    h1, .currency-unit
+      color: $success-color
+      margin-bottom: 20px
+
+    .salary-chart
+      width: 400px
+
+#adjustment
+  position: relative
+  // overflow: hidden
+
+#adjustmentSection, #adjustmentDetail
+  position: absolute
+  display: none
+  width: 100%
+
+
+
+
+.salary-detail
+  display: none
+  &.salary-detail-show
+    display: block
+  li
+    display: flex
+    font-size: .8em
+    justify-content: space-between
+    padding: 0 10px
+    &:hover
+      color: $success-color
+
+
+.salary-total-change
+  +animation(bounceIn 300ms ease-in-out)
+  +animation-fill-mode(forwards)
+
+
+.hour-total, .hour-apply, .hour-balance
+  display: flex
+  flex-direction: column
+  height: 130px
+  align-items: center
+  justify-content: center
+
+.hour-total
+  color: $success-color
+  h1
+    color: $success-color
+.hour-apply
+  color: $danger-color
+  h1
+    color: $danger-color
+
+.hour-balance
+  color: $warn-color
+  h1
+    color: $warn-color
+.hour-unit
+  font-size: 1.5em
+  margin-left: 10px
+
+
+.nav-wage-1
+  .content
+    &.on-search
+      margin-top: 390px
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+
+.nav-monthly-salary
+  .content
+    &.on-search
+      margin-top: 315px
+  .modal-body
+    table
+      border: 2px solid $bg-color
+
+.nav-wage-3, .nav-wage-6, .nav-monthly-salary
+  .content
+    &.on-search
+      margin-top: 315px
+
+.nav-wage-4
+  .content
+    &.on-search
+      margin-top: 380px
+
+.nav-wage-5
+  .content
+    &.on-search
+      margin-top: 420px
+  table
+    margin-bottom: 10px
+    tr td:last-child
+      width: 40px
+
+.nav-monthly-salary-detail
+  .btns-group
+    padding: 10px
+    button
+      width: 120px
+      margin-right: 20px

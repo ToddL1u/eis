@@ -1,0 +1,23 @@
+{
+  "name": "eis",
+  "version": "1.0.0",
+  "description": "eis system",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yes"
+  },
+  "author": "Todd Liu",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.8.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-jade": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "marked": "^0.3.6"
+  }
+}

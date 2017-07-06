@@ -1,0 +1,165 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+    script(src="../../assets/js/chartjs/Chart.min.js")
+    script(src="../../assets/js/sparkline/index.js")
+  body
+    #wage.container.nav-wage-1.nav-salary-personal
+      nav.nav
+      .wrap
+        include ../include/header-salary-personal
+        .content
+          include section-profile
+          include section-adjustment
+          include section-invoice
+          include section-training
+          include section-absence
+          include section-leave
+        footer
+                  
+                  
+  script(src="../../assets/js/function.js")
+  script.
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      var section_block = $form_section.parents('.form-block');
+      section_block.remove();
+    });
+    
+    $section = $('#salaryInsurance tbody tr:last-child')
+    $section.hide();
+    $section.find('.btn-edit').trigger('click');
+    
+    $('#profile .btn-add').click(function(){
+      var $row = $(this).parents('section').find('tbody').children('tr:last');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+    });      
+    
+    $('#adjustmentDetail .btn-back').click(function(){
+      if($('#adjustmentDetail .btn-edit').hasClass('toolbar-btn-hide')){
+        $('#adjustmentDetail  .btn-confirm').trigger('click');
+      }
+      $('#adjustmentSection').addClass('animate-left-in section-show');
+      $('#adjustmentDetail').removeClass('animate-right-in').addClass('animate-right-out');
+      setTimeout(function(){
+         $('#adjustmentDetail').removeClass('animate-right-out section-show');
+       }, 1000);
+    });
+    
+    $('#adjustmentSection .btn-add').click(function(){
+      $('#adjustmentDetail .btn-edit').trigger('click');
+      showDetail();
+      $('#adjustmentDetail input').attr('value','');
+    });      
+    
+    $('#adjustmentSection .btn-edit-only').click(function(){
+      $('#adjustmentDetail .btn-edit').trigger('click');
+      showDetail();
+      
+      setTimeout(function(){
+        $('#adjustmentSection').removeClass('section-block');
+      }, 1000);
+    });  
+    
+    
+    
+    $('#adjustmentSection tr td:not(:last-child)').click(function(){
+      showDetail();
+    });  
+    
+    $('input[name="field_adjustment"]').keyup(function(){
+      var $origin = parseInt($('#origin').val());
+      var _adjust = $(this).val() == '' ? 0 : parseInt($(this).val());
+      var $adjust = $origin + _adjust;
+      var $total = $adjust + 1200;
+      $('#total').html('底薪'+ $adjust + ' + 伙食津貼  1200 = 全薪 ' + $total);
+    });
+    
+    function showDetail(){
+      $('#adjustmentSection').removeClass('animate-left-in').addClass('animate-left-out section-show');
+      $('#adjustmentDetail').removeClass('animate-right-out').addClass('animate-right-in section-show');
+    }
+    
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    var $adjustment= 0;
+    $('.subnav-tabs').on('click', '#tabAdjustment', function(event){
+      $('#adjustment').show().siblings('section').hide();
+      var sharpLineData = {
+          labels: ['一月', '二月', '三月', '四月', '五月', '六月','七月', '八月', '九月', '十月', '十一月', '十二月'],
+          datasets: [
+              {
+                  label: "Example dataset",
+                  fillColor: "rgba(98,203,49,0.5)",
+                  strokeColor: "rgba(98,203,49,0.7)",
+                  pointColor: "rgba(98,203,49,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(98,203,49,1)",
+                  data: [33, 48, 40, 19, 54, 27, 90,33, 48, 40, 19, 54]
+              }
+          ]
+      };
+  
+      var sharpLineOptions = {
+          scaleShowGridLines : true,
+          scaleGridLineColor : "rgba(0,0,0,.05)",
+          scaleGridLineWidth : 1,
+          bezierCurve : false,
+          pointDot : true,
+          pointDotRadius : 4,
+          pointDotStrokeWidth : 1,
+          pointHitDetectionRadius : 20,
+          datasetStroke : true,
+          datasetStrokeWidth : 1,
+          datasetFill : true,
+          responsive: true
+      };
+      if($adjustment == 0){
+        var ctx = document.getElementById("salaryChart").getContext("2d");
+        var myNewChart = new Chart(ctx).Line(sharpLineData, sharpLineOptions);
+        $adjustment++;
+      }
+      
+    });
+    
+    $('.subnav-tabs').on('click', '#tabInvoice', function(event){
+      console.log('here');
+      $('#invoice').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabTraining', function(event){
+      $('#training').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAbsence', function(event){
+      $('#absence').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabLeave', function(event){
+      $('#leave').show().siblings('section').hide();
+    });
+
+    function init() {
+      var sorter = tsorter.create('tableAdjustment');
+      var sorter = tsorter.create('tableInvoice');
+      var sorter = tsorter.create('tableTraining');
+      var sorter = tsorter.create('tableAbsence');
+      var sorter = tsorter.create('tableLeave');
+    }
+        
+    window.onload = init;
+    

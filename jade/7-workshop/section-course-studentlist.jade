@@ -1,0 +1,80 @@
+section#student-list.tab-pane.fade
+    .content
+      .title 報名學員
+      .student-number
+        .number
+          .student-number-title.pass 報名人數
+            span.student-number-amount 30
+            |人
+        .number
+          .student-number-title.failed 報名成功人數
+            span.student-number-amount 20
+            |人
+        .number
+          .student-number-title 退課人數
+            span.student-number-amount 10
+            |人
+      .progress-info
+        .progress-text 最低開課人數
+        #bar.progress
+          .progress-bar.progress-bar-striped.active(role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 40%")
+        .progress-text.text-right
+          span.failed 20 
+          | / 50
+      table.table.table-hover.table-sort#tableList
+        thead
+          tr
+            td #
+            th 報名日期
+            th 姓名
+            th 身份
+            th 手機
+            th E-mail
+            th 報名狀態
+            td.col-sm-2
+        tbody
+          -for (var i=0; i<5; i++) {
+            tr
+              td 1
+              td 2016/10/10
+              td 陳圈圈
+              td 新生
+              td 0912-345-678
+              td prfpfrkgo@gmail.com
+              td 報名成功
+              td
+                // .tag.tag-wait 待處理
+          -}
+          -for (var i=0; i<10; i++) {
+            tr
+              td 1
+              td 2016/10/10
+              td 陳圈圈
+              td 舊生
+              td 0912-345-678
+              td prfpfrkgo@gmail.com
+              td 登記
+              td
+          -}
+          -for (var i=0; i<3; i++) {
+            tr
+              td 1
+              td 2016/10/10
+              td 陳圈圈
+              td 舊生
+              td 0912-345-678
+              td prfpfrkgo@gmail.com
+              td 候補
+              td
+          -}
+          -for (var i=0; i<2; i++) {
+            tr
+              td 1
+              td 2016/10/10
+              td 陳圈圈
+              td 新生
+              td 0912-345-678
+              td prfpfrkgo@gmail.com
+              td 退課
+              td
+          -}

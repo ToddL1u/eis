@@ -1,0 +1,215 @@
+
+<section id="training">
+  <div class="section-block">
+    <div class="table-header table-header-primary">課程設定
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li class="btn-add"></li>
+      </ul>
+    </div>
+    <table class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th class="col-sm-5">受訓區間</th>
+          <th class="col-sm-2">類別</th>
+          <th class="col-sm-3">課程名稱</th>
+          <th class="col-sm-1">金額</th>
+          <td class="col-sm-2"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td> 
+            <ul class="select-date">
+              <li>
+                <ul class="select-date">
+                  <li><span class="select-date-label"></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-years form-control"></select></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-months form-control"></select></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-days form-control"></select></span></li>
+                </ul>
+              </li>
+              <li>至</li>
+              <li>
+                <ul class="select-date">
+                  <li><span class="select-date-label"></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-years form-control"></select></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-months form-control"></select></span></li>
+                  <li><span class="select">
+                      <select disabled="disabled" class="select-days form-control"></select></span></li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+          <td><span class="select">
+              <select disabled="disabled" class="form-control">
+                <option value="0">內訓</option>
+                <option value="">外訓</option>
+                <option value="">自行提報</option>
+              </select></span></td>
+          <td>
+            <input type="text" placeholder="課程名稱" value="javascripts 精進課程" readonly="readonly" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" value="300" readonly="readonly" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <ul class="select-date">
+              <li>
+                <ul class="select-date">
+                  <li><span class="select">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select">
+                      <select class="select-months form-control"></select></span></li>
+                  <li><span class="select">
+                      <select class="select-days form-control"></select></span></li>
+                </ul>
+              </li>
+              <li>至</li>
+              <li>
+                <ul class="select-date">
+                  <li><span class="select">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select">
+                      <select class="select-months form-control"></select></span></li>
+                  <li><span class="select">
+                      <select class="select-days form-control"></select></span></li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+          <td><span class="select">
+              <select class="form-control">
+                <option value="">內訓</option>
+                <option value="">外訓</option>
+                <option value="">自行提報</option>
+              </select></span></td>
+          <td>
+            <input type="text" placeholder="課程名稱" value="" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" value="" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-block">
+    <div class="table-header table-header-primary">教育訓練 - 教育訓練費用以及續服務時間設定
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li class="btn-add"></li>
+      </ul>
+    </div>
+    <table class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th>教育訓練受訓費用</th>
+          <th>續服務年限</th>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td> 
+            <input type="text" readonly="readonly" value="&lt;5000" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" readonly="readonly" value="0.5" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="text" placeholder="教育訓練受訓費用" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-block">
+    <div class="table-header table-header-primary">教育訓練 - 公告內容設定
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li class="btn-add"></li>
+      </ul>
+    </div>
+    <table class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th class="col-sm-1">排序</th>
+          <th class="col-sm-10">內容</th>
+          <td class="col-sm-1"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td>(1)</td>
+          <td> 
+            <input type="text" readonly="readonly" placeholder="內容" value="續服務年限自課程結束曆日起算之" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td>(2)</td>
+          <td>
+            <input type="text" placeholder="內容" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

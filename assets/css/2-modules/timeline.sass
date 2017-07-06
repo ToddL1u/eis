@@ -1,0 +1,85 @@
+$warn-color: #F6A623
+
+
+#timeline
+  ul
+    list-style: none
+    padding: 20px
+    padding-bottom: 0px
+    margin-left: 39px
+    margin-bottom: -15px
+    li
+      display: inline
+      color: $warn-color
+      margin-right: calc((100% - 402px) / 12)
+      font-size: 25px
+  .gap
+    margin-left: 66px
+    margin-bottom: -58px
+    margin-top: -42px
+    height: 79px
+    .block
+      border-right: 2px solid $warn-color
+      width: calc((100% - 32px) / 12)
+      height: 70px
+      display: inline-block
+      &:last-child
+        border: none
+  section
+    margin-bottom: 0
+    span,ol
+      display: inline-block
+      vertical-align: middle
+    span
+      color: $warn-color
+      height: 50px
+      line-height: 61px
+      margin-right: 10px
+    ol
+      position: relative
+      width: calc(100% - 60px)
+      border-bottom: 2px solid $warn-color
+      height: 20px
+      li
+        position: absolute
+        width: 40px
+        height: 40px
+        line-height: 40px
+        background-color: #2DBBBA
+        border-radius: 100%
+        text-align: center
+        color: white
+        font-size: 12px
+        display: inline-block 
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.4)
+        &.inactive
+          background-color: #707070
+        &.active
+          background-color: $danger-color
+
+
+.popover
+  font-family: 微軟正黑體
+  color: #fff
+  text-align: center
+  background-color: #2DBBBA
+  // box-shadow: none
+  border: none
+  &.fade.in
+    opacity: 0.9
+  .popover-title
+    color: #fff
+    font-size: 14px
+    background-color: #2DBBBA
+    border-bottom: none
+    padding-bottom: 0
+  .popover-content
+    font-size: 12px
+  .arrow
+    display: none 
+[data-style="coupon"]+.popover,
+[data-style="coupon"]+.popover .popover-title
+  background-color: $danger-color
+[data-style="out"]+.popover,
+[data-style="out"]+.popover .popover-title
+  background-color: #707070

@@ -1,0 +1,61 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-2
+      nav.nav
+      .wrap
+        include ../include/header-workshop-member
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+            
+          table.table.table-list.table-sort#tableSalary
+            thead.table-subheader
+              tr
+                th 會員編號
+                th 姓名
+                th Email
+                th 興趣偏好
+                th 上課偏好
+                th 上課數
+                th 授課數
+            tbody
+              tr(data-href="member-detail.html")
+                  td D00001
+                  td 陳圈圈
+                  td circlecirclechen@gmail.com
+                  td 生活.科技
+                  td
+                  td 10
+                  td 2
+              -for(var i=0;i<14;i++){
+                tr(data-href="member-detail.html")
+                  td D00001
+                  td 陳圈圈
+                  td circlecirclechen@gmail.com
+                  td 生活.科技.文學
+                  td 手工藝
+                  td 10
+                  td 2
+              -}
+                
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableSalary').tablesorter();
+      //- var sorter = tsorter.create('tableSalary');
+    }
+        
+    window.onload = init;
+
+    var td = $('tbody td:empty');
+    td.append('--');

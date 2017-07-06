@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="company" class="container nav-company-3">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>公司資料</li>
+              <li>職稱階級</li>
+            </ul>
+            <div class="subnav-subtitle">
+              <input type="text" placeholder="search" class="form-control searchbar">
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <ul class="toolbar toolbar-right">
+            <li class="btn-export"></li>
+            <li class="btn-add"></li>
+          </ul>
+          <section>
+            <div class="section-block form-block">
+              <div class="section-title">01</div>
+              <div class="section-toolbar">
+                <ul class="toolbar toolbar-right">
+                  <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-horizontal">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-4">主管編號</td>
+                    <td class="col-sm-8">
+                      <input type="text" placeholder="" readonly value="G8" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>二階主管</td>
+                    <td>
+                      <input type="text" placeholder="" readonly value="技術長" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>部門名稱</td>
+                    <td>
+                      <input type="text" placeholder="" readonly value="專業職" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div class="section-block form-block">
+              <div class="section-title"> </div>
+              <div class="section-toolbar">
+                <ul class="toolbar toolbar-right">
+                  <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-horizontal">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-4">主管編號</td>
+                    <td class="col-sm-8">
+                      <input type="text" placeholder="主管編號" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>二階主管</td>
+                    <td>
+                      <input type="text" placeholder="二階主管" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>部門名稱</td>
+                    <td>
+                      <input type="text" placeholder="部門名稱" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <ul class="table-pagination">
+              <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+              <li> <a href="#" class="page-active">1</a>
+              </li>
+              <li> <a href="#">2</a>
+              </li>
+              <li> <a href="#">3</a>
+              </li>
+              <li> <a href="#">4</a>
+              </li>
+              <li> <a href="#">5</a>
+              </li>
+              <li> <a href="#">6</a>
+              </li>
+              <li> <a href="#">7</a>
+              </li>
+              <li> <a href="#">8</a>
+              </li>
+              <li> <a href="#">9</a>
+              </li>
+              <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+            </ul>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../../assets/js/function.js"></script>
+<script>
+  var $section = $('.content').find('.section-block:last');
+  $section.hide();
+  $section.find('.btn-edit').trigger('click');
+  $('.btn-add').click(function(){
+    var $row = $(this).parents('.content').find('.section-block:last');
+    var $index = $(this).parents('.content').find('.section-block').length ;
+    $row.find('.section-title').html('0' + $index);
+    $row.prev().after('<div class="section-block form-block">' + $row.html() + '</div>');
+    $row.find('input').attr('readonly',false).attr('value','');
+  });
+  
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    var section_block = $form_section.parents('.form-block');
+    section_block.remove();
+  });
+    
+</script>

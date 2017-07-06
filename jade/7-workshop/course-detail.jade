@@ -1,0 +1,252 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src='../../assets/js/star-rating.js')
+    script(src="../../assets/js/jquery-comments.min.js")
+    script(src="../../assets/js/moment.js")
+    script(src="../../assets/js/bootstrap/bootstrap.min.js")
+    script(src="../../assets/js/bootstrap-datetimepicker.min.js")
+    //- include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-1.header-img
+      nav.nav
+      .wrap
+        include ../include/header-workshop-course-detail
+        .content.on-search
+          .course-bottom
+            .tab
+              ul.nav-tabs
+                li.active
+                  a(data-toggle="tab",href="#home") 課程資訊
+                li
+                  a(data-toggle="tab",href="#time") 開課時間
+                li
+                  a(data-toggle="tab",href="#discussion") 問題討論
+                li
+                  a(data-toggle="tab",href="#comments") 課程評價
+                li
+                  a(data-toggle="tab",href="#student-list") 報名學員
+                li
+                  a(data-toggle="tab",href="#money") 課程撥款
+                li
+                  a(data-toggle="tab",href="#contact") 聯繫講師
+              .enroll
+                .course-money NT$ 1800
+            .tab-content
+              include section-course-info
+              include section-course-time
+              include section-course-contact
+              include section-course-discussion
+              include section-course-comments
+              include section-course-studentlist
+              include section-course-money
+
+
+
+    
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableCourse').tablesorter();
+      //- var sorter = tsorter.create('tableSalary');
+      $('#tableList').tablesorter();
+    }
+        
+    window.onload = init;
+
+    $('.tag-pass').click(function(){
+      $('#datetimepicker4').trigger('click');
+    })
+
+    $('body').on('click','#datetimepicker4',function(){
+      $(this).datetimepicker({
+        format: 'YYYY/MM/DD',
+      });
+    })
+
+    $('.btn-revise').click(function(){
+      $(this).attr('disabled','disabled');
+    })
+
+    // star rating
+    var star_option =  {'showCaption':false, 'stars':'5', 'min':'0', 'max':'5', 'step':'1', 'size':'xs', 
+    'starCaptions': {0:'', 1:'', 2:'status:geht', 3:'status:laeuft'}};
+    
+    $('.btn-add').click(function(){
+      $('.rb-rating').rating('destroy');
+      var $row = $(this).parents('.section-block').find('tbody').children('tr:last');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+      $('.rb-rating').rating('refresh',star_option);  
+      
+    });  
+    $('.rb-rating').rating('create', star_option);
+
+    //申請退課===========================================================
+    var btn_html = '<button class="btn btn-default btn-flat-table" data-toggle="modal" data-target="#modalCancelstudent">申請退課</button>'
+    $('#student-list table tbody tr td:contains("報名成功")').next().append(btn_html);
+    $('#student-list table tbody tr td .btn').click(function(){
+      $(this).addClass('cancel-success');
+      $('.btn-danger').click(function(){
+        $('.cancel-success').text('退課成功').attr('disabled',true);
+      });
+      $('.modal-btn-cancel').click(function(){
+        $('#tableList').find('button:contains("申請退課")').removeClass('cancel-success');
+      });
+    });
+
+    //課程狀態==========================================================
+    var status = getUrlParameter('status');
+
+    //待審核
+    if( status == 'unchecked'){
+      $('.nav-tabs').find('li:contains("問題討論")').hide();
+      $('.nav-tabs').find('li:contains("聯繫主辦單位")').hide();
+      $('.nav-tabs').find('li:contains("報名學員")').hide();
+      $('.nav-tabs').find('li:contains("課程評價")').hide();
+      $('.nav-tabs').find('li:contains("聯繫講師")').hide();
+      $('.nav-tabs').find('li:contains("課程撥款")').hide();
+      $('#status_unchecked').show();
+      $('.tag').text('待審').css('background-color','#e89313');
+      $('.course-info').find('li:nth-child(3)').hide();
+      $('.course-info').find('li:last-child').hide();
+    }
+    //待發佈
+    if( status == 'pass'){
+      $('.nav-tabs').find('li:contains("問題討論")').hide();
+      $('.nav-tabs').find('li:contains("報名學員")').hide();
+      $('.nav-tabs').find('li:contains("課程評價")').hide();
+      $('.nav-tabs').find('li:contains("課程撥款")').hide();
+      $('.course-info').find('li:nth-child(3)').hide();
+      $('#status_pass').show();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 待發佈 )');
+      $('.course-info').find('li:last-child span').text('預計發佈日期：2016/10/10');
+    }
+    //待模擬授課
+    if( status == 'practice'){
+      $('.nav-tabs').find('li:contains("課程評價")').hide();
+      $('#status_pass').show();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 待模擬授課 )');
+      $('.subnav-search').find('.btn-warning').hide();
+      edit();
+      $('.btn-warning').parent().attr('href', 'course-post.html?action=postagain');
+    }
+    //待授課
+    if( status == 'wait'){
+      $('.nav-tabs').find('li:contains("課程評價")').hide();
+      $('#status_pass').show();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 待授課 )');
+
+      $('.btn-warning').parent().attr('href', 'course-post.html?action=postagain');
+    }edit();
+    //上課中(開始上課)
+    if( status == 'onclass'){
+      $('#status_pass').show();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 上課中 )');
+      $('.subnav-search').find('.btn-warning').hide();
+      edit();
+      $('.btn-warning').parent().attr('href', 'course-post.html?action=postagain');
+    }
+
+    function edit(){
+      $('.btn-primary:not(.btn-revise)').click(function(){
+        $('.btn-warning').show();
+      })
+    }
+
+    function cannotedit(){
+      $('.subnav-search').hide();
+      $('.course-title').find('hr').hide();
+      $('.on-search').css('margin-top','390px');
+    }
+    //待簡報(從這階段之後，課程已經結束不能再編輯了)
+    if( status == 'report'){
+      cannotedit();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 待簡報 )');
+      $('.subnav-search').find('.btn-primary').hide();
+    }
+    //待付款
+    if( status == 'pay'){
+      cannotedit();
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 待付款 )');
+      $('#student-list').find('thead tr td:nth-child(8), tbody tr td:nth-child(8)').hide();//學員無法取消退課
+      $('.table-cancel').show();
+    }
+    //課程取消
+    if( status == 'cancel'){
+      cannotedit();
+      $('.tag').text('課程取消').css('background-color','#a0a0a0');
+      //- $('#student-list').find('thead tr td:nth-child(8), tbody tr td:nth-child(8)').hide();//學員無法取消退課
+      //- $('.table-cancel').show();
+    }
+    //未通過
+    if( status == 'notpass'){
+      var html_reject ='<p style="margin-top: 10px;"><i class="fa fa-exclamation-circle" style="margin-right: 10px;"></i>退件原因：課程內容安排不夠嚴謹，請重新填寫</p>';
+      $('.nav-tabs').find('li:contains("問題討論")').hide();
+      $('.nav-tabs').find('li:contains("聯繫主辦單位")').hide();
+      $('.nav-tabs').find('li:contains("報名學員")').hide();
+      $('.nav-tabs').find('li:contains("課程評價")').hide();
+      $('.nav-tabs').find('li:contains("聯繫講師")').hide();
+      $('.nav-tabs').find('li:contains("課程撥款")').hide();
+      $('.tag').text('未通過').css('background-color','#ea6374');
+      $('.subnav-search').hide();
+      $('.course-title').find('hr').append(html_reject).css('color','#E96471');
+      $('.course-info').find('li:last-child').hide();
+    }
+    //結業
+    if( status == 'finished'){
+      $('.tag').text('通過').css('background-color','#24aca8');
+      $('.process').append('( 結業 )');
+      $('.subnav-search').hide();
+      $('.course-title').find('hr').hide();
+      $('.on-search').css('margin-top','390px');
+      $('#student-list').find('thead tr td:nth-child(8), tbody tr td:nth-child(8)').hide();//學員無法取消退課
+      $('.table-cancel').show();
+    }
+
+
+    // comments=============================================
+    $('#comments-container').comments({
+        textareaPlaceholderText: '對課程有什麼想法嗎？快提出來跟老師同學們交流吧！',
+        sendText: '送出留言',
+        replyText: '回覆留言',
+        youText: '我的留言',
+        profilePictureURL: 'http://www.fillmurray.com/150/150',
+        getComments: function(success, error) {
+            var commentsArray = [{
+                id: 1,
+                created: '2015-10-01',
+                fullname: 'Simon Powell',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem sint eum asperiores quod, eos reiciendis sed numquam non commodi, cum cumque? Doloremque quaerat magni aliquid, beatae at. Minima autem, mollitia quod reiciendis ad, placeat iusto consectetur officia voluptate delectus voluptas debitis? Mollitia molestias dolore eos in, labore quidem, magni odio.',
+            },{
+                id: 2,
+                created: '2015-10-01',
+                fullname: 'Jake Gyllenhaal',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, odio!',
+            },
+            ];
+            success(commentsArray);
+        }
+    })
+
+    //聯繫講師=============================================
+    $('#comments-container-contact').comments({
+        textareaPlaceholderText: '留言給講師',
+        sendText: '送出留言',
+        replyText: '回覆留言',
+        youText: '我的留言',
+        profilePictureURL: 'http://www.fillmurray.com/160/160',
+        enableAttachments: true,
+    });

@@ -1,0 +1,179 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+    
+  body
+    #bonus.container.nav-bonus-1
+      nav.nav
+      .wrap
+        include ../include/header-constitution-categories
+        .content.form-block
+          aside.section-version
+            ul.nav-version
+              li.version-default V1
+              li V2
+              li V3
+              
+          ul.toolbar
+            li.btn-view
+            include ../include/toolbar-delete
+            li.btn-edit
+            li(data-toggle="modal" data-target="#modalCancel").btn-cancel.toolbar-btn-hide
+            li.btn-confirm-only.toolbar-btn-hide
+            
+          section
+            form.form-group
+              .section-block.version-actived
+                table.table-form.table.table-side-header
+                  tr.table-row-highligh
+                    td.col-sm-2 生效版本
+                    td
+                      span.select
+                        select.form-control.form-control
+                          option(value="") V1
+                          option(value="") V2
+                          option(value="") V3
+              .section-block
+                table.table-form.table.table-side-header
+                  tr.version-field
+                    td.col-sm-2 版本
+                    td
+                      span.select
+                        select.form-control(name="version" disabled).form-control
+                          option(value="0") V1
+                          option(value="1") V2
+                          option(value="2") V3
+                  tr
+                    td.col-sm-2 類別
+                    td
+                      span.select
+                        select.form-control(name="version" disabled).form-control
+                          option(value="0") 第一章  總則
+                          option(value="1") 第二章  總則
+                          option(value="2") 第三章  總則
+                  tr
+                    td.col-sm-2 項目
+                    td
+                      input.form-control(type="text" placeholder="章程項目"  value="第一條" readonly)
+                  tr
+                    td.col-sm-2 內容
+                    td
+                      #contentEditormd
+                        - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                        textarea(style='display:none;') #{some_variable}
+                  tr.field-actived
+                    td 生效狀態
+                    td 
+                      .checkbox
+                        label 
+                          input(type="checkbox" checked disabled).checkbox-square
+                          | 生效此版本
+            .section-block.section-history
+                
+              
+        footer
+        .modal.fade.bs-example-modal-lg#modalVersion(tabindex="-1" role="dialog" aria-labelledby="modalConfirm")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                h4 需要新增新版本嗎?
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-warning.modal-btn-1 覆蓋版本
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-success.modal-btn-2 新增版本
+        
+script(src="../../assets/js/function.js")
+
+
+script.
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    goBack();
+  });
+  $('#wmd-button-bar').hide();
+  
+  
+  setContent('sample','#contentEditormd'); //please use this function to set content information
+  $('.field-actived').hide();
+  
+  var action = getUrlParameter('action');
+  if( action == 'edit'){
+    setInput(false);
+    $('.toolbar .btn-edit').trigger("click");
+  }else if(action == 'add'){
+    setInput(false);
+    $('.version-field').hide();
+    $('.btn-view').hide();
+    $('.toolbar .btn-edit').trigger("click");
+    $('input').val('');
+    $('textarea').val('');
+    $('.aydyn-breakcrumb').children('li:last-child').html('<li>新增項目</li>');
+    $('.field-actived').show();
+  }
+  
+  var data = [{'version':'V1','content':'[谷哥][1] **bold size**<br>sdfss1 [1]: http://%20http://www.google.com.tw%20Lorem'},{'version':'V2','content':'test123 content 21312'},{'version':'V3','content':'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco'}];
+  
+  $('.nav-version li').click(function(){
+    
+    var select_data = data[$(this).index()];
+    var strVar='';
+    strVar += '<table class="table-form table table-side-header">';
+    strVar += '<tr class="edit-show">';
+    strVar += '<td class="col-sm-2">版本</td>';
+    strVar += '<td> '+ select_data.version +'</td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td class="col-sm-2">內容</td>';
+    strVar += '<td>' + marked(select_data.content) +' </td>';
+    strVar += '</tr>';
+    strVar += '</table>';
+    $('.section-history').html(strVar).show();
+  });
+  
+  $('select[name="version"]').change(function(){
+    var select_data = data[$(this).val()];
+    $('textarea[name="content"]').html(select_data.content);
+  });
+  //- 
+  $('.btn-edit').click(function(){
+    setInput(false);
+    
+  });
+  
+  $('.btn-confirm-only').click(function(){
+    $('#modalVersion').modal('show');  
+  });
+  
+  function setInput(read){
+    $('input').attr("readonly", read);
+    mkEditSwitch(read,'#contentEditormd');
+    if(read){
+      
+      $('.version-actived').hide();
+      $('select').attr('disabled',true);
+    }else{
+      $('select').attr('disabled',false);
+      if(action != 'add') $('.version-actived').show();
+    }
+  }
+  
+  $('body').on('click','#modalVersion .modal-btn-1',function(){
+    $('#bonus .content .toolbar li').not('.btn-view').toggleClass('toolbar-btn-hide');
+    setInput(true);
+  })
+  
+  $('body').on('click','#modalVersion .modal-btn-2',function(){
+    $('#bonus .content .toolbar li').not('.btn-view').toggleClass('toolbar-btn-hide');
+    setInput(true);
+  })
+  
+  $('body').on('click','#modalCancel .modal-btn-2',function(){
+    setInput(true);
+  })

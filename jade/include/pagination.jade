@@ -1,0 +1,12 @@
+ul.table-pagination
+  li 
+    a(href="#").page-front.fa.fa-angle-double-left
+  -for(var i=1; i<10; i++){
+    li 
+      -if (i==1)
+        a(href="#").page-active #{i}
+      -else 
+        a(href="#") #{i}
+  -}
+  li
+    a(href="#").page-end.fa.fa-angle-double-right

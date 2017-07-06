@@ -1,0 +1,51 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 薪資作業
+    li 扣繳憑單
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  form.subnav-search
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 狀態*
+      ul
+        -var states = ["正式","試用期","離職"]
+        -each state in states
+          li
+            .checkbox
+              label 
+                input(type="checkbox" checked).checkbox-square.checkbox-square-dark 
+                =state
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 上傳狀態
+      ul
+        -var states = ["已上傳","未上傳"]
+        -each state in states
+          li
+            .checkbox
+              label 
+                input(type="checkbox").checkbox-square.checkbox-square-dark 
+                =state
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 對象
+      span.select.select-dark
+        select.form-control.select-deps
+          option(value="0") 全體部門
+      span.select.select-dark
+        select.form-control.select-employee
+          option(value="0") 全體員工
+          option(value="1") Murry
+          option(value="2") Todd
+          
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 年度
+      ul.select-date
+        li
+          span.select.select-dark
+            select.form-control.select-years
+      
+    .search-form-buttons
+      button.btn.btn-default(type="reset") Reset
+      button.btn.btn-default.btn-search(type="submit")
+        span.fa.fa-search
+        | Searching

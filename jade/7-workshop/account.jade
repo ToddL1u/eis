@@ -1,0 +1,509 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-3
+      nav.nav
+      .wrap
+        include ../include/header-workshop-account
+        .content.on-search
+          section#student
+            div
+              button.btn.btn-flat.btn-warning 待處理列表
+              button.btn.btn-flat 所有狀態列表
+              br
+              br
+            div.table-s-1
+              input.searchTable.form-control(type="text" placeholder="Search in table...")
+              table.table.table-sort
+                thead.table-subheader
+                  tr
+                    th 繳費時間
+                    th 金額
+                    th 會員姓名
+                    th 報名狀態
+                    th 繳費狀態
+                    td
+                    td
+                      i.btn-clip
+                    td
+                      i.btn-comment
+                    th 異動時間
+                tbody
+                  -for(var i=0;i<10;i++){
+                    tr(data-href="account-student.html")
+                      td 2017/10/10 09:30
+                      td 4000
+                      td Jake Gyllenhaal
+                      td 登記
+                      td 待處理
+                      td
+                        button.btn.btn-warning.btn-flat-table 報名成功
+                      td
+                        i.btn-clip
+                      td
+                        i.btn-comment
+                      td 2017/10/10 09:30
+                  -}
+              include ../include/pagination
+            div.table-s-2
+              input.searchTable.form-control(type="text" placeholder="Search in table...")
+              table.table.table-sort
+                thead.table-subheader
+                  tr
+                    th 繳費時間
+                    th 金額
+                    th 會員姓名
+                    th 課程狀態
+                    th 報名狀態
+                    th 繳費狀態
+                    td
+                    td
+                      i.btn-clip
+                    td
+                      i.btn-comment
+                    th 異動時間
+                tbody
+                  tr(data-href="account-student.html?status=backup")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 候補
+                    td --
+                    td
+                    td
+                    td
+                      i.btn-comment
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=register")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 登記
+                    td 尚未繳費
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 登記
+                    td 待處理
+                    td
+                      button.btn.btn-warning.btn-flat-table 報名成功
+                    td
+                      i.btn-clip
+                    td
+                      i.btn-comment
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=error")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 登記
+                    td 繳費異常
+                    td
+                    td
+                    td
+                      i.btn-comment
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=success")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td 待上課
+                    td 報名成功
+                    td 已繳費
+                    td
+                    td
+                      i.btn-clip
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=error_unpaid")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 報名失敗
+                    td 尚未繳費
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=error_fail")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 報名失敗
+                    td 繳費異常
+                    td
+                    td
+                    td
+                      i.btn-comment
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=regret")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 退課
+                    td 退費申請
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=regret")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 退課
+                    td 退費中
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=regret")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td
+                    td 退課
+                    td 已退費
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=cancel")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td 課程取消
+                    td
+                    td 退費申請
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=cancel")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td 課程取消
+                    td
+                    td 退費中
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+                  tr(data-href="account-student.html?status=cancel")
+                    td 2017/10/10 09:30
+                    td 4000
+                    td Jake Gyllenhaal
+                    td 課程取消
+                    td
+                    td 已退費
+                    td
+                    td
+                    td
+                    td 2017/10/10 09:30
+              include ../include/pagination
+          section#individual
+            input.searchTable.form-control(type="text" placeholder="Search in table...")
+            table.table.table-sort#tableAccount
+              thead.table-subheader
+                tr
+                  td
+                  th 申請日
+                  th 請款編號
+                  th 會員姓名
+                  th 類別
+                  th 金額
+                  th 狀態
+                  th 異動時間
+                  td
+              tbody
+                -for(var i=0;i<5;i++){
+                  tr(data-href="account-detail.html")
+                    td 
+                      input(type="checkbox" ).checkbox-circle
+                    td 2016/10/10
+                    td A12345
+                    td Jake Gyllenhaal
+                    td 講師請款
+                    td.money 2000
+                    td 待處理
+                    td 2016/10/10 20:00
+                    td
+                -}
+                -for(var i=0;i<5;i++){
+                  tr(data-href="account-detail.html")
+                    td 
+                      input(type="checkbox" ).checkbox-circle
+                    td 2016/10/10
+                    td A12346
+                    td Jake Gyllenhaal
+                    td 學生退款
+                    td.money 2000
+                    td 待處理
+                    td 2016/10/10 20:00
+                    td
+                -}
+            .export-row.row-warning
+              .text-right
+                input(type="checkbox" name="checkbox-select-all").checkbox-circle
+                .export-money 0
+                button.btn.btn-ex.btn-flat-table(disabled) 匯出匯款資訊
+            include ../include/pagination
+          section#group
+            input.searchTable.form-control(type="text" placeholder="Search in table...")
+            table.table.table-export#tableExport
+              thead.table-subheader
+                tr
+                  td
+                  th 匯出日
+                  th 處理編號
+                  th 單據筆數
+                  th 處理中
+                  th 結清
+                  th 處理失敗
+                  th 異動時間
+                  td
+              tbody
+                tr.collapse-header(data-toggle="collapse" data-target="#R22345")
+                  td
+                    input(type="checkbox").checkbox-circle.checkbox-blue
+                  td 2017/10/10
+                  td R22345
+                  td 10
+                  td 6
+                  td 3
+                  td 1
+                  td 2017/10/10 20:00
+                  td
+                    .arrow
+                      i.fa.fa-chevron-right
+                      i.fa.fa-chevron-down
+                tr.collapse.in#R22345
+                  td(colspan="9")
+                    table.table
+                      tbody
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22345
+                          td A12345
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 處理中
+                          td 2016/10/10 20:00
+                          td
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22345
+                          td A12345
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 處理中
+                          td 2016/10/10 20:00
+                          td
+                tr.collapse-header(data-toggle="collapse" data-target="#R22346")
+                  td
+                    input(type="checkbox").checkbox-circle.checkbox-blue
+                  td 2017/10/10
+                  td R22346
+                  td 10
+                  td 6
+                  td 3
+                  td 1
+                  td 2017/10/10 20:00
+                  td
+                    .arrow
+                      i.fa.fa-chevron-right
+                      i.fa.fa-chevron-down
+                tr.collapse.in#R22346
+                  td(colspan="9")
+                    table.table
+                      tbody
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22346
+                          td A12346
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 處理中
+                          td 2016/10/10 20:00
+                          td
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22346
+                          td A12346
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 處理中
+                          td 2016/10/10 20:00
+                          td
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22346
+                          td A12346
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 結清
+                          td 2016/10/10 20:00
+                          td
+                        tr(data-href="account-detail-group.html")
+                          td 
+                          td 2016/10/10
+                          td R22346
+                          td A12346
+                          td Jake Gyllenhaal
+                          td 講師請款
+                          td 2000
+                          td 處理失敗
+                          td 2016/10/10 20:00
+                          td
+            .export-row.row-green
+              .text-right
+                input(type="checkbox" name="checkbox-select-all").checkbox-circle.checkbox-blue
+                .export-money(style="color:#24aca8") 0
+                a(href="account-detail-group.html")
+                  button.btn.btn-ex.btn-flat-table(disabled) 處理款項
+            include ../include/pagination
+                
+          
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('table').tablesorter();
+      //- var sorter = tsorter.create('tableSalary');
+    }
+    window.onload = init;
+
+    $('tbody td:contains("待處理")').css('color','#EFA331');
+    $('tr.collapse td table td:contains("處理中")').css('color','#24aca8');
+
+    //tab========================================================================
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+
+    $('.subnav-tabs').on('click', '#tabIndividual', function(event){
+      $('#individual').show().siblings('section').hide();
+    });
+
+    $('.subnav-tabs').on('click', '#tabStudent', function(event){
+      $('#student').show().siblings('section').hide();
+    });
+
+    $('.subnav-tabs').on('click', '#tabGroup', function(event){
+      $('#group').show().siblings('section').hide();
+    });
+
+    $('#group, #individual').hide();
+
+
+    //search in table==============================================================
+
+
+    $('.searchTable').keyup(function(){
+      var inputVal = $(this).val();
+      var table = $(this).next();
+      table.find('tbody>tr').each(function(index, row){
+        var allCells = $(row).find('td');
+        if(allCells.length > 0){
+          var found = false;
+          allCells.each(function(index, td){
+            var regExp = new RegExp(inputVal, 'i');
+            if(regExp.test($(td).text())){
+              found = true;
+              return false;
+            }
+          });
+          if(found == true)$(row).show();else $(row).hide();
+        }
+      });
+    });
+
+    //處理款項按鈕=================================================================
+    $('input[name="checkbox-select-all"]').click(function(){
+      $(this).parents('section').find('input[type="checkbox"]').prop('checked',$(this).is(':checked'));
+    })
+
+    $('section .checkbox-circle').click(function(){
+      var check_num = $(this).parents('section').find('input:checkbox:checked').length;
+      if(check_num > 0){
+        $(this).parents('section').find('.export-row button').attr('disabled',false);
+      }else{
+        $(this).parents('section').find('.export-row button').prop( "disabled",true);
+      }
+      clac_money();
+    })
+
+    function clac_money(){
+      var total_money = 0;
+      $('#tableAccount input:checkbox:checked').each(function(){
+        total_money += parseInt($(this).parent().siblings('.money').text());
+      })
+      $('.row-warning .export-money').text(total_money);
+    }
+
+    
+    $(".fa-chevron-right").hide();
+    $(".collapse-header").click(function(){
+      $(this).find(".fa-chevron-down, .fa-chevron-right").toggle();
+    });
+
+    //tr clickabled
+    $('#tableAccount').on('click', 'td:first-child', function(e) {
+      e.stopPropagation();
+    });
+
+    //學生繳款======================================================
+
+    
+
+    $('.table-s-2').hide();
+    $('button:contains("待處理列表")').click(function(){
+      $(this).addClass('btn-warning').siblings().removeClass('btn-warning');
+      $('.table-s-2').hide();
+      $('.table-s-1').show();   
+    })
+    $('button:contains("所有狀態列表")').click(function(){
+      $(this).addClass('btn-warning').siblings().removeClass('btn-warning');
+      $('.table-s-2').show();
+      $('.table-s-1').hide();   
+    })
+    $('.table-s-1 table .btn-warning').click(function(){
+      $(this).parents('tr').fadeOut();
+    })
+    $('.table-s-2 table .btn-warning').click(function(){
+      $(this).hide();
+      $(this).parents('tr').attr('data-href','account-student.html?status=success');
+      $(this).parents('tr').find('td:nth-child(5)').text('報名成功').next().text('已繳費').css('color','#4E4D4D');
+    })
+
+    

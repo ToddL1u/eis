@@ -1,0 +1,79 @@
+section#wage
+  .section-block
+    .table-header.table-header-primary 核銷單- 類別設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th 類別名稱
+          th 金額上限
+          th 有效日期(0天為無限制)
+          td
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" readonly value="誤餐費") 
+          td
+            input.form-control(type="number" readonly value="150") 
+          td
+            input.form-control(type="number" readonly value="3") 
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input.form-control(type="text" placeholder="類別名稱" ) 
+          td
+            input.form-control(type="number" ) 
+          td
+            input.form-control(type="number" ) 
+          td
+            include ../include/toolbar-delete-edit
+  .section-block
+    .table-header.table-header-primary 薪資單- 預設內文
+      ul.toolbar.toolbar-right.section-toolbar
+        li
+          input.form-control(type="text" placeholder="search")
+        li(data-toggle="modal" data-target="#modalMarkdown").btn-add-only
+    table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 啟用
+          th.col-sm-8 範本名稱
+          th.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            input(type="checkbox" disabled checked).checkbox-square
+          td
+            input.form-control(type="text" value="公司內部預設內文" readonly).field-content-title(data-toggle="popover" data-trigger="hover")
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li
+                a(href="#" data-target="#modalMarkdown").btn-edit-only
+        -for(var i=0;i<4;i++){
+          tr.form-block
+            td 
+              input(type="checkbox" disabled).checkbox-square
+            td
+              .field-content-title(data-toggle="popover" data-trigger="hover") 公司內部預設內文#{i+1}
+            td
+              ul.toolbar
+                include ../include/toolbar-delete
+                li
+                  a(href="#" data-target="#modalMarkdown").btn-edit-only
+        -}
+        tr.form-block
+          td 
+            input(type="checkbox" disabled ).checkbox-square
+          td
+            input.form-control(type="text" value="" readonly).field-content-title 
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li
+                a(href="#" data-target="#modalMarkdown").btn-edit-only
+    include ../include/pagination
+    .float-content
+    

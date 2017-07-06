@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="attendance" class="container nav-attendance-2">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <ul class="aydyn-breakcrumb">
+                <li><a href="absence.html">考勤</a></li>
+                <li><a href="absence.html">假單記錄</a></li>
+                <li>檢視</li>
+            </ul>
+          </div>
+
+          <section>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">狀態</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control wait" value="待審" readonly>
+                </div>
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" readonly>
+                </div>
+                <label class="col-sm-1 control-label">異動時間</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control wait" value="2016/10/10 19:35" readonly>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">請假區間</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='startDate'>
+                      <input type='text' class="form-control" value="2016/12/13 18:01" readonly>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='endDate'>
+                      <input type='text' class="form-control" value="2016/12/13 18:01" readonly>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">類別</label>
+                <div class="col-sm-3">
+                  <select id="leaveType" class="form-control" disabled>
+                    <option disabled selected value>請選擇請假類別</option>
+                    <option value="N" selected>事假</option>
+                    <option>病假</option>
+                    <option value="N">公假</option>
+                    <option>婚假</option>
+                    <option>喪假</option>
+                    <option>產假</option>
+                    <option>陪產假</option>
+                    <option value="N">生理假</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">事由</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" value="返鄉探親" readonly>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">時數折抵</label>
+                <div class="col-sm-1">
+                  <input type="text" id="total" class="form-control" value="3" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">請假時數</label>
+                <div class="col-sm-1">
+                  <input type="text" class="form-control" value="5" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+              </div>
+            </form>
+          </section>
+          <a href="absence.html"><button type="button" class="btn btn-default"><span class="fa fa-reply"></span>Back</button></a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </div>
+    
+
+    
+  </body>
+  <script src="../../assets/js/function.js"></script>
+</html>

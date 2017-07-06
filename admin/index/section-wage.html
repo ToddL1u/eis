@@ -1,0 +1,188 @@
+
+<section id="wage">
+  <div class="section-block">
+    <div class="table-header table-header-primary">核銷單- 類別設定
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li class="btn-add"></li>
+      </ul>
+    </div>
+    <table class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th>類別名稱</th>
+          <th>金額上限</th>
+          <th>有效日期(0天為無限制)</th>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td> 
+            <input type="text" readonly="readonly" value="誤餐費" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" readonly="readonly" value="150" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" readonly="readonly" value="3" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="text" placeholder="類別名稱" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" class="form-control"/>
+          </td>
+          <td>
+            <input type="number" class="form-control"/>
+          </td>
+          <td>
+            <ul class="toolbar toolbar-right">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li class="btn-edit"></li>
+              <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+              <li class="btn-confirm toolbar-btn-hide"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-block">
+    <div class="table-header table-header-primary">薪資單- 預設內文
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li>
+          <input type="text" placeholder="search" class="form-control"/>
+        </li>
+        <li data-toggle="modal" data-target="#modalMarkdown" class="btn-add-only"></li>
+      </ul>
+    </div>
+    <table class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th class="col-sm-2">啟用</th>
+          <th class="col-sm-8">範本名稱</th>
+          <th class="col-sm-2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" checked="checked" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="公司內部預設內文" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <div data-toggle="popover" data-trigger="hover" class="field-content-title">公司內部預設內文1</div>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <div data-toggle="popover" data-trigger="hover" class="field-content-title">公司內部預設內文2</div>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <div data-toggle="popover" data-trigger="hover" class="field-content-title">公司內部預設內文3</div>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <div data-toggle="popover" data-trigger="hover" class="field-content-title">公司內部預設內文4</div>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="" readonly="readonly" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li><a href="#" data-target="#modalMarkdown" class="btn-edit-only"></a></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="table-pagination">
+      <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+      <li> <a href="#" class="page-active">1</a>
+      </li>
+      <li> <a href="#">2</a>
+      </li>
+      <li> <a href="#">3</a>
+      </li>
+      <li> <a href="#">4</a>
+      </li>
+      <li> <a href="#">5</a>
+      </li>
+      <li> <a href="#">6</a>
+      </li>
+      <li> <a href="#">7</a>
+      </li>
+      <li> <a href="#">8</a>
+      </li>
+      <li> <a href="#">9</a>
+      </li>
+      <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+    </ul>
+    <div class="float-content"></div>
+  </div>
+</section>

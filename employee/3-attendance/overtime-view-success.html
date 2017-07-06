@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="attendance" class="container nav-attendance-3">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <ul class="aydyn-breakcrumb">
+                <li><a href="overtime.html">考勤</a></li>
+                <li><a href="overtime.html">補休申請記錄</a></li>
+                <li>檢視</li>
+            </ul>
+          </div>
+
+          <section>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">狀態</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" value="通過" readonly>
+                  </div>
+                  <label class="col-sm-1 control-label">回覆內容</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" value="XXXXXXXXXXXXXXXXXXXXXXX" readonly>
+                  </div>
+                  <label class="col-sm-1 control-label">異動時間</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" value="2016/10/10 19:35" readonly>
+                  </div>
+                </div>
+              </form>
+          </section>
+
+          <section>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">加班區間</label>
+                  <div class='col-md-3'>
+                    <div class='input-group date' id='startDate'>
+                        <input type='text' class="form-control" value="2016/12/14 09:48" readonly>
+                        <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                  </div>
+                  <div class='col-md-3'>
+                    <div class='input-group date' id='endDate'>
+                        <input type='text' class="form-control" value="2016/12/14 09:48" readonly>
+                        <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">工作內容</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" value="EIS專案加班" readonly>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">加班時數</label>
+                  <div class="col-sm-1">
+                    <input type="number" value="3" class="form-control" readonly>
+                  </div>
+                  <label class="col-sm-0 control-label">HR</label>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">補休時數</label>
+                  <div class="col-sm-1">
+                    <input type="number" value="4.5" class="form-control" readonly>
+                  </div>
+                  <label class="col-sm-0 control-label">HR</label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label class="control-label note">*系統自動帶入</label>
+                </div>
+
+              </form>
+          </section>
+
+          <section>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-1 control-label">生效區間</label>
+                  <div class="col-sm-11">
+                    <input type="text" class="form-control" value="2016/1/1 - 2016/12/31" readonly>
+                  </div>
+                </div>
+              </form>
+          </section>
+          <a href="overtime.html"><button type="button" class="btn btn-default"><span class="fa fa-reply"></span>Back</button></a>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </div>
+    
+
+    
+  </body>
+  <script src="../../assets/js/function.js"></script>
+</html>

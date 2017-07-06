@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="workshop" class="container nav-workshop-3">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>工作坊</li>
+              <li>會員款項</li>
+            </ul>
+            <ul class="subnav-tabs">
+              <li id="tabStudent" class="subnav-tab-active"><a href="#">學費繳交</a></li>
+              <li id="tabIndividual"><a href="#">請款單據</a></li>
+              <li id="tabGroup"><a href="#">處理單據</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="content on-search">
+          <section id="student">
+            <div>
+              <button class="btn btn-flat btn-warning">待處理列表</button>
+              <button class="btn btn-flat">所有狀態列表</button><br><br>
+            </div>
+            <div class="table-s-1">
+              <input type="text" placeholder="Search in table..." class="searchTable form-control">
+              <table class="table table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>繳費時間</th>
+                    <th>金額</th>
+                    <th>會員姓名</th>
+                    <th>報名狀態</th>
+                    <th>繳費狀態</th>
+                    <td></td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <th>異動時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="table-pagination">
+                <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+                <li> <a href="#" class="page-active">1</a>
+                </li>
+                <li> <a href="#">2</a>
+                </li>
+                <li> <a href="#">3</a>
+                </li>
+                <li> <a href="#">4</a>
+                </li>
+                <li> <a href="#">5</a>
+                </li>
+                <li> <a href="#">6</a>
+                </li>
+                <li> <a href="#">7</a>
+                </li>
+                <li> <a href="#">8</a>
+                </li>
+                <li> <a href="#">9</a>
+                </li>
+                <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+              </ul>
+            </div>
+            <div class="table-s-2">
+              <input type="text" placeholder="Search in table..." class="searchTable form-control">
+              <table class="table table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>繳費時間</th>
+                    <th>金額</th>
+                    <th>會員姓名</th>
+                    <th>課程狀態</th>
+                    <th>報名狀態</th>
+                    <th>繳費狀態</th>
+                    <td></td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <th>異動時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="account-student.html?status=backup">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>候補</td>
+                    <td>--</td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=register">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>登記</td>
+                    <td>尚未繳費</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>登記</td>
+                    <td>待處理</td>
+                    <td>
+                      <button class="btn btn-warning btn-flat-table">報名成功</button>
+                    </td>
+                    <td><i class="btn-clip"></i></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=error">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>登記</td>
+                    <td>繳費異常</td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=success">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>待上課</td>
+                    <td>報名成功</td>
+                    <td>已繳費</td>
+                    <td></td>
+                    <td><i class="btn-clip"></i></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=error_unpaid">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>報名失敗</td>
+                    <td>尚未繳費</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=error_fail">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>報名失敗</td>
+                    <td>繳費異常</td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="btn-comment"></i></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=regret">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>退課</td>
+                    <td>退費申請</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=regret">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>退課</td>
+                    <td>退費中</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=regret">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td></td>
+                    <td>退課</td>
+                    <td>已退費</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=cancel">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>課程取消</td>
+                    <td></td>
+                    <td>退費申請</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=cancel">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>課程取消</td>
+                    <td></td>
+                    <td>退費中</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                  <tr data-href="account-student.html?status=cancel">
+                    <td>2017/10/10 09:30</td>
+                    <td>4000</td>
+                    <td>Jake Gyllenhaal</td>
+                    <td>課程取消</td>
+                    <td></td>
+                    <td>已退費</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>2017/10/10 09:30</td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="table-pagination">
+                <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+                <li> <a href="#" class="page-active">1</a>
+                </li>
+                <li> <a href="#">2</a>
+                </li>
+                <li> <a href="#">3</a>
+                </li>
+                <li> <a href="#">4</a>
+                </li>
+                <li> <a href="#">5</a>
+                </li>
+                <li> <a href="#">6</a>
+                </li>
+                <li> <a href="#">7</a>
+                </li>
+                <li> <a href="#">8</a>
+                </li>
+                <li> <a href="#">9</a>
+                </li>
+                <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+              </ul>
+            </div>
+          </section>
+          <section id="individual">
+            <input type="text" placeholder="Search in table..." class="searchTable form-control">
+            <table id="tableAccount" class="table table-sort">
+              <thead class="table-subheader">
+                <tr>
+                  <td></td>
+                  <th>申請日</th>
+                  <th>請款編號</th>
+                  <th>會員姓名</th>
+                  <th>類別</th>
+                  <th>金額</th>
+                  <th>狀態</th>
+                  <th>異動時間</th>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12346</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12346</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12346</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12346</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td> 
+                    <input type="checkbox" class="checkbox-circle">
+                  </td>
+                  <td>2016/10/10</td>
+                  <td>A12346</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td class="money">2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="export-row row-warning">
+              <div class="text-right">
+                <input type="checkbox" name="checkbox-select-all" class="checkbox-circle">
+                <div class="export-money">0</div>
+                <button disabled class="btn btn-ex btn-flat-table">匯出匯款資訊</button>
+              </div>
+            </div>
+            <ul class="table-pagination">
+              <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+              <li> <a href="#" class="page-active">1</a>
+              </li>
+              <li> <a href="#">2</a>
+              </li>
+              <li> <a href="#">3</a>
+              </li>
+              <li> <a href="#">4</a>
+              </li>
+              <li> <a href="#">5</a>
+              </li>
+              <li> <a href="#">6</a>
+              </li>
+              <li> <a href="#">7</a>
+              </li>
+              <li> <a href="#">8</a>
+              </li>
+              <li> <a href="#">9</a>
+              </li>
+              <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+            </ul>
+          </section>
+          <section id="group">
+            <input type="text" placeholder="Search in table..." class="searchTable form-control">
+            <table id="tableExport" class="table table-export">
+              <thead class="table-subheader">
+                <tr>
+                  <td></td>
+                  <th>匯出日</th>
+                  <th>處理編號</th>
+                  <th>單據筆數</th>
+                  <th>處理中</th>
+                  <th>結清</th>
+                  <th>處理失敗</th>
+                  <th>異動時間</th>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-toggle="collapse" data-target="#R22345" class="collapse-header">
+                  <td>
+                    <input type="checkbox" class="checkbox-circle checkbox-blue">
+                  </td>
+                  <td>2017/10/10</td>
+                  <td>R22345</td>
+                  <td>10</td>
+                  <td>6</td>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>2017/10/10 20:00</td>
+                  <td>
+                    <div class="arrow"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i></div>
+                  </td>
+                </tr>
+                <tr id="R22345" class="collapse in">
+                  <td colspan="9">
+                    <table class="table">
+                      <tbody>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22345</td>
+                          <td>A12345</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>處理中</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22345</td>
+                          <td>A12345</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>處理中</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr data-toggle="collapse" data-target="#R22346" class="collapse-header">
+                  <td>
+                    <input type="checkbox" class="checkbox-circle checkbox-blue">
+                  </td>
+                  <td>2017/10/10</td>
+                  <td>R22346</td>
+                  <td>10</td>
+                  <td>6</td>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>2017/10/10 20:00</td>
+                  <td>
+                    <div class="arrow"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-down"></i></div>
+                  </td>
+                </tr>
+                <tr id="R22346" class="collapse in">
+                  <td colspan="9">
+                    <table class="table">
+                      <tbody>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22346</td>
+                          <td>A12346</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>處理中</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22346</td>
+                          <td>A12346</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>處理中</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22346</td>
+                          <td>A12346</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>結清</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                        <tr data-href="account-detail-group.html">
+                          <td> </td>
+                          <td>2016/10/10</td>
+                          <td>R22346</td>
+                          <td>A12346</td>
+                          <td>Jake Gyllenhaal</td>
+                          <td>講師請款</td>
+                          <td>2000</td>
+                          <td>處理失敗</td>
+                          <td>2016/10/10 20:00</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="export-row row-green">
+              <div class="text-right">
+                <input type="checkbox" name="checkbox-select-all" class="checkbox-circle checkbox-blue">
+                <div style="color:#24aca8" class="export-money">0</div><a href="account-detail-group.html">
+                  <button disabled class="btn btn-ex btn-flat-table">處理款項</button></a>
+              </div>
+            </div>
+            <ul class="table-pagination">
+              <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+              <li> <a href="#" class="page-active">1</a>
+              </li>
+              <li> <a href="#">2</a>
+              </li>
+              <li> <a href="#">3</a>
+              </li>
+              <li> <a href="#">4</a>
+              </li>
+              <li> <a href="#">5</a>
+              </li>
+              <li> <a href="#">6</a>
+              </li>
+              <li> <a href="#">7</a>
+              </li>
+              <li> <a href="#">8</a>
+              </li>
+              <li> <a href="#">9</a>
+              </li>
+              <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+            </ul>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    function init() {
+      $('table').tablesorter();
+      //- var sorter = tsorter.create('tableSalary');
+    }
+    window.onload = init;
+    
+    $('tbody td:contains("待處理")').css('color','#EFA331');
+    $('tr.collapse td table td:contains("處理中")').css('color','#24aca8');
+    
+    //tab========================================================================
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabIndividual', function(event){
+      $('#individual').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabStudent', function(event){
+      $('#student').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabGroup', function(event){
+      $('#group').show().siblings('section').hide();
+    });
+    
+    $('#group, #individual').hide();
+    
+    
+    //search in table==============================================================
+    
+    
+    $('.searchTable').keyup(function(){
+      var inputVal = $(this).val();
+      var table = $(this).next();
+      table.find('tbody>tr').each(function(index, row){
+        var allCells = $(row).find('td');
+        if(allCells.length > 0){
+          var found = false;
+          allCells.each(function(index, td){
+            var regExp = new RegExp(inputVal, 'i');
+            if(regExp.test($(td).text())){
+              found = true;
+              return false;
+            }
+          });
+          if(found == true)$(row).show();else $(row).hide();
+        }
+      });
+    });
+    
+    //處理款項按鈕=================================================================
+    $('input[name="checkbox-select-all"]').click(function(){
+      $(this).parents('section').find('input[type="checkbox"]').prop('checked',$(this).is(':checked'));
+    })
+    
+    $('section .checkbox-circle').click(function(){
+      var check_num = $(this).parents('section').find('input:checkbox:checked').length;
+      if(check_num > 0){
+        $(this).parents('section').find('.export-row button').attr('disabled',false);
+      }else{
+        $(this).parents('section').find('.export-row button').prop( "disabled",true);
+      }
+      clac_money();
+    })
+    
+    function clac_money(){
+      var total_money = 0;
+      $('#tableAccount input:checkbox:checked').each(function(){
+        total_money += parseInt($(this).parent().siblings('.money').text());
+      })
+      $('.row-warning .export-money').text(total_money);
+    }
+    
+    
+    $(".fa-chevron-right").hide();
+    $(".collapse-header").click(function(){
+      $(this).find(".fa-chevron-down, .fa-chevron-right").toggle();
+    });
+    
+    //tr clickabled
+    $('#tableAccount').on('click', 'td:first-child', function(e) {
+      e.stopPropagation();
+    });
+    
+    //學生繳款======================================================
+    
+    
+    
+    $('.table-s-2').hide();
+    $('button:contains("待處理列表")').click(function(){
+      $(this).addClass('btn-warning').siblings().removeClass('btn-warning');
+      $('.table-s-2').hide();
+      $('.table-s-1').show();   
+    })
+    $('button:contains("所有狀態列表")').click(function(){
+      $(this).addClass('btn-warning').siblings().removeClass('btn-warning');
+      $('.table-s-2').show();
+      $('.table-s-1').hide();   
+    })
+    $('.table-s-1 table .btn-warning').click(function(){
+      $(this).parents('tr').fadeOut();
+    })
+    $('.table-s-2 table .btn-warning').click(function(){
+      $(this).hide();
+      $(this).parents('tr').attr('data-href','account-student.html?status=success');
+      $(this).parents('tr').find('td:nth-child(5)').text('報名成功').next().text('已繳費').css('color','#4E4D4D');
+    })
+  </script>
+</html>

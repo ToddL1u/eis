@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/markdown/Markdown.Converter.js"></script>
+    <script src="../../assets/js/markdown/Markdown.Sanitizer.js"></script>
+    <script src="../../assets/js/markdown/Markdown.Editor.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/fileinput_locale_fr.js"></script>
+    <script src="../../assets/js/fileinput_locale_es.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../assets/js/daterangepicker.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery.bootstrap.wizard.min.js"></script>
+    <script src="../../assets/js/prettify.js"></script>
+    <script src="../../assets/js/additional-methods.min.js"></script>
+    <script src="../../assets/js/jquery.validate.min.js"></script>
+  </head>
+  </head>
+  <body>
+    <div id="workshop" class="container nav-workshop-4">
+      <header class="header"></header>
+      <div class="wrap">
+        <nav class="nav"></nav>
+        <div class="content">
+          <div class="info">
+            <div class="title">
+              <h3>工作坊</h3>
+              <h2>我要開課</h2>
+            </div>
+
+
+            <!-- section 1 -->
+            <section>
+              <div id="rootwizard">
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <div class="container">
+                    <ul class="col-sm-12">
+                      <li class="active">
+                        <a href="#tab1" data-toggle="tab">
+                        <span class="number">1</span>
+                        <span class="desc">課程資訊</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#tab2" data-toggle="tab">
+                        <span class="number">2</span>
+                        <span class="desc">授課內容</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#tab3" data-toggle="tab">
+                        <span class="number">3</span>
+                        <span class="desc">自我介紹</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#tab4" data-toggle="tab">
+                        <span class="number">4</span>
+                        <span class="desc">場地時間</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#tab5" data-toggle="tab">
+                        <span class="number">5</span>
+                        <span class="desc">定價人數</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#tab6" data-toggle="tab">
+                        <span class="number">6</span>
+                        <span class="desc">送出提案</span>
+                        </a>
+                      </li>
+                    </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="bar" class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                </div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+                    <h4>STEP 1.&nbsp;&nbsp;請填寫課程資訊</h4>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課程名稱</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="字數上限15 個中文字 (超過無法完整顯示於網頁上)" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課程類別</label>
+                        <div class="col-sm-2">
+                          <select id="type" class="form-control" required>
+                            <option disabled selected value>請選擇課程類別</option>
+                            <option>藝術設計</option>
+                            <option>烘焙料理</option>
+                            <option>生活手作</option>
+                            <option>程式語言</option>
+                            <option value="other">其他</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-6" id="otherType" style="display: none;">
+                          <input type="text" class="form-control" placeholder="請填寫建議類別">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">難易度</label>
+                        <div class="col-sm-8">
+                          <label class="radio-inline">
+                            <input type="radio" name="difficulty" value="easy"> 簡單
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="difficulty" value="medium"> 中等
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="difficulty" value="difficult"> 困難
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">誰適合上這門課</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="哪些人適合來上這門課...(例：10歲以上對瑜珈有興趣的地球人)" required></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">需要具備的背景知識</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="課程開始前，學生需要具備哪方面的知識，否則會造成理解上的困難...(例：不需要任何背景知識，只要對學習瑜珈有興趣即可)" required></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">學生可以學到什麼</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="課程結束後，學生可以學會哪些東西...(例：強化核心肌群、增加肌耐力和柔軟度)" required></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">自備工具和軟體</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="學生需要自備哪些工具或軟體...(例：瑜珈墊)"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課程圖片</label>
+                        <div id="fieldUpload" class="col-sm-8">
+                          <input id="annouoment-attach" name="input24[]" type="file" multiple class="file-loading" required>
+                        </div>
+                      </div>
+                    </form>
+                    <ul class="pager wizard">
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Next<i class="fa fa-angle-right"></i></button></li>
+                      </div>
+                    </ul>
+                  </div>
+                  <div class="tab-pane" id="tab2">
+                    <h4>STEP 2.&nbsp;&nbsp;請填寫授課內容</h4>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課程大綱</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="請填寫課程大綱，讓學生了解課程基本架構..."></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課程介紹</label>
+                        <div class="col-sm-8">
+                          <div class="wmd-panel">
+                            <div id="wmd-button-bar" style></div>
+                            <textarea rows="10" name="content" style="resize:none" id="wmd-input" class="form-control wmd-input" placeholder="這是一次向學生推薦課程的好機會，請老師自由發揮..."></textarea>
+                          </div>
+                          <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+                        </div>
+                      </div>
+                    </form>
+                    <ul class="pager wizard">
+                      <li class="previous"><button class="btn btn-default"><i class="fa fa-angle-left"></i>Previous</button></li>
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Next<i class="fa fa-angle-right"></i></button></li>
+                      </div>
+                    </ul>
+                  </div>
+                  <div class="tab-pane" id="tab3">
+                    <h4>STEP 3.&nbsp;&nbsp;請填寫自我介紹</h4>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">自我介紹</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="簡述個人經歷，讓學生更進一步認識你..."></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-facebook"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="Facebook">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-twitter"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="Twitter">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-google-plus"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="Google+">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-behance"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="Behance">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-youtube"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="YouTube">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label"><i class="fa fa-home"></i></label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="Website">
+                        </div>
+                      </div>
+                    </form>
+                    <ul class="pager wizard">
+                      <li class="previous"><button class="btn btn-default"><i class="fa fa-angle-left"></i>Previous</button></li>
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Next<i class="fa fa-angle-right"></i></button></li>
+                      </div>
+                    </ul>
+                  </div>
+                  <div class="tab-pane" id="tab4">
+                    <h4>STEP 4.&nbsp;&nbsp;請選擇開課場地與時間</h4>
+                    <br>
+                    <div id="chLocation"></div>
+                    <ul class="pager wizard">
+                      <li class="previous"><button class="btn btn-default"><i class="fa fa-angle-left"></i>Previous</button></li>
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Next<i class="fa fa-angle-right"></i></button></li>
+                      </div>
+                    </ul>
+                  </div>
+
+                  <div class="tab-pane" id="tab5">
+                    <h4>STEP 5.&nbsp;&nbsp;請填寫課程定價及人數</h4>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-5 control-label required">課程定價</label>
+                        <div class="col-sm-3">
+                          <input type="number" class="form-control">
+                        </div>
+                        <label class="col-sm-0 control-label">元</label>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-5 control-label required">最低開課人數</label>
+                        <div class="col-sm-3">
+                          <input type="number" class="form-control">
+                        </div>
+                        <label class="col-sm-0 control-label">人</label>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-5 control-label required">人數上限</label>
+                        <div class="col-sm-3">
+                          <input type="number" class="form-control">
+                        </div>
+                        <label class="col-sm-0 control-label">人</label>
+                      </div>
+                    </form>
+                    <ul class="pager wizard">
+                      <li class="previous"><button class="btn btn-default"><i class="fa fa-angle-left"></i>Previous</button></li>
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Next<i class="fa fa-angle-right"></i></button></li>
+                      </div>
+                    </ul>
+                  </div>
+
+                  <div class="tab-pane" id="tab6">
+                    <h4>STEP 6.&nbsp;&nbsp;送出提案</h4>
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">模擬授課</label>
+                        <div class='col-md-3'>
+                          <div class='input-group date reportStart'>
+                            <input type='text' class="form-control" placeholder="Select date" required>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                          </div>
+                        </div>
+                        <label class="col-sm-1 control-label">預估時間</label>
+                        <div class='col-md-1'>
+                          <input type='number' class="form-control" required>
+                        </div>
+                        <label class="col-sm-0 control-label">HR</label>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label required">課後簡報</label>
+                        <div class='col-md-3'>
+                          <div class='input-group date reportStart'>
+                              <input type='text' class="form-control" placeholder="Select date" required>
+                              <span class="input-group-addon">
+                                  <span class="fa fa-calendar"></span>
+                              </span>
+                          </div>
+                        </div>
+                        <label class="col-sm-1 control-label">預估時間</label>
+                        <div class='col-md-1'>
+                          <input type='number' class="form-control" required>
+                        </div>
+                        <label class="col-sm-0 control-label">HR</label>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">上傳檔案</label>
+                        <div id="fieldUpload" class="col-sm-8">
+                          <input id="annouoment-attach2" name="input24[]" type="file" multiple class="file-loading">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">留言給主辦單位</label>
+                        <div class="col-sm-8">
+                          <textarea class="form-control" rows="5" placeholder="想對主辦單位說什麼...(例：我需要麥克風)"></textarea>
+                        </div>
+                      </div>
+                    </form>
+                    <ul class="pager wizard">
+                      <li class="previous"><button class="btn btn-default"><i class="fa fa-angle-left"></i>Previous</button></li>
+                      <div class="next">
+                        <li><button class="btn btn-default btn-save" data-toggle="modal" data-target="#modalDelete">Save</button></li>
+                        <li class="next"><button class="btn btn-submit">Submit</button></li>
+                      </div>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+          </div>
+          <footer></footer>
+          <!-- Modal -->
+          <div class="modal fade" id="modalDelete" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h2><i class="fa fa-exclamation-circle"></i> 小提醒</h2>
+                  <p>草稿儲存後，可至「我的課程」裡檢視或再次編輯！</p>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-submit" data-dismiss="modal" aria-label="Close">我知道了</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <!-- Modal -->
+          <div class="modal fade" id="modalPeriod" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h2>刪除衝突時段</h2>
+                  <p>該時段刪除後無法復原，請問確定刪除嗎？
+                  <br>若衝突時段太多，可用「自由選擇」的方式客製化上課時間唷！</p>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" aria-label="Close">取消</button>
+                    <button type="submit" class="btn btn-submit" data-dismiss="modal" aria-label="Close">刪除</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <!-- Modal -->
+          <div class="modal fade" id="modalChangeTime" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h2>變更衝突時段</h2>
+                  <p>請選擇一個新的時段來替換衝突時段！</p>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-submit" data-dismiss="modal" aria-label="Close">我知道了</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <!-- Modal -->
+          <div class="modal fade" id="modalDeleteTime" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h2>刪除時段</h2>
+                  <p>該時段會恢復為原設定的衝突時段，請問確定刪除嗎？</p>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" aria-label="Close">取消</button>
+                    <button type="submit" class="btn btn-submit" data-dismiss="modal" aria-label="Close">刪除</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <!-- Modal -->
+<!--           <div class="modal fade" id="modalChangeTime" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h2>請選擇一個新的時段</h2>
+                  <br>
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label required" style="width: 20%;">上課日期</label>
+                      <div class="col-sm-9">
+                        <div class="input-group date pickaday">
+                          <input type="text" class="form-control" required>
+                          <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label required" style="width: 20%;">上課時間</label>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group date datetimepicker3">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                                  <span class="fa fa-clock-o"></span>
+                                </span>
+                            </div>
+                        </div>
+                      </div>
+                      <label class="col-sm-1 control-label">至</label>
+                      <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group date datetimepicker3">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                                  <span class="fa fa-clock-o"></span>
+                                </span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-default " data-dismiss="modal" aria-label="Close">取消</button>
+                    <button type="submit" class="btn btn-submit" data-dismiss="modal" aria-label="Close">確定變更</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <!-- Modal -->
+        </div>
+      </div>
+    </div>
+
+
+
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+
+    $('#annouoment-attach, #annouoment-attach2').fileinput({
+        browseLabel: '選擇檔案...',
+        cancelLabel: '取消',
+        initialPreview: [
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg'
+        ],
+        // initialPreviewShowDelete: true,
+        // initialPreviewAsData: true,
+        initialPreviewConfig: [
+            //- {caption: "飯店介紹.jpg", size: 930321, width: "120px", key: 1},
+            //- {caption: "Earth.jpg", size: 1218822, width: "120px", key: 2}
+        ],
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-zoom btn btn-xs btn-default" title="View Details"><i class="glyphicon glyphicon-zoom-in"></i></button>'+
+                    '<button type="button" class="kv-file-remove btn btn-default" {dataUrl}{dataKey}><i class="fa fa-trash"></i></button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        deleteUrl: "/site/file-delete",
+        uploadUrl: '/file-upload-batch/2',
+        overwriteInitial: true,
+        maxFileSize: 25600,
+        initialCaption: "選擇檔案",
+    });
+
+    $(document).ready(function() {
+      $('#rootwizard').bootstrapWizard({
+        onNext: function(tab, navigation, index) {
+        },
+        onTabShow: function(tab, navigation, index) {
+          console.log(index);
+          var $total = navigation.find('li').length;
+          var $current = index+1;
+          var $percent = ($current/$total) * 100;
+          $('#rootwizard .progress-bar').css({width:$percent+'%'});
+        }
+      });
+      window.prettyPrint && prettyPrint()
+    });
+
+  $("#type").change(function() {
+    var val = $(this).val();
+    if(val === "other") {
+        $("#otherType").show();
+    }else{
+      $("#otherType").hide();
+    }
+  });
+
+  var btnCust = '<button type="button" class="btn btn-info" title="Add picture tags" ' +
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="glyphicon glyphicon-tag"></i>' +
+    '</button>';
+  $("#coursePhoto").fileinput({
+      overwriteInitial: true,
+      maxFileSize: 1500,
+      showClose: false,
+      showCaption: false,
+      showBrowse: false,
+      browseOnZoneClick: true,
+      removeLabel: '',
+      removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+      removeTitle: 'Cancel or reset changes',
+      elErrorContainer: '#kv-avatar-errors-2',
+      msgErrorClass: 'alert alert-block alert-danger',
+      defaultPreviewContent: '<img src="//www.fillmurray.com/150/150" alt="Your Avatar" style="width:160px; margin:0 auto;"><h6 class="text-muted">Click to select</h6>',
+      layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
+      allowedFileExtensions: ["jpg", "png", "gif"],
+  });
+
+  //單堂分鐘*堂數=課程總長度
+  $('#classMin , #classNum').blur(function(){
+    var Min = $('#classMin').val();
+    var Num = $('#classNum').val();
+    var total = (Min*Num);
+    $('#classTotal').val(total);
+  });
+
+  
+  
+  //場地選擇===============================================================================
+   // Instantiate the Bootstrap carousel
+  $('.multi-item-carousel').carousel({
+    interval: false
+  });
+
+  $('.multi-item-carousel img').click(function(){
+      $(this).css('border','5px solid #f3b12b');
+    });
+
+  // for every slide in carousel, copy the next slide's item in the slide.
+  // Do the same for the next, next item.
+  $('.multi-item-carousel .item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+    
+    for (var i=0;i<2;i++) {
+      next=next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      
+      next.children(':first-child').clone().appendTo($(this));
+    }
+  });
+
+  var action = getUrlParameter('action');
+
+  if(action == 'edit'){
+    var tabs = $('#tab1, #tab2, #tab3, #tab5, #tab6');
+    tabs.find('input').attr('readonly',true).css('background-color','#eee');
+    tabs.find('select').attr('disabled',true).css('background-color','#eee');
+    tabs.find('textarea').attr('readonly',true).css('background-color','#eee');
+    $('.file-preview, .file-caption').css('background-color','#eee');
+    $('#tab1 input[type="radio"]').attr('disabled',true);
+  }
+
+  </script>
+</html>

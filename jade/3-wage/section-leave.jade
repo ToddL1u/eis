@@ -1,0 +1,55 @@
+section#leave
+  ul.toolbar.toolbar-right
+    li.btn-print
+  .section-block Murry 2016-01-01 ~ 2016-01-01
+    table.table.table-form
+      thead
+        tr(style="text-align:center")
+          td.table-subheader.col-sm-4 總時數(特休+補休)
+          td.table-subheader.col-sm-4 使用時數(特休+補休)
+          td.table-subheader.col-sm-4 剩餘時數(特休+補休)
+      tbody
+        tr
+          td
+            div.hour-total
+              div(style="display: flex; align-items: flex-end")
+                h1 32
+                strong.hour-unit hrs
+              div ( 22 + 10)
+          td
+            div.hour-apply
+              div(style="display: flex; align-items: flex-end")
+                h1 4
+                strong.hour-unit hrs
+              div ( 0 + 10)
+          td
+            div.hour-balance
+              div(style="display: flex; align-items: flex-end")
+                h1 32
+                strong.hour-unit hrs
+              div ( 22 + 10)
+        
+  form.form-group
+    table.table.table-list.table-sort#tableLeave
+      thead.table-subheader
+        tr
+          th 類型
+          th 生效區間
+          th 總時數
+          th 狀態
+          th 異動時間
+      tbody
+        -for(var i=0;i<5;i++){
+          tr(data-href="../4-attendance/leave-creadit-detail.html?id=123")
+            td 2012/02/03
+            td 2012/01/01 ~ 2012/01/01
+            td 20 小時
+            td 通過
+            td 2012/02/03
+        -}
+        tr(data-href="../4-attendance/leave-creadit-detail.html?id=123").table-row-warn
+          td 2012/02/03
+          td 2012/01/01 ~ 2012/01/01
+          td 20 小時
+          td 待審
+          td 2012/02/03

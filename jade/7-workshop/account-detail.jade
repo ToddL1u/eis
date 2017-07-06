@@ -1,0 +1,27 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-3
+      nav.nav
+      .wrap
+        include ../include/header-workshop-account-detail
+        .content
+          section.form-block.section-block
+            include ../include/table-account-detail
+          .text-right.m-t-5
+            button.btn.btn-default.btn-warn.btn-flat-table 匯出匯款資訊
+            a(href="account.html")
+              button.btn.btn-default.btn-flat-table 回前頁
+            
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    $('tfoot').hide();
+    $('input[type="checkbox"]').hide();

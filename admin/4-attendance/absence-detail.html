@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="attendance" class="container nav-attendance-2">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>考勤作業</li>
+              <li> <a href="absence.html">假單</a></li>
+              <li>Murry</li>
+            </ul>
+            <div class="subnav-subtitle">2016-12-18 18:00</div>
+          </div>
+        </header>
+        <div class="content">
+          <aside class="section-version">
+            <ul class="nav-version">
+              <li>2016-10-19</li>
+              <li>2016-12-12</li>
+            </ul>
+          </aside>
+          <ul class="toolbar">
+            <li class="btn-view"></li>
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+          </ul>
+          <section>
+            <div class="form-block section-block">
+              <form class="from-group">
+                <table class="table table-hover table-form table-side-header table-side-header-right">
+                  <tbody>
+                    <tr>
+                      <td class="col-sm-2">狀態</td>
+                      <td>待審</td>
+                    </tr>
+                    <tr>
+                      <td>部門</td>
+                      <td>RD</td>
+                    </tr>
+                    <tr>
+                      <td>人員</td>
+                      <td>Fill Murray</td>
+                    </tr>
+                    <tr>
+                      <td>員工編號</td>
+                      <td>9527</td>
+                    </tr>
+                    <tr class="field-cta">
+                      <td>類別</td>
+                      <td>病假</td>
+                    </tr>
+                    <tr>
+                      <td>事由</td>
+                      <td>abc</td>
+                    </tr>
+                    <tr>
+                      <td>請假區間</td>
+                      <td>2015/11/12 ~ 2015/11/12</td>
+                    </tr>
+                    <tr>
+                      <td>請假時數</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>時數折抵</td>
+                      <td>5</td>
+                    </tr>
+                    <tr class="field-proof"> 
+                      <td>證明</td>
+                      <td><a href="#" class="pop"><img src="../../assets/img/clinic.jpg" alt=""></a></td>
+                    </tr>
+                    <tr class="field-reply">
+                      <td>回覆內容</td>
+                      <td> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+              <div class="btns-group">
+                <button data-toggle="modal" data-target="#modalReject" class="btn btn-danger">退回</button>
+                <button data-toggle="modal" data-target="#modalPending" class="btn btn-warning btn-pending">待補證明</button>
+                <button data-toggle="modal" data-target="#modalConfirm" class="btn btn-success btn-pass">通過</button>
+              </div>
+            </div>
+            <section class="section-block section-history section-block"></section>
+          </section>
+        </div>
+        <footer></footer>
+        <div id="modalPending" tabindex="-1" role="dialog" aria-labelledby="modalConfirm" class="modal fade bs-example-modal-lg">
+          <div role="document" class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+              </div>
+              <div class="modal-body"> 
+                <textarea placeholder="原因" rows="5" class="form-control"></textarea>
+                <div class="btns-group">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn modal-btn-cancel">取消</button>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-warning modal-btn-2">待補</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    var proof = getUrlParameter('proof');
+    $('.field-cta').html('<td>類別</td><td>' + getUrlParameter('id')+'</td>')
+    $('.field-reply').hide();
+    if( proof == true){
+      $('.btn-pass').hide();
+    }else{
+      $('.btn-pending').hide();
+      $('.field-proof ').hide();
+    }
+    
+      
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    
+    $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+      setReplied();
+    });
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      //- setReplied();
+    });
+    
+    function setReplied(){
+      $('.field-reply').show();
+      $('.content .btns-group').hide();
+    }
+    
+    $('body').on('click','#modalPending .modal-btn-2',function(event){
+      $('.content .btns-group').hide();
+    });
+    
+    var data = [
+      {'date':'2016-10-10','state':'通過','reason':'reson1','attach':'../../assets/img/clinic.jpg','content':'content1'},
+      {'date':'2016-12-12','state':'未通過','reason':'reson1','content':'Lorem'}];
+    
+    $('.nav-version li').click(function(){
+      var select_data = data[$(this).index()];
+      var strVar='';
+      strVar += '<div class="section-title"><br/></div>';
+      strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+      strVar += '<table class="table table-form table-side-header table-side-header-right ">';
+      strVar += '<tbody>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2">狀態</td>';
+      strVar += '<td>'+ select_data.state +'</td>';
+      strVar += '</tr>';
+      
+      strVar += '<tr>';
+      strVar += '<td>類別</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>事由</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>請假區間</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>請假時數</td>';
+      strVar += '<td>';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>時數折抵</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>證明</td>';
+      strVar += '<td> <a href="#" class="pop"><img src="../../assets/img/clinic.jpg" alt=""></a></td>';
+      strVar += '</tr>';
+    
+      
+      strVar += '<tr>';
+      strVar += '<td>回覆內容</td>';
+      strVar += '<td> '+ select_data.content +'</td>';
+      strVar += '</tr>';
+      strVar += '</tbody>';
+      strVar += '</table>';
+    
+    
+      $('.section-history').html(strVar).show();
+    });
+  </script>
+</html>

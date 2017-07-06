@@ -1,0 +1,136 @@
+<div class="container">
+  <section>
+    <div class="info">
+      <h2 class="month"></h2><span class="year"></span>
+      <h6>NT$ 21720</h6>
+    </div>
+    <table class="table table-month">
+      <thead>
+        <tr>
+          <th>一</th>
+          <th>二</th>
+          <th>三</th>
+          <th>四</th>
+          <th>五</th>
+          <th>六</th>
+          <th>日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <span>1</span></td>
+          <td> <span>2</span></td>
+          <td> <span>3</span></td>
+          <td> <span>4</span></td>
+          <td> <span>5</span></td>
+          <td> <span>6</span></td>
+          <td> <span>7</span></td>
+        </tr>
+        <tr>
+          <td> <span>1</span></td>
+          <td> <span>2</span></td>
+          <td> <span>3</span></td>
+          <td> <span>4</span></td>
+          <td> <span>5</span></td>
+          <td> <span>6</span></td>
+          <td> <span>7</span></td>
+        </tr>
+        <tr>
+          <td> <span>1</span></td>
+          <td> <span>2</span></td>
+          <td> <span>3</span></td>
+          <td> <span>4</span></td>
+          <td> <span>5</span></td>
+          <td> <span>6</span></td>
+          <td> <span>7</span></td>
+        </tr>
+        <tr>
+          <td> <span>1</span></td>
+          <td> <span>2</span></td>
+          <td> <span>3</span></td>
+          <td> <span>4</span></td>
+          <td> <span>5</span></td>
+          <td> <span>6</span></td>
+          <td> <span>7</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <section class="time-block">
+      <div class="info">
+        <h2 class="month"></h2><span class="date"></span>
+        <h6>NT$ 21720</h6>
+      </div>
+      <table class="table table-time">
+        <tbody>
+          <tr>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+          </tr>
+          <tr>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+            <td> <span>09:10~10:00</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</div>
+
+
+<script>
+$('.time-block').hide();
+
+function time_refresh(){
+  $('.time-block').fadeOut();
+  $('.time-block').fadeIn();
+  $('.time-block').find('span').removeAttr('class');
+}
+
+$('.table-month span').click(function(){
+  if($(this).hasClass('active') && $(this).hasClass('inactive')){
+    $(this).parents('tbody').find('span.active').addClass('inactive');
+    $(this).removeClass('inactive');
+    time_refresh();
+  }else if($(this).hasClass('active')){
+    $(this).removeClass('active');
+    $('.time-block').hide();
+  }else{
+    $(this).parents('tbody').find('span.active').addClass('inactive');
+    $(this).addClass('active');
+    time_refresh();
+  }
+})
+
+$('.table-time span').click(function(){
+  if($(this).hasClass('active') && $(this).hasClass('inactive')){
+    $(this).parents('tbody').find('span.active').addClass('inactive');
+    $(this).removeClass('inactive');
+  }else if($(this).hasClass('active')){
+    $(this).removeClass('active');
+  }else{
+    $(this).parents('tbody').find('span.active').addClass('inactive');
+    $(this).addClass('active');
+  }
+})
+
+var d = new Date(),
+    m = d.getMonth()+1,
+    y = d.getFullYear(),
+    date = d.getDate(),
+    w = d.getDay();
+
+$('.month').text(m);
+$('.year').text(y);
+$('.date').text(date);
+alert(w);
+</script>

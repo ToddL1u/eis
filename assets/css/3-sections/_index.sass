@@ -1,0 +1,172 @@
+.logo
+  position: fixed
+  width: 150px
+  height: 20px
+  top: 40px
+  left: 50px
+
+
+.btn-primary
+  background: $success-color
+  border: none
+  color: white
+  padding: 1em
+
+.title
+  margin: 0
+  padding: 0
+  text-align: center
+  font-size: 24px
+  color: #1f95d4
+  margin-bottom: 50px
+
+.container
+  background: $primary-color
+  width: 100%
+  height: 100%
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+  overflow: hidden
+
+  // .form
+  //   margin-left: -10px
+
+.form
+  width: 500px
+  height: 500px
+  padding: 50px
+  display: flex
+  position: absolute
+  // left: 0
+  // right: 0
+  flex-direction: column
+  box-sizing: border-box
+  background: white
+  box-shadow: 0 0 20px rgba(0 , 0,0, .9)
+
+  .select
+    margin: 0
+
+  input:not(#tickRemember), select, button
+    margin-top: 1em
+    padding: 1em
+    width: 100%
+    box-sizing: border-box
+
+
+  input
+    color: #1F95D4
+    background: #dbeef4
+    border: 0
+    // outline: none
+    +placeholder
+      color: #74b9d1
+
+    &:focus
+      background: white
+      // border: 1px solid #eb6475
+      // +placeholder
+      //   color: #eb6475
+
+  input[type="checkbox"]
+    border: 1px solid $secondary-color
+  select::-ms-expand
+    display: none
+
+  .company
+    +appearance(none)
+    background: $dark-color
+    color: white
+    cursor: pointer
+    width: 100%
+    option
+      line-height: 1.5em
+
+  .select:after
+    color: white
+    +position(absolute, 5px 10px null null)
+    z-index: 1
+    // width: 10%
+    // height: 100%
+    top: 20px
+    pointer-events: none
+
+
+
+  .form-footer
+    margin-top: 10px
+    color: $success-color
+
+    &:first-child
+      float: left
+    a
+      color: $success-color
+      float: right
+      //
+
+
+footer
+  position: fixed
+  bottom: 0
+  background: white
+  width: 100%
+  padding: 10px
+
+.section-show
+  display: flex
+
+.animate-right-out
+  animation: rout 800ms ease-in-out forwards
+
+.animate-right-in
+  animation: rin 1s ease-in-out forwards
+  display: flex
+
+.animate-left-out
+  animation: lout 800ms ease-in-out forwards
+
+.animate-left-in
+  animation: lin 1s ease-in-out forwards
+  display: flex
+
+@keyframes lin
+  0%
+    transform: translateX(-300%)
+  100%
+    transform: translateX(0px)
+
+@keyframes lout
+  0%
+    transform: translateX(0px)
+  100%
+    transform: translateX(-300%)
+
+@keyframes rin
+  0%
+    transform: translateX(300%)
+  100%
+    transform: translateX(0px)
+
+@keyframes rout
+  0%
+    transform: translateX(0px)
+  100%
+    transform: translateX(300%)
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  .form
+    margin-left: -300px
+    margin-top: -300px
+
+@-moz-document url-prefix()
+  .form
+    margin-left: -300px
+    margin-top: -300px
+
+// @media screen and (-webkit-min-device-pixel-ratio:0)
+//   .form
+//     margin-left: -300px
+//     margin-top: 300px

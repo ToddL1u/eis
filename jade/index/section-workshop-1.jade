@@ -1,0 +1,286 @@
+section#workshop-1
+  .collapse-header(data-toggle="collapse" data-target="#course")
+    .table-header 開課設定
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  .section-block.collapse.in#course
+    .table-header.table-header-primary 授課時間
+    table.table.table-form.table-side-header
+      tr.form-block
+        td.col-sm-3 授課時間需晚於提案_天
+        td
+          input.form-control(type="number" readonly value="60")
+          include ../include/toolbar-delete-edit
+      tr
+
+  .collapse-header(data-toggle="collapse" data-target="#payment")
+    .table-header 講師費用
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#payment
+    .section-block
+      .table-header.table-header-primary 講師設定
+        ul.toolbar.toolbar-right.section-toolbar
+          li.btn-add
+      table.table-form(style="width: 100%;")
+        thead.table-subheader
+          tr
+            th 講師類別
+            th 場地租借折扣(%)
+            th 尾款佔講師費比例(%)
+            th 啟用模擬授課
+            th 啟用課後簡報
+            td
+        tbody
+          tr.form-block
+            td
+              input.form-control(type="text" readonly placeholder="類別名稱" value="內部員工") 
+            td
+              input.form-control(type="number" readonly value="80")
+            td
+              input.form-control(type="number" readonly value="10")
+            td
+              input(type="checkbox" disabled checked).checkbox-square
+            td
+              input(type="checkbox" disabled checked).checkbox-square
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td
+              input.form-control(type="text" readonly placeholder="類別名稱" value="離職員工") 
+            td
+              input.form-control(type="number" readonly value="80")
+            td
+              input.form-control(type="number" readonly value="10")
+            td
+              input(type="checkbox" disabled checked).checkbox-square
+            td
+              input(type="checkbox" disabled).checkbox-square
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td
+              input.form-control(type="text" readonly placeholder="類別名稱" value="外部講師") 
+            td
+              input.form-control(type="number" readonly value="80")
+            td
+              input.form-control(type="number" readonly value="10")
+            td
+              input(type="checkbox" disabled).checkbox-square
+            td
+              input(type="checkbox" disabled).checkbox-square
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td
+              input.form-control(type="text" placeholder="類別名稱") 
+            td
+              input.form-control(type="number")
+            td
+              input.form-control(type="number")
+            td
+              input(type="checkbox").checkbox-square
+            td
+              input(type="checkbox").checkbox-square
+            td
+              include ../include/toolbar-delete-edit
+    .section-block
+      .table-header.table-header-primary 手續費次數設定
+        ul.toolbar.toolbar-right.section-toolbar
+          li.btn-add
+      table.table-form
+        thead.table-subheader
+          tr
+            th 授課費金額
+            th 享_次轉帳免手續費(包含尾款)
+            td
+        tbody
+          tr.form-block
+            td
+              input.form-control(type="text" readonly value="0-5000")
+            td
+              input.form-control(type="number" readonly value="2")
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td
+              input.form-control(type="number") 
+            td
+              input.form-control(type="number")
+            td
+              include ../include/toolbar-delete-edit
+  .collapse-header(data-toggle="collapse" data-target="#finalpayment")
+    .table-header 免綁尾款
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  div.collapse.in#finalpayment
+    .section-block
+      .table-header.table-header-primary 免綁尾款設定
+        button(data-toggle="modal" data-target="#modalList").btn
+          i.fa.fa-eye(data-toggle="modal" data-target="#modalList")
+          |  未符合範本名單
+        ul.toolbar.toolbar-right.section-toolbar
+          li.btn-add-only.add-sample
+      table.table.table-form.table-side-header
+        tbody
+          tr
+            td.col-sm-3 尾款課程完畢後_天開放申請
+            td.col-sm-8.form-block
+              input.form-control(type="number" readonly value="30")
+              include ../include/toolbar-delete-edit
+          tr
+      table.table-form
+        thead.table-subheader
+          tr
+            th 範本
+            th 授課數大於_門
+            th 平均評價大於_分
+            th 系統更新時間
+            th 名單
+            td
+        tbody
+          tr.form-block
+            td
+              input.form-control(type="text" readonly placeholder="範本名稱" value="高級VIP")
+            td
+              input.form-control(type="number" readonly value="2")
+            td
+              input.form-control(type="number" readonly value="2")
+            td
+              include ../include/select-update
+            td
+              i.fa.fa-eye(data-toggle="modal" data-target="#modalListSample")
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td
+              input.form-control(type="text" readonly placeholder="範本名稱")
+            td
+              input.form-control(type="number") 
+            td
+              input.form-control(type="number")
+            td
+              include ../include/select-update
+            td
+              i.fa.fa-eye(data-toggle="modal" data-target="#modalListSample")
+            td
+              include ../include/toolbar-delete-edit
+    .section-block
+      .table-header.table-header-primary 免綁尾款 (白) -特別名單
+        ul.toolbar.toolbar-right.section-toolbar
+          li(data-toggle="modal" data-target="#modalListAll").btn-add-only
+      form.form-group
+        table.table-form.table-row
+          thead.table-subheader
+            tr
+              th 新增名單
+            tbody
+              tr
+                td
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly) 
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+              tr
+      hr
+      .table-header.table-header-primary 綁尾款 (黑) -特別名單
+      form.form-group
+        table.table-form.table-row
+          thead.table-subheader
+            tr
+              th 新增名單
+            tbody
+              tr
+                td
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly value="Todd Liu")
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+                  .form-block.table-row-group
+                    input.form-control(type="text" readonly) 
+                    ul.toolbar.toolbar-right
+                      li.btn-delete(data-toggle="modal" data-target="#modalDelete")
+                      li.btn-edit-only(data-toggle="modal" data-target="#modalListPersonal")
+              tr
+  .collapse-header(data-toggle="collapse" data-target="#proposal")
+    .table-header 開課須知
+    hr
+    i.fa.fa-angle-down
+    i.fa.fa-angle-right
+  .section-block.collapse.in#proposal
+    .table-header.table-header-primary 開課須知內容
+      ul.toolbar.toolbar-right.section-toolbar
+        li
+          input.form-control(type="text" placeholder="search")
+        li(data-toggle="modal" data-target="#modalMarkdown").btn-add-only
+    table.table-form(style="width: 100%;")
+      thead.table-subheader
+        tr
+          th.col-sm-2 啟用
+          th.col-sm-8 範本標題
+          th.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            input(type="checkbox" disabled checked).checkbox-square
+          td
+            input.form-control(type="text" value="如何提案" readonly data-toggle="popover" data-trigger="hover").field-content-title 
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+        -for(var i=0;i<4;i++){
+          tr.form-block
+            td 
+              input(type="checkbox" disabled).checkbox-square
+            td
+              input.form-control(type="text" value="收費規則#{i+1}" readonly data-toggle="popover" data-trigger="hover").field-content-title 
+            td
+              ul.toolbar
+                include ../include/toolbar-delete
+                li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+        -}
+        tr.form-block
+          td 
+            input(type="checkbox" disabled ).checkbox-square
+          td
+            input.form-control(type="text" value="" readonly).field-content-title 
+          td
+            ul.toolbar
+              include ../include/toolbar-delete
+              li(data-toggle="modal" data-target="#modalMarkdown").btn-edit-only
+    include ../include/pagination
+    .float-content
+
+
+

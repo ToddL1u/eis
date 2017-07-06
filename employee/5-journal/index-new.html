@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/fileinput_locale_fr.js"></script>
+    <script src="../../assets/js/fileinput_locale_es.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="journal" class="container">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <ul class="aydyn-breakcrumb">
+                <li><a href="index.html">工作日誌</a></li>
+                <li><a href="index.html">每日工作進度</a></li>
+                <li>新增</li>
+            </ul>
+          </div>
+          <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">日期</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='selectDate'>
+                      <input type='text' class="form-control" placeholder="Select Date">
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">主要工作項目</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="請填寫主要工作項目">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">我有話要說</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" placeholder="請填寫工作需求">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">檔案上傳</label>
+                <div id="fieldUpload" class="col-sm-9">
+                  <input id="annouoment-attach" name="input24[]" type="file" multiple class="file-loading">
+                </div>
+              </div>
+
+              <!-- Add Input Fields -->
+              <div class="form-group">
+                <label class="col-sm-2 control-label">工作內容</label>
+                <div class="col-sm-5">
+                  <button type="button" class="btn btn-submit btn-input btn-add add-field-button"><span class="fa fa-plus"></span>新增一筆欄位</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <label class="control-label note">*最多新增10筆</label>
+                </div>
+                
+              </div>
+
+              <div class="form-group ">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="請詳細填寫工作內容">
+                </div>
+                <div class="col-sm-1">
+                  <input type="number" class="form-control hr" placeholder="0">
+                </div>
+                <label class="col-sm-0 control-label">HR</label> 
+              </div>
+
+              <div class="input-fields-wrap">
+              </div>
+              <!-- Add Input Fields -->
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">總工時</label>
+                <div class="col-sm-1">
+                  <input type="text" id="total" class="form-control" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label note">*系統自動加總</label>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button type="reset" class="btn btn-default">Clear</button>
+                  <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </section>
+          <button type="button" id="back" class="btn btn-default" data-href="index.html"><span class="fa fa-reply"></span>Back</button>
+        </div>
+        <footer></footer>
+        <!-- Modal -->
+        <div class="modal fade" id="modalDelete" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+              <div class="modal-title">
+                <h2>確定離開當前頁面？</h2>
+                <p>您尚未將編輯過的表單送出，資料將會流失</p>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12 text-center">
+                  <button type="button" class="btn btn-default " data-dismiss="modal" aria-label="Close">Cancel</button>
+                  <a href="index.html" type="submit" class="btn btn-submit" aria-label="Close">Leave</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+    
+
+    
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('#annouoment-attach').fileinput({
+        browseLabel: '選擇檔案...',
+        cancelLabel: '取消',
+        initialPreview: [
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg'
+        ],
+        // initialPreviewShowDelete: true,
+        // initialPreviewAsData: true,
+        initialPreviewConfig: [
+            //- {caption: "飯店介紹.jpg", size: 930321, width: "120px", key: 1},
+            //- {caption: "Earth.jpg", size: 1218822, width: "120px", key: 2}
+        ],
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-zoom btn btn-xs btn-default" title="View Details"><i class="glyphicon glyphicon-zoom-in"></i></button>'+
+                    '<button type="button" class="kv-file-remove btn btn-default" {dataUrl}{dataKey}><i class="fa fa-trash"></i></button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        deleteUrl: "/site/file-delete",
+        uploadUrl: '/file-upload-batch/2',
+        overwriteInitial: true,
+        maxFileSize: 25600,
+        initialCaption: "選擇檔案",
+    });
+
+    $('#back').click(function(){
+      var check = 0;
+      $('#myForm input[type!="checkbox"]').each(function(index, item){
+        if(item.value != '')check++;
+      });
+      $('#myForm select').each(function(index, item){
+        if(item.value != '')check++;
+      });
+      if(check > 0){
+        $('#modalDelete').modal('show');
+      }else{
+        $href = $(this).data('href');
+        window.location.href = $href;
+      }
+    });
+
+    var max_fields      = 11; //maximum input boxes allowed
+    var wrapper         = $(".input-fields-wrap"); //Fields wrapper
+    var add_button      = $(".add-field-button"); //Add button ID
+    
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div class="form-group "><label class="col-sm-2 control-label"></label><div class="col-sm-8"><input type="text" class="form-control" placeholder="請詳細填寫工作內容"></div><div class="col-sm-1"><input type="number" class="form-control hr" placeholder="0"></div><a href="#" class="remove_field"><span class="fa fa-trash"></span></a></div></div>'); //add input box
+        }
+    });
+    
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+  </script>
+</html>

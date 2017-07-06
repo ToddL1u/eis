@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="wage" class="container nav-wage-2 nav-monthly-salary">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>薪資作業</li>
+              <li>當月薪資</li>
+            </ul>
+            <div class="subnav-subtitle">
+              <ul class="toolbar toolbar-right">
+                <li class="btn-expand toolbar-btn-hide"></li>
+                <li class="btn-collapse"></li>
+              </ul>
+            </div>
+            <form class="subnav-search">
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">對象</span><span class="select select-dark">
+                  <select class="form-control select-deps">
+                    <option value="0">全體部門</option>
+                  </select></span><span class="select select-dark">
+                  <select class="form-control select-employee">
+                    <option value="0">全體人員</option>
+                  </select></span></div>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">區間</span>
+                <ul class="select-date">
+                  <li><span class="select select-dark">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-months form-control"></select></span></li>
+                </ul><span class="select-date-label-to"></span>
+                <ul class="select-date">
+                  <li><span class="select select-dark">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-months form-control"></select></span></li>
+                </ul>
+              </div>
+              <div class="search-form-buttons">
+                <button type="reset" class="btn btn-default">Reset</button>
+                <button tＦype="submit" class="btn btn-default"><span class="fa fa-search"></span>Searching</button>
+              </div>
+            </form>
+          </div>
+        </header>
+        <div class="content on-search">
+          <ul class="toolbar toolbar-right">
+            <li class="btn-export"></li>
+          </ul>
+          <table id="tableSalary" class="table table-list table-sort">
+            <thead class="table-subheader">
+              <tr>
+                <th class="col-sm-2">薪資區間</th>
+                <th class="col-sm-1">部門</th>
+                <th class="col-sm-1">姓名</th>
+                <th class="col-sm-1">全薪</th>
+                <th class="col-sm-2">綜合加項</th>
+                <th class="col-sm-2">綜合扣項</th>
+                <th class="col-sm-1">新制退休金</th>
+                <th class="col-sm-1">實領總額</th>
+                <td class="col-sm-1"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>2016 /10</td>
+                <td>設計</td>
+                <td>Fill</td>
+                <td>45000
+                </td>
+                <td>700
+                </td>
+                <td>500
+                </td>
+                <td>700
+                </td>
+                <td>45000</td>
+                <td>
+                  <ul class="toolbar">
+                    <li><a href="monthly-caculation-detail.html" class="btn-edit-only"></a></li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="table-pagination">
+            <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+            <li> <a href="#" class="page-active">1</a>
+            </li>
+            <li> <a href="#">2</a>
+            </li>
+            <li> <a href="#">3</a>
+            </li>
+            <li> <a href="#">4</a>
+            </li>
+            <li> <a href="#">5</a>
+            </li>
+            <li> <a href="#">6</a>
+            </li>
+            <li> <a href="#">7</a>
+            </li>
+            <li> <a href="#">8</a>
+            </li>
+            <li> <a href="#">9</a>
+            </li>
+            <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+          </ul>
+        </div>
+        <footer></footer>
+        <div id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalConfirm" class="modal fade bs-example-modal-lg">
+          <div role="document" class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+              </div>
+              <div class="modal-body"> 
+                <section>
+                  <form class="form-group">
+                    <div class="section-block">綜合加項
+                      <table class="table-form table">
+                        <thead class="table-subheader">
+                          <tr>
+                            <th class="col-sm-6">項目</th>
+                            <th>金額</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>獎金</td>
+                            <td> 
+                              <input type="number" class="form-control">
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>其他加項</td>
+                            <td> 
+                              <input type="number" class="form-control">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </form>
+                </section>
+                <div class="btns-group">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn">取消</button>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-success">確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    //- $('tbody tr td:not(:last-child)').click(function(){
+    //-   $(this).parents('tr').find('.salary-detail').toggle('.salary-detail-show');
+    //- })
+    function init() {
+      $('#tableSalary').tablesorter();
+        //- var sorter = tsorter.create('tableSalary');
+    }
+    window.onload = init;
+    //- $('.salary-detail').click(function(event){
+    //-   $(this).addClass('.salary-detail-show');
+    //- });
+  </script>
+</html>

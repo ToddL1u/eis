@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="personnel" class="container nav-personnel">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>人事作業</li>
+            </ul>
+            <div class="subnav-subtitle">
+              <ul class="toolbar toolbar-right">
+                <li class="btn-expand toolbar-btn-hide"></li>
+                <li class="btn-collapse"></li>
+              </ul>
+            </div>
+            <form class="subnav-search"><span>* 表示可多選</span>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">狀態*</span>
+                <ul>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">正式
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">試用期
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">待入職
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">待面試
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">未審履歷
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">離職
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">對象</span><span class="select select-dark">
+                  <select class="form-control select-deps">
+                    <option value="0">全體部門</option>
+                  </select></span><span class="select select-dark">
+                  <select class="form-control select-employee">
+                    <option value="0">全體人員</option>
+                  </select></span></div>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">工作經驗</span><span class="select select-dark">
+                  <select class="form-control select-exp">
+                    <option value="0">不限制</option>
+                    <option value="1">0~5</option>
+                    <option value="2">6~10</option>
+                    <option value="3">11~15</option>
+                  </select></span></div>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">語言*</span><span class="select select-dark">
+                  <select class="form-control select-exp">
+                    <option value="0" selected disabled>選擇一種語言</option>
+                    <option value="1">西班牙語</option>
+                    <option value="2">德語</option>
+                    <option value="3">俄語</option>
+                  </select></span>
+                <ul>
+                  <li>
+                    <div style="margin-top: 7px;" class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">中文
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div style="margin-top: 7px;" class="checkbox">
+                      <label> 
+                        <input type="checkbox" class="checkbox-square checkbox-square-dark">英文
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="search-form-buttons">
+                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="submit" class="btn btn-default"><span class="fa fa-search"></span>Searching</button>
+              </div>
+            </form>
+          </div>
+        </header>
+        <div class="content on-search">
+          <ul class="toolbar toolbar-right">
+            <li class="btn-export"></li>
+            <li><a href="personal.html?action=add" class="btn-add"></a></li>
+          </ul>
+          <section> 
+            <table id="tablePersonnel" class="table table-hover table-list table-sort">
+              <thead class="table-subheader">
+                <tr>
+                  <th class="col-sm-1">部門</th>
+                  <th class="col-sm-1">員工編號</th>
+                  <th class="col-sm-1">出勤卡號</th>
+                  <th class="col-sm-1">姓名</th>
+                  <th class="col-sm-1">居住地</th>
+                  <th class="col-sm-2">教育背景</th>
+                  <th class="col-sm-3">飲食禁忌</th>
+                  <th class="col-sm-2">狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+                <tr data-href="personal.html">
+                  <td>設計</td>
+                  <td>DS0006</td>
+                  <td>1234567</td>
+                  <td>Fill Murray</td>
+                  <td>台北市 內湖區</td>
+                  <td>
+                     
+                    雲林科技大學(碩)<br>創意生活設計系
+                  </td>
+                  <td>無</td>
+                  <td>試用期</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="table-pagination">
+              <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+              <li> <a href="#" class="page-active">1</a>
+              </li>
+              <li> <a href="#">2</a>
+              </li>
+              <li> <a href="#">3</a>
+              </li>
+              <li> <a href="#">4</a>
+              </li>
+              <li> <a href="#">5</a>
+              </li>
+              <li> <a href="#">6</a>
+              </li>
+              <li> <a href="#">7</a>
+              </li>
+              <li> <a href="#">8</a>
+              </li>
+              <li> <a href="#">9</a>
+              </li>
+              <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+            </ul>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../../assets/js/function.js"></script>
+<script>
+  function init() {
+    $('#tablePersonnel').tablesorter();
+      //- var sorter = tsorter.create('tablePersonnel');
+  }
+  window.onload = init;
+    
+</script>

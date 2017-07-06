@@ -1,0 +1,185 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-1
+      nav.nav
+      .wrap
+        include ../include/header-workshop-application
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+          table.table.table-list.table-sort#tableCourse
+            thead.table-subheader
+              tr
+                th 開課時間
+                th 類別
+                th 課程名稱
+                th 講師姓名
+                th 狀態
+                th 進度
+                th 發佈
+                td
+                th 異動時間
+            tbody
+              -for(var i=0;i<2;i++){
+                tr(data-href="course-detail.html?status=unchecked")
+                  td 2016/10/10
+                  td 烘焙料理
+                  td 懶人電鍋料理
+                  td Kelly Lin (外)
+                  td 待審
+                  td --
+                  td 0
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=pass")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 待發佈
+                  td 0
+                  td
+                    button.btn.btn-warning.btn-flat-table(data-href="course-post.html") 發佈
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=pass")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 待發佈
+                  td 0
+                  td
+                    button.btn.btn-danger.btn-flat-table 發佈
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<2;i++){
+                tr(data-href="course-detail.html?status=practice")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 待模擬授課
+                  td 1
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<2;i++){
+                tr(data-href="course-detail.html?status=wait")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 待授課
+                  td 1
+                  td
+                    button.btn.btn-warning.btn-flat-table(data-href="course-post.html?action=postagain") 發佈
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=onclass")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 上課中
+                  td 1
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=report")
+                  td 2016/10/10
+                  td 運動體能
+                  td 王牌足球員入門班
+                  td David Beckham (離)
+                  td 通過
+                  td 待簡報
+                  td 1
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<2;i++){
+                tr(data-href="course-detail.html?status=pay")
+                  td 2016/10/10
+                  td 程式語言
+                  td JavaScript程式設計新手村
+                  td Alex Wang (內)
+                  td 通過
+                  td 待尾款
+                  td 1
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=cancel")
+                  td 2016/10/10
+                  td 程式語言
+                  td JavaScript程式設計新手村
+                  td Alex Wang (內)
+                  td 課程取消
+                  td --
+                  td 2
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=notpass")
+                  td 2016/10/10
+                  td 程式語言
+                  td JavaScript程式設計新手村
+                  td Alex Wang (內)
+                  td 未通過
+                  td --
+                  td 0
+                  td
+                  td 2016/11/09 09:38
+              -}
+              -for(var i=0;i<1;i++){
+                tr(data-href="course-detail.html?status=finished")
+                  td 2016/10/10
+                  td 程式語言
+                  td JavaScript程式設計新手村
+                  td Alex Wang (內)
+                  td 通過   
+                  td 結業              
+                  td 1
+                  td
+                  td 2016/11/09 09:38
+              -}
+
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script(src="../../assets/js/bootstrap-datetimepicker.min.js")
+  script.
+    function init() {
+      $('#tableCourse').tablesorter();
+      //- var sorter = tsorter.create('tableSalary');
+    }
+    window.onload = init;
+
+    $('table').find('td:contains("通過")').css('color','#24aca8 ');
+    $('table').find('td:contains("待審")').css('color','#e89313');
+    $('table').find('td:contains("未通過")').css('color','#ea6374');
+    $('table').find('td:contains("課程取消")').css('color','#a0a0a0');
+
+    $('button.btn.btn-danger.btn-flat-table').click(function(){
+      $('#modalOverTime').modal('show');
+    })

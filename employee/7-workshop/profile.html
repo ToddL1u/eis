@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="workshop" class="container nav-workshop-1">
+      <header class="header"></header>
+      <div class="wrap">
+        <nav class="nav"></nav>
+        <div class="content">
+          <div class="info">
+            <div class="title">
+              <h3>工作坊</h3>
+              <h2>個人資料</h2>
+            </div>
+            <section>
+              <div class="info">
+                <img class="avatar-workshop" src="//www.fillmurray.com/150/150">
+                <a href="#" data-toggle="modal" data-target="#modalAvatar">
+                  <div class="upload-ca">
+                    <i class="fa fa-camera"></i>
+                  </div>
+                </a>
+                <div class="information">
+                  <div class="name">Todd Liu</div>
+                  <div class="jobtitle">
+                    <label class="decs">您的職業</label>
+                    <label class="info-content"></label>
+                    <input type="text" class="form-control" placeholder="您的職業">
+                    <button class="btn btn-default cancel">取消</button>
+                    <button class="btn btn-submit sure">確定</button>
+                    <button class="btn edit btn-icon">
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                  </div>
+                  <ul class="social-media">
+                    <label class="decs">社群網站</label>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-home"></i></a></li>
+                    <button class="btn btn-icon" data-toggle="modal" data-target="#smModal"><i class="fa fa-pencil"></i></button>
+                  </ul>
+                  <div class="teach-course"><a href="course.html">開過6堂課</a> / <a href="course.html">上過3堂課</a></div>
+                </div>
+              </div>
+              <div class="introduction">
+                <label class="decs">自我介紹</label>
+                <div class="info-content"></div>
+                <textarea class="form-control" rows="5"></textarea>
+                <button class="btn btn-default cancel">取消</button>
+                <button class="btn btn-submit sure">確定</button>
+                <button class="btn edit btn-icon">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </div>
+              <div class="private">
+                <div class="private-title">
+                  非公開資料
+                  <span class="small-text">(將不會顯示於個人頁面)</span>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Email</label>
+                  <div class="jobtitle">
+                    <label class="decs">example@mail.com</label>
+                    <label class="info-content"></label>
+                    <input type="text" class="form-control" placeholder="example@mail.com">
+                    <button class="btn btn-default cancel">取消</button>
+                    <button class="btn btn-submit sure">確定</button>
+                    <button class="btn edit btn-icon">
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">連絡電話</label>
+                  <div class="jobtitle">
+                    <label class="decs">0000-000-000</label>
+                    <label class="info-content"></label>
+                    <input type="text" class="form-control" placeholder="0000-000-000">
+                    <button class="btn btn-default cancel">取消</button>
+                    <button class="btn btn-submit sure">確定</button>
+                    <button class="btn edit btn-icon">
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">個人帳戶</label>
+                  <div class="jobtitle">
+                    <label class="decs">3碼銀行代碼-銀行帳戶</label>
+                    <label class="info-content"></label>
+                    <input type="text" class="form-control" placeholder="000-XXXXXXXXXXXXXX">
+                    <button class="btn btn-default cancel">取消</button>
+                    <button class="btn btn-submit sure">確定</button>
+                    <button class="btn edit btn-icon">
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- 開過的課 -->
+        <!--     <div class="class-type">
+              <div class="class-type-title">我開過的課</div>
+              <a href="course.html"><button class="btn btn-default class-type-btn">全部課程<i class="fa fa-angle-double-right"></i></button></a>
+            </div>
+            <div class="row">
+              <div class="course-item">
+                <a href="course-view-teacher.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-pass">報名中!!</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="course-item">
+                <a href="course-view-teacher.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-success">上課中</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="course-item">
+                <a href="course-view-teacher.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-success">上課中</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="course-item">
+                <a href="course-view-teacher.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-over">課程結束</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <hr> -->
+            <!-- 上過的課 -->
+        <!--     <div class="class-type">
+              <div class="class-type-title">我上過的課</div>
+                <a href="course.html"><button class="btn btn-default class-type-btn">全部課程<i class="fa fa-angle-double-right"></i></button></a>
+            </div>
+            <div class="row">
+              <div class="course-item">
+                <a href="course-view.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-success">上課中</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="course-item">
+                <a href="course-view.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-success">上課中</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="course-item">
+                <a href="course-view.html">
+                  <div class="thumbnail">
+                    <div class="photo"></div>
+                    <div class="tag tag-over">課程結束</div>
+                    <div class="caption">
+                      <h3>PHP+MySQL 動態網頁入門</h3>
+                      <p><em>with</em> Todd Liu</p>
+                      <div class="cost">
+                        <div class="classmate"><i class="fa fa-users"></i>10</div>
+                        <div class="money">NT$ <span>1200</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div> -->
+          </div>
+          <footer></footer>
+          <!-- Modal -->
+          <div class="modal fade" id="smModal" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+                <div class="modal-title">
+                  <h3>個人資料</h3>
+                  <h2>社群網站</h2>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-facebook"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control facebook" placeholder="Facebook">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-twitter"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control twitter" placeholder="Twitter">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-google-plus"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control google-plus" placeholder="Google+">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-behance"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control behance" placeholder="Behance">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-youtube"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control youtube" placeholder="YouTube">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label"><i class="fa fa-home"></i></label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control home" placeholder="Website">
+                    </div>
+                  </div>
+                </form>
+                <div class="group">
+                  <button class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button class="btn btn-submit btn-sm-icon" data-dismiss="modal">確定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    // 顯示social media sm-icon
+    $(".social-media li").hide();
+    $(".btn-sm-icon").click(function(){
+      if(!$('input.facebook').val()){
+        $('.social-media li:nth-child(2)').hide();
+      }else {
+        $('.social-media li:nth-child(2)').show();
+      };
+      if(!$('input.twitter').val()){
+        $('.social-media li:nth-child(3)').hide();
+      }else {
+        $('.social-media li:nth-child(3)').show();
+      };
+      if(!$('input.google-plus').val()){
+        $('.social-media li:nth-child(4)').hide();
+      }else {
+        $('.social-media li:nth-child(4)').show();
+      };
+      if(!$('input.behance').val()){
+        $('.social-media li:nth-child(5)').hide();
+      }else {
+        $('.social-media li:nth-child(5)').show();
+      };
+      if(!$('input.youtube').val()){
+        $('.social-media li:nth-child(6)').hide();
+      }else {
+        $('.social-media li:nth-child(6)').show();
+      };
+      if(!$('input.home').val()){
+        $('.social-media li:nth-child(7)').hide();
+      }else {
+        $('.social-media  li:nth-child(7)').show();
+      };
+      var showText = false;
+      $('#smModal input').each(function(){
+        if($(this).val() != '') showText = true;
+      });
+
+      showText ? $(".social-media label").hide() : $(".social-media label").show();
+    })
+
+
+    $(".sure ,.cancel, textarea, .introduction .info-content").hide();
+     // 點擊編輯執行
+      $(".edit").click(function(){
+        $(this).hide().siblings("button").show().siblings("label").hide();
+        $(this).siblings(".form-control").show().val($(this).siblings(".info-content").text());
+        $(this).siblings(".info-content").hide().siblings("textarea").show().text($(this).siblings(".info-content").val());
+      });
+      // 點擊確定執行
+      $(".sure").click(function(){
+        $(this).hide().siblings(".cancel").hide().siblings(".edit").show().siblings("input, textarea").hide();
+        if(!$(this).siblings(".form-control").val()){
+            $(this).siblings(".info-content").text($(".form-control").val()).hide().siblings(".decs").show();
+            }else{
+            $(this).siblings(".decs").hide().siblings(".info-content").show().text($(this).siblings(".form-control").val());
+            }  
+      });
+      // 點擊取消
+       $(".cancel").click(function(){
+         $(this).hide().siblings(".sure").hide().siblings(".edit").show();
+         $(this).siblings(".form-control").hide().val($(this).siblings(".info-content").text());
+         if(!$(this).siblings(".form-control").val()){
+            $(this).siblings(".decs").show();
+            }else{
+            $(this).siblings(".info-content").show();
+            }
+       });
+
+  </script>
+</html>

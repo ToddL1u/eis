@@ -1,0 +1,113 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  mixin slaryDetail(items)
+    ul.salary-detail
+      -each item in items
+        li
+          span #{item.name}
+          span #{item.amount}
+  body
+    #wage.container.nav-wage-2.nav-monthly-salary
+      nav.nav
+      .wrap
+        include ../include/header-monthly-caculation
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+            
+          table.table.table-list.table-sort#tableSalary
+            thead.table-subheader
+              tr
+                th.col-sm-2 薪資區間
+                th.col-sm-1 部門
+                th.col-sm-1 姓名
+                th.col-sm-1 全薪
+                th.col-sm-2 綜合加項
+                th.col-sm-2 綜合扣項
+                th.col-sm-1 新制退休金
+                th.col-sm-1 實領總額
+                td.col-sm-1
+            tbody
+            
+              -for(var i=0;i<12;i++){
+                tr
+                  td 2016 /10
+                  td 設計
+                  td Fill
+                  td 45000
+                    //- +slaryDetail([
+                    //-   {'name':'底薪','amount':500},
+                    //-   {'name':'伙食津貼','amount':500}])
+                  td 700
+                    //- +slaryDetail([
+                    //-   {'name':'誤餐費(NT$100/日)','amount':500},
+                    //-   {'name':'夜點費(NT$200/日)','amount':500},
+                    //-   {'name':'獎金','amount':500},
+                    //-   {'name':'其他加項','amount':500}])
+                  td 500
+                    //- +slaryDetail([
+                    //-   {'name':'請假','amount':500},
+                    //-   {'name':'勞保費','amount':500},
+                    //-   {'name':'健保費(自)','amount':500},
+                    //-   {'name':'健保費(眷)','amount':500},
+                    //-   {'name':'其他扣項','amount':500}])
+                  td 700
+                    //- +slaryDetail([
+                    //-   {'name':'公司提撥','amount':500},
+                    //-   {'name':'員工自提','amount':500}])
+                  td 45000
+                  td
+                    ul.toolbar
+                      li
+                        a(href="monthly-caculation-detail.html").btn-edit-only
+              -}
+                
+          include ../include/pagination
+        footer
+        .modal.fade.bs-example-modal-lg#modalEdit(tabindex="-1" role="dialog" aria-labelledby="modalConfirm")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                section
+                  form.form-group
+                    .section-block 綜合加項
+                      table.table-form.table
+                        thead.table-subheader
+                          tr
+                            th.col-sm-6 項目
+                            th 金額
+                        tbody
+                          tr
+                            td 獎金
+                            td 
+                              input.form-control(type="number")
+                          tr
+                            td 其他加項
+                            td 
+                              input.form-control(type="number")
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn 取消
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-success 確認
+  script(src="../../assets/js/function.js")
+  script.
+    //- $('tbody tr td:not(:last-child)').click(function(){
+    //-   $(this).parents('tr').find('.salary-detail').toggle('.salary-detail-show');
+    //- })
+    function init() {
+      $('#tableSalary').tablesorter();
+        //- var sorter = tsorter.create('tableSalary');
+    }
+    window.onload = init;
+    //- $('.salary-detail').click(function(event){
+    //-   $(this).addClass('.salary-detail-show');
+    //- });

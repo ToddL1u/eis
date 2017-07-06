@@ -1,0 +1,125 @@
+nav.nav
+  width: 300px
+  position: fixed
+  z-index: 1
+  background: $primary-color
+  height: 100vh
+  height: 100%
+  padding-bottom: 30px
+  overflow: overlay
+
+  .fa
+    color: white
+    font-size: 10px
+    float: right
+    margin-top: 5px
+    margin-right: 30px
+    line-height: 20px
+
+  .arrow-open
+    display: none
+
+  .profile
+    padding: 40px 0 40px 30px
+
+    .avatar
+      border-radius: 100%
+      width: 50px
+      height: 50px
+
+  .profile, h3
+    color: white
+
+  h3
+    font-size: 1.2em
+
+
+  ul
+    font-size: 1.1em
+    margin: 0
+    padding: 0
+    a
+      color: rgba(255, 255, 255, .5)
+
+  ul
+    .nav-group
+      position: relative
+      padding: 15px 10px 15px 40px
+      display: block
+      &:hover
+        background: $secondary-color
+        >a
+          color: white
+
+    li
+      list-style: none
+      position: relative
+      padding: 5px
+
+
+    .dropdown
+      padding: 2px 10px
+      display: none
+      a
+        color: rgba(255, 255, 255, .5)
+        &:hover
+          color: white
+
+
+.nav-item-active
+  color: white
+  // pointer-events: none
+
+#company #nav-company,
+#bonus #nav-bonus,
+#personnel #nav-personnel,
+#wage #nav-wage,
+#attendance #nav-attendance,
+#training #nav-training,
+#journal #nav-journal,
+#index #nav-index,
+#profile #nav-profile,
+#application #nav-application,
+#workshop #nav-workshop,
+  background: $secondary-color
+  .badge-parents
+    display: none
+  >a
+    @extend .nav-item-active
+    .arrow-close
+      display: none
+    .arrow-open
+      display: block
+  .dropdown
+    display: block
+
+@for $i from 1 through 3
+  .nav-company-#{$i} #nav-company .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 2
+  .nav-bonus-#{$i} #nav-bonus .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 6
+  .nav-wage-#{$i} #nav-wage .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 4
+  .nav-attendance-#{$i} #nav-attendance .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 4
+  .nav-application-#{$i} #nav-application .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 2
+  .nav-training-#{$i} #nav-training .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+@for $i from 1 through 4
+  .nav-workshop-#{$i} #nav-workshop .dropdown li:nth-child(#{$i}) a
+    @extend .nav-item-active
+
+.nav-personnel #nav-personnel, .nav-training #nav-training, .nav-journal #nav-journal, .nav-index #nav-index, .nav-profile #nav-profile
+  @extend .nav-item-active

@@ -1,0 +1,185 @@
+section#profile.form-block
+  ul.toolbar.toolbar-right
+    li.btn-print
+    include ../include/toolbar-edit
+  .section-block
+    form.form-group#formProfile
+      #kv-avatar-errors-1.center-block
+      form.text-center(action="/avatar_upload.php" method="post" enctype="multipart/form-data")
+        .kv-avatar.center-block
+          input#avatar-1.file-loading(name="avatar-1" type="file")
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 中文姓名
+          td.col-sm-4
+            input.form-control(type="text" placeholder="姓氏" readonly value="陳")
+            input.form-control(type="text" placeholder="名字" readonly value="圈圈")
+          td.col-sm-2 英文姓名
+          td.col-sm-4
+            input.form-control(type="text" placeholder="First name" readonly value="Circle")
+            input.form-control(type="text" placeholder="Last name" readonly value="Chen")
+        tr
+          td.col-sm-2 帳號
+          td.col-sm-4
+            input.form-control(type="text" placeholder="帳號" readonly value="")
+          td.col-sm-2 密碼
+          td.col-sm-4
+            input.form-control(type="text" placeholder="密碼" readonly value="")
+        tr.table-row-highligh
+          td 部門
+          td(colspan="3")
+            input.form-control(type="text" placeholder="部門" readonly value="")
+        tr.table-row-highligh
+          td 職稱
+          td
+            input.form-control(type="text" placeholder="職稱" readonly value="")
+          td 職級
+          td
+            input.form-control(type="text" placeholder="職級" readonly value="")
+        tr.table-row-highligh
+          td 員工編號
+          td
+            input.form-control(type="text" placeholder="員工編號" readonly value="")
+          td 出勤卡號
+          td
+            input.form-control(type="text" placeholder="出勤卡號" readonly value="")
+        tr.table-row-highligh
+          td 到職日
+          td(colspan="3")
+            include ../include/select-date-disabled
+        tr.table-row-highligh
+          td 預計轉正職日
+          td
+            include ../include/select-date-disabled
+          td 實際轉正職日
+          td
+            include ../include/select-date-disabled
+        tr.table-row-highligh
+          td 預計離職日
+          td
+            include ../include/select-date-disabled
+          td 實際離職日
+          td
+            include ../include/select-date-disabled
+        tr
+          td 生日
+          td(colspan="3") 
+            include ../include/select-date-disabled
+        tr
+          td 身分證字號
+          td
+            input.form-control(type="text" placeholder="身分證字號" readonly value="")
+          td 國別
+          td
+            span.select
+              select.form-control(disabled)
+                option(selected disabled) 請選擇國別
+                option 台灣
+                option 國家A
+                option 國家B
+                option 國家C
+        tr
+          td 性別
+          td
+            span.select
+              select.form-control(disabled)#gender
+                option(value="0") 男
+                option(value="1") 女
+          td 血型
+          td
+            span.select
+              select.form-control(disabled)
+                -var bloodtype = ["O","A","B","AB"]
+                -each type in bloodtype
+                  option(value="")=type
+        tr
+          td 身高(cm)
+          td
+            input.form-control(type="number" readonly value="")
+          td 體重(kg)
+          td
+            input.form-control(type="number" readonly value="")
+        tr
+          td 婚姻狀況
+          td(colspan="3")
+            span.select
+              select.form-control(disabled)
+                option(value="") 未婚
+                option(value="") 已婚
+        tr.female-group
+          td 懷孕
+          td
+            select.form-control(disabled)
+              option(value="") 懷孕
+              option(value="") 未懷孕
+        tr.male-group
+          td 役別
+          td
+            span.select
+              select.form-control(disabled)
+                option(selected disabled) 請選擇役別
+                -var items = ["義務役","國民役","志願役","替代役","免役"]
+                -each item in items
+                  option(value="")=item
+            
+          td 兵種
+          td
+            span.select
+              select.form-control(disabled)
+                option(selected disabled) 請選擇軍種
+                -var items = ["陸軍","海軍","空軍"]
+                -each item in items
+                  option(value="")=item
+        tr.male-group
+          td 期間
+          td
+            input.form-control(type="text" placeholder="期間" readonly value="")
+          td 免役原因
+          td
+            input.form-control(type="text" placeholder="免役原因" readonly value="")
+        tr
+          td 連絡電話
+          td(colspan="3")
+            input.form-control(type="email" readonly value="XXXX-XXX-XXX")
+        tr
+          td Email
+          td(colspan="3")
+            input.form-control(type="email" readonly value="Email")
+        tr
+          td 通訊地址
+          td(colspan="3")
+            ul.select-address
+              li
+                span.select
+                  select.county.form-control(disabled)
+              li
+                span.select
+                  select.district.form-control(disabled)
+              li
+                input.form-control(type="text" placeholder="通訊地址" readonly value="")
+        tr
+          td 戶籍地址
+          td(colspan="3")
+            ul.select-address
+              li
+                span.select
+                  select.county.form-control(disabled)
+              li
+                span.select
+                  select.district.form-control(disabled)
+              li
+                input.form-control(type="text" placeholder="戶籍地址" readonly value="")
+        tr
+          td 緊急聯絡人
+          td
+            input.form-control(type="text" placeholder="緊急聯絡人" readonly value="")
+          td 關係
+          td
+            input.form-control(type="text" placeholder="關係" readonly value="")
+        tr
+          td 聯絡人電話
+          td
+            input.form-control(type="text" placeholder="XXXX-XXX-XXX" readonly value="")
+          td 飲食禁忌
+          td
+            input.form-control(type="text" placeholder="飲食習慣" readonly value="")

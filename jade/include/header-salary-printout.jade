@@ -1,0 +1,28 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 薪資作業
+    li 薪資報表
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  form.subnav-search#formSearch
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 對象
+      span.select.select-dark
+        select.form-control.select-deps
+          option(value="0") 選擇部門
+      span.select.select-dark
+        select.form-control.select-employee
+          option(value="0") 選擇員工
+          option(value="1") Murry
+          option(value="2") Todd
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 區間
+      include ../include/select-search-month
+      span.select-date-label-to
+      include ../include/select-search-month
+    .search-form-buttons
+      button.btn.btn-default(type="reset") Reset
+      button.btn.btn-default.btn-search(type="submit")
+        span.fa.fa-search
+        | Searching

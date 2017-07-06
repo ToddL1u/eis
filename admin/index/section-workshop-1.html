@@ -1,0 +1,532 @@
+
+<section id="workshop-1">
+  <div data-toggle="collapse" data-target="#course" class="collapse-header">
+    <div class="table-header">開課設定</div>
+    <hr/><i class="fa fa-angle-down"></i><i class="fa fa-angle-right"></i>
+  </div>
+  <div id="course" class="section-block collapse in">
+    <div class="table-header table-header-primary">授課時間</div>
+    <table class="table table-form table-side-header">
+      <tr class="form-block">
+        <td class="col-sm-3">授課時間需晚於提案_天</td>
+        <td>
+          <input type="number" readonly="readonly" value="60" class="form-control"/>
+          <ul class="toolbar toolbar-right">
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+            <li class="btn-edit"></li>
+            <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+            <li class="btn-confirm toolbar-btn-hide"></li>
+          </ul>
+        </td>
+      </tr>
+      <tr></tr>
+    </table>
+  </div>
+  <div data-toggle="collapse" data-target="#payment" class="collapse-header">
+    <div class="table-header">講師費用</div>
+    <hr/><i class="fa fa-angle-down"></i><i class="fa fa-angle-right"></i>
+  </div>
+  <div id="payment" class="collapse in">
+    <div class="section-block">
+      <div class="table-header table-header-primary">講師設定
+        <ul class="toolbar toolbar-right section-toolbar">
+          <li class="btn-add"></li>
+        </ul>
+      </div>
+      <table style="width: 100%;" class="table-form">
+        <thead class="table-subheader">
+          <tr>
+            <th>講師類別</th>
+            <th>場地租借折扣(%)</th>
+            <th>尾款佔講師費比例(%)</th>
+            <th>啟用模擬授課</th>
+            <th>啟用課後簡報</th>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" placeholder="類別名稱" value="內部員工" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="80" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="10" class="form-control"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" checked="checked" class="checkbox-square"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" checked="checked" class="checkbox-square"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" placeholder="類別名稱" value="離職員工" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="80" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="10" class="form-control"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" checked="checked" class="checkbox-square"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" placeholder="類別名稱" value="外部講師" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="80" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="10" class="form-control"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+            </td>
+            <td>
+              <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="form-block">
+            <td>
+              <input type="text" placeholder="類別名稱" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <input type="checkbox" class="checkbox-square"/>
+            </td>
+            <td>
+              <input type="checkbox" class="checkbox-square"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-block">
+      <div class="table-header table-header-primary">手續費次數設定
+        <ul class="toolbar toolbar-right section-toolbar">
+          <li class="btn-add"></li>
+        </ul>
+      </div>
+      <table class="table-form">
+        <thead class="table-subheader">
+          <tr>
+            <th>授課費金額</th>
+            <th>享_次轉帳免手續費(包含尾款)</th>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" value="0-5000" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="2" class="form-control"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="form-block">
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div data-toggle="collapse" data-target="#finalpayment" class="collapse-header">
+    <div class="table-header">免綁尾款</div>
+    <hr/><i class="fa fa-angle-down"></i><i class="fa fa-angle-right"></i>
+  </div>
+  <div id="finalpayment" class="collapse in">
+    <div class="section-block">
+      <div class="table-header table-header-primary">免綁尾款設定
+        <button data-toggle="modal" data-target="#modalList" class="btn"><i data-toggle="modal" data-target="#modalList" class="fa fa-eye"></i> 未符合範本名單</button>
+        <ul class="toolbar toolbar-right section-toolbar">
+          <li class="btn-add-only add-sample"></li>
+        </ul>
+      </div>
+      <table class="table table-form table-side-header">
+        <tbody>
+          <tr>
+            <td class="col-sm-3">尾款課程完畢後_天開放申請</td>
+            <td class="col-sm-8 form-block">
+              <input type="number" readonly="readonly" value="30" class="form-control"/>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr></tr>
+        </tbody>
+      </table>
+      <table class="table-form">
+        <thead class="table-subheader">
+          <tr>
+            <th>範本</th>
+            <th>授課數大於_門</th>
+            <th>平均評價大於_分</th>
+            <th>系統更新時間</th>
+            <th>名單</th>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" placeholder="範本名稱" value="高級VIP" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="2" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" readonly="readonly" value="2" class="form-control"/>
+            </td>
+            <td>
+              <ul class="select-update">
+                <li><span class="select">
+                    <select disabled="disabled" class="select-interval form-control"></select></span></li>
+                <li><span class="select">
+                    <select disabled="disabled" class="select-time form-control"></select></span></li>
+              </ul>
+            </td>
+            <td><i data-toggle="modal" data-target="#modalListSample" class="fa fa-eye"></i></td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="form-block">
+            <td>
+              <input type="text" readonly="readonly" placeholder="範本名稱" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <input type="number" class="form-control"/>
+            </td>
+            <td>
+              <ul class="select-update">
+                <li><span class="select">
+                    <select disabled="disabled" class="select-interval form-control"></select></span></li>
+                <li><span class="select">
+                    <select disabled="disabled" class="select-time form-control"></select></span></li>
+              </ul>
+            </td>
+            <td><i data-toggle="modal" data-target="#modalListSample" class="fa fa-eye"></i></td>
+            <td>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-block">
+      <div class="table-header table-header-primary">免綁尾款 (白) -特別名單
+        <ul class="toolbar toolbar-right section-toolbar">
+          <li data-toggle="modal" data-target="#modalListAll" class="btn-add-only"></li>
+        </ul>
+      </div>
+      <form class="form-group">
+        <table class="table-form table-row">
+          <thead class="table-subheader">
+            <tr>
+              <th>新增名單</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr></tr>
+            </tbody>
+          </thead>
+        </table>
+      </form>
+      <hr/>
+      <div class="table-header table-header-primary">綁尾款 (黑) -特別名單</div>
+      <form class="form-group">
+        <table class="table-form table-row">
+          <thead class="table-subheader">
+            <tr>
+              <th>新增名單</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" value="Todd Liu" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                  <div class="form-block table-row-group">
+                    <input type="text" readonly="readonly" class="form-control"/>
+                    <ul class="toolbar toolbar-right">
+                      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                      <li data-toggle="modal" data-target="#modalListPersonal" class="btn-edit-only"></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr></tr>
+            </tbody>
+          </thead>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div data-toggle="collapse" data-target="#proposal" class="collapse-header">
+    <div class="table-header">開課須知</div>
+    <hr/><i class="fa fa-angle-down"></i><i class="fa fa-angle-right"></i>
+  </div>
+  <div id="proposal" class="section-block collapse in">
+    <div class="table-header table-header-primary">開課須知內容
+      <ul class="toolbar toolbar-right section-toolbar">
+        <li>
+          <input type="text" placeholder="search" class="form-control"/>
+        </li>
+        <li data-toggle="modal" data-target="#modalMarkdown" class="btn-add-only"></li>
+      </ul>
+    </div>
+    <table style="width: 100%;" class="table-form">
+      <thead class="table-subheader">
+        <tr>
+          <th class="col-sm-2">啟用</th>
+          <th class="col-sm-8">範本標題</th>
+          <th class="col-sm-2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" checked="checked" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="如何提案" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="收費規則1" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="收費規則2" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="收費規則3" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="收費規則4" readonly="readonly" data-toggle="popover" data-trigger="hover" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="form-block">
+          <td> 
+            <input type="checkbox" disabled="disabled" class="checkbox-square"/>
+          </td>
+          <td>
+            <input type="text" value="" readonly="readonly" class="form-control field-content-title"/>
+          </td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+              <li data-toggle="modal" data-target="#modalMarkdown" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="table-pagination">
+      <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+      <li> <a href="#" class="page-active">1</a>
+      </li>
+      <li> <a href="#">2</a>
+      </li>
+      <li> <a href="#">3</a>
+      </li>
+      <li> <a href="#">4</a>
+      </li>
+      <li> <a href="#">5</a>
+      </li>
+      <li> <a href="#">6</a>
+      </li>
+      <li> <a href="#">7</a>
+      </li>
+      <li> <a href="#">8</a>
+      </li>
+      <li> <a href="#">9</a>
+      </li>
+      <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+    </ul>
+    <div class="float-content"></div>
+  </div>
+</section>

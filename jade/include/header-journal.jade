@@ -1,0 +1,28 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 員工工作日誌
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  form.subnav-search
+              
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 對象
+      span.select.select-dark
+        select.form-control.select-deps
+          option(value="0") 全體部門
+      span.select.select-dark
+        select.form-control.select-employee
+          option(value="0") 全體人員
+          
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 區間
+      include ../include/select-search-date
+      span.select-date-label-to
+      include ../include/select-search-date
+        
+    .search-form-buttons
+      button.btn.btn-default(type="reset") Reset
+      button.btn.btn-default(tＦype="submit")
+        span.fa.fa-search
+        | Searching

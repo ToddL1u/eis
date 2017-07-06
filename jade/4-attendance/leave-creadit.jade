@@ -1,0 +1,56 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #attendance.container.nav-attendance-3
+      nav.nav
+      .wrap
+        include ../include/header-leave-creadit
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+            
+          table.table.table-list.table-sort#tableLeave
+            thead.table-subheader
+              tr
+                th 部門
+                th 姓名
+                th 生效區間
+                th 補休時數
+                th 狀態
+                th 異動時間
+            tbody
+              tr(data-href="leave-creadit-detail.html?id=0").table-row-warn
+                td 設計
+                td Murry
+                td 2016/1/1 ~ 2016/12/31
+                td 20 小時
+                td 待審
+                td 2016/12/12
+              -for(var i=0;i<15;i++){
+                tr(data-href="leave-creadit-detail.html?id=1")
+                  td 設計
+                  td Murry
+                  td 2016/1/1 ~ 2016/12/31
+                  td 20 小時
+                  td 通過
+                  td 2016/12/12
+              -}
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableLeave').tablesorter();
+      //- var sorter = tsorter.create('tableLeave');
+    }
+        
+    window.onload = init;
+    
+    

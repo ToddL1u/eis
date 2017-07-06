@@ -1,0 +1,174 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #attendance.container.nav-attendance-2
+      nav.nav
+      .wrap
+        include ../include/header-absence-detail
+        .content
+          aside.section-version
+            ul.nav-version
+              li 2016-10-19
+              li 2016-12-12
+          include ../include/toolbar-view-delete
+            
+          section
+            .form-block.section-block
+              form.from-group
+                table.table.table-hover.table-form.table-side-header.table-side-header-right
+                  tbody
+                    tr
+                      td.col-sm-2 狀態
+                      td 待審
+                    tr
+                      td 部門
+                      td RD
+                    tr
+                      td 人員
+                      td Fill Murray
+                    tr
+                      td 員工編號
+                      td 9527
+                    tr.field-cta
+                      td 類別
+                      td 病假
+                    tr
+                      td 事由
+                      td abc
+                    tr
+                      td 請假區間
+                      td 2015/11/12 ~ 2015/11/12
+                    tr
+                      td 請假時數
+                      td 12
+                    tr
+                      td 時數折抵
+                      td 5
+                    tr.field-proof 
+                      td 證明
+                      td
+                        a(href="#").pop
+                          img(src="../../assets/img/clinic.jpg", alt="")
+                    tr.field-reply
+                      td 回覆內容
+                      td 
+              .btns-group
+                button.btn.btn-danger(data-toggle="modal" data-target="#modalReject") 退回
+                button.btn.btn-warning.btn-pending(data-toggle="modal" data-target="#modalPending") 待補證明
+                button.btn.btn-success.btn-pass(data-toggle="modal" data-target="#modalConfirm") 通過
+            section.section-block.section-history.section-block
+                
+        footer
+        .modal.fade.bs-example-modal-lg#modalPending(tabindex="-1" role="dialog" aria-labelledby="modalConfirm")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                textarea.form-control(placeholder="原因" rows="5")
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.btn-warning.modal-btn-2 待補
+  script(src="../../assets/js/function.js")
+  script.
+    var proof = getUrlParameter('proof');
+    $('.field-cta').html('<td>類別</td><td>' + getUrlParameter('id')+'</td>')
+    $('.field-reply').hide();
+    if( proof == true){
+      $('.btn-pass').hide();
+    }else{
+      $('.btn-pending').hide();
+      $('.field-proof ').hide();
+    }
+    
+      
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    
+    $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+      setReplied();
+    });
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      //- setReplied();
+    });
+    
+    function setReplied(){
+      $('.field-reply').show();
+      $('.content .btns-group').hide();
+    }
+    
+    $('body').on('click','#modalPending .modal-btn-2',function(event){
+      $('.content .btns-group').hide();
+    });
+    
+    var data = [
+      {'date':'2016-10-10','state':'通過','reason':'reson1','attach':'../../assets/img/clinic.jpg','content':'content1'},
+      {'date':'2016-12-12','state':'未通過','reason':'reson1','content':'Lorem'}];
+    
+    $('.nav-version li').click(function(){
+      var select_data = data[$(this).index()];
+      var strVar='';
+      strVar += '<div class="section-title"><br/></div>';
+      strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+      strVar += '<table class="table table-form table-side-header table-side-header-right ">';
+      strVar += '<tbody>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2">狀態</td>';
+      strVar += '<td>'+ select_data.state +'</td>';
+      strVar += '</tr>';
+      
+      strVar += '<tr>';
+      strVar += '<td>類別</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>事由</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>請假區間</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>請假時數</td>';
+      strVar += '<td>';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>時數折抵</td>';
+      strVar += '<td> ';
+      strVar += '<input type="text" readonly value="" class="form-control">';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>證明</td>';
+      strVar += '<td> <a href="#" class="pop"><img src="../../assets/img/clinic.jpg" alt=""></a></td>';
+      strVar += '</tr>';
+
+      
+      strVar += '<tr>';
+      strVar += '<td>回覆內容</td>';
+      strVar += '<td> '+ select_data.content +'</td>';
+      strVar += '</tr>';
+      strVar += '</tbody>';
+      strVar += '</table>';
+
+
+      $('.section-history').html(strVar).show();
+    });

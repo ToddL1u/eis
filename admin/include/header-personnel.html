@@ -1,0 +1,111 @@
+
+<header>
+  <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+    <ul class="toolbar toolbar-right top-right">
+      <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+      <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+      <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+    </ul>
+  </div>
+  <div class="subnav">
+    <ul class="aydyn-breakcrumb">
+      <li>人事作業</li>
+    </ul>
+    <div class="subnav-subtitle">
+      <ul class="toolbar toolbar-right">
+        <li class="btn-expand toolbar-btn-hide"></li>
+        <li class="btn-collapse"></li>
+      </ul>
+    </div>
+    <form class="subnav-search"><span>* 表示可多選</span>
+      <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">狀態*</span>
+        <ul>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>正式
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>試用期
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>待入職
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>待面試
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>未審履歷
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>離職
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">對象</span><span class="select select-dark">
+          <select class="form-control select-deps">
+            <option value="0">全體部門</option>
+          </select></span><span class="select select-dark">
+          <select class="form-control select-employee">
+            <option value="0">全體人員</option>
+          </select></span></div>
+      <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">工作經驗</span><span class="select select-dark">
+          <select class="form-control select-exp">
+            <option value="0">不限制</option>
+            <option value="1">0~5</option>
+            <option value="2">6~10</option>
+            <option value="3">11~15</option>
+          </select></span></div>
+      <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">語言*</span><span class="select select-dark">
+          <select class="form-control select-exp">
+            <option value="0" selected="selected" disabled="disabled">選擇一種語言</option>
+            <option value="1">西班牙語</option>
+            <option value="2">德語</option>
+            <option value="3">俄語</option>
+          </select></span>
+        <ul>
+          <li>
+            <div style="margin-top: 7px;" class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>中文
+              </label>
+            </div>
+          </li>
+          <li>
+            <div style="margin-top: 7px;" class="checkbox">
+              <label> 
+                <input type="checkbox" class="checkbox-square checkbox-square-dark"/>英文
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="search-form-buttons">
+        <button type="reset" class="btn btn-default">Reset</button>
+        <button type="submit" class="btn btn-default"><span class="fa fa-search"></span>Searching</button>
+      </div>
+    </form>
+  </div>
+</header>

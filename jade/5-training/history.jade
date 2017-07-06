@@ -1,0 +1,43 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #training.container.nav-training-2
+      nav.nav
+      .wrap
+        include ../include/header-training-history
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+          section
+            table.table.table-hover.table-list.table-sort#tableHistory
+              thead.table-subheader
+                tr
+                  th.col-sm-4 受訓區間
+                  th.col-sm-3 類別
+                  th.col-sm-3 課程名稱
+                  th.col-sm-2 金額
+              tbody
+                -for(var i=0;i<10;i++){
+                  tr
+                    td 2017/01/02 09:00 ~ 2017/01/02 18:00
+                    td 外訓
+                    td Xsion 跨界創新國際論壇
+                    td 5000
+                -}
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableHistory').tablesorter();
+      //- var sorter = tsorter.create('tableHistory');
+    }
+        
+    window.onload = init;

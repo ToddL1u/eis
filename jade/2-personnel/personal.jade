@@ -1,0 +1,137 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    
+    include ../include/javascripts
+  body
+    #personnel.container.nav-personal
+      nav.nav
+      .wrap
+        include ../include/header-personal
+        .content
+          include section-profile
+          include section-education-family
+          include section-abilities
+          include section-assets
+        footer
+  script(src='../../assets/js/function.js')
+  script.
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      var section_block = $form_section.parents('.form-block');
+      section_block.remove();
+    });
+    
+    genderField($('#gender').val() == 0);
+    $('#gender').change(function(){
+      genderField($('#gender').val() == 0);
+    });
+    
+    function genderField(male){
+      if(male){//male
+        $('.male-group').show();
+        $('.female-group').hide();
+      }else{ //female
+        $('.male-group').hide();
+        $('.female-group').show();
+      }
+    }
+    
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+    //- $('#enf').hide();
+    
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabEnf', function(event){
+      $('#enf').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAbilities', function(event){
+      $('#abilities').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAssets', function(event){
+      $('#assets').show().siblings('section').hide();
+    });
+    
+    $section = $('section:not(#profile) .section-block tbody tr:last-child')
+    $section.hide();
+    $section.find('.btn-edit').trigger('click');
+    
+    var star_option =  {'showCaption':false, 'stars':'5', 'min':'0', 'max':'5', 'step':'1', 'size':'xs', 
+    'starCaptions': {0:'', 1:'', 2:'status:geht', 3:'status:laeuft'}};
+    
+    $('.btn-add').click(function(){
+      $('.rb-rating').rating('destroy');
+      var $row = $(this).parents('.section-block').find('tbody').children('tr:last');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+      
+      $('.rb-rating').rating('refresh',star_option);  
+      
+    });  
+    $('.rb-rating').rating('create', star_option);  
+    
+    $('body').on('click','.btn-edit' ,function(){
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: false, showClear: true, showCaption: false});
+      $('.fileinput-remove-button, .text-muted').show();
+    });     
+    
+    $('body').on('click','.btn-confirm' ,function(){
+      
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: true, showClear: false, showCaption: false});
+      $('.fileinput-remove-button, .text-muted').hide();
+    });   
+    
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      $(this).parents('.form-block').find('.rb-rating').rating('refresh', {disabled: true, showClear: false, showCaption: false});
+    });     
+    
+    $('form').tw_citySelector('.county', '.district');
+
+    $('#enf').ready(function(){
+      $('.select-days').parent().remove();
+    });
+
+    //大頭貼上傳==========================================================
+    var btnCust = '<button type="button" class="btn btn-default" title="Add picture tags" ' + 
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="glyphicon glyphicon-tag"></i>' +
+    '</button>'; 
+    $("#avatar-1").fileinput({
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        showBrowse: false,
+        browseOnZoneClick: true,
+        removeLabel: '',
+        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        removeTitle: 'Cancel or reset changes',
+        elErrorContainer: '#kv-avatar-errors-1',
+        msgErrorClass: 'alert alert-block alert-danger',
+        defaultPreviewContent: '<img src="../../assets/img/default_avatar_male.jpg" alt="Your Avatar" style="width:160px"><h6 class="text-muted">Click to select</h6>',
+        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
+
+
+    var action = getUrlParameter('action');
+    if(action == 'add'){
+      $('input').attr({'readonly':false, 'value':''});
+      $('.aydyn-breakcrumb').children('li:last-child').html('新增人員');
+      $('.btn-edit').trigger('click');
+      $('.fileinput-remove-button, .text-muted').show();
+    }else{
+      $('.fileinput-remove-button, .text-muted').hide();
+    }

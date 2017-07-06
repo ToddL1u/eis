@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="bonus" class="container nav-bonus-2">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>公司章程福利</li>
+              <li>福利制度</li>
+            </ul>
+            <div class="subnav-subtitle">2016-11-12</div>
+          </div>
+        </header>
+        <div class="content form-block">
+          <aside class="section-version">
+            <ul class="nav-version">
+              <li class="version-default">V1</li>
+              <li>V2</li>
+              <li class="version-is-active">V3</li>
+            </ul>
+          </aside>
+          <ul class="toolbar">
+            <li class="btn-view"></li>
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+            <li class="btn-edit"></li>
+            <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+            <li class="btn-confirm-only toolbar-btn-hide"></li>
+          </ul>
+          <section>
+            <form class="form-group">
+              <div class="section-block version-actived">
+                <table class="table-form table table-side-header">
+                  <tr class="table-row-highligh">
+                    <td class="col-sm-2">生效版本</td>
+                    <td><span class="select">
+                        <select class="form-control form-control">
+                          <option value="">V1</option>
+                          <option value="">V2</option>
+                        </select></span></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="section-block">
+                <table class="table-form table table-side-header table-side-header-right">
+                  <tr class="version-field">
+                    <td class="col-sm-2 table-subheader">版本</td>
+                    <td><span class="select">
+                        <select disabled name="version" class="form-control">
+                          <option value="0">V1</option>
+                          <option value="1">V2</option>
+                          <option value="2">V3</option>
+                        </select></span></td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2 table-subheader">項目</td>
+                    <td>
+                      <input type="text" placeholder="福利項目" readonly value="機車停車位" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2 table-subheader">生效員工</td>
+                    <td>
+                      <ul>
+                        <li class="checkbox">
+                          <label> 
+                            <input type="checkbox" name="activated[]" value="0" disabled class="checkbox-square">試用期
+                          </label>
+                        </li>
+                        <li class="checkbox">
+                          <label> 
+                            <input type="checkbox" name="activated[]" value="1" disabled checked class="checkbox-square">正式員工
+                          </label>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2 table-subheader">內容</td>
+                    <td style="background: white">
+                      <div id="contentEditormd">
+                        <textarea style="display:none;">![](/upload/editorMD/hqdefault.jpg)
+
+這是豬
+**這是豬2**
+*這是豬3*
+# 這是豬4
+##### 這是豬5
+
+這是豬6
+
+    function demo(){
+    	alert(&quot;豬&quot;);
+    }&quot;</textarea>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="field-actived">
+                    <td>生效狀態</td>
+                    <td> 
+                      <div class="checkbox">
+                        <label> 
+                          <input type="checkbox" checked disabled class="checkbox-square">生效此版本
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </form>
+            <div class="section-history section-block"></div>
+          </section>
+        </div>
+        <footer></footer>
+        <div id="modalVersion" tabindex="-1" role="dialog" aria-labelledby="modalConfirm" class="modal fade bs-example-modal-lg">
+          <div role="document" class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+              </div>
+              <div class="modal-body"> 
+                <h4>需要新增新版本嗎?</h4>
+                <div class="btns-group">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-warning modal-btn-1">覆蓋版本</button>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-success modal-btn-2">新增版本</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    setContent('sample','#contentEditormd');
+    //- $('.btn-confirm').addClass('toolbar-btn-hide');
+    var action = getUrlParameter('action');
+    if(action!='add')$('.field-actived').hide();
+    
+    if( action == 'edit'){
+      setInput(false);
+      $('.toolbar .btn-edit').trigger("click");
+      
+    }else if(action == 'add'){
+      setInput(false);
+      $('.version-field').hide();
+      $('.version-actived').hide();
+      
+      $('.toolbar .btn-edit').trigger("click");
+      $('.content .toolbar').append('<li class="btn-confirm"></li>');
+      $('li.btn-confirm-only').hide();
+      $('.btn-view').hide();
+      $('input').val('');
+    }
+    
+    $('.btn-edit').click(function(){
+      setInput(false);
+    });
+    
+    $('.btn-confirm-only').click(function(){
+      if(action == 'add'){
+        $('#bonus .content .toolbar li').not('.btn-delete').not('.btn-view').toggleClass('toolbar-btn-hide');
+        setInput(true);
+      }else{
+        $('#modalVersion').modal('show');  
+      }
+    });
+    
+    
+    function setInput(read){
+      $('input').attr("readonly", read);
+      mkEditSwitch(read,'#contentEditormd');
+      if(read){
+        
+        $('.version-actived').hide();
+        $('input[type="checkbox"]').attr('disabled','true');
+        $('select').attr('disabled','true');
+      }else{
+        
+        if(action != 'add') $('.version-actived').show();
+      }
+    }
+    
+    $('#welfare-history').hide();
+    
+    
+    $('body').on('click','#modalVersion .modal-btn-1',function(){
+      $('#bonus .content .toolbar li').not('.btn-view').toggleClass('toolbar-btn-hide');
+      setInput(true);
+    })
+    
+    $('body').on('click','#modalVersion .modal-btn-2',function(){
+      $('#bonus .content .toolbar li').not('.btn-view').toggleClass('toolbar-btn-hide');
+      setInput(true);
+    })
+    
+    $('body').on('click','#modalCancel .modal-btn-2',function(){
+      setInput(true);
+    })
+      
+    var data = [{'version':'V1','activated':'trial', 'content':'content1'},{'version':'V2','activated':'offical','content':'content1'},{'version':'V3','activated':'trial','content':'content1'}];
+    
+    $('.nav-version li').click(function(){
+      var select_data = data[$(this).index()];
+      var strVar='';
+      strVar += '<table class="table-form table table-side-header">';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2 table-subheader">版本</td>';
+      strVar += '<td>'+ select_data.version +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2 table-subheader">生效員工</td>';
+      strVar += '<td>';
+      strVar += '<ul>';
+      strVar += '<li><span class="fa fa-square"></span>試用期</li>';
+      strVar += '<li><span class="fa fa-square-o"></span>正式員工</li>';
+      strVar += '</ul>';
+      strVar += '</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2 table-subheader">內容</td>';
+      strVar += '<td>'+ marked(select_data.content) +' </td>';
+      strVar += '</tr>';
+      strVar += '</table>';
+      $('.section-history').html(strVar).show();
+    })
+    
+    $('select[name="version"]').change(function(){
+      var select_data = data[$(this).val()];
+        
+      $('textarea[name="content"]').val(select_data.content);
+    });
+  </script>
+</html>

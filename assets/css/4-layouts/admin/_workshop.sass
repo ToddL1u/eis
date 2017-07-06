@@ -1,0 +1,1209 @@
+// .nav-workshop
+//   .subnav:after
+//     display: none
+
+//   .content
+//     $subnav-margin: 55px
+//     margin-top: 370px + $subnav-margin
+//     min-height: calc(100vh - 187px - 55.6px - #$subnav-margin)
+
+//     #formProfile
+//       display: flex
+//       flex-direction: column
+//       align-items: center
+//       img
+//         width: 160px
+//         height: 160px
+//         margin: 10px auto
+//         border: gray solid 1px
+//         padding: 5px
+
+//config 場地收合===================================================================
+#config
+  // .toolbar-right
+  //   display: inline-block
+  // .arrow
+  //   width: 25px
+  //   height: 25px
+  //   border-radius: 100%
+  //   background-color: #EEEDEB
+  //   border: 2px solid $primary-color
+  //   color: $primary-color
+  //   display: inline-block
+  //   padding: 10px
+  //   i
+  //     line-height: 4px
+  //     margin-right: -5.5px
+  .fa-eye
+    color: #2195d4
+
+
+.daterangepicker
+  display: none
+
+.holiday
+  margin-bottom: -10px
+  .form-block
+    input,ul
+      display: inline-block
+    ul
+      position: absolute
+      right: 0
+
+#workshop-1
+  .table-side-header tr td:last-child
+    input, ul.toolbar
+      display: inline-block
+    input
+      width: calc(100% - 85px)
+    ul.toolbar
+      float: right
+      line-height: 34px
+      .btn-delete
+        display: none
+
+//免綁尾款名單==========================================
+#finalpayment
+  table
+    width: 100%
+
+
+table.table-list-pay
+  width: 100%
+  tbody
+    td
+      padding: 5px 10px
+    td:last-child
+      width: 29% !important
+  label.btn
+    border: 1px solid #000
+    input[type="checkbox"]
+      display: none
+    .fa-check
+      margin-right: 5px
+
+
+p.list
+  padding: 10px
+  i
+    margin-left: 10px
+    font-size: 18px !important
+
+
+
+.btn-danger1
+  background-color: #E96471
+//==========================================================================
+.nav-workshop-3
+  .content
+    &.on-search
+      margin-top: 245px 
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+
+.nav-workshop-2
+  .content
+    &.on-search
+      margin-top: 350px
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+
+.nav-workshop-1
+  .content
+    &.on-search
+      margin-top: 430px
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+
+.btn-flat
+  padding: 3px 30px
+  margin-left: 5px
+
+.btn-flat-table
+  padding: 1px 20px
+
+.btn-expand
+  color: #fff !important
+
+.btn-danger-cancel
+  background-color: transparent
+  color: #ea6374
+  border: 2px solid #ea6374
+  &:hover
+    background-color: #ea6374
+    color: #fff
+  &:focus
+    color: #fff
+.btn-revise
+  background-color: #4A90E2
+  &:hover
+    background-color: #487fbf
+
+#home,#time,#contact,#money,#comments,#discussion,#student-list
+  .container,.content
+    height: auto !important
+    min-height: initial
+//course header ===========================================
+
+// .header-img
+//   .subnav
+//     background-image: url("http://lorempixel.com/400/200")
+
+.course-title
+  margin-top: 25px
+  h2
+    color: #fff
+    font-size: 36px
+    font-weight: 400
+    letter-spacing: 2px
+    margin-bottom: 10px
+  .tag
+    // position: absolute
+    // top: 77px
+    margin: 0 10px
+    padding: 3px 8px
+    border-radius: 8px
+    font-size: 13px
+  .process
+    color: #24aca8
+  .tag-wait-dark
+    background-color: $warn-color
+
+
+ul.course-info
+  li
+    display: inline-block
+    margin: 0
+    margin-right: 20px
+    font-size: 14px
+    i
+      margin-right: 10px
+
+//course-block
+.course-bottom
+  width: 100%
+  margin-top: -50px
+  padding-top: 1px
+  background-color: #fff
+  .tab
+    height: 40px
+    position: relative
+    padding: 0 60px
+    margin-top: 15px
+    border-bottom: .5px solid #ddd
+    .nav-tabs
+      margin: 0
+      padding: 0
+      width: 100%
+      height: 7px
+      border: none
+      li
+        padding: 0 20px
+        margin: 0
+        font-size: 17px
+        float: left
+        a
+          color: $text-color
+          padding-bottom: 11px !important
+          line-height: 1.42857
+          border: 1px solid transparent
+      li.active
+        a
+          padding: 0 20px
+          color: $primary-color
+          border: none
+          border-bottom: 3px solid $primary-color
+  .tab-content
+    padding: 0 80px
+    padding-bottom: 40px
+    margin-bottom: 40px
+    section
+      padding-top: 20px
+      .tab-pane-left
+        width: 70%
+      .tab-pane-right
+        width: calc(100% - 71%)
+        padding-left: 100px
+        text-align: center
+      .tab-pane-left,.tab-pane-right
+        display: inline-block
+        vertical-align: top
+        margin-top: 20px
+      .content
+        margin: 0
+        padding: 0
+        margin-bottom: 80px
+        .title
+          font-size: 24px
+          color: $primary-color
+          font-weight: 400
+          letter-spacing: 1px
+          margin-bottom: 15px
+        .subtitle
+          font-size: 14px
+          color: $success-color
+          font-weight: 400
+          letter-spacing: 1px
+        p
+          margin-bottom: 20px
+      img
+          width: 150px
+          height: 150px
+          background-color: transparent
+          border-radius: 100%
+          margin-top: 5px
+      .teacher-info
+        border-bottom: 1px solid #ddd
+        .name
+          font-size: 22px
+          color: $primary-color
+          font-weight: 500
+          letter-spacing: 0px
+          margin-top: 15px
+        .jobtitle
+          font-size: 16px
+          color: #a0a0a0
+          font-weight: 300
+          letter-spacing: 0px
+        a
+         color: $primary-color
+        ul
+          margin: 10px 0
+          li
+            margin: 0 6px
+            display: inline-block
+            i
+              margin-right: 10px
+        p
+          margin-bottom: 20px
+          text-align: left
+          font-size: 14px
+
+//課程發布公告=================================================
+.post
+  .add-template
+    td:first-child
+      border-right: 10px solid #fff
+    label
+      margin-top: 5px
+      margin-right: 10px
+      font-weight: normal
+      // color: #success-color !important
+      input
+        margin-right: 10px
+  ul
+    margin-left: 10px
+    li
+      margin-right: 10px
+
+.content.on-search#post
+  margin-top: 187px
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+  .btns-group
+    // float: right
+    // margin-bottom: 50px
+    margin-top: 10px
+    button
+      width: 120px
+      &:first-child
+        margin-right: 20px
+
+
+
+//會員資料>個人資料tab==============================================
+#workshop
+  section#profile
+    .section-block
+      padding: 40px 80px
+      .avatar-workshop,.information,.name,.jobtitle
+        display: inline-block
+        vertical-align: middle
+      .avatar-workshop
+        width: 130px
+        height: 130px
+        border-radius: 100%
+      .information
+        padding-left: 50px
+        .name
+          font-size: 30px
+          color: $primary-color
+          font-weight: 500
+          letter-spacing: 1px
+          margin-right: 15px
+        .jobtitle
+          margin-top: 10px
+          font-size: 18px
+          color: #a0a0a0
+          font-weight: normal
+        .teach-course
+          font-size: 15px
+          color: $success-color
+          font-weight: 500
+          letter-spacing: 2px
+          cursor: pointer
+          a
+            color: $success-color
+        ul.social-media
+          font-size: 20px
+          margin-bottom: 5px
+          li
+            display: inline-block
+            margin: 0 10px
+            a
+              color:  $primary-color
+      .introduction
+        margin-top: 30px
+      .private
+        font-weight: 400
+        letter-spacing: 0px
+        margin-top: 30px
+        margin-bottom: 20px
+        .private-title
+          font-size: 20px
+          color: #25415f
+          display: inline-block
+          margin-right: 10px
+          // margin-bottom: 20px
+        hr
+          display: inline-block
+          vertical-align: middle
+          margin-top: 23px
+          width: calc(100% - 120px)
+        form
+          label
+            color: $primary-color
+            font-size: 15px
+            font-weight: initial
+          input
+            color: #4E4D4D !important
+
+//會員資料>我的課程tab==============================================
+#workshop
+  #course,#teacher
+    .tag
+      position: absolute
+      left: 20px
+      top: 163px
+      color: white
+      font-size: 14px
+      background-color: #a0a0a0
+      padding: 5px 10px
+      border-radius: 10px
+      display: inline-block
+    .tag-wait
+      background-color: #f3b12b
+    .tag-pass
+      background-color: $success-color
+    .tag-over
+      background-color: $primary-color
+    .tag-success
+      background-color: $danger-color
+    .tag-cancel
+      background-color: #a0a0a0
+    .course-item
+        padding: 15px
+        box-sizing: border-box
+        width: 25%
+        max-width: 329px
+        float: left
+        .thumbnail
+          padding: 0
+          position: relative
+          overflow: hidden
+          .photo
+            width: 100%
+            height: 180px
+          .caption
+            margin-top: 8px
+            padding: 9px 20px
+            h3
+              margin-bottom: 10px
+              color: $primary-color
+              font-weight: normal
+              font-size: 24px
+              line-height: 1.38
+            em
+              font-style: italic
+              padding-right: 7px
+            p
+              margin-bottom: 10px
+              color: #a0a0a0
+            .cost
+              margin-top: 35px
+              margin-bottom: 10px
+              .classmate,.money
+                display: inline-block
+                vertical-align: bottom
+              .classmate
+                color: $primary-color
+                i
+                  margin-right: 10px
+              .money
+                float: right
+                color: $success-color
+                font-size: 18px
+                line-height: 10px
+                span
+                  font-size: 30px
+                  font-weight: bold
+
+//課程表單>開課時間tab==============================================
+#workshop
+  section#time
+    form
+      label
+        color: #25415f
+        font-size: 15px
+        font-weight: initial
+      .form-control
+        font-size: 15px
+        color: #555555 !important
+      textarea
+        height: auto !important
+        resize: none
+
+//課程狀態標籤=========================================
+.tag-wait
+  background-color: #f3b12b
+.tag-pass
+  background-color: $success-color
+.tag-over
+  background-color: $primary-color
+.tag-success
+  background-color: $danger-color
+
+.pass
+  color: $success-color
+.failed
+  color: $danger-color
+
+//滿版的title設定margin-top
+#student-list,#discussion,#contact
+  .title
+    margin-top: 20px
+
+.enroll .course-money
+  font-size: 30px
+  color: #24aca8
+  font-weight: 700
+  letter-spacing: 1px
+  line-height: 10px
+  float: right
+
+.tab-pane-right form
+  padding-top: 15px
+  margin-top: 8px
+  border: 1px solid #ddd
+  margin-bottom: 25px
+
+//課程表單>報名學員=============================================
+#student-list
+  .student-number
+    margin-top: -10px
+    margin-bottom: 20px
+    .number
+      text-align: center
+      width: 33%
+      display: inline-block
+      &:last-child
+        color: #a0a0a0
+      .student-number-title
+        font-size: 15px
+      .student-number-amount
+        font-size: 42px
+        font-weight: bold
+        padding-left: 10px
+  .progress-info
+    width: 100%
+    padding: 10px 4%
+    border-radius: 10px
+    margin-bottom: 20px
+    .progress-text,.progress,.progress-bar
+      display: inline-block
+      vertical-align: top
+    .progress-text
+      width: 12%
+    .progress
+      width: 75%
+      margin-top: 7px
+      margin-bottom: 0
+      height: 10px
+      background-color: #f5f5f5
+      border-radius: 4px
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1)
+      .progress-bar
+        background-color: $danger-color
+
+
+  thead tr th,thead tr td
+    color: $primary-color
+
+
+//課程表單>課程評價=============================================
+#comments
+  .message
+    border: 1px solid #ccc
+    border-radius: 4px
+    margin: 30px 0
+    padding: 20px 40px
+    img,.message-block
+      display: inline-block
+      vertical-align: top
+    img
+      width: 85px
+      height: 85px
+      border-radius: 100%
+      margin-right: 20px
+    .message-block
+      width: calc(100% - 124px)
+      .name,.star-rating,.time
+        display: inline-block
+        vertical-align: bottom
+      .name
+        margin-right: 10px
+        font-size: 16px
+        color: $primary-color
+        font-weight: 500
+        margin-bottom: 5px
+      .star-rating
+        margin-top: -7px
+        .clear-rating
+          display: none
+        .rating-xs
+          font-size: 20px
+        .filled-stars
+          color: #ffc23f
+      .time
+        float: right
+        font-size: 14px
+        color: #a0a0a0
+        font-weight: 300
+        font-style: italic
+
+
+//會員款項=====================================================
+.nav-workshop-3,#account
+  table tbody tr
+    border-top: 8px solid $bg-color
+    height: 30px !important
+    td
+      vertical-align: middle
+  // tr.collapse td:nth-child(1)
+  //   padding: 0
+  //   table
+  //     margin-top: -8px
+  .searchTable
+    margin-bottom: 15px
+.nav-workshop-3
+    .subnav:after
+      bottom: initial !important
+
+#tableAccount, .table-s-1, .table-s-2
+  tbody tr
+    background-color: #FFF
+
+.table-export
+  tbody
+    td
+      span
+        margin-left: 100px
+
+td
+  position: relative
+  .arrow
+    width: 25px
+    height: 25px
+    border-radius: 100%
+    background-color: #EEEDEB
+    border: 2px solid $primary-color
+    color: $primary-color
+    position: absolute
+    right: 30px
+    top: 11px
+    i
+      line-height: 22px
+      margin-right: 3.5px
+
+#workshop
+  .export-row
+    width: 100%
+    height: 55px
+    margin-top: 8px
+    padding: 5px 20px
+    border-radius: 6px
+    background-color: #d4d4d4
+    position: relative
+    .export-money,button,input,.text-right
+      display: inline-block
+      vertical-align: middle
+    input
+      position: absolute
+      top: 8px
+      left: 40px
+    .text-right
+      width: 100%
+      position: absolute
+      right: 30px
+    .export-money
+      color: #fff
+      font-size: 28px
+      margin-right: 20px
+    .btn-ex
+      margin-left: 8px
+      color: #fff
+      background-color: transparent
+      border: 2px solid #fff
+      &:hover
+        background-color: #fff
+        color: $warn-color
+  .row-warning
+    background-color: $warn-color
+  .row-green
+    background-color: $success-color
+    .btn-ex
+      &:hover
+        color: $success-color
+  #group
+    tr.collapse-header
+      td
+        background-color: #9ed6d4
+
+.text-green
+  color: $success-color !important
+
+//會員款項明細(detail)==========================================
+.table-account-detail
+  margin-bottom: 10px
+  tr td
+    vertical-align: top !important
+  ul
+    display: inline-block
+    float: right
+    li
+      display: inline-block
+      color: #fff
+      font-weight: normal
+      padding: 0 10px
+      border-radius: 4px
+    .tag-failed
+      background-color: $danger-color
+    .tag-success
+      background-color: $success-color
+  input
+    margin-top: -7px
+  input[type="checkbox"]
+    margin-right: 10px
+    &:before
+      top: 5px
+      bottom: -5px
+  .form-control[readonly].text-warn
+    color: $warn-color !important
+  .form-control[readonly].text-green
+    color: $success-color !important
+  .form-control[type="number"]
+    font-size: 18px
+  th,td
+    border-right: 10px solid #fff
+  th:last-child,td:last-child
+    border-right: none
+  tbody
+    tr
+      border-top: 10px solid #fff !important
+      background-color: $bg-color
+      td
+        &:nth-child(1) //基本資料
+          width: 25%
+          form
+            input
+              text-align: right
+        &:nth-child(2)　//提領明細
+          width: 40%
+          // form
+          //   .control-label
+          //     border-bottom: 2px solid #fff !important
+        &:nth-child(3) //匯款資訊
+          width: 35%
+  textarea
+    width: 100%
+    resize: none
+    padding: 5px 10px
+    background-color: $bg-color
+    &[disabled]
+      border: none
+  .fa-picture-o
+    font-size: 45px
+    color: rgba(250,250,250,.8)
+  .price-old
+    display: none
+    color: $warn-color
+    text-align: right
+    text-decoration: line-through
+    font-size: 18px
+
+
+.form-course-list//提領明細表格
+  padding-top: 10px
+  .form-group
+    height: 55px
+    display: block
+    border-bottom: 2px solid #fff !important
+    &:last-child
+      height: 0
+      border-bottom: none !important
+    p
+      font-weight: normal
+    span
+      margin-left: 20px
+    input
+      text-align: right
+
+.form-info//匯款資訊表格
+  .form-group
+    p
+      margin: 0 15px
+      margin-bottom: 2px
+    span
+      float: right
+    .col-sm-5
+      padding-right: 0
+
+.btn-warn
+  &:hover
+    background-color: $warn-color
+    border: 1px solid $warn-color
+    color: #fff
+
+.m-t-5
+    margin-top: 5px
+
+//會員款項(group)===============================================
+.info-row
+  position: relative
+  margin-bottom: 10px
+  .tag-wait,button
+    display: inline-block
+    vertical-align: middle
+  .tag-wait
+    padding: 0 10px
+    border-radius: 4px
+    color: #fff
+
+.text-right.account-action
+  .btn-failed
+    background-color: $danger-color
+    color: #fff
+  .btn-success
+    background-color: $success-color
+    color: #fff
+
+.table-account-detail//上傳檔案===========
+  tbody
+    td:last-child
+      .form-group
+        .col-sm-4
+          padding: 0
+  .fileinput-cancel-button,.glyphicon-folder-open
+    display: none
+  .btn-primary
+    background-color: #d4d4d4
+    border: 1px dashed #a7a7a7
+  .hidden-xs
+    margin-left: 0 !important
+    font-size: 13px
+    color: #a7a7a7
+  .kv-file-content,.file-footer-caption,.file-upload-indicator,.close
+    display: none
+  .file-preview-frame
+    height: auto
+  .file-actions
+    margin-top: 0
+  .file-preview
+    border: none
+    padding: 0
+    margin: 0
+  .fa-pencil-square-o
+    cursor: pointer
+    color: #2195d4
+    margin: 0 !important
+    position: absolute;
+    right: 12px;
+    top: 5px;
+    z-index: 1
+  .click-input
+    // width: 80%
+    display: inline-block
+
+  .fileinput-remove-button
+    margin-top: -10px
+    background-color: transparent
+    border: none
+    .fa-trash
+      color: $danger-color
+    &:hover
+      background-color: transparent
+    .fa-picture-o
+      line-height: 34px
+    .hidden-xs,.glyphicon-trash
+      display: none
+
+  .file-preview-frame
+    // display: none
+    border: none
+    box-shadow: none
+    height: 0
+    width: 0
+
+  .fa-upload
+    color: gray
+  // .glyphicon-zoom-in
+  //   display: none
+  .fa-picture-o.active
+    color: $warn-color
+  .kv-file-zoom
+    background-color: transparent
+    border: none
+    margin-top: -10px
+    margin-left: -10px
+
+
+  span.hidden-xs
+    float: initial !important
+
+// 留言板=========================================================
+#discussion
+  .content
+    min-height: initial
+  .actions
+    display: none
+  .commenting-field.main
+    display: none
+
+#comments-container
+  width: 100%
+  margin: 0 auto
+
+#comments-container ul.navigation
+  display: none
+
+#comments-container
+  .textarea
+    border: 1px solid #ccc
+    border-radius: 4px
+    padding: 6px 12px
+    height: 100px !important
+    width: 95% !important
+    float: right
+    margin-bottom: 3px
+
+  span.send
+    color: $primary-color
+    opacity: 1
+    background-color: transparent !important
+    border: 2px solid $primary-color
+    padding: 4.5px 20px
+    border-radius: 4px
+    transition: .5s
+    &:hover
+      color: #fff
+      background-color: $primary-color !important
+
+#contact
+  .content
+    min-height: initial
+
+#comments-container-contact
+  width: 100%
+  margin: 0 auto
+
+#comments-container-contact ul.navigation
+  display: none
+
+#comments-container-contact
+  .textarea
+    border: 1px solid #ccc
+    border-radius: 4px
+    padding: 6px 12px
+    height: 100px !important
+    width: 95% !important
+    float: right
+    margin-bottom: 3px
+  .main
+    width: 100% !important
+
+  span.send
+    color: $primary-color
+    opacity: 1
+    background-color: transparent !important
+    border: 2px solid $primary-color
+    padding: 4.5px 20px
+    border-radius: 4px
+    transition: .5s
+    &:hover
+      color: #fff
+      background-color: $primary-color !important
+
+
+
+#comment-list
+  li
+    margin: 0
+    margin-top: 15px
+
+  li.comment
+    border: 1px solid #ccc
+    border-radius: 4px
+    width: 100%
+    padding: 10px 50px
+
+  .child-comments
+    li.comment
+      border: none
+      width: 100%
+      padding-right: 0
+      margin-top: 0
+      padding-top: 10px
+      padding-bottom: 0px
+
+    .comment-wrapper
+      padding-top: 20px
+      border-top: 1px #ccc solid
+
+    .textarea
+      width: 100% !important
+
+    // .commenting-field
+    //  img
+    //    margin-right: 0
+    //    margin-left: 40px
+    //
+    //
+    // .by-current-user .edit .commenting-field
+    //  img
+    //    display: none
+    //
+    //
+    .textarea-wrapper
+      .textarea
+        width: 100% !important
+
+
+
+  .name
+    color: $primary-color
+    margin-bottom: 10px
+
+  .content
+    margin: 0
+    padding: 0
+    height: auto
+    line-height: 1.6
+
+  button.action.upvote, span.separator
+    display: none
+
+  button.reply
+    margin-top: 10px
+    color: $primary-color
+    font-size: 15px
+    font-weight: normal
+    &:before
+      font-family: FontAwesome
+      content: "\f112"
+      padding-right: 10px
+
+    &:hover
+      opacity: .9
+
+
+  time
+    font-size: 14px
+    color: #a0a0a0
+    font-style: italic
+    letter-spacing: 1px
+    font-weight: 300
+
+  .profile-picture
+    margin-right: 40px
+
+  .highlight-font-bold
+    color: $success-color !important
+
+
+
+span.upload
+  color: $primary-color !important
+  margin-top: 7px !important
+  font-size: 19px !important
+  background-color: transparent !important
+  i
+    margin-right: 0
+
+
+
+.textarea-wrapper:before, .textarea-wrapper:before
+  display: none
+
+.jquery-comments [contentEditable=true]:empty:not(:focus):before
+  color: #A9A9B1
+
+.jquery-comments ul.main li.comment .comment-wrapper
+  border: none
+
+#comment-list .child-comments .commenting-field img
+  margin-left: 40px
+
+#comment-list .by-current-user .commenting-field img
+  display: none
+
+#comment-list .by-current-user
+  .textarea
+    width: 100% !important
+
+
+#comments-container .commenting-field img
+  display: none
+
+#comments-container .main img
+  display: block
+
+
+#comments-container-contact .commenting-field img
+  display: none
+
+#comments-container-contact .main img
+  display: block
+
+span.delete
+  color: $danger-color !important
+  opacity: 1
+  background-color: transparent !important
+  border: 2px solid $danger-color !important
+  padding: 4.5px 20px !important
+  border-radius: 4px
+  transition: .5s
+  &:hover
+    color: #fff !important
+    background-color: $danger-color !important
+
+
+span.save.highlight-background.update
+  color: #fff !important
+  opacity: 1
+  background-color: $primary-color !important
+  border: 2px solid $primary-color !important
+  padding: 4.5px 20px !important
+  border-radius: 4px
+  transition: .5s
+  &:hover
+    color: $primary-color !important
+    background-color: #fff !important
+
+
+
+.jquery-comments .textarea-wrapper:after
+  display: none !important
+
+
+// *
+//  border: 1px solid #000
+//
+
+.nav-tabs
+  margin-top: 39px
+
+.jquery-comments .profile-picture
+  max-width: 70px
+    max-height: 70px
+
+#comments
+  .star-rating
+    margin-top: -7px
+
+
+//學費繳交================================================
+.account-student
+  section
+    margin-top: 15px
+    background-color: rgba(white,0.4)
+    h3
+      margin-bottom: 15px
+      font-weight: 500
+      span
+        margin-left: 10px
+    .info
+      padding: 25px 40px
+      display: inline-block
+      width: 49.8%
+      &:first-child
+        background-color: #DDF0F6
+      tr
+        border-top: none
+        td 
+          padding-left: 0
+          span
+            padding: 0 30px 0 10px
+            border-radius: 20px
+            background-color: #fff
+            border: 1px solid gray
+            color: gray
+            position: relative
+            cursor: pointer
+            i
+              color: #fff
+              background-color: #2dbbba
+              padding: 8px
+              border-radius: 100%
+              position: absolute
+              right: -7px
+              top: -4px
+    .comments
+      background-color: #fff
+      padding: 20px 40px
+      .content
+        min-height: initial
+      .profile-picture
+        max-width: initial !important
+        max-height: initial !important
+        width: 60px
+        height: 60px
+        border-radius: 100%
+      .jquery-comments ul.main li.comment .child-comments .profile-picture
+        width: 60px
+        height: 60px
+
+#modalStudentpay
+  .modal-content
+    background-color: $bg-color
+  .modal-body
+    padding: 30px 50px
+    text-align: left
+    h3
+      margin-bottom: 30px
+      font-weight: 500
+    form
+      .required:after
+        margin-right: -7px
+        content: '*'
+        color: $warn-color
+      textarea
+        position: absolute
+        width: 89%
+        height: 83px
+    .btn-warn
+      background-color: $warn-color
+
+.fa-pencil-square-o
+  color: #2195d4
+  margin-right: 5px
+.fa-plus-square-o
+  color: $warn-color
+  margin-right: 5px

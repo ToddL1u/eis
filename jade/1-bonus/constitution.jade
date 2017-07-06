@@ -1,0 +1,49 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #bonus.container.nav-bonus-1
+      nav.nav
+      .wrap
+        include ../include/header-constitution
+        .content
+          include ../include/toolbar-export-print-add
+            
+          section.section-block
+            .section-title (一)公司請休假
+            table.table.table-hover.table-list.table-sort#tableConstitution
+              thead.table-subheader
+                tr
+                  th 項目
+                  th 狀態
+                  th 異動時間
+                  td
+              tbody
+                -for(var i=0;i<7;i++){
+                  tr(data-href="constitution-detail.html")
+                    td 召募及任用作業管理辦法    
+                    td 生效中 (v2)
+                    td 2016/11/09 09:38
+                    td
+                      ul.toolbar.toolbar-right
+                        li
+                          a(href="constitution-detail.html?id=123&action=edit").btn-edit-only
+                -}
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    $('.btn-add').click(function(){
+      window.location.href = 'constitution-categories.html';
+    });
+    function init() {
+      $('#tableConstitution').tablesorter();
+        //- var sorter = tsorter.create('tableConstitution');
+    }
+    window.onload = init;

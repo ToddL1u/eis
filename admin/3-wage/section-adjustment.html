@@ -1,0 +1,121 @@
+
+<section id="adjustment">
+  <div id="adjustmentDetail" class="section-block form-block">
+    <div class="section-title">2016-09-09</div>
+    <ul class="toolbar toolbar-right">
+      <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+      <li class="btn-edit"></li>
+      <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+      <li class="btn-confirm toolbar-btn-hide"></li>
+    </ul>
+    <table class="table table-form table-side-header">
+      <tr>
+        <td class="col-sm-3">生效日期</td>
+        <td> 
+          <ul class="select-date">
+            <li><span class="select-date-label"></span></li>
+            <li><span class="select">
+                <select disabled="disabled" class="select-years form-control"></select></span></li>
+            <li><span class="select">
+                <select disabled="disabled" class="select-months form-control"></select></span></li>
+            <li><span class="select">
+                <select disabled="disabled" class="select-days form-control"></select></span></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>調前全薪</td>
+        <td>底薪45,000  +  伙食津貼  1,200    =   全薪45,000
+          <input type="hidden" value="45000" id="origin"/>
+        </td>
+      </tr>
+      <tr>
+        <td>調整原因</td>
+        <td> 
+          <input type="text" readonly="readonly" value="專家學者4人；勞動部、經濟部、國發會各派代表1人，總共21人。" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>調薪幅度</td>
+        <td>
+          <input type="number" readonly="readonly" value="5,000" name="field_adjustment" class="form-control"/>
+        </td>
+      </tr>
+      <tr>
+        <td>調後全薪</td>
+        <td> <span id="total">底薪45000  +  伙食津貼  1200    =   全薪 50000</span></td>
+      </tr>
+    </table>
+    <button style="float:right" class="btn btn-primary btn-back">回上頁</button>
+  </div>
+  <div id="adjustmentSection" class="section-show">
+    <ul class="toolbar">
+      <li class="btn-export"></li>
+      <li class="btn-print">
+        <li class="btn-add"></li>
+      </li>
+    </ul>
+    <div class="section-block salary-chart-group"><span style="position:absolute;">目前全薪</span>
+      <div class="salary-chart-info">
+        <div style="display: flex; align-items: flex-end">
+          <h1>55,000</h1><strong class="currency-unit">NTD</strong>
+        </div>
+        <div>距上次調薪3個月</div>
+      </div>
+      <div>
+        <div class="salary-chart">
+          <canvas id="salaryChart" height="50"></canvas>
+        </div>
+      </div>
+    </div>
+    <form class="form-group"></form>
+    <table id="tableAdjustment" class="table table-list table-sort">
+      <thead class="table-subheader">
+        <tr>
+          <th>生效日期</th>
+          <th>調前全薪</th>
+          <th>調薪幅度</th>
+          <th>調整原因</th>
+          <th>調後全薪</th>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2012/02/03</td>
+          <td>45000</td>
+          <td>+5000</td>
+          <td> </td>
+          <td>5000</td>
+          <td>
+            <ul class="toolbar">
+              <li data-toggle="modal" data-target="#modalSalary" class="btn-edit-only"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="table-pagination">
+      <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+      <li> <a href="#" class="page-active">1</a>
+      </li>
+      <li> <a href="#">2</a>
+      </li>
+      <li> <a href="#">3</a>
+      </li>
+      <li> <a href="#">4</a>
+      </li>
+      <li> <a href="#">5</a>
+      </li>
+      <li> <a href="#">6</a>
+      </li>
+      <li> <a href="#">7</a>
+      </li>
+      <li> <a href="#">8</a>
+      </li>
+      <li> <a href="#">9</a>
+      </li>
+      <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="../../assets/js/jquery-comments.min.js")
+    script(src="../../assets/js/bootstrap/bootstrap.min.js")
+    script(src="../../assets/js/fileinput.js")
+    script(src="../../assets/js/moment.js")
+    script(src="../../assets/js/bootstrap-datetimepicker.min.js")
+    //- include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-3.account-student
+      nav.nav
+      .wrap
+        include ../include/header-workshop-account-student
+        .content
+          div
+            button.btn.btn-flat.btn-warning 報名成功
+            button.btn.btn-flat.btn-danger-cancel 繳費異常
+            button.btn.btn-flat.register 轉登記
+          section
+            .info
+              h3 學員資訊
+              table.table-pay
+                tbody
+                  tr
+                    td.col-sm-4 姓名
+                    td Jake Gyllenhaal
+                  tr
+                    td.col-sm-4 課程
+                    td 課程名稱課程名稱課程名稱
+                  tr
+                    td.col-sm-4 學費
+                    td 4500
+                  tr
+                    td.col-sm-4 繳費期限
+                    td 2017/10/10 ~ 2017/10/10
+                  tr
+                    td.col-sm-4 課程狀態
+                    td --
+                  tr
+                    td.col-sm-4 報名狀態
+                    td 登記
+                  tr
+                    td.col-sm-4 繳費狀態
+                    td 待處理
+                  tr
+                    td.col-sm-4 異動時間
+                    td 2017/10/20 09:30
+            .info
+              h3 繳費資訊
+                span.btn-edit-only(data-toggle="modal" data-target="#modalStudentpay")
+              table.table-pay
+                tbody
+                  tr
+                    td.col-sm-4 付款方式
+                    td 匯款
+                  tr
+                    td.col-sm-4 繳費時間
+                    td 2017/10/10 09:30
+                  tr
+                    td.col-sm-4 繳費金額
+                    td 4500
+                  tr
+                    td.col-sm-4 備註
+                    td 文字內容文字內容文字內容
+                  tr
+                  tr
+                  tr
+                  tr
+                    td.col-sm-4 上傳憑證
+                    td
+                      span filename.pdf
+                        i.fa.fa-search
+            .comments
+              h3 留言
+              #comments-container
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    
+    $('.register').hide();
+
+    function status_color(){
+      $('td').css('color','#4E4D4D');
+      $('td:contains("待處理")').css('color','#ec971f');
+    }
+
+    function register(){
+      $('.register').click(function(){
+        $(this).hide();
+        $(this).siblings().show();
+        $('td:contains("報名狀態")').next().text('登記');
+        $('td:contains("繳費狀態")').next().text('尚未繳費');
+        status_color();
+      })
+    }
+
+    status_color();
+    
+    $('.btn-warning').click(function(){
+      $('td:contains("報名狀態")').next().text('報名成功');
+      $('td:contains("繳費狀態")').next().text('已繳費');
+      status_color();
+    })
+
+    $('.btn-warning').click(function(){
+      $(this).hide();
+      $(this).siblings().hide();
+      $('.register').show();
+    })
+
+    $('.btn-danger-cancel').click(function(){
+      $(this).parent().hide();
+      $('td:contains("繳費狀態")').next().text('繳費異常');
+      status_color();
+    })
+
+    $('.register').click(function(){
+      $(this).hide();
+      $(this).siblings().show();
+      $('td:contains("報名狀態")').next().text('登記');
+      $('td:contains("繳費狀態")').next().text('待處理');
+      status_color();
+    })
+
+    //候補
+    var status = getUrlParameter('status');
+    if(status == 'backup'){
+      $('td:contains("報名狀態")').next().text('候補');
+      $('td:contains("繳費狀態")').next().text('--');
+      $('.register').show().siblings().hide();
+      status_color();
+      $('.register').click(function(){
+        $(this).parent().hide();
+        $('td:contains("報名狀態")').next().text('登記');
+        $('td:contains("繳費狀態")').next().text('尚未繳費');
+        status_color();
+      })
+    }
+
+    if(status == 'register'){
+      $('td:contains("報名狀態")').next().text('登記');
+      $('td:contains("繳費狀態")').next().text('尚未繳費');
+      $('.btn-danger-cancel ').hide();
+      $('.register').click(function(){
+        $(this).hide().siblings('.btn-danger-cancel').hide();
+        $('td:contains("報名狀態")').next().text('登記');
+        $('td:contains("繳費狀態")').next().text('尚未繳費');
+        status_color();
+      })
+      status_color();
+    }
+
+    if(status == 'error'){
+      $('td:contains("報名狀態")').next().text('登記');
+      $('td:contains("繳費狀態")').next().text('繳費異常');
+      $('.register').parent().hide();
+      status_color();
+    }
+
+    if(status == 'success'){
+      $('td:contains("課程狀態")').next().text('待上課');
+      $('td:contains("報名狀態")').next().text('報名成功');
+      $('td:contains("繳費狀態")').next().text('已繳費');
+      $('.register').show().siblings().hide();
+      status_color();
+    }
+
+    if(status == 'error_unpaid'){
+      $('td:contains("報名狀態")').next().text('報名失敗');
+      $('td:contains("繳費狀態")').next().text('尚未繳費');
+      $('.register').show().siblings().hide();
+      register()
+      status_color();
+    }
+
+    if(status == 'error_fail'){
+      $('td:contains("報名狀態")').next().text('報名失敗');
+      $('td:contains("繳費狀態")').next().text('繳費異常');
+      $('.register').show().siblings().hide();
+      $('.register').click(function(){
+        $(this).parent().hide();
+        $('td:contains("報名狀態")').next().text('登記');
+        $('td:contains("繳費狀態")').next().text('繳費異常');
+        status_color();
+      })
+      status_color();
+    }
+
+    if(status == 'regret'){
+      $('td:contains("報名狀態")').next().text('退課');
+      $('td:contains("繳費狀態")').next().text('退費申請/退費中/已退費');
+      $('.register').parent().hide();
+      status_color();
+    }
+
+    if(status == 'cancel'){
+      $('td:contains("課程狀態")').next().text('課程取消');
+      $('td:contains("報名狀態")').next().text('--');
+      $('td:contains("繳費狀態")').next().text('退費申請/退費中/已退費');
+      $('.register').parent().hide();
+      status_color();
+    }
+
+    // 留言============================================================================
+    $('#comments-container').comments({
+        profilePictureURL: '//www.fillmurray.com/160/160',
+        getComments: function(success, error) {
+            var commentsArray = [{
+                id: 1,
+                created: '2015-10-01',
+                content: 'Lorem ipsum dolort sit amet',
+                fullname: 'Simon Powell',
+                upvote_count: 2,
+                user_has_upvoted: false
+            }];
+            success(commentsArray);
+        }
+    });
+
+    //繳費時間=========================================================================

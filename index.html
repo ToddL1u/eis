@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="logo" src="assets/img/logo-aydyn.svg" alt="">
+
+        <div id="login" class="form">
+            <h2 class="title">Login</h2>
+
+            <form>
+                <input type="text" name="account" value="" placeholder="Account">
+                <input type="password" name="pwd" id="" placeholder="Password">
+            </form>
+
+            <form>
+                <label for="" class="select">
+                    <select class="company" name="">
+                        <option value="">AYDYN</option>
+                        <option value="">SERSKI</option>
+                        <option value="">TOOU PO</option>
+                    </select>
+                </label>
+                <button class="btn-primary" type="submit">Login</button>
+                <div class="form-footer">
+                    <input id="tickRemember" class="checkbox-square" type="checkbox" name="" value="">
+                    <label class="tickRemember" for="tickRemember"> Remember Me</label>
+                    <a href="#" class="btn-forget-pwd">Forget password?</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="forgetPwd" class="form" style="display: none;">
+            <h2 class="title">Forget Password</h2>
+            <p>Please contact Vicky!</p>
+            <div class="form-footer">
+                <a href="#" class="btn-back">Back to Login</a>
+            </div>
+        </div>
+    </div>
+    <footer>Copyright AYDYN Company ⓒ2016</footer>
+</body>
+
+</html>
+
+<script>
+    // window.location.href = 'admin/index';
+    alert('目前版本日期為2017/04/05 10:30，記得定期更新，確保資訊準確唷~！');
+
+    $('#login').submit(function(event) {
+      foolProving();
+        if ($('input[name="account"]').val() == "admin") {
+            window.location.href = 'admin/index';
+        } else if ($('input[name="account"]').val() == "employee") {
+            window.location.href = 'employee/index';
+        }
+        event.preventDefault();
+    });
+
+    $('#forgetPwd').submit(function(event) {
+        foolProving();
+        $('#myModal').css("display","flex");
+        event.preventDefault();
+    });
+
+    function foolProving(){
+
+    }
+
+    function reset() {
+        $('input').val("");
+    }
+
+    $('.btn-forget-pwd').click(function() {
+        // reset();
+        // var $form = $(this).parents('form');
+        // $form.removeClass('animate-left-in').addClass('animate-left-out section-show');
+        // $form.next().removeClass('animate-right-out').addClass('animate-right-in section-show');
+        // setTimeout(function(){
+        //    $form.removeClass('animate-left-out section-show');
+        //  }, 1000);
+        $('#login').hide();
+        $('#forgetPwd').show();
+
+    });
+
+    $('.btn-back').click(function() {
+        // reset();
+        // var $form = $(this).parents('form');
+        // $form.removeClass('animate-right-in').addClass('animate-right-out');
+        // $form.prev().addClass('animate-left-in');
+        // setTimeout(function(){
+        //    $form.removeClass('animate-right-out section-show');
+        //  }, 1000);
+        $('#forgetPwd').hide();
+        $('#login').show();
+    });
+
+    window.onclick = function(event) {
+        $('#myModal').hide();
+    }
+
+    $('form').submit(function(event){
+      $(this).find('input[type!="checkbox"]').each(function(){
+        if($(this).val() == ''){
+          $(this).css({'border':'red 1px solid'});
+        }else{
+          $(this).css({'border':'none'});
+        }
+      })
+    })
+</script>

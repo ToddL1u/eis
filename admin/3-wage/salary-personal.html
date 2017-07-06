@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+    <script src="../../assets/js/chartjs/Chart.min.js"></script>
+    <script src="../../assets/js/sparkline/index.js"></script>
+  </head>
+  <body>
+    <div id="wage" class="container nav-wage-1 nav-salary-personal">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>薪資作業</li>
+              <li>Fill Murry</li>
+            </ul>
+            <ul class="subnav-tabs">
+              <li id="tabProfile" class="subnav-tab-active"><a href="#">薪資資料</a></li>
+              <li id="tabAdjustment"><a href="#">薪資異動</a></li>
+              <li id="tabInvoice"> <a href="#">核銷單據</a></li>
+              <li id="tabTraining"><a href="#">教育訓練</a></li>
+              <li id="tabAbsence"><a href="#">假單</a></li>
+              <li id="tabLeave"><a href="#">特休補休</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="content">
+          <section id="profile"> 
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <div class="section-block form-block">
+              <div class="table-header table-header-primary">基本資料
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">姓名</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="墨瑞" class="form-control">
+                    </td>
+                    <td class="col-sm-2">部門</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>到職日期</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td>底薪</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>離職日期</td>
+                    <td>
+                      <ul class="select-date">
+                        <li><span class="select-date-label"></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-years form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-months form-control"></select></span></li>
+                        <li><span class="select">
+                            <select disabled class="select-days form-control"></select></span></li>
+                      </ul>
+                    </td>
+                    <td>伙食津貼</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>試用期</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                    <td>技能加給</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>累計年資</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                    <td>全薪/日薪</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div class="section-block form-block">
+              <div class="table-header table-header-primary">薪轉銀行
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">開戶銀行</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="墨瑞" class="form-control">
+                    </td>
+                    <td class="col-sm-2">銀行分行</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="Fill Murry" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>開戶戶名</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                    <td>銀行帳號</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div class="section-block form-block">
+              <div class="table-header table-header-primary">健康保險
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">投保級距</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="墨瑞" class="form-control">
+                    </td>
+                    <td class="col-sm-2">公司付擔</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="Fill Murry" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>加保日</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                    <td>員工付擔</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>員工付擔眷屬(月)</td>
+                    <td>
+                      <input type="number" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div class="section-block form-block">
+              <div class="table-header table-header-primary">勞工保險
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">投保級距</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="墨瑞" class="form-control">
+                    </td>
+                    <td class="col-sm-2">公司付擔</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="Fill Murry" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>加保日</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                    <td>員工付擔</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div class="section-block form-block">
+              <div class="table-header table-header-primary">勞工退休金
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-edit"></li>
+                  <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                  <li class="btn-confirm toolbar-btn-hide"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-side-header">
+                  <tr>
+                    <td class="col-sm-2">投保級距</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="墨瑞" class="form-control">
+                    </td>
+                    <td class="col-sm-2">公司提撥6%</td>
+                    <td class="col-sm-4">
+                      <input type="text" readonly value="Fill Murry" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>提撥日</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                    <td>員工自提</td>
+                    <td>
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+            <div id="salaryInsurance" class="section-block">
+              <div class="table-header table-header-primary">健康保險眷屬投保資料
+                <ul class="toolbar toolbar-right section-toolbar">
+                  <li class="btn-add"></li>
+                </ul>
+              </div>
+              <form class="form-group">
+                <table class="table table-form table-sort">
+                  <thead class="table-subheader">
+                    <tr>
+                      <th>姓名</th>
+                      <th>身分證字號</th>
+                      <th class="col-sm-3">加保日期</th>
+                      <th class="col-sm-3">退保日期</th>
+                      <td class="col-sm-1"></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="form-block">
+                      <td> 
+                        <input type="text" readonly value="" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="text" readonly value="" class="form-control">
+                      </td>
+                      <td> 
+                        <ul class="select-date">
+                          <li><span class="select-date-label"></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-years form-control"></select></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-months form-control"></select></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-days form-control"></select></span></li>
+                        </ul>
+                      </td>
+                      <td> 
+                        <ul class="select-date">
+                          <li><span class="select-date-label"></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-years form-control"></select></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-months form-control"></select></span></li>
+                          <li><span class="select">
+                              <select disabled class="select-days form-control"></select></span></li>
+                        </ul>
+                      </td>
+                      <td>
+                        <ul class="toolbar toolbar-right">
+                          <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                          <li class="btn-edit"></li>
+                          <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                          <li class="btn-confirm toolbar-btn-hide"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr class="form-block">
+                      <td> 
+                        <input type="text" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="text" class="form-control">
+                      </td>
+                      <td> 
+                        <ul class="select-date">
+                          <li><span class="select">
+                              <select class="select-years form-control"></select></span></li>
+                          <li><span class="select">
+                              <select class="select-months form-control"></select></span></li>
+                          <li><span class="select">
+                              <select class="select-days form-control"></select></span></li>
+                        </ul>
+                      </td>
+                      <td> 
+                        <ul class="select-date">
+                          <li><span class="select">
+                              <select class="select-years form-control"></select></span></li>
+                          <li><span class="select">
+                              <select class="select-months form-control"></select></span></li>
+                          <li><span class="select">
+                              <select class="select-days form-control"></select></span></li>
+                        </ul>
+                      </td>
+                      <td>
+                        <ul class="toolbar toolbar-right">
+                          <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                          <li class="btn-edit"></li>
+                          <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                          <li class="btn-confirm toolbar-btn-hide"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
+          </section>
+          <section id="adjustment">
+            <div id="adjustmentDetail" class="section-block form-block">
+              <div class="section-title">2016-09-09</div>
+              <ul class="toolbar toolbar-right">
+                <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                <li class="btn-edit"></li>
+                <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                <li class="btn-confirm toolbar-btn-hide"></li>
+              </ul>
+              <table class="table table-form table-side-header">
+                <tr>
+                  <td class="col-sm-3">生效日期</td>
+                  <td> 
+                    <ul class="select-date">
+                      <li><span class="select-date-label"></span></li>
+                      <li><span class="select">
+                          <select disabled class="select-years form-control"></select></span></li>
+                      <li><span class="select">
+                          <select disabled class="select-months form-control"></select></span></li>
+                      <li><span class="select">
+                          <select disabled class="select-days form-control"></select></span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>調前全薪</td>
+                  <td>底薪45,000  +  伙食津貼  1,200    =   全薪45,000
+                    <input type="hidden" value="45000" id="origin">
+                  </td>
+                </tr>
+                <tr>
+                  <td>調整原因</td>
+                  <td> 
+                    <input type="text" readonly value="專家學者4人；勞動部、經濟部、國發會各派代表1人，總共21人。" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>調薪幅度</td>
+                  <td>
+                    <input type="number" readonly value="5,000" name="field_adjustment" class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td>調後全薪</td>
+                  <td> <span id="total">底薪45000  +  伙食津貼  1200    =   全薪 50000</span></td>
+                </tr>
+              </table>
+              <button style="float:right" class="btn btn-primary btn-back">回上頁</button>
+            </div>
+            <div id="adjustmentSection" class="section-show">
+              <ul class="toolbar">
+                <li class="btn-export"></li>
+                <li class="btn-print">
+                  <li class="btn-add"></li>
+                </li>
+              </ul>
+              <div class="section-block salary-chart-group"><span style="position:absolute;">目前全薪</span>
+                <div class="salary-chart-info">
+                  <div style="display: flex; align-items: flex-end">
+                    <h1>55,000</h1><strong class="currency-unit">NTD</strong>
+                  </div>
+                  <div>距上次調薪3個月</div>
+                </div>
+                <div>
+                  <div class="salary-chart">
+                    <canvas id="salaryChart" height="50"></canvas>
+                  </div>
+                </div>
+              </div>
+              <form class="form-group"></form>
+              <table id="tableAdjustment" class="table table-list table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>生效日期</th>
+                    <th>調前全薪</th>
+                    <th>調薪幅度</th>
+                    <th>調整原因</th>
+                    <th>調後全薪</th>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2012/02/03</td>
+                    <td>45000</td>
+                    <td>+5000</td>
+                    <td> </td>
+                    <td>5000</td>
+                    <td>
+                      <ul class="toolbar">
+                        <li data-toggle="modal" data-target="#modalSalary" class="btn-edit-only"></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="table-pagination">
+                <li> <a href="#" class="page-front fa fa-angle-double-left"></a></li>
+                <li> <a href="#" class="page-active">1</a>
+                </li>
+                <li> <a href="#">2</a>
+                </li>
+                <li> <a href="#">3</a>
+                </li>
+                <li> <a href="#">4</a>
+                </li>
+                <li> <a href="#">5</a>
+                </li>
+                <li> <a href="#">6</a>
+                </li>
+                <li> <a href="#">7</a>
+                </li>
+                <li> <a href="#">8</a>
+                </li>
+                <li> <a href="#">9</a>
+                </li>
+                <li><a href="#" class="page-end fa fa-angle-double-right"></a></li>
+              </ul>
+            </div>
+          </section>
+          <section id="invoice">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <form class="form-group">
+              <table id="tableInvoice" class="table table-list table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>異動時間</th>
+                    <th>類別</th>
+                    <th>內容</th>
+                    <th>金額</th>
+                    <th>狀態</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="invoice-detail.html" class="form-block">
+                    <td>2012/02/03</td>
+                    <td>美工雜項</td>
+                    <td>萬聖節服飾申請</td>
+                    <td>5000</td>
+                    <td>待入帳</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </section>
+          <section id="training">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <form class="form-group">
+              <table id="tableTraining" class="table table-list table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>受訓區間</th>
+                    <th>類別</th>
+                    <th>課程</th>
+                    <th>狀態</th>
+                    <th>金額</th>
+                    <th>服務到期日</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="../5-training/detail.html" class="form-block">
+                    <td>2012/02/03 09:00 ~ 2012/02/04 14:00</td>
+                    <td>內訓</td>
+                    <td>xxxx</td>
+                    <td>待受訓</td>
+                    <td>5000</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </section>
+          <section id="absence">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <form class="form-group">
+              <table id="tableAbsence" class="table table-list table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>請假區間</th>
+                    <th>類型</th>
+                    <th>請假時數</th>
+                    <th>時數折抵</th>
+                    <th>薪資計算</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="../4-attendance/absence-detail.html" class="form-block">
+                    <td>2012/02/03 09:00 ~ 2012/02/04 14:00</td>
+                    <td>病假</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>-400</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </section>
+          <section id="leave">
+            <ul class="toolbar toolbar-right">
+              <li class="btn-print"></li>
+            </ul>
+            <div class="section-block">Murry 2016-01-01 ~ 2016-01-01
+              <table class="table table-form">
+                <thead>
+                  <tr style="text-align:center">
+                    <td class="table-subheader col-sm-4">總時數(特休+補休)</td>
+                    <td class="table-subheader col-sm-4">使用時數(特休+補休)</td>
+                    <td class="table-subheader col-sm-4">剩餘時數(特休+補休)</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="hour-total">
+                        <div style="display: flex; align-items: flex-end">
+                          <h1>32</h1><strong class="hour-unit">hrs</strong>
+                        </div>
+                        <div>( 22 + 10)</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="hour-apply">
+                        <div style="display: flex; align-items: flex-end">
+                          <h1>4</h1><strong class="hour-unit">hrs</strong>
+                        </div>
+                        <div>( 0 + 10)</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="hour-balance">
+                        <div style="display: flex; align-items: flex-end">
+                          <h1>32</h1><strong class="hour-unit">hrs</strong>
+                        </div>
+                        <div>( 22 + 10)</div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <form class="form-group">
+              <table id="tableLeave" class="table table-list table-sort">
+                <thead class="table-subheader">
+                  <tr>
+                    <th>類型</th>
+                    <th>生效區間</th>
+                    <th>總時數</th>
+                    <th>狀態</th>
+                    <th>異動時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>通過</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>通過</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>通過</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>通過</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>通過</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                  <tr data-href="../4-attendance/leave-creadit-detail.html?id=123" class="table-row-warn">
+                    <td>2012/02/03</td>
+                    <td>2012/01/01 ~ 2012/01/01</td>
+                    <td>20 小時</td>
+                    <td>待審</td>
+                    <td>2012/02/03</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      var section_block = $form_section.parents('.form-block');
+      section_block.remove();
+    });
+    
+    $section = $('#salaryInsurance tbody tr:last-child')
+    $section.hide();
+    $section.find('.btn-edit').trigger('click');
+    
+    $('#profile .btn-add').click(function(){
+      var $row = $(this).parents('section').find('tbody').children('tr:last');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+    });      
+    
+    $('#adjustmentDetail .btn-back').click(function(){
+      if($('#adjustmentDetail .btn-edit').hasClass('toolbar-btn-hide')){
+        $('#adjustmentDetail  .btn-confirm').trigger('click');
+      }
+      $('#adjustmentSection').addClass('animate-left-in section-show');
+      $('#adjustmentDetail').removeClass('animate-right-in').addClass('animate-right-out');
+      setTimeout(function(){
+         $('#adjustmentDetail').removeClass('animate-right-out section-show');
+       }, 1000);
+    });
+    
+    $('#adjustmentSection .btn-add').click(function(){
+      $('#adjustmentDetail .btn-edit').trigger('click');
+      showDetail();
+      $('#adjustmentDetail input').attr('value','');
+    });      
+    
+    $('#adjustmentSection .btn-edit-only').click(function(){
+      $('#adjustmentDetail .btn-edit').trigger('click');
+      showDetail();
+      
+      setTimeout(function(){
+        $('#adjustmentSection').removeClass('section-block');
+      }, 1000);
+    });  
+    
+    
+    
+    $('#adjustmentSection tr td:not(:last-child)').click(function(){
+      showDetail();
+    });  
+    
+    $('input[name="field_adjustment"]').keyup(function(){
+      var $origin = parseInt($('#origin').val());
+      var _adjust = $(this).val() == '' ? 0 : parseInt($(this).val());
+      var $adjust = $origin + _adjust;
+      var $total = $adjust + 1200;
+      $('#total').html('底薪'+ $adjust + ' + 伙食津貼  1200 = 全薪 ' + $total);
+    });
+    
+    function showDetail(){
+      $('#adjustmentSection').removeClass('animate-left-in').addClass('animate-left-out section-show');
+      $('#adjustmentDetail').removeClass('animate-right-out').addClass('animate-right-in section-show');
+    }
+    
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    var $adjustment= 0;
+    $('.subnav-tabs').on('click', '#tabAdjustment', function(event){
+      $('#adjustment').show().siblings('section').hide();
+      var sharpLineData = {
+          labels: ['一月', '二月', '三月', '四月', '五月', '六月','七月', '八月', '九月', '十月', '十一月', '十二月'],
+          datasets: [
+              {
+                  label: "Example dataset",
+                  fillColor: "rgba(98,203,49,0.5)",
+                  strokeColor: "rgba(98,203,49,0.7)",
+                  pointColor: "rgba(98,203,49,1)",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(98,203,49,1)",
+                  data: [33, 48, 40, 19, 54, 27, 90,33, 48, 40, 19, 54]
+              }
+          ]
+      };
+    
+      var sharpLineOptions = {
+          scaleShowGridLines : true,
+          scaleGridLineColor : "rgba(0,0,0,.05)",
+          scaleGridLineWidth : 1,
+          bezierCurve : false,
+          pointDot : true,
+          pointDotRadius : 4,
+          pointDotStrokeWidth : 1,
+          pointHitDetectionRadius : 20,
+          datasetStroke : true,
+          datasetStrokeWidth : 1,
+          datasetFill : true,
+          responsive: true
+      };
+      if($adjustment == 0){
+        var ctx = document.getElementById("salaryChart").getContext("2d");
+        var myNewChart = new Chart(ctx).Line(sharpLineData, sharpLineOptions);
+        $adjustment++;
+      }
+      
+    });
+    
+    $('.subnav-tabs').on('click', '#tabInvoice', function(event){
+      console.log('here');
+      $('#invoice').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabTraining', function(event){
+      $('#training').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAbsence', function(event){
+      $('#absence').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabLeave', function(event){
+      $('#leave').show().siblings('section').hide();
+    });
+    
+    function init() {
+      var sorter = tsorter.create('tableAdjustment');
+      var sorter = tsorter.create('tableInvoice');
+      var sorter = tsorter.create('tableTraining');
+      var sorter = tsorter.create('tableAbsence');
+      var sorter = tsorter.create('tableLeave');
+    }
+        
+    window.onload = init;
+  </script>
+</html>

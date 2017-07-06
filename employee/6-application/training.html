@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="application" class="container nav-application-4">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <h3>申請表單</h3>
+            <h2>受訓單</h2>
+          </div>
+          <section>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">狀態</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" value="未送出" readonly>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">課程</label>
+                <div class="col-sm-3">
+                  <select id="courseType" class="form-control" required>
+                    <option disabled selected value>請選擇課程類別</option>
+                    <option value="interior">內訓</option>
+                    <option value="exterior">外訓</option>
+                    <option value="self">自行提案</option>
+                  </select>
+                </div>
+
+                <div id="inCourse" class="col-sm-8" style="display: none;">
+                  <select class="form-control" required>
+                    <option disabled selected value>請選擇一門內訓課程</option>
+                    <option>git應用課程</option>
+                    <option>PPT簡報製作教學</option>
+                  </select>
+                </div>
+
+                <div id="exCourse" class="col-sm-8" style="display: none;">
+                  <select class="form-control" required>
+                    <option disabled selected value>請選擇一門外訓課程</option>
+                    <option>ColdFusion網頁程式設計</option>
+                    <option>Flash應用程式開發</option>
+                    <option>創意網站設計精修班</option>
+                    <option>精通 Flash RIA ActionScript 應用開發精修班</option>
+                    <option>Flash Lite手機介面及遊戲製作班</option>
+                    <option>Flex Web 2.0技術應用班</option>
+                    <option>CSS 網頁語法精修班</option>
+                  </select>
+                </div>
+
+                <div id="selfCourse" class="col-sm-8" style="display: none;">
+                  <input type="text" class="form-control" placeholder="請輸入課程名稱" required>
+                </div>
+              </div>
+
+              <div id="selfWeb" class="form-group"  style="display: none;">
+                <label class="col-sm-1 control-label required">課程網址</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" placeholder="www.example.com" required>
+                </div>
+              </div>
+
+              <div id="selfReason" class="form-group"  style="display: none;">
+                <label class="col-sm-1 control-label required">受訓原因</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" placeholder="請說明受訓原因" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">受訓區間</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='startDate'>
+                      <input type='text' class="form-control" placeholder="Start Date" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='endDate'>
+                      <input type='text' class="form-control" name="end_date" placeholder="End Date" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">簡報日期</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='reportStart'>
+                      <input type='text' class="form-control" placeholder="Report Start" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-md-1'>
+                  <input type='number' class="form-control" required>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label note">*簡報日期需訂於課程結束後一周內</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">費用</label>
+                <div class="col-sm-2">
+                  <input id="selfCost" type="number" name="expense" class="form-control" readonly required="">
+                </div>
+                <label class="col-sm-0 control-label">NTD</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label id="selfNote" class="control-label note">*系統自動帶入</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">服務到期</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" name="service_date" placeholder="YYYY/MM/DD" readonly>
+                </div>
+                <label class="control-label note">*系統自動帶入</label>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <div class="checkbox col-sm-9">
+                  <label class="control-label note">
+                    <input type="checkbox" required>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我已詳細閱讀&nbsp;<a href="#" data-toggle="modal" data-target="#myModal"><b>教育訓練補助條款</b></a>，並接受所有規定事項。
+                  </label>
+                </div>
+                <div class="col-sm-3 text-right">
+                  <button type="reset" class="btn btn-default">Clear</button>
+                  <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+        <footer></footer>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+              <div class="modal-title">
+                <h3>教育訓練</h3>
+                <h2>教育訓練補助條款</h2>
+              </div>
+              <table class="table-center">
+                <thead>
+                  <tr>
+                    <th>受訓費用(NTD)</th>
+                    <th>續服務年限</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5,000</td>
+                    <td>6 Months</td>
+                  </tr>
+                  <tr>
+                    <td>5,001-12,000</td>
+                    <td>1 Year</td>
+                  </tr>
+                  <tr>
+                    <td>12,001-20,000</td>
+                    <td>2 Years</td>
+                  </tr>
+                  <tr>
+                    <td>20,001-30,000</td>
+                    <td>3 Years</td>
+                  </tr>
+                  <tr>
+                    <td>30,001</td>
+                    <td>4 Years</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="note">
+                <p>*續服務年限自課程結束隔日起算之。</p>
+                <p>*若因政府相關單位法規規定需有執照之教育訓練；唯證照需無條件為公司使用及特殊公司指派者，則不在上述之限制。</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+
+  </body>
+  <script src="../../assets/js/moment.js"></script>
+  <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('#endDate').on('dp.change', function (e) {
+      $('#reportStart').data('DateTimePicker').minDate(e.date);
+      caculate();
+    });
+
+    $('input[name="expense"]').change(function(){
+      caculate();
+    })
+
+
+    function caculate(){
+      if($('input[name="end_date"]').val()!=''  && $('input[name="expense"]').val() != ''){
+        var dd = new Date($('#endDate input').val());
+        dd.setDate(dd.getDate() + 1);
+
+        var duration = getServiceDuration(parseInt($('input[name="expense"]').val()));
+        if(duration <1 ){
+          dd.setMonth(dd.getMonth() + duration * 12);
+        }else{
+          dd.setFullYear(dd.getFullYear() + duration);
+        }
+
+        $('input[name="service_date"]').val(dd.getFullYear() +'/'+dd.getMonth()+'/'+dd.getDate());
+      }
+    }
+
+    function getServiceDuration(expense){
+      if(expense <= 5000){
+        return 0.5;
+      }else if(expense <= 12000){
+        return 1;
+      }else if(expense <= 20000){
+        return 2;
+      }else if(expense <= 30000){
+        return 3;
+      }else{
+        return 4;
+      }
+    }
+
+
+    var ddl = document.getElementById("courseType");
+      ddl.onchange=newCourseType;
+      function newCourseType(){
+        var ddl = document.getElementById("courseType");
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+          if (selectedValue == "interior")
+            {document.getElementById("inCourse").style.display = "block";
+          }
+          else{
+            document.getElementById("inCourse").style.display = "none";
+          }
+          if (selectedValue == "exterior")
+            {document.getElementById("exCourse").style.display = "block";
+          }
+          else{
+            document.getElementById("exCourse").style.display = "none";
+          }
+          if (selectedValue == "self")
+            {document.getElementById("selfCourse").style.display = "block";
+          }
+          else{
+            document.getElementById("selfCourse").style.display = "none";
+          }
+          if (selectedValue == "self")
+            {document.getElementById("selfWeb").style.display = "block";
+          }
+          else{
+            document.getElementById("selfWeb").style.display = "none";
+          }
+          if (selectedValue == "self")
+            {document.getElementById("selfReason").style.display = "block";
+          }
+          else{
+            document.getElementById("selfReason").style.display = "none";
+          }
+          if (selectedValue == "self")
+            {document.getElementById("selfCost").readOnly = false;
+          }
+          else{
+            document.getElementById("selfCost").readOnly = true;
+          }
+          if (selectedValue == "self")
+            {document.getElementById("selfNote").style.display = "none";
+          }
+          else{
+            document.getElementById("selfNote").style.display = "inline";
+          }
+    }
+
+
+
+
+  </script>
+</html>

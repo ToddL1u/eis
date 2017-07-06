@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="wage" class="container nav-wage-2 nav-monthly-salary-detail">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>薪資作業</li>
+              <li> <a href="monthly-caculation.html">當月薪資</a></li>
+              <li>Murry</li>
+            </ul>
+            <div class="subnav-subtitle">2016/10</div>
+          </div>
+        </header>
+        <div class="content on-search">
+          <section>
+            <form>
+              <div class="section-block">
+                <div class="section-title">2016/10 Murry</div>
+                <table id="table1" class="table table-form">
+                  <thead class="table-subheader">
+                    <tr>
+                      <td class="col-sm-5">全薪</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>底薪</td>
+                      <td> 
+                        <input type="number" value="32867" readonly class="form-control">
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>伙食津貼</td>
+                      <td> 
+                        <input type="number" value="2400" readonly class="form-control">
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr></tr>
+                  </tbody>
+                </table>
+                <table id="table2" class="table table-form">
+                  <thead>
+                    <tr class="table-subheader">
+                      <td class="col-sm-5">綜合加項</td>
+                      <td></td>
+                      <td style="position: relative">
+                        <ul class="toolbar toolbar-right section-toolbar">
+                          <li class="btn-add"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>誤餐費</td>
+                      <td> 
+                        <input type="number" value="200" readonly class="form-control">
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr class="form-block">
+                      <td> 
+                        <input type="text" placeholder="項目" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="number" class="form-control">
+                      </td>
+                      <td>
+                        <ul class="toolbar">
+                          <ul class="toolbar toolbar-right">
+                            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                            <li class="btn-edit"></li>
+                            <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                            <li class="btn-confirm toolbar-btn-hide"></li>
+                          </ul>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table id="table3" class="table table-form">
+                  <thead>
+                    <tr class="table-subheader">
+                      <td class="col-sm-5">綜合扣項</td>
+                      <td></td>
+                      <td style="position: relative">
+                        <ul class="toolbar toolbar-right section-toolbar">
+                          <li class="btn-add"></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>事假</td>
+                      <td> 
+                        <input type="number" value="1000" readonly class="form-control">
+                      </td>
+                      <td> </td>
+                    </tr>
+                    <tr class="form-block">
+                      <td> 
+                        <input type="text" placeholder="項目" class="form-control">
+                      </td>
+                      <td> 
+                        <input type="number" class="form-control">
+                      </td>
+                      <td>
+                        <ul class="toolbar">
+                          <ul class="toolbar toolbar-right">
+                            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                            <li class="btn-edit"></li>
+                            <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+                            <li class="btn-confirm toolbar-btn-hide"></li>
+                          </ul>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table id="table4" class="table table-form">
+                  <tbody>
+                    <tr>
+                      <td style="background: #ffe8f2" class="col-sm-5">實領總額</td>
+                      <td style="background: #ffe8f2" class="salary-total"></td>
+                      <td style="background: #ffe8f2"></td>
+                    </tr>
+                    <tr></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="sectionContent" class="section-block">
+                <div class="section-title">薪資單內文</div>
+                <table class="table table-form">
+                  <thead class="table-subheader">
+                    <tr>
+                      <th>使用○○○符號表示員工姓名稱謂</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="select">
+                          <select class="form-control">
+                            <option value="0">選擇內文範本</option>
+                            <option value="1">範本1</option>
+                            <option value="2">範本2</option>
+                          </select></span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="wmd-panel">
+                          <div id="wmd-button-bar"></div>
+                          <textarea rows="10" name="content" style="resize:none" id="wmd-input" class="form-control wmd-input">親愛的○○○小姐/先生<br>**感謝你**<br>揪咪</textarea>
+                        </div>
+                        <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="text" name="field_content_title" placeholder="範本名稱" class="form-control">
+                        <div class="checkbox">
+                          <label> 
+                            <input type="checkbox" name="cb_content" class="checkbox-square">儲存為內文範本
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btns-group">
+                <button type="button" data-toggle="modal" data-target="#modalCancel" class="btn modal-btn-cancel btn-lg">取消</button>
+                <button type="button" name="field_submit" class="btn btn-success btn-lg">確定</button>
+              </div>
+            </form>
+          </section>
+        </div>
+        <footer></footer>
+        <div id="modalSalaryConfirm" tabindex="-1" role="dialog" aria-labelledby="modalConfirm" class="modal fade bs-example-modal-lg">
+          <div role="document" class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+              </div>
+              <div class="modal-body"> 
+                <h4>確定修改薪資?</h4>
+                <div class="btns-group">
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-warning modal-btn-1">取消</button>
+                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-success modal-btn-2">確定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    var $tr = $('.table-form tbody tr:last-child');
+    $tr.find('.btn-edit').trigger('click');
+    $tr.hide();
+    $('.btn-add').click(function(){
+      var $row = $(this).parents('table').find('tbody').children('tr:last-child');
+      $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+    });
+    
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      var section_block = $form_section.parents('.form-block');
+      section_block.remove();
+      summerise();
+    });
+    
+    
+    //- $('#wmd-button-bar').hide();
+    //- $('textarea[name="content"]').hide();
+    //- $('#sectionContent tbody tr:last-child').hide();
+    
+    $('body').on('change','input[type="number"]',function(){
+      summerise();
+    })
+    
+    summerise();
+    
+    function summerise(){
+      var base = 0;
+      var add = 0, minus= 0;
+      $('#table1 input[type="number"]').each(function(index, item){
+        if(item.value!= '')base+= parseInt(item.value);
+      })
+      $('#table2 input[type="number"]').each(function(index, item){
+        if(item.value!= '')add+= parseInt(item.value);
+      })
+      $('#table3 input[type="number"]').each(function(index, item){
+        if(item.value!= '')minus+= parseInt(item.value);
+      })
+      
+      $('.salary-total').html(base + add - minus);
+      //- $('.salary-total').addClass('salary-total-change');
+      //- setTimeout(function () {
+      //-   $('.salary-total').removeClass($('salary-total-change'))
+      //- }, 1000);
+    }
+    
+    
+    $('button[name="field_submit"]').click(function(event){
+      if($('input[name="cb_content"]').is(':checked')){
+        if($('input[name="field_content_title"]').val()==''){
+          $('input[name="field_content_title"]').css('border','solid 1px red');
+          event.preventDefault();
+        }else{
+          $('#modalSalaryConfirm').modal('show');
+          //- $('form').submit();
+        }
+      }else{
+        $('#modalSalaryConfirm').modal('show');
+        //- $('form').submit();
+      }
+      
+    });
+    
+    //- $('#sectionContent .btn-edit').click(function(){
+    //-   $('#wmd-button-bar').show();
+    //-   $('textarea[name="content"]').show();
+    //-   $(this).parents('#sectionContent').find('select').attr('disabled',false);
+    //-   $(this).parents('#sectionContent').find('table tr:last-child').show();
+    //- });
+    //- 
+    //- $('#sectionContent .btn-confirm').click(function(){
+    //-   $('#wmd-button-bar').hide();
+    //-   $('textarea[name="content"]').hide();
+    //-   $(this).parents('#sectionContent').find('select').attr('disabled',true);
+    //-   $(this).parents('#sectionContent').find('table tr:last-child').hide();
+    //- });
+  </script>
+</html>

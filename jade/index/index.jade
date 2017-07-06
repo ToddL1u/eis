@@ -1,0 +1,103 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #index.container
+      nav.nav
+      .wrap
+        include ../include/header
+        
+        .content
+          section.section-announcement
+            .table-header.table-header-primary 公司公告
+              .section-toolbar 
+                include ../include/toolbar-export-print-add
+            table.table.table-hover.table-list#tableAnnouncement.table-sort
+              thead.table-subheader 
+                tr
+                  th 日期
+                  th 標題
+                  td
+              tbody
+                tr(data-href="announcement.html")
+                  td 2016/11/12 
+                  td TEST
+                  td 
+                    ul.toolbar
+                      li.btn-clip
+                      li
+                        a(href="announcement.html?action=edit").btn-edit-only
+                -for (var i=0; i<4;i++) {
+                tr(data-href="announcement.html")
+                  td 2016/10/27 
+                  td AYDYN 12/23-12/14 尾牙踏青陽明山溫泉會館 ~ 請自備換洗衣物 詳情請見附件檔案
+                  td 
+                    ul.toolbar
+                      li.btn-clip
+                      li
+                        a(href="announcement.html?action=edit").btn-edit-only
+                -}
+            include ../include/pagination
+              
+          section.section-notification
+            .table-header.table-header-primary 表單匣
+            table.table.table-hover.table-list#tableNotification.table-sort
+              thead.table-subheader
+                tr
+                  th.col-sm-1 部門
+                  th 姓名
+                  th 表單類型
+                  th 次類型
+                  th 狀態
+                  th(style="width: 200px") 異動時間
+              tbody
+                tr(data-href="../4-attendance/absence-detail.html?id=事假")
+                  td 設計
+                  td James
+                  td 假單
+                  td 事假
+                  td 待審
+                  td 2016/11/09 09:38
+                tr(data-href="../4-attendance/leave-creadit-detail.html?id=123")
+                  td 設計
+                  td James
+                  td 補修申請
+                  td --
+                  td 待審
+                  td 2016/11/09 09:38
+                tr(data-href="../3-wage/invoice-detail.html?id=123")
+                  td 設計
+                  td James
+                  td 核銷單據
+                  td 
+                  td 待審
+                  td 2016/11/09 09:38
+                tr(data-href="../5-training/detail.html?id=123")
+                  td 設計
+                  td James
+                  td 教育訓練
+                  td 內訓
+                  td 待審
+                  td 2016/11/09 09:38
+            include ../include/pagination
+        footer
+script(src="../../assets/js/function.js")
+
+script.
+  $('.btn-add').click(function(){
+    window.location.href="announcement.html?action=add";
+  })
+  //table sorter
+  function init() {
+    $('#tableAnnouncement').tablesorter(); 
+    $('#tableNotification').tablesorter();
+      //- var sorter = tsorter.create('tableAnnouncement');
+      //- var sorter = tsorter.create('tableNotification');
+  }
+  window.onload = init;

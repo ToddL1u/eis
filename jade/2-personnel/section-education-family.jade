@@ -1,0 +1,135 @@
+section#enf
+  ul.toolbar.toolbar-right
+    li.btn-print
+  .section-block
+    .table-header.table-header-primary 學歷
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    form.form-group
+      table.table.table-form#education
+        thead.table-subheader
+          tr
+            th.col-sm-2 學校名稱
+            th.col-sm-2 學歷
+            th.col-sm-2 就讀系所
+            th.col-sm-5 就讀時間
+            th.col-sm-2
+        tbody
+          tr.form-block
+            td
+              input.form-control(type="text" readonly value="雲林科技大學") 
+            td
+              input.form-control(type="text" readonly value="商業設計")
+            td 
+              input.form-control(type="text" readonly value="創意生活設計系")
+            td
+              ul.select-date
+                li
+                  include ../include/select-date-disabled
+                li 至
+                li
+                  include ../include/select-date-disabled
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td 
+              input.form-control(type="text") 
+            td 
+              input.form-control(type="text")
+            td 
+              input.form-control(type="text")
+            td 
+              ul.select-date
+                li
+                  include ../include/select-date-disabled
+                li 至
+                li
+                  include ../include/select-date-disabled
+            td
+              include ../include/toolbar-delete-edit
+  .section-block  
+    .table-header.table-header-primary 工作經歷
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 服務單位
+          th.col-sm-2 職稱
+          th.col-sm-2 薪資
+          th.col-sm-5 服務期間
+          td.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" readonly value="TR550094")
+          td 
+            input.form-control(type="text" readonly value="筆記型電腦")
+          td 
+            input.form-control(type="text" readonly value="TY-2334QR")
+          td 
+            ul.select-date
+              li
+                include ../include/select-date-disabled
+              li 至
+              li
+                include ../include/select-date-disabled
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input.form-control(type="text")
+          td 
+            input.form-control(type="text")
+          td 
+            input.form-control(type="text")
+          td 
+            ul.select-date
+              li
+                include ../include/select-date-disabled
+              li 至
+              li
+                include ../include/select-date-disabled
+          td
+            include ../include/toolbar-delete-edit
+  .section-block
+    .table-header.table-header-primary 家庭成員
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-1 姓名
+          th.col-sm-1 關係
+          th.col-sm-3 生日
+          th 服務單位
+          th 職稱
+          th
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" readonly value="Fill Murry")
+          td 
+            input.form-control(type="text" readonly value="父子")
+          td 
+            include ../include/select-date-disabled
+
+          td 
+            input.form-control(type="text" readonly value="AYDYN")
+          td 
+            input.form-control(type="text" readonly value="設計師")
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input.form-control(type="text")
+          td 
+            input.form-control(type="text")
+          td 
+            include ../include/select-date
+          td 
+            input.form-control(type="text")
+          td 
+            input.form-control(type="text")
+          td
+            include ../include/toolbar-delete-edit

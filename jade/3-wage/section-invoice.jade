@@ -1,0 +1,19 @@
+section#invoice
+  ul.toolbar.toolbar-right
+    li.btn-print
+  form.form-group
+    table.table.table-list.table-sort#tableInvoice
+      thead.table-subheader
+        tr
+          th 異動時間
+          th 類別
+          th 內容
+          th 金額
+          th 狀態
+      tbody
+        tr.form-block(data-href="invoice-detail.html")
+          td 2012/02/03
+          td 美工雜項
+          td 萬聖節服飾申請
+          td 5000
+          td 待入帳

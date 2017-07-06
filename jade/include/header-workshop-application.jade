@@ -1,0 +1,59 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 工作坊
+    li 課程總覽
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  form.subnav-search
+      span * 表示可多選
+
+      .search-form-group.col-sm-12
+        span.search-form-label.col-sm-1 狀態*
+        ul
+          -var states = ["待審","通過","未通過","課程取消"]
+          -each state in states
+            li
+              .checkbox
+                label 
+                  input(type="checkbox").checkbox-square.checkbox-square-dark 
+                  =state
+      //- .search-form-group.col-sm-12
+      //-   span.search-form-label.col-sm-1 通過狀態*
+      //-   ul
+      //-     -var states = ["待發佈","待模擬授課","待授課","待簡報","待付款","結業"]
+      //-     -each state in states
+      //-       li
+      //-         .checkbox
+      //-           label 
+      //-             input(type="checkbox").checkbox-square.checkbox-square-dark 
+      //-             =state
+
+      .search-form-group.col-sm-12
+        span.search-form-label.col-sm-1 講師*
+        ul
+          -var states = ["內部員工","離職員工","外部講師"]
+          -each state in states
+            li
+              .checkbox
+                label 
+                  input(type="checkbox").checkbox-square.checkbox-square-dark 
+                  =state
+                
+      .search-form-group.col-sm-12
+        span.search-form-label.col-sm-1 課程類別
+        span.select.select-dark
+          select.form-control.select-course
+            option(value="0" disabled selected) 選擇類別
+            
+      .search-form-group.col-sm-12
+        span.search-form-label.col-sm-1 開課區間
+        include ../include/select-search-month
+        span.select-date-label-to
+        include ../include/select-search-month
+        
+      .search-form-buttons
+        button.btn.btn-default(type="reset") Reset
+        button.btn.btn-default(tＦype="submit")
+          span.fa.fa-search
+          | Searching

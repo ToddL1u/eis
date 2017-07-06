@@ -1,0 +1,92 @@
+<form class="form-horizontal">
+ <!--  <div class="form-group">
+    <label class="col-sm-2 control-label required">上課時間</label>
+    <div class="col-sm-5">
+      <button type="button" class="btn btn-submit btn-input btn-add add-field-button"><span class="fa fa-plus"></span>新增上課時間</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2"></label>
+    <div class="col-sm-3" style="width: 29%;">
+      <div class="input-group date pickaday">
+        <input type="text" class="form-control" required>
+        <span class="input-group-addon">
+            <span class="fa fa-calendar"></span>
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3" style="width: 24%;">
+      <div class="form-group">
+          <div class="input-group date datetimepicker3">
+              <input type="text" class="form-control" />
+              <span class="input-group-addon">
+                <span class="fa fa-clock-o"></span>
+              </span>
+          </div>
+      </div>
+    </div>
+    <label class="col-sm-1 control-label" style="width: 1.33333%;">至</label>
+    <div class="col-sm-3" style="width: 24%;">
+      <div class="form-group">
+          <div class="input-group date datetimepicker3">
+              <input type="text" class="form-control" />
+              <span class="input-group-addon">
+                <span class="fa fa-clock-o"></span>
+              </span>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-fields-wrap">
+  </div> -->
+  <!-- Add Input Fields -->
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">留言備註</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="5" placeholder="如果有其他關於上課時間的注意事項，請在這裡提醒學生(例：第二個星期不上課)..."></textarea>
+    </div>
+  </div>
+</form>
+
+<script>
+  $('.datetimepicker3').datetimepicker({
+      format: 'LT',
+      allowInputToggle:true
+  });
+
+  $('.pickaday').datetimepicker({
+    format: 'YYYY/MM/DD',
+    allowInputToggle:true,
+    useCurrent: false //Important! See issue #1075
+  });
+
+
+  var max_fields      = 11; //maximum input boxes allowed
+  var wrapper         = $(".input-fields-wrap"); //Fields wrapper
+  var add_button      = $(".add-field-button"); //Add button ID
+  
+  var x = 1; //initlal text box count
+  $(add_button).click(function(e){ //on add input button click
+      e.preventDefault();
+      if(x < max_fields){ //max input box allowed
+          x++; //text box increment
+          $(wrapper).append('<div class="form-group"><label class="col-sm-2"></label><div class="col-sm-3" style="width: 29%;"><div class="input-group date pickaday"><input type="text" class="form-control" required><span class="input-group-addon"><span class="fa fa-calendar"></span></span></div></div><div class="col-sm-3" style="width: 24%;"><div class="form-group"><div class="input-group date datetimepicker3"><input type="text" class="form-control" /><span class="input-group-addon"><span class="fa fa-clock-o"></span></span></div></div></div><label class="col-sm-1 control-label" style="width: 1.33333%;">至</label><div class="col-sm-3" style="width: 24%;"><div class="form-group"><div class="input-group date datetimepicker3"><input type="text" class="form-control" /><span class="input-group-addon"><span class="fa fa-clock-o"></span></span></div></div></div><a href="#" class="remove_field"><span class="fa fa-trash"></span></a></div>'); //add input box
+      }
+      $('.datetimepicker3').datetimepicker({
+          format: 'LT',
+          allowInputToggle:true
+      });
+
+      $('.pickaday').datetimepicker({
+        format: 'YYYY/MM/DD',
+        allowInputToggle:true,
+        useCurrent: false //Important! See issue #1075
+      });
+  });
+  
+  $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+      e.preventDefault(); $(this).parent('div').remove(); x--;
+  })
+</script>

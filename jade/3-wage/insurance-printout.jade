@@ -1,0 +1,55 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #wage.container.nav-wage-6
+      nav.nav
+      .wrap
+        include ../include/header-insurance-printout
+        .content.on-search
+          ul.toolbar.toolbar-right
+            li.btn-export
+          section
+            .section-block#sectionInsurance(style="display:none")
+              table.table.table-form.table-side-header
+                tr
+                  td.col-sm-4 日期
+                  td 2016-12-22 ~ 2016-12-12
+              table.table.table-list
+                thead
+                  tr.table-subheader
+                    th.col-sm-4 姓名
+                    th.col-sm-4 勞保費
+                    th.col-sm-4 健保費
+                tbody
+                  tr
+                    td Murry
+                    td 1000
+                    td 1000
+                  tr
+                    td Murry
+                    td 1000
+                    td 1000
+                  tr
+                    td Murry
+                    td 1000
+                    td 1000
+                  tr
+                    td Murry
+                    td 1000
+                    td 1000    
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    //- $('#sectionInsurance').hide();
+    $('.select-employee').change(function(){
+      $(this).val()!=0 ? $('#sectionInsurance').show() : $('#sectionInsurance').hide();
+    })
+    
+    

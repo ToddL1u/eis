@@ -1,0 +1,80 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #attendance.container.nav-attendance-3
+      nav.nav
+      .wrap
+        include ../include/header-leave-creadit-detail
+        .content
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-delete
+            
+          section.form-block.section-block
+            form.from-group
+              table.table.table-hover.table-form.table-side-header.table-side-header-right
+                tbody
+                  tr.field-state
+                    td 狀態
+                    td 待審
+                  tr
+                    td.col-sm-2 部門
+                    td RD
+                  tr
+                    td 人員
+                    td Fill Murray
+                  tr
+                    td 員工編號
+                    td 9527
+                  tr
+                    td 加班區間
+                    td 2016/1/1 ~ 2016/12/31
+                  tr
+                    td 加班時數
+                    td 10
+                  tr
+                    td 補休生效區間
+                    td 2016/1/1 ~ 2016/12/31
+                  tr
+                    td 補休時數
+                    td 10
+                  tr
+                    td 加班內容
+                    td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  tr.field-reply
+                    td 回覆內容
+                    td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            .btns-group
+              button.btn.btn-danger(data-toggle="modal" data-target="#modalReject") 退回
+              button.btn.btn-success(data-toggle="modal" data-target="#modalConfirm") 通過
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+      setReplied();
+    });
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      //- setReplied();
+    });
+    
+    function setReplied(){
+      $('.field-reply').show();
+      $('.content .btns-group').hide();
+    }
+    
+    $('.field-reply').hide();
+    var id = getUrlParameter('id');
+    if(id=="1"){
+      $('.content .btns-group').hide();
+      $('.field-reply').show();
+      $('.field-state').html('<td>狀態</td><td>通過</td>')
+    }

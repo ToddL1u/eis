@@ -1,0 +1,177 @@
+.table
+  margin-bottom: 0
+
+thead
+  td
+    border-bottom: 2px solid #ddd
+
+.table-list
+  @extend .table-striped
+  @extend .table-hover
+  tbody
+    td
+      border-top-color: white!important
+      border-bottom: 1px solid white!important
+      // background: $bg-color
+  td, th
+    &:first-child
+      padding-left: 20px
+    // &:last-child
+    //   text-align: right
+
+
+.table-form
+  border: 10px solid white
+  th, td
+    border-top: 10px solid white!important
+    padding: 10px
+    &:first-child
+      // text-align: right
+      padding-right: 20px
+
+    &:last-child
+      width: 120px
+
+  tbody
+    td
+      background: $bg-color
+    ul
+      li
+        display: inline-block
+
+
+.table-side-header
+  tr
+    td
+      border-right: 10px solid white
+      &:first-child, &:nth-child(3n)
+        background-color: $form-table-header
+      // &:first-child
+      //   @extend .col-sm-2
+      // &:nth-child(3n)
+      //   @extend .col-sm-4
+
+.table-side-header-right
+  tr
+    td:first-child
+      text-align: right
+
+[data-href],[data-toggle]
+  cursor: pointer
+
+.table-header
+  padding: 10px
+  // margin-bottom: 5px
+  position: relative
+
+.table-subheader
+  @extend .table-header
+  background: $form-table-header !important
+
+.table-header-primary
+  background: white
+
+.table-pagination
+  text-align: center
+  clear: both
+  li
+    display: inline-block
+    padding: 20px 10px
+    // +transition(all 300ms ease-in-out)
+    // &:hover
+    //   font-size: 1.2em
+    .page-active
+      color: $success-color
+      // +transform(scale(1.4))
+      pointer-events: none
+
+.table-sort th
+  // cursor: pointer
+  &:after
+    font-family: FontAwesome
+    content: $fa-var-sort
+    padding: 0 7px
+
+.table-sort th.headerSortDown:after
+  font-family: FontAwesome
+  content: $fa-var-sort-desc
+
+.table-sort th.headerSortUp:after
+  font-family: FontAwesome
+  content: $fa-var-sort-asc
+
+
+.table-row-warn
+  color: $warn-color
+
+.table-row-highligh
+  td:nth-child(1), td:nth-child(3)
+    background: $row-danger-color!important
+
+.collapse-header
+  padding: 20px
+  height: 50px
+  .table-header,hr,i
+    display: inline-block
+    vertical-align: middle
+  .table-header
+    height: 40px
+    margin: 0
+    padding: 0
+    margin-right: 20px
+  hr
+    width: calc(100% - 110px)
+    border: solid #8c8c8c;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 10px 0 30px;
+    height: 0;
+  i
+    float: right
+
+#declare,#inform
+  .table-form
+    width: 100%
+
+//橫向增加的table
+.table-row
+  width: 100%
+  td
+    padding: 0 !important
+    margin: 0
+    background-color: transparent !important
+    font-size: 0
+    .table-row-group
+      width: 25%
+      padding: 10px
+      display: inline-block
+      background-color: #eee
+      margin-bottom: 10px
+      border: 2px solid #fff
+      box-sizing: border-box
+      font-size: 14px
+      input,ul
+        display: inline-block
+      input
+        width: 150px
+      ul
+        float: right
+        margin-top: 5px
+
+//免綁尾款table
+
+.finalpayment
+  width: 100%
+  tbody
+    tr
+      td:nth-child(5)
+        text-align: center
+        font-size: 18px
+        a
+          color: #2195d4
+
+.table-hide
+  display: none
+
+
+

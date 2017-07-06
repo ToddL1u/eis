@@ -1,0 +1,324 @@
+body
+  background: $bg-color
+  overflow:hidden
+
+ul
+  margin: 0
+  padding: 0
+  list-style: none
+p
+  margin: 0
+
+.avatar
+  border-radius: 50%
+
+.container
+  display: flex
+  overflow-y: auto
+  height: 100vh
+
+header
+  position: fixed
+  width: 80%
+  width: calc(100% - 300px)
+  z-index: 50
+
+.kv-avatar
+  .file-preview-frame
+    width: 100%
+    margin: 0
+    padding: 0
+    border: none
+    box-shadow: none
+    text-align: center
+    &:hover
+      margin: 0
+      padding: 0
+      border: none
+      box-shadow: none
+      text-align: center
+  .file-input
+    display: table-cell
+    max-width: 220px
+  .file-actions
+    display: none
+  .kv-file-content
+    img
+      width: 160px !important
+
+
+.header-base
+  padding: 37px 50px 32px
+  +display(flex)
+  justify-content: space-between
+  background: $bg-color
+
+  #logo
+    background:
+      image: url(../../assets/img/logo-aydyn-tw.svg)
+      repeat: no-repeat
+
+    width: 131px
+    height: 33px
+
+  .top-right
+    list-style: none
+    margin: 0
+
+    li
+      display: inline
+      margin-right: 20px
+      span
+        font-size: 23px
+      &:last-child
+        margin-right: 0
+
+.subnav
+  background: $dark-color
+  color: white
+  padding: 30px 50px
+  // z-index: 99
+  // margin: 20px 0
+
+  position: relative
+  $border: 5px
+
+  &:before, &:after
+    content: ''
+    position: absolute
+    left: 0
+    background: $dark-color
+    width: 100%
+    height: $border
+
+  &:before
+    top: -1 * $border*1.5
+  &:after
+    bottom: -1 * $border*1.5
+
+  .subnav-subtitle
+    float: right
+    margin-right: 10px
+
+  .subnav-tabs
+    position: relative
+    margin-top: 45px
+    margin-bottom: -21.5px
+    z-index: 2
+
+    li
+      display: inline
+      background: #7e7e7f
+      padding: 10px 20px
+      margin-right: 10px
+      a
+        color: white
+
+    .subnav-tab-active
+      background: $bg-color
+
+      a
+        color: black
+        pointer-events: none
+
+  .subnav-search
+    margin-top: 40px
+    display: flex
+    flex-direction: column
+    // display: none
+    ul
+      li
+        display: inline-block
+        .checkbox
+          margin-top: 0
+
+    .search-form-label
+      // padding-top: 8px
+      color: $warn-color
+      // width: 150px
+
+    .form-control
+      // width: 150px
+
+    .search-form-group
+      display: flex
+      margin-bottom: 5px
+      &:last-child
+        margin-bottom: 0
+
+    .search-form-buttons
+      position: absolute
+      right: 50px
+      bottom: 30px
+
+    .checkbox
+      color: white!important
+
+.wrap
+  position: relative
+  flex: 1
+  min-height: 100vh
+  min-height: 100%
+  margin-left: 300px
+  overflow: hidden
+  overflow-y: scroll
+  // display: flex
+  // flex-direction: column
+
+  .section-version
+    background: #6f91aa
+    width: 180px
+    overflow: overlay
+    text-align: center
+    padding-top: 15px
+    +position(fixed, 187px null 0 0)
+    +transition(all 200ms ease-in-out)
+
+    .nav-version
+      li
+        text-align: center
+        color: white
+        padding: 8px
+        cursor: pointer
+        &.version-default
+          color: #f8e81c!important
+        &:hover
+          background: rgba(255, 255, 255, .5)
+        &.version-is-active
+          color: black
+          background: rgba(255, 255, 255, .5)
+
+  .content
+    padding: 30px 40px
+    flex: 1
+    // padding-bottom: 0
+    margin-top: 187px
+    position: relative
+
+    min-height: calc(100vh - 187px - 55.6px)
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      min-height: 75%
+    // @-moz-document url-prefix()
+    //   min-height: calc(100vh - 187px - 55.6px)
+    // height: calc(100% - 187px - 55.6px)
+    // min-height: -moz-calc(100% - 187px - 55.6px)
+    +transition(all 200ms ease-in-out)
+
+
+
+    &.version-mode
+      .section-version
+        left: 300px
+      .section-block
+        margin-left: 200px
+
+    // @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    // min-height: auto !important
+
+.footer
+  position: relative
+  background: white
+  display: flex
+  flex: 1
+  width: 100%
+  padding: 15px
+  justify-content: space-between
+  // bottom: 0
+  // left: 0
+  z-index: 1
+  box-sizing:border-box
+
+
+//====================================
+
+.section-block
+  background: white
+  padding: 10px
+  margin-top: 10px
+  position: relative
+  +transition(all 200ms ease-in-out)
+
+  .section-title
+    margin-bottom: 10px
+    margin-left: 10px
+
+.section-history
+  display: none
+  position: relative
+  margin: 20px auto
+
+.section-toolbar
+  position: absolute
+  right: 10px
+  top: 10px
+
+.section-show
+  display: block !important
+
+
+.version-actived
+  display: none
+
+@media print and (max-width: 2000px)
+  header, .nav, .toolbar, .table-pagination, footer
+    display: none
+  .wrap
+    margin: 0px
+
+    // height: auto
+
+
+
+
+.animate-right-out
+  animation: rout 800ms ease-in-out forwards
+
+.animate-right-in
+  animation: rin 1s ease-in-out forwards
+  display: block !important
+
+.animate-left-out
+  animation: lout 800ms ease-in-out forwards
+
+.animate-left-in
+  animation: lin 1s ease-in-out forwards
+  display: block !important
+
+@keyframes lin
+  0%
+    transform: translateX(-120%)
+  100%
+    transform: translateX(0px)
+
+@keyframes lout
+  0%
+    transform: translateX(0px)
+  100%
+    transform: translateX(-120%)
+
+@keyframes rin
+  0%
+    transform: translateX(120%)
+  100%
+    transform: translateX(0px)
+
+@keyframes rout
+  0%
+    transform: translateX(0px)
+  100%
+    transform: translateX(120%)
+
+
+.daterangepicker.dropdown-menu
+  z-index: 2
+
+.bootstrap-datetimepicker-widget
+  position: absolute
+  z-index: 100000
+  background-color: #fff
+  table tr
+    border: none !important
+
+.mkcontent 
+  img
+    max-width: 100% !important

@@ -1,0 +1,90 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #training.container.nav-training-1
+      nav.nav
+      .wrap
+        include ../include/header-training
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+          section
+            table.table.table-hover.table-list.table-sort#tableTraining
+              thead.table-subheader
+                tr
+                  th.col-sm-1 部門
+                  th.col-sm-1 姓名
+                  th.col-sm-2 受訓區間
+                  th.col-sm-1 類別
+                  th.col-sm-2 課程名稱
+                  th.col-sm-2 簡報時間
+                  th.col-sm-1 狀態
+                  th.col-sm-2 異動時間
+              tbody
+                tr(data-href="detail.html?id=0").table-row-warn
+                  td 設計
+                  td Fill Murray
+                  td 
+                    | 2017/01/02 09:00 ~ 
+                    br
+                    | 2017/01/02 18:00
+                  td 自行申請
+                  td Xsion 跨界創新國際論壇
+                  td 2017/01/02 09:00 (30分鐘)
+                  td 待審
+                  td 2016/11/09 09:00 ~ 09:30 
+                tr(data-href="detail.html?id=1")
+                  td 設計
+                  td Fill Murray
+                  td 
+                    | 2017/01/02 09:00 ~ 
+                    br
+                    | 2017/01/02 18:00
+                  td 內訓
+                  td Xsion 跨界創新國際論壇
+                  td 2017/01/02 09:00 (30分鐘)
+                  td 待受訓
+                  td 2016/11/09 09:00 ~ 09:30 
+                tr(data-href="detail.html?id=2")
+                  td 設計
+                  td Fill Murray
+                  td 
+                    | 2017/01/02 09:00 ~ 
+                    br
+                    | 2017/01/02 18:00
+                  td 外訓
+                  td Xsion 跨界創新國際論壇
+                  td 2017/01/02 09:00 (30分鐘)
+                  td 完訓
+                  td 2016/11/09 09:00 ~ 09:30 
+                -for(var i=0;i<6;i++){
+                  tr(data-href="detail.html")
+                    td 設計
+                    td Fill Murray
+                    td 
+                      | 2017/01/02 09:00 ~ 
+                      br
+                      | 2017/01/02 18:00
+                    td 外訓
+                    td Xsion 跨界創新國際論壇
+                    td 2017/01/02 09:00 (30分鐘)
+                    td 未通過
+                    td 2016/11/09 09:00 ~ 09:30 
+                -}
+          include ../include/pagination
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableTraining').tablesorter();
+      var sorter = tsorter.create('tableTraining');
+    }
+        
+    window.onload = init;

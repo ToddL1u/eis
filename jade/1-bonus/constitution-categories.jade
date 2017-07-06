@@ -1,0 +1,95 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #bonus.container.nav-bonus-1.nav-category
+      nav.nav
+      .wrap
+        include ../include/header-constitution-categories
+        .content
+          ul.toolbar.toolbar-right
+            li.btn-add
+          section.section-block
+            table.table.table-form
+              thead.table-subheader
+                tr
+                  td 章程類別
+                  td
+              tbody
+                - for(var i=0;i<4;i++){
+                  form.form-group
+                    tr.form-block
+                      td 
+                        a(href="constitution-detail.html?id=123&action=add") 第一章  總則
+                        input.form-control.col-sm-5(type="text" value="第一章  總則" readonly)
+                      td
+                        include ../include/toolbar-delete-edit
+                -}    
+                
+                  tr
+                    td 
+                      a(href="constitution-detail.html?id=123&action=add") 第一章  總則
+                      input.form-control.col-sm-5(type="text" value="" placeholder="章程類別")
+                      input(type="hidden")
+                    td
+                      include ../include/toolbar-delete-edit
+
+                      
+                
+        footer
+script(src="../../assets/js/function.js")
+script.
+  $('table input').hide();
+  $row = $('table tbody tr:last')
+  $row.hide();
+  $row.find('.btn-edit').trigger('click');
+  
+  $('.btn-add').click(function(){
+    var $row = $(this).parents('.content').find('tbody').children('tr:last');
+    $row.find('input').show();
+    $row.find('a').hide();
+    $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+  });
+  
+  $('table').on('click','.btn-edit',function(){
+    $(this).parents('tr').find('input').show();
+    $(this).parents('tr').find('a').hide();
+  })
+  
+  var $row_select;
+  $('table').on('click','.btn-cancel',function(){
+    //- $(this).parents('tr').find('input').hide();
+    //- $(this).parents('tr').find('a').show();
+    $row_select = $(this).parents('tr');
+  })
+  
+  $('body').on('click','#modalVersion .modal-btn-2',function(){
+    $('#bonus .toolbar li').not('.btn-delete').not('.btn-view').toggleClass('toolbar-btn-hide');
+    $row.parents('tr').find('input').hide();
+    $row.parents('tr').find('a').show();
+  })
+  
+  $('body').on('click','#modalCancel .modal-btn-2',function(){
+    if($row_select.find('input[type="hidden"]').val() == '')$row_select.remove();
+    
+  })
+  
+  $('body').on('click','.btn-confirm',function(){
+    $(this).parents('tr').find('input').hide();
+    $link = $(this).parents('tr').find('a');
+    $link.html($(this).parents('tr').find('input').val());
+    $link.show();
+  })
+  
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    var section_block = $form_section.parents('.form-block');
+    section_block.remove();
+  });
+  
+  

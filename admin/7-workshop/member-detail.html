@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="workshop" class="container nav-workshop-2 nav-salary-personal">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>工作坊</li>
+              <li>會員資料</li>
+              <li>Todd</li>
+            </ul>
+            <ul class="subnav-tabs">
+              <li id="tabProfile" class="subnav-tab-active"><a href="#">個人資料</a></li>
+              <li id="tabTeacher"><a href="#">開課記錄</a></li>
+              <li id="tabCourse"><a href="#">上課記錄</a></li>
+              <li id="tabAccount"> <a href="#">線上帳戶</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="content">
+          <section id="profile">
+            <div class="section-block form-block">
+              <div class="info"><img src="//www.fillmurray.com/150/150" class="avatar-workshop">
+                <div class="information">
+                  <div class="name">Todd Liu</div>
+                  <div class="jobtitle">Backend Engineer</div>
+                  <ul class="social-media">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-home"></i></a></li>
+                  </ul>
+                  <div class="teach-course"><a class="teacherlink">開過6堂課</a> / <a class="courselink">上過3堂課</a></div>
+                </div>
+              </div>
+              <div class="introduction">Lorem ipsum dolor sit amet, quam ultricies donec adipiscing. Massa sodales tortor elementum arcu mauris molestie, tempor sed, ornare imperdiet egestas vehicula mauris eros quis, nisl mauris, donec consectetuer quam. Aliquam suspendisse. Feugiat ac augue id placerat pellentesque senectus. Sed et sed interdum faucibus lacus, ut a vitae nec ipsum nunc.</div>
+              <div class="private">
+                <div class="private-title">非公開資料</div>
+                <hr>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-9">
+                      <input readonly value="toddliu@aydyn.com" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">連絡電話</label>
+                    <div class="col-sm-9">
+                      <input readonly value="0912-345-678" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">個人帳戶</label>
+                    <div class="col-sm-9">
+                      <input readonly value="700-1234567 1234567" class="form-control">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+          <section id="teacher">
+            <div class="course-item"><a href="course-detail.html?status=unchecked">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-wait">待審</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=unchecked">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-wait">待審</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=pass">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-pass">待發佈</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=notpass">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-success">未通過</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=notpass">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-success">未通過</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=cancel">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-cancel">課程取消</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="course-detail.html?status=finished">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-over">結業</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+          </section>
+          <section id="course">
+            <div class="course-item"><a href="application-detail-online.html">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-pass">待授課</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="application-detail-online.html">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-pass">待授課</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="application-detail-online.html">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-success">上課中</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="application-detail-online.html">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-success">上課中</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+            <div class="course-item"><a href="application-detail-online.html">
+                <div class="thumbnail"><img src="http://lorempixel.com/305/180" class="photo">
+                  <div class="tag tag-over">結業</div>
+                  <div class="caption">
+                    <h3>PHP+MySQL 動態網頁入門</h3>
+                    <p><em>with</em>Todd Liu</p>
+                    <div class="cost">
+                      <div class="classmate"><i class="fa fa-users"></i>10</div>
+                      <div class="money">NT$  <span>1200</span></div>
+                    </div>
+                  </div>
+                </div></a></div>
+          </section>
+          <section id="account">
+            <table id="tableAccount" class="table table-sort">
+              <thead class="table-subheader">
+                <tr>
+                  <th>申請日</th>
+                  <th>處理編號</th>
+                  <th>請款編號</th>
+                  <th>會員姓名</th>
+                  <th>類別</th>
+                  <th>金額</th>
+                  <th>狀態</th>
+                  <th>異動時間</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-href="account-detail.html">
+                  <td>2016/10/10</td>
+                  <td></td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td>2016/10/10</td>
+                  <td></td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td>2016/10/10</td>
+                  <td></td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td>2016/10/10</td>
+                  <td></td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail.html">
+                  <td>2016/10/10</td>
+                  <td></td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>待處理</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>處理中</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>處理中</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>處理中</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>處理中</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>處理中</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>處理失敗</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>講師請款</td>
+                  <td>2000</td>
+                  <td>處理失敗</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>結清</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>結清</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+                <tr data-href="account-detail-group.html">
+                  <td>2016/10/10</td>
+                  <td>#12345</td>
+                  <td>A12345</td>
+                  <td>Jake Gyllenhaal</td>
+                  <td>學生退款</td>
+                  <td>2000</td>
+                  <td>結清</td>
+                  <td>2016/10/10 20:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+    
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+    
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      console.log('here');
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabCourse', '.courselink', function(event){
+      $('#course').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabTeacher', function(event){
+      $('#teacher').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabAccount', function(event){
+      $('#account').show().siblings('section').hide();
+    });
+    
+    $('body').on('click','.courselink', function(event){
+      $('#tabCourse').addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+      $('#course').show().siblings('section').hide();
+    });
+    
+    $('body').on('click','.teacherlink', function(event){
+      $('#tabTeacher').addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+      $('#teacher').show().siblings('section').hide();
+    });
+    
+    //線上帳戶table================================================
+    $('#tableAccount').tablesorter();
+    $('#tableAccount tbody td:empty').append('--');
+    $('tbody td:contains("待處理")').css('color','#EFA331');
+    $('tbody td:contains("處理中")').css('color','#24aca8');
+    
+    //jump to another tab========================================
+  </script>
+</html>

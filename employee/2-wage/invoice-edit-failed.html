@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/fileinput_locale_fr.js"></script>
+    <script src="../../assets/js/fileinput_locale_es.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery-lastest.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="wage" class="container nav-wage-3">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <ul class="aydyn-breakcrumb">
+                <li><a href="invoice.html">薪資</a></li>
+                <li><a href="invoice.html">核銷單據</a></li>
+                <li>編輯</li>
+            </ul>
+          </div>
+          <section>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">狀態</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control failed" value="未通過" readonly>
+                </div>
+                <label class="col-sm-1 control-label">回覆內容</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control failed" value="未附收據，請於三日內補上" readonly>
+                </div>
+                <label class="col-sm-1 control-label">異動時間</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control failed" value="2016/10/10 19:35" readonly>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section>
+            <table id="myTable" class="table table-striped table-hover table-sort">
+              <thead>
+                <tr>
+                  <th class="col-sm-10">申請記錄</th>
+                  <td class="col-sm-2">匯入</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr class="v1" data-toggle="modal" data-target="#importModal">
+                  <td>2016/10/9 15:00</td>
+                  <td><a href="#"><span class="fa fa-share"></span></a></td>
+                </tr>
+                <tr class="v2" data-toggle="modal" data-target="#importModal">
+                  <td>2016/10/9 09:00</td>
+                  <td><a href="#"><span class="fa fa-share"></span></a></td>
+                </tr>             
+              </tbody>
+            </table>
+          </section>
+
+           <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">類別</label>
+                <div class="col-sm-3">
+                  <select id="type" name="type" class="form-control" required>
+                    <option disabled selected value>請選擇核銷類別</option>
+                    <option value="dinner" data-max="150">誤餐費</option>
+                    <option value="snack" data-max="200">夜點費</option>
+                    <option value="other">其他</option>
+                  </select>
+                </div>
+              </div>
+
+              <div id="overtime" class="form-group">
+                <label class="col-sm-1 control-label required">加班日期</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='selectDate2'>
+                      <input type='text' name="overtime" class="form-control" placeholder="Select Date">
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">發票日期</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='selectDate'>
+                      <input type='text' name="date" class="form-control" placeholder="Select Date" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">內容</label>
+                <div class="col-sm-11">
+                  <input type="text" name="description" class="form-control" placeholder="請簡單描述工作內容或單據內容" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">收據</label>
+                <div id="fieldUpload" class="col-sm-11">
+                  <input id="annouoment-attach" name="input24[]" type="file" multiple class="file-loading">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">金額</label>
+                <div class="col-sm-2">
+                  <input type="number" name="cost" class="form-control" required>
+                </div>
+                <label class="col-sm-0 control-label">NTD</label>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button type="reset" class="btn btn-default">Clear</button>
+                  <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </section>
+          <button type="button" id="back" class="btn btn-default" data-href="invoice.html"><span class="fa fa-reply"></span>Back</button>
+        </div>
+        <footer></footer>
+        <!-- Modal -->
+        <div class="modal fade" id="modalDelete" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+              <div class="modal-title">
+                <h2>確定離開當前頁面？</h2>
+                <p>您尚未將編輯過的表單送出，資料將會流失</p>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12 text-center">
+                  <button type="button" class="btn btn-default " data-dismiss="modal" aria-label="Close">Cancel</button>
+                  <a href="invoice.html" type="submit" class="btn btn-submit" aria-label="Close">Leave</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+    
+
+    
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    var data = [{
+      'date':'2016/10/10 Mon',
+      'overtime':'2016/10/10 Mon',
+      'type':'dinner',
+      'description':'XXXXXXXXXXXXXXXXXX',
+      'cost':'150',
+    },
+    {
+      'date':'2016/12/30 Fri',
+      'overtime':'2016/12/30 Fri',
+      'type':'snack',
+      'description':'ffffffffffff',
+      'cost':'200',
+    }
+    ];
+
+    $('tr[class="v1"]').click(function(){
+       var select_data = data[0];
+       $('input[name="date"]').val(select_data.date);
+       $('input[name="overtime"]').val(select_data.overtime);
+       $('select[name="type"]').val(select_data.type);
+       $('input[name="description"]').val(select_data.description);
+       $('input[name="cost"]').val(select_data.cost);
+     });
+
+    $('tr[class="v2"]').click(function(){
+       var select_data = data[1];
+       $('input[name="date"]').val(select_data.date);
+       $('input[name="overtime"]').val(select_data.overtime);
+       $('select[name="type"]').val(select_data.type);
+       $('input[name="description"]').val(select_data.description);
+       $('input[name="cost"]').val(select_data.cost);
+     });
+
+    $('select').change(function(){
+    $('input[type=number]').attr('max', $(this).find(":selected").data('max'));
+    });
+
+    $('#annouoment-attach').fileinput({
+        browseLabel: '選擇檔案...',
+        cancelLabel: '取消',
+        initialPreview: [
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg',
+            //- 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg'
+        ],
+        // initialPreviewShowDelete: true,
+        // initialPreviewAsData: true,
+        initialPreviewConfig: [
+            //- {caption: "飯店介紹.jpg", size: 930321, width: "120px", key: 1},
+            //- {caption: "Earth.jpg", size: 1218822, width: "120px", key: 2}
+        ],
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-zoom btn btn-xs btn-default" title="View Details"><i class="glyphicon glyphicon-zoom-in"></i></button>'+
+                    '<button type="button" class="kv-file-remove btn btn-default" {dataUrl}{dataKey}><i class="fa fa-trash"></i></button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        deleteUrl: "/site/file-delete",
+        uploadUrl: '/file-upload-batch/2',
+        overwriteInitial: true,
+        maxFileSize: 25600,
+        initialCaption: "選擇檔案",
+    });
+
+    $('#back').click(function(){
+      var check = 0;
+      $('#myForm input[type!="checkbox"]').each(function(index, item){
+        if(item.value != '')check++;
+      });
+      $('#myForm select').each(function(index, item){
+        if(item.value != '')check++;
+      });
+      if(check > 0){
+        $('#modalDelete').modal('show');
+      }else{
+        $href = $(this).data('href');
+        window.location.href = $href;
+      }
+    });
+
+    var ddl = document.getElementById("type");
+      ddl.onchange=newType;
+      function newType(){   
+        var ddl = document.getElementById("type");
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+           if (selectedValue == "other")
+            {document.getElementById("overtime").style.display = "none";
+          }
+          else{
+            document.getElementById("overtime").style.display = "block";
+      }
+    }
+  </script>
+</html>

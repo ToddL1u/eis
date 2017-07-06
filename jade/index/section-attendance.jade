@@ -1,0 +1,190 @@
+section#attendance
+  .section-block
+    .table-header.table-header-primary 假單 - 類別設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th 類別名稱
+          th 證明
+          th 薪資轉換 (請假1小時扣__小時薪資)
+          th
+      tbody
+        tr.form-block
+          td
+            input.form-control(type="text" value="病假" readonly)
+          td 
+            .checkbox
+              input(type="checkbox" disabled checked).checkbox-square
+              | 需附證明
+          td 
+            input.form-control(type="number" readonly value="1") 
+          td
+            ul.toolbar.toolbar-right
+              include ../include/toolbar-edit
+        tr.form-block
+          td
+            input.form-control(type="text" placeholder="類別名稱" )
+          td 
+            .checkbox
+              input(type="checkbox" ).checkbox-square
+              | 需附證明
+          td 
+            input.form-control(type="number" readonly value="1") 
+          td
+            ul.toolbar.toolbar-right
+              include ../include/toolbar-edit
+  .section-block
+    .table-header.table-header-primary 特休設定 - 轉薪資週期
+    table.table-form
+      thead.table-subheader
+        tr
+          th 啟用
+          th 歸零日期
+          th 週期(年)
+          th
+      tbody
+        tr.form-block
+          td
+            input(type="checkbox" disabled checked).checkbox-square
+          td 
+            ul.select-date
+              li
+                span.select
+                  select.select-months.form-control(disabled)
+              li
+                span.select
+                  select.select-days.form-control(disabled)
+          td 
+            input.form-control(type="number" readonly value="1") 
+          td
+            ul.toolbar.toolbar-right
+              include ../include/toolbar-edit
+        tr
+  .section-block
+    .table-header.table-header-primary 補休設定 - 轉薪 資週期
+    table.table-form
+      thead.table-subheader
+        tr
+          th 啟用
+          th 歸零日期
+          th 週期
+          th
+      tbody
+        tr.form-block
+          td
+            input(type="checkbox" disabled).checkbox-square
+          td 
+            ul.select-date
+              li
+                span.select
+                  select.select-months.form-control(disabled)
+              li
+                span.select
+                  select.select-days.form-control(disabled)
+          td 
+            input.form-control(type="number" readonly value="1") 
+          td
+            ul.toolbar.toolbar-right
+              include ../include/toolbar-edit
+        tr
+  .section-block
+    .table-header.table-header-primary 特休設定 - 年資與特休日設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th 年資
+          th 特休天數 (天)
+          th
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" placeholder="1-3" readonly value="1-3") 
+          td 
+            input.form-control(type="number" readonly value="3") 
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td
+            input.form-control(type="text" placeholder="1-3") 
+          td 
+            input.form-control(type="number") 
+          td
+            include ../include/toolbar-delete-edit
+  .section-block
+    .table-header.table-header-primary 補休設定 - 加班轉補休設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form.table-sort
+      thead.table-subheader
+        tr
+          th.col-sm-5 加班區間(天)
+          th 加班區間(時)
+          th 加班時數
+          th 補假時數
+          td
+      tbody
+        tr.form-block
+          td 
+            ul
+              -var week = ["週日","週一","週二","週三","週四","週五","週六"]
+              -each day in week
+                li
+                  .checkbox
+                    label 
+                      input(type="checkbox" disabled).checkbox-square
+                      =day
+          td
+            ul
+              li 
+                .input-group.bootstrap-timepicker
+                  input.timepicker.form-control.input-small(disabled type='text')
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-time
+              li 
+                span(style="padding-bottom:10px") 至
+              li
+                .input-group.bootstrap-timepicker
+                  input.timepicker.form-control.input-small(disabled type='text')
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-time
+            
+          td 
+            input.form-control(type="number" readonly value="1")
+          td
+            input.form-control(type="number" readonly value="1")
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            ul
+              -var week = ["週日","週一","週二","週三","週四","週五","週六"]
+              -each day in week
+                li
+                  .checkbox
+                    label 
+                      input(type="checkbox").checkbox-square
+                      =day
+          td 
+            ul
+              li 
+                .input-group.bootstrap-timepicker
+                  input.timepicker.form-control.input-small(type='text')
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-time
+              li 
+                span(style="padding-bottom:10px") 至
+              li
+                .input-group.bootstrap-timepicker
+                  input.timepicker.form-control.input-small(type='text')
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-time
+          td 
+            input.form-control(type="number")
+          td
+            input.form-control(type="number" )
+          td
+            include ../include/toolbar-delete-edit

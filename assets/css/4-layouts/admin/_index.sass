@@ -1,0 +1,62 @@
+
+#index
+  .user-name
+    color: $text-highlight
+    padding: 0 10px
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+    .section-notification
+      display: none
+
+#config
+  .subnav:after
+    display: none
+  .content
+    $subnav-margin: 55px
+    margin-top: 187px + $subnav-margin
+    min-height: calc(100vh - 187px - 55.6px - #{$subnav-margin})
+  .section-block
+    ul
+      li
+        display: inline-flex
+  .field-content-title
+    width: 100%
+
+.float-content
+  display: none
+
+
+.popover,.popover-title
+  background: $clear-color
+  // border: none!important
+  border-radius: 10px
+  padding: 0
+  .arrow
+    display: none
+.popover-content
+  background: $primary-color
+  color: white
+  width: 500px
+  padding: 10px
+  border-radius: 10px
+
+.nav-announcement
+  .btn-upload
+    margin-right: 10px
+  .annouoment-attach
+    margin-top: 10px
+  .section-toolbar
+    top: 0
+    display: none
+
+
+.nav-notification
+  .on-search
+    margin-top: 390px
+// .nav-notification
+//   .content
+//     $subnav-margin: 70px
+//     margin-top: 187px + $subnav-margin
+    // min-height: calc(100% - 187px - 55.6px - #{$subnav-margin})

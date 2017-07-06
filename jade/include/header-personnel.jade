@@ -1,0 +1,61 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 人事作業
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  form.subnav-search
+    span * 表示可多選
+    
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 狀態*
+      ul
+        -var states = ["正式","試用期","待入職","待面試","未審履歷","離職"]
+        -each state in states
+          li
+            .checkbox
+              label 
+                input(type="checkbox").checkbox-square.checkbox-square-dark 
+                =state
+              
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 對象
+      span.select.select-dark
+        select.form-control.select-deps
+          option(value="0") 全體部門
+      span.select.select-dark
+        select.form-control.select-employee
+          option(value="0") 全體人員
+        
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 工作經驗
+      span.select.select-dark
+        select.form-control.select-exp
+          option(value="0") 不限制
+          option(value="1") 0~5
+          option(value="2") 6~10
+          option(value="3") 11~15
+        
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 語言*
+      span.select.select-dark
+        select.form-control.select-exp
+          option(value="0" selected disabled) 選擇一種語言
+          option(value="1") 西班牙語
+          option(value="2") 德語
+          option(value="3") 俄語
+      ul
+        -var states = ["中文","英文"]
+        -each state in states
+          li
+            .checkbox(style="margin-top: 7px;")
+              label 
+                input(type="checkbox").checkbox-square.checkbox-square-dark 
+                =state
+      
+      
+    .search-form-buttons
+      button.btn.btn-default(type="reset") Reset
+      button.btn.btn-default(type="submit")
+        span.fa.fa-search
+        | Searching

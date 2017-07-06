@@ -1,0 +1,73 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #company.container.nav-company-3
+      nav.nav
+      .wrap
+        include ../include/header-status 
+        .content
+          include ../include/toolbar-export-add
+          section
+            .section-block.form-block
+              .section-title 01
+              .section-toolbar
+                include ../include/toolbar-delete-edit
+              form.form-horizontal
+                table.table.table-form.table-side-header
+                  tr
+                    td.col-sm-4 主管編號
+                    td.col-sm-8
+                      input.form-control(type="text" placeholder=""  readonly value="G8")
+                  tr
+                    td 二階主管
+                    td
+                      input.form-control(type="text" placeholder=""  readonly value="技術長")
+                  tr
+                    td 部門名稱
+                    td
+                      input.form-control(type="text" placeholder=""  readonly value="專業職")
+            .section-block.form-block
+              .section-title 
+              .section-toolbar
+                include ../include/toolbar-delete-edit
+              form.form-horizontal
+                table.table.table-form.table-side-header
+                  tr
+                    td.col-sm-4 主管編號
+                    td.col-sm-8
+                      input.form-control(type="text" placeholder="主管編號" )
+                  tr
+                    td 二階主管
+                    td
+                      input.form-control(type="text" placeholder="二階主管" )
+                  tr
+                    td 部門名稱
+                    td
+                      input.form-control(type="text" placeholder="部門名稱" )
+            include ../include/pagination
+        footer
+script(src="../../assets/js/function.js")
+script.
+  var $section = $('.content').find('.section-block:last');
+  $section.hide();
+  $section.find('.btn-edit').trigger('click');
+  $('.btn-add').click(function(){
+    var $row = $(this).parents('.content').find('.section-block:last');
+    var $index = $(this).parents('.content').find('.section-block').length ;
+    $row.find('.section-title').html('0' + $index);
+    $row.prev().after('<div class="section-block form-block">' + $row.html() + '</div>');
+    $row.find('input').attr('readonly',false).attr('value','');
+  });
+  
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    var section_block = $form_section.parents('.form-block');
+    section_block.remove();
+  });
+    

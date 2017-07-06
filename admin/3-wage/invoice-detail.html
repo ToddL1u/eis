@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="wage" class="container nav-wage-4">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>薪資作業</li>
+              <li>核銷單</li>
+              <li>Murry</li>
+            </ul>
+            <div class="subnav-subtitle">2016/11/12</div>
+          </div>
+        </header>
+        <div class="content">
+          <aside class="section-version">
+            <ul class="nav-version">
+              <li>2016-10-19</li>
+              <li>2016-12-12</li>
+            </ul>
+          </aside>
+          <ul class="toolbar">
+            <li class="btn-view"></li>
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+          </ul>
+          <section class="form-block section-block">
+            <form class="from-group">
+              <table class="table table-hover table-form table-side-header table-side-header-right">
+                <tbody>
+                  <tr>
+                    <td class="col-sm-2">狀態</td>
+                    <td>待審</td>
+                  </tr>
+                  <tr>
+                    <td class="col-sm-2">部門</td>
+                    <td>RD</td>
+                  </tr>
+                  <tr>
+                    <td>人員</td>
+                    <td>Fill Murray</td>
+                  </tr>
+                  <tr>
+                    <td>員工編號</td>
+                    <td>9527</td>
+                  </tr>
+                  <tr>
+                    <td>類別</td>
+                    <td>誤餐費</td>
+                  </tr>
+                  <tr>
+                    <td>內容</td>
+                    <td>EIS system </td>
+                  </tr>
+                  <tr>
+                    <td>加班日期</td>
+                    <td>2016/11/12</td>
+                  </tr>
+                  <tr>
+                    <td>發票日期</td>
+                    <td>2016/11/12</td>
+                  </tr>
+                  <tr>
+                    <td>金額</td>
+                    <td>5000</td>
+                  </tr>
+                  <tr>
+                    <td>證明</td>
+                    <td><a href="#" class="pop"><img src="../../assets/img/invoice.jpg" alt=""></a></td>
+                  </tr>
+                  <tr class="field-reply">
+                    <td>回覆內容</td>
+                    <td> 
+                      <input type="text" readonly value="" class="form-control">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+            <div class="btns-group">
+              <button data-toggle="modal" data-target="#modalReject" class="btn btn-danger">退回</button>
+              <button data-toggle="modal" data-target="#modalConfirm" class="btn btn-success">通過</button>
+            </div>
+          </section>
+          <section class="section-block section-history"></section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('.field-reply').hide();
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+      setReplied();
+    });
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      //- setReplied();
+    });
+    
+    function setReplied(){
+      $('.field-reply').show();
+      $('.content .btns-group').hide();
+    }
+    
+    var data = [
+      {'date':'2016-10-10','state':'通過','reason':'reson1','amount':1000,'attach':'../../assets/img/clinic.jpg','content':'content1'},
+      {'date':'2016-12-12','state':'未通過','reason':'reson1','amount':2000,'content':'Lorem'}];
+    
+    $('.nav-version li').click(function(){
+      var select_data = data[$(this).index()];
+      var strVar='';
+      strVar += '<div class="section-title"><br/></div>';
+      strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+      strVar += '<table class="table table-hover table-form table-side-header table-side-header-right">';
+      strVar += '<tbody>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2">狀態</td>';
+      strVar += '<td>'+ select_data.state +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>核銷原因</td>';
+      strVar += '<td> '+ select_data.reason +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>核銷金額</td>';
+      strVar += '<td>'+ select_data.amount +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>證明</td>';
+      strVar += select_data.attach? '<td> <a href="#" class="pop"><img src="'+ select_data.attach +'" alt=""></a></td>':'<td></td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>回覆內容</td>';
+      strVar += '<td> '+ select_data.content +'</td>';
+      strVar += '</tr>';
+      strVar += '</tbody>';
+      strVar += '</table>';
+    
+    
+      $('.section-history').html(strVar).show();
+    });
+  </script>
+</html>

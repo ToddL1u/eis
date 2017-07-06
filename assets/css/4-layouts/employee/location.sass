@@ -1,0 +1,142 @@
+.text-warn
+  color: $e-warn-color !important
+
+#chLocation
+  padding: 0 7%
+
+  ul
+    padding-left: 0
+    li.btn-warning
+      color: #fff
+      background-color: $e-warn-color
+      border: 2px solid $e-warn-color
+
+  .pick-image//場地圖片===============================
+    text-align: center
+    margin-bottom: 30px
+    padding: 0 50px
+    img
+      opacity: 0.5
+      border: 6px solid #fff
+      &.active
+        border: 6px solid $e-warn-color
+        opacity: 1
+
+  .pick-location//場地內容============================
+    .loc-info//場地資訊
+      span
+        margin-right: 20px
+        i
+          width: 16px
+          color: $primary-color
+          margin-right: 10px
+
+    .loc-image//場地圖片輪播
+      // height: 322px
+      overflow: hidden
+      margin-bottom: 40px
+      .carousel.slide
+        height: 332px
+      #slider-thumbs
+        height: 332px
+        overflow: overlay
+        ul
+          padding: 0
+          margin: 0
+
+    .loc-rent-way//選擇出租方式
+      p
+        margin-bottom: 10px
+        font-size: 16px
+        font-weight: bold
+        color: $primary-color
+
+  .pick-rent-way//收費方式==============================
+    .tab-left,.tab-right
+      display: inline-block
+      vertical-align: top
+    .tab-right
+      // float: right
+      width: 27%
+    .tab-left
+      width: 65%
+      margin-right: calc(100% - 93%)
+      .rent-info//收費資訊
+        margin-bottom: 30px
+        thead th
+          width: 150px
+          &:nth-child(2)
+            width: 100px
+        tbody td
+          font-size: 20px
+          span
+            font-size: 15px
+      .rent-form//收費表單
+        ul
+          margin-bottom: 30px
+        form
+          .control-label
+            padding-left: 0px 
+            text-align: left
+          .col-sm-10 label
+            margin-right: 8px
+          .bootstrap-datetimepicker-widget
+            height: 220px
+    .tab-right
+      border: 1px solid #b8b8b8
+      padding: 20px 20px
+      padding-right: 15px
+      .table-block
+        max-height: 210px
+        overflow: overlay
+        table
+          font-size: 13px
+          td
+            vertical-align: top
+            margin-bottom: 20px
+            &:first-child
+              width: 35px
+        .btn
+          font-size: 13px
+          padding: 3.5px 11px
+          margin-right: 5px
+          border: 2px solid $danger-color
+          &.btn-danger
+            color: #fff
+            background-color: $danger-color
+          &.btn-delete
+            color: $danger-color
+            background-color: transparent
+          &.btn-default
+            display: none
+            color: #fff
+            background-color: #A2A2A2
+            border: 2px solid #A2A2A2
+          &.btn-green
+            display: none
+            color: #fff
+            background-color: #60C000
+            border: 2px solid #60C000
+      .sum-info
+        margin-top: 40px
+        padding-top: 20px
+        border-top: 1px solid #b8b8b8
+        table
+          width: 100%
+          font-size: 13px
+          margin-top: -10px
+          tr td:last-child
+            float: right
+      .sum
+        background-color: $e-warn-color
+        color: #fff
+        margin: -20px
+        margin-right: -15px
+        margin-top: 10px
+        padding: 10px 20px
+        span
+          float: right
+
+#tab6
+  .bootstrap-datetimepicker-widget
+    height: 250px

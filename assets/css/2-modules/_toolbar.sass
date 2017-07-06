@@ -1,0 +1,133 @@
+.toolbar
+  text-align: right
+  li
+    display: inline-block
+    margin-right: 10px
+    position: relative
+
+.btn-print,.btn-clip,.btn-delete,.btn-cofig,.btn-logouts,.btn-notification,
+.btn-confirm, .btn-edit, .btn-add,.btn-cancel,.btn-export,.btn-expand,.btn-collapse,.btn-view, .btn-logout,
+.btn-tack, .btn-upload, .btn-comment, .btn-mail, .btn-add-row
+
+  @extend .fa
+  cursor: pointer
+  &:hover
+    &:after
+      opacity: 1
+  &:after
+    +transition(all, 300ms ease-in-out)
+    opacity: 0
+    left: -10px
+    bottom: 20px
+    background: black
+    color: white
+    border-radius: 2px
+    padding: 0 2px
+    position: absolute
+    font-size: 16px
+
+.toolbar-btn-hide
+  display: none!important
+
+.toolbar-btn-show
+  display: inline-block!important
+
+$toolbar-colors: (delete: #dA6498, print: #a55998, clip: #ea6374, cancel: #b3b3b3, confirm: #7cb967, edit: #2195d4, add: $warn-color, export: #ea6374, view: #1d95d4, upload: $success-color, announce: #21aba6, mail: dodgerblue)
+
+=toolbar-btn($name)
+  $color: map-get($toolbar-colors, $name)
+  color: $color
+  &:hover,&:active
+    color: $color
+  &:after
+    content: $name
+    background: $color
+
+
+.btn-print
+  @extend .fa-print
+  +toolbar-btn("print")
+
+.btn-view
+  @extend .fa-eye
+  +toolbar-btn("view")
+
+.btn-clip
+  @extend .fa-paperclip
+  // +toolbar-btn("clip")
+  color: #ea6374
+
+.btn-delete
+  @extend .fa-trash
+  +toolbar-btn("delete")
+
+.btn-notification
+  @extend .fa-file
+  // &:after
+  //   content: "500"
+  //   background: $warn-color
+  //   opacity: 1
+  //   left: -5px
+  //   bottom: 30px
+
+.btn-cancel
+  @extend .fa-window-close-o
+  +toolbar-btn("cancel")
+
+.btn-confirm
+  @extend .fa-check-square-o
+  +toolbar-btn("confirm")
+
+.btn-confirm-only
+  @extend .btn-confirm
+
+.btn-edit
+  @extend .fa-pencil-square-o
+  +toolbar-btn("edit")
+
+.btn-edit-only
+  @extend .btn-edit
+
+.btn-expand, .btn-add ,
+  @extend .fa-plus-square-o
+
+.btn-add
+  +toolbar-btn("add")
+
+.btn-add-only
+  @extend .btn-add
+
+.btn-add-row
+  @extend .btn-add
+
+.btn-export,.btn-export-only
+  @extend .fa-share-square-o
+  +toolbar-btn("export")
+
+.btn-upload
+  @extend .fa-upload
+  +toolbar-btn("upload")
+
+.btn-collapse
+  @extend .fa-minus-square-o
+
+.btn-cofig
+  @extend .fa-cog
+
+.btn-logout
+  @extend .fa-sign-out
+  margin-right: 10px
+
+.btn-tack
+  @extend .fa-thumb-tack
+  +toolbar-btn("announce")
+  &:after
+    left: -30px
+
+.btn-comment
+  @extend .fa-comment
+  color: $warn-color
+
+.btn-mail
+  @extend .fa-envelope-o
+  +toolbar-btn("mail")

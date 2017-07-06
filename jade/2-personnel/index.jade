@@ -1,0 +1,56 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #personnel.container.nav-personnel
+      nav.nav
+      .wrap
+        include ../include/header-personnel
+        .content.on-search
+          ul.toolbar.toolbar-right
+            li.btn-export
+            li
+              a(href="personal.html?action=add").btn-add
+          section 
+            table.table.table-hover.table-list#tablePersonnel.table-sort
+              thead.table-subheader
+                tr
+                  th.col-sm-1 部門
+                  th.col-sm-1 員工編號
+                  th.col-sm-1 出勤卡號
+                  th.col-sm-1 姓名
+                  th.col-sm-1 居住地
+                  th.col-sm-2 教育背景
+                  th.col-sm-3 飲食禁忌
+                  th.col-sm-2 狀態
+              tbody
+                -for(var i=0;i<7;i++){
+                  tr(data-href="personal.html")
+                    td 設計
+                    td DS0006
+                    td 1234567
+                    td Fill Murray
+                    td 台北市 內湖區
+                    td 
+                      | 雲林科技大學(碩)
+                      br
+                      | 創意生活設計系
+                    td 無
+                    td 試用期
+                -}
+            include ../include/pagination
+        footer
+script(src="../../assets/js/function.js")
+script.
+  function init() {
+    $('#tablePersonnel').tablesorter();
+      //- var sorter = tsorter.create('tablePersonnel');
+  }
+  window.onload = init;
+    

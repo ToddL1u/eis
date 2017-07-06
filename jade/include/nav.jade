@@ -1,0 +1,48 @@
+mixin menuGroup(section, id, link, items)
+  -var itemsCount =items.length
+    li(id="#{id}").nav-group
+      a(href="#{link}")
+        span #{section.name}
+        -if (itemsCount> 0 )
+          span.fa.fa-chevron-right.arrow-close
+          span.fa.fa-chevron-down.arrow-open
+      .aydyn-badge.badge-nav.badge-parents #{section.badge}
+      -if (itemsCount> 0 )
+        ul.dropdown
+          for item in items
+            li  
+              a(href="#{item.link}") #{item.name}
+              .aydyn-badge.badge-nav #{item.badge}
+
+
+.profile
+  img(src="//www.fillmurray.com/160/160", alt="avatar" class="avatar")
+  h3 Fill Murry
+  p CEO
+ul
+  +menuGroup({"name":"公司資料"}, "nav-company", "#", [
+    {"link":"../0-company/information.html", "name":"基本資料"},
+    {"link":"../0-company/hierarchy.html", "name":"職稱階級"}])
+  +menuGroup({"name":"公司章程福利"},"nav-bonus","#", [
+    {"link":"../1-bonus/constitution.html", "name":"章程規範"},
+    {"link":"../1-bonus/welfare.html", "name":"福利制度"}])
+  +menuGroup({"name":"人事作業"}, "nav-personnel","../2-personnel", [])
+  +menuGroup({"name":"薪資作業","badge":10}, "nav-wage", "#",[
+    {"link":"../3-wage/salary.html", "name":"薪資作業"},
+    {"link":"../3-wage/monthly-caculation.html", "name":"當月薪資"},
+    {"link":"../3-wage/salary-printout.html","name":"薪資報表"},
+    {"link":"../3-wage/invoice.html", "name":"核銷單","badge":"5"},
+    {"link":"../3-wage/tax-printout.html", "name":"扣繳憑單"},
+    {"link":"../3-wage/insurance-printout.html", "name":"勞健保繳費證明"}])
+  +menuGroup({"name":"考勤作業","badge":10},"nav-attendance","#", [
+    {"link":"../4-attendance/attendance.html", "name":"考勤作業"},
+    {"link":"../4-attendance/absence.html", "name":"假單","badge":"5"},
+    {"link":"../4-attendance/leave-creadit.html", "name":"補休申請單","badge":"5"}])
+  +menuGroup({"name":"教育訓練","badge":10},"nav-training", "#",[
+    {"link":"../5-training", "name":"受訓單","badge":"10" },
+    {"link":"../5-training/history.html", "name":"歷史課程"}])
+  +menuGroup({"name":"員工工作日誌"},"nav-journal", "../6-journal",[])
+  +menuGroup({"name":"工作坊","badge":10},"nav-workshop","#", [
+    {"link":"../7-workshop/course.html", "name":"課程總覽","badge":"10"},
+    {"link":"../7-workshop/member.html", "name":"會員資料"},
+    {"link":"../7-workshop/account.html", "name":"會員款項"}])

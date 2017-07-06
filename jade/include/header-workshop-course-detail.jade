@@ -1,0 +1,44 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 工作坊
+    li 課程總覽
+    li JavaScript程式設計新手村
+  .subnav-subtitle 2016-12-18 18:00
+  .course-title
+    p 程式語言
+      span.tag 待授課
+      span.process
+    h2 JavaScript程式設計新手村
+    ul.course-info
+      li
+        i.fa.fa-clock-o
+        |開課日期：2017/10/10
+      li
+        i.fa.fa-flag
+        |難易度：中等
+      li
+        i.fa.fa-users
+        |156 人
+      li
+        i.fa.fa-calendar
+        |模擬授課：2016/10/10
+      li
+        i.fa.fa-calendar
+        |課後簡報：2016/10/10
+      li
+        i.fa.fa-calendar
+        span 發佈日期：2016/10/10
+    hr
+  .subnav-search#status_pass(style="display: none;")
+    .search-form-buttons
+      button.btn.btn-flat.btn-danger-cancel(type="submit" data-toggle="modal" data-target="#modalCancelcourse") 課程取消
+      button.btn.btn-flat.btn-primary.btn-revise(type="submit") 開放講師修改
+      a(href="../../employee/7-workshop/proposal.html")
+        button.btn.btn-flat.btn-primary(type="submit") 修改
+      a(href="course-post.html")
+        button.btn.btn-flat.btn-warning 發佈
+  .subnav-search#status_unchecked(style="display: none;")
+    .search-form-buttons
+      button.btn.btn-flat.tag-success(type="submit" data-toggle="modal" data-target="#modalReject") 退回
+      button.btn.btn-flat.tag-pass(type="submit" data-toggle="modal" data-target="#modalConfirm-ws") 通過

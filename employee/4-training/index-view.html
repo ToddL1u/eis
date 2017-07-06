@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="training" class="container">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <ul class="aydyn-breakcrumb">
+                <li><a href="index.html">教育訓練</a></li>
+                <li><a href="index.html">受訓記錄</a></li>
+                <li>檢視</li>
+            </ul>
+          </div>
+          <section>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">狀態</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control wait" value="待審" readonly>
+                </div>
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" readonly>
+                </div>
+                <label class="col-sm-1 control-label">異動時間</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control wait" value="2016/10/10 19:35" readonly>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">課程</label>
+                <div class="col-sm-3">
+                  <select id="courseType" class="form-control" disabled>
+                    <option disabled selected value>請選擇課程類別</option>
+                    <option value="interior">內訓</option>
+                    <option value="exterior" selected>外訓</option>
+                    <option value="self">自行提案</option>
+                  </select>
+                </div>
+
+                <div id="exCourse" class="col-sm-8"">
+                  <select class="form-control" disabled>
+                    <option disabled selected value>請選擇一門外訓課程</option>
+                    <option>ColdFusion網頁程式設計</option>
+                    <option>Flash應用程式開發</option>
+                    <option>創意網站設計精修班</option>
+                    <option selected>精通 Flash RIA ActionScript 應用開發精修班</option>
+                    <option>Flash Lite手機介面及遊戲製作班</option>
+                    <option>Flex Web 2.0技術應用班</option>
+                    <option>CSS 網頁語法精修班</option>
+                  </select>
+                </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">受訓區間</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='startDate'>
+                      <input type='text' class="form-control" value="2016/12/14 09:48" readonly>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='endDate'>
+                      <input type='text' class="form-control" value="2016/12/14 09:48" readonly>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">簡報日期</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='reportStart'>
+                      <input type='text' value="2016/10/10 14:00" class="form-control" placeholder="Report Start" readonly>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <input type="number" value="1" class="form-control" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label note">*簡報日期需訂於課程結束後一周內</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">費用</label>
+                <div class="col-sm-2">
+                  <input id="selfCost" type="text" class="form-control" value="2400" readonly>
+                </div>
+                <label class="col-sm-0 control-label">NTD</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">服務到期</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" value="2017/10/10" readonly>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <div class="checkbox col-sm-9">
+                  <label class="control-label note">
+                    <input type="checkbox" checked disabled>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我已詳細閱讀&nbsp;<a href="#" data-toggle="modal" data-target="#myModal"><b>教育訓練補助條款</b></a>，並接受所有規定事項。
+                  </label>
+                </div>
+              </div>
+            </form>
+          </section>
+          <a href="index.html"><button type="button" class="btn btn-default"><span class="fa fa-reply"></span>Back</button></a>
+        </div>
+        <footer></footer>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+              <div class="modal-title">
+                <h3>教育訓練</h3>
+                <h2>教育訓練補助條款</h2>
+              </div>
+              <table class="table-center">
+                <thead>
+                  <tr>
+                    <th>受訓費用(NTD)</th>
+                    <th>續服務年限</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5,000</td>
+                    <td>6 Months</td>
+                  </tr>
+                  <tr>
+                    <td>5,001-12,000</td>
+                    <td>1 Year</td>
+                  </tr>
+                  <tr>
+                    <td>12,001-20,000</td>
+                    <td>2 Years</td>
+                  </tr>
+                  <tr>
+                    <td>20,001-30,000</td>
+                    <td>3 Years</td>
+                  </tr>
+                  <tr>
+                    <td>30,001</td>
+                    <td>4 Years</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="note">
+                <p>*續服務年限自課程結束隔日起算之。</p>
+                <p>*若因政府相關單位法規規定需有執照之教育訓練；唯證照需無條件為公司使用及特殊公司指派者，則不在上述之限制。</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+
+  </body>
+  <script src="../../assets/js/moment.js"></script>
+  <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="../../assets/js/function.js"></script>
+</html>

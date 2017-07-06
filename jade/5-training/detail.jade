@@ -1,0 +1,211 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #training.container.nav-training-1.nav-training-detail
+      nav.nav
+      .wrap
+        include ../include/header-training-detail
+        .content.form-block
+          aside.section-version
+            ul.nav-version
+              li.version-is-active 2016/10/10
+              li 2016/10/09
+          
+          ul.toolbar
+            li.btn-tack
+            li.btn-export
+            li.btn-clip.toolbar-btn-hide
+            li.btn-export.toolbar-btn-hide
+            li.btn-view
+            include ../include/toolbar-delete
+          section.section-block
+            form.from-group
+              table.table.table-form.table-side-header
+                tbody
+                  tr.field-state
+                    td 狀態
+                    td 待審
+                  tr
+                    td.col-sm-2 部門
+                    td RD
+                  tr
+                    td 人員
+                    td Fill Murray
+                  tr
+                    td 員工編號
+                    td 9528
+                  tr
+                    td 類別
+                    td 自行提報
+                  tr
+                    td 課程名稱
+                    td abc
+                  tr
+                    td 課程網址
+                    td abc
+                  tr
+                    td 課程費用
+                    td 10000
+                  tr
+                    td 受訓原因
+                    td test
+                  tr
+                    td 受訓區間
+                    td 2016/11/11 18:00 ~ 2016/11/11 18:00
+                  tr
+                    td 簡報區間
+                    td 2016/11/11 18:00 (120分鐘)
+                  tr.filed-attach
+                    td 附加檔案
+                    td
+                      a(href="http://eshare.stust.edu.tw/EshareFile/2010_6/2010_6_409b0224.doc")
+                        span.btn-clip
+                        | 檔案下載
+                  tr
+                    td(style="background-color: #ffe8f2") 服務到期日
+                    td(style="position:relative")
+                      include ../include/select-date
+                      span (前次服務到期日   2017/01/02) 
+                      ul.toolbar.section-toolbar
+                        include ../include/toolbar-edit
+                  tr.field-reply
+                    td 回覆內容
+                    td Very good
+                        
+            .btns-group
+              button.btn.btn-danger(data-toggle="modal" data-target="#modalReject") 退回
+              button.btn.btn-success(data-toggle="modal" data-target="#modalConfirm") 通過
+          section.section-block.section-history
+            
+        footer
+        .modal.fade.bs-example-modal-lg#modalAnnouce(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                h4 發佈至公司公告
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-2.btn-success 確定
+script(src="../../assets/js/function.js")
+script.
+  $('select').prop('disabled','true');
+  $('.field-reply').hide();
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    goBack();
+  });
+  $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+    setReplied();
+  });
+  $('body').on('click','#modalReject .modal-btn-2',function(event){
+    //- setReplied();
+  });
+  
+  function setReplied(){
+    $('.field-reply').show();
+    $('.content .btns-group').hide();
+  }
+  
+  $('.filed-attach').hide();
+  $('.btn-export').hide();
+  $('.btn-tack').hide();
+  
+  var id = getUrlParameter('id');
+  if(id == '2'){
+    $('.field-state').html('<td>狀態</td><td>完訓</td>');
+    $('.content .btns-group').hide();
+    $('.field-reply').show();
+    $('.btn-tack').hide();
+    $('.btn-export').show();
+    $('.filed-attach').show();
+  }else if(id == '1'){
+    $('.field-state').html('<td>狀態</td><td>待受訓</td>');
+    $('.content .btns-group').hide();
+    $('.btn-tack').show();
+    $('.field-reply').show();
+    $('.btn-export').show();
+  }
+  
+  $('.btn-tack').click(function(){
+    $('#modalAnnouce').modal('show');
+  })
+  
+  $('body').on('click','#modalAnnouce .modal-btn-2',function(){
+    window.location.href="../index/announcement.html?action=edit&id=1";
+  })
+  
+  
+  
+  $('body').on('click','#modalVersion .modal-btn-1',function(){
+    $('#bonus .toolbar li').not('.btn-delete').not('.btn-view').toggleClass('toolbar-btn-hide');
+    setInput(true);
+  })
+    
+  var data = [
+    {'date':'2016-10-10','state':'未通過', 'type' :2, 'reason':'reson1','apply_time':'2012-12-11','content':'content1'},
+    {'date':'2016-12-12','state':'通過','type':2, 'reason':'reson1','apply_time':'2012-12-11','content':'Lorem'}];
+  
+  $('.nav-version li').click(function(){
+    var select_data = data[$(this).index()];
+    var strVar='';
+    strVar += '<div class="section-title"><br/></div>';
+    strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+    strVar += '<table class="table table-form table-side-header">';
+    strVar += '<tbody>';
+    strVar += '<tr>';
+    strVar += '<td class="col-sm-2">狀態</td>';
+    strVar += '<td>'+ select_data.state +'</td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>類別</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>課程名稱</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    if(select_data.type >1){
+      strVar += '<td>課程網址</td>';
+      strVar += '<td> </td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+    }
+    strVar += '<td>課程費用</td>';
+    strVar += '<td></td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>受訓原因</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>受訓區間</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>提報區間</td>';
+    strVar += '<td> </td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td >服務到期日</td>';
+    strVar += '<td >';
+    strVar += '</td>';
+    strVar += '</tr>';
+    strVar += '<tr>';
+    strVar += '<td>回覆內容</td>';
+    strVar += '<td>'+ select_data.content +' </td>';
+    strVar += '</tr>';
+    strVar += '</tbody>';
+    strVar += '</table>';
+
+    $('.section-history').html(strVar).show();
+  });

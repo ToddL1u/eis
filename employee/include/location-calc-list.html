@@ -1,0 +1,165 @@
+<div>
+  <p>收費計算</p>
+  <div class="table-block">
+    <table class="table1">
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <p>衝突時段</p>
+  <div class="table-block">
+    <table class="table-danger table2">
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sum-info">
+  <h4 class="text-warn">小時出租</h4>
+  <table class="table-sum">
+    <tbody>
+      <tr>
+        <td>總堂數</td>
+        <td>2堂</td>
+      </tr>
+      <tr>
+        <td>租借總時</td>
+        <td>18小時</td>
+      </tr>
+      <tr>
+        <td>租借金額</td>
+        <td style="text-decoration: line-through;">NT$ 21720</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="color: #b8b8b8;">折扣80%內部員工</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sum">結算 <span>NT$18000</span></div>
+
+<script>
+  var table1 =[
+  "2017/02/27 09:00~18:00 90%<br>9小時 NT$9720",
+  "2017/02/27 09:00~18:00 100%<br>9小時 NT$9720",
+  "2017/02/27 09:00~18:00 90%<br>9小時 NT$9720",
+  "2017/02/27 09:00~18:00 100%<br>9小時 NT$9720"];
+
+  var table2 =[
+  "2017/02/27 09:00~18:00 90%<br> 9小時 NT$9720",
+  "2017/02/27 09:00~18:00 100%<br> 9小時 NT$9720"];
+
+  tablegenerate1();
+  tablegenerate2();
+
+  function tablegenerate1(){
+    $(".table1 tbody").html("");
+    for(var i = 0 ; i<table1.length; i++){
+      var $row = '<tr><td>'+(i+1)+'堂'+'</td><td>'+table1[i]+'</td></tr>';
+      $('.tab-right .table1 tbody').append($row);
+    }
+  };
+
+  function tablegenerate2(){
+    $(".table2 tbody").html("");
+    for(var i = 0 ; i<table2.length; i++){
+      var $row = '<tr><td>'+'--'+'</td><td>'+table2[i]+'</td></tr>';
+      $('.tab-right .table2 tbody').append($row);
+    }
+    var btn_html = '<br><button class="btn btn-danger" data-toggle="modal" data-target="#modalChangeTime"><i class="fa fa-pencil-square-o"></i>變更時間</button><button class="btn btn-green">確定變更</button><button class="btn btn-default">取消</button><button class="btn btn-delete" data-toggle="modal" data-target="#modalPeriod"><i class="fa fa-trash"></i> 刪除</button>';
+    $('.tab-right .table2 tbody tr td:last-child').append(btn_html);
+  };
+
+  delete_time();
+  change_time();
+  cancel_change();
+  decide_change();
+  regret_change();
+
+  function delete_time(){
+    $('.tab-right .btn-delete').click(function(){
+    $(this).parents('tr').addClass('delete-tr')
+    })
+    $('body').on('click','#modalPeriod .btn-submit',function(){
+      $('body').find('.delete-tr').remove();
+      check();
+    })
+
+    $('body').on('click','#modalPeriod .btn-default',function(){
+      $('body').find('tr').removeClass('delete-tr');
+    })
+  }
+
+  function change_time(){
+    $('.tab-right .btn-danger').click(function(){
+      $(this).hide();
+      $(this).siblings('.btn-green,.btn-default').show();
+      $(this).siblings('.btn-delete').hide();
+      $(this).parents('tr').css('color','#60C000');
+      $('.calendar-block').show();
+      $('.time-block').hide();
+      $('#datetimepicker12 .datepicker').removeClass('col-md-6');
+      // pick_day();
+      pick_a_day();
+    })
+  }
+  
+  function cancel_change(){
+    $('.tab-right .btn-default').click(function(){
+      $(this).hide().siblings('.btn-green').hide();
+      $(this).siblings('.btn-delete, .btn-danger').show();
+      $(this).parents('tr').css('color','#4E4D4D');
+      $('.calendar-block').hide();
+      reset_time();
+      reset_calendar();
+    })
+  }
+
+  function decide_change(){
+    $('.tab-right .btn-green').click(function(){
+      $(this).parents('tr').hide();
+      table1.push("2017/02/27 09:00~18:00 90%<br>9小時 NT$9720");
+      tablegenerate1();
+      // $('.tab-right .table1 tr:last-child td:first-child').prepend('<span style="cursor: pointer; color: #ea6374;" data-toggle="modal" data-target="#modalDeleteTime">x</span>');
+      $('.calendar-block').hide();
+
+      check();
+      reset_time();
+      reset_calendar();
+      
+    })
+  }
+
+  
+
+  function regret_change(){
+    $('.tab-right .table1 span').click(function(){
+      $(this).parents('tr').addClass('delete-tr');
+      $('#modalDeleteTime').modal('show');
+    })
+  }
+
+  $('body').on('click','#modalDeleteTime .btn-default', function(){
+    $('body').find('tr').removeClass('delete-tr');
+  })
+  $('body').on('click','#modalDeleteTime .btn-submit', function(){
+    $('body').find('.delete-tr').remove();
+    table2.push("2017/02/27 09:00~18:00 90%<br>9小時 NT$9720");
+    tablegenerate2();
+  })
+  
+
+  function check(){
+    var $tr = $('.table-danger').find('tr').length;
+    // alert($tr);
+    if($tr == 0){
+      $('.tab-right p:contains("衝突時段")').append('<p class="note" style="color: #b8b8b8;">目前無衝突時段</p>');
+    }else{
+      $('.note').hide();
+    }
+  }
+</script>

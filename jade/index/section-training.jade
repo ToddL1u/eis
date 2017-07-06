@@ -1,0 +1,102 @@
+section#training
+  .section-block
+    .table-header.table-header-primary 課程設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-5 受訓區間
+          th.col-sm-2 類別
+          th.col-sm-3 課程名稱
+          th.col-sm-1 金額
+          td.col-sm-2
+      tbody
+        tr.form-block
+          td 
+            ul.select-date
+              li
+                include ../include/select-date-disabled
+              li 至
+              li
+                include ../include/select-date-disabled
+          td
+            span.select
+              select.form-control(disabled)
+                option(value="0") 內訓
+                option(value="") 外訓
+                option(value="") 自行提報
+          td
+            input.form-control(type="text" placeholder="課程名稱" value="javascripts 精進課程" readonly)
+          td
+            input.form-control(type="number" value="300" readonly)
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            ul.select-date
+              li
+                include ../include/select-date
+              li 至
+              li
+                include ../include/select-date
+          td
+            span.select
+              select.form-control
+                option(value="") 內訓
+                option(value="") 外訓
+                option(value="") 自行提報
+          td
+            input.form-control(type="text" placeholder="課程名稱" value="" )
+          td
+            input.form-control(type="number" value="" )
+          td
+            include ../include/toolbar-delete-edit
+  .section-block
+    .table-header.table-header-primary 教育訓練 - 教育訓練費用以及續服務時間設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th 教育訓練受訓費用
+          th 續服務年限
+          td
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" readonly value="<5000") 
+          td
+            input.form-control(type="number" readonly value="0.5") 
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input.form-control(type="text" placeholder="教育訓練受訓費用" ) 
+          td
+            input.form-control(type="number" ) 
+          td
+            include ../include/toolbar-delete-edit
+  .section-block
+    .table-header.table-header-primary 教育訓練 - 公告內容設定
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-1 排序
+          th.col-sm-10 內容
+          td.col-sm-1
+      tbody
+        tr.form-block
+          td (1)
+          td 
+            input.form-control(type="text" readonly placeholder="內容" value="續服務年限自課程結束曆日起算之") 
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td (2)
+          td
+            input.form-control(type="text" placeholder="內容") 
+          td
+            include ../include/toolbar-delete-edit

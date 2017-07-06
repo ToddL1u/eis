@@ -1,0 +1,23 @@
+
+header
+  .header-base
+    a#logo(href="../index") &nbsp;
+    ul.toolbar.toolbar-right.top-right
+      li 
+        span.badge-notification.aydyn-badge 50
+        a(href="../index/notification.html")
+          span.btn-notification
+      li
+        a(href="../index/config.html")
+          span.btn-cofig
+      li 
+        a(href="../../")
+          span.btn-logout
+          | Log out
+    
+  .subnav
+    block content
+      p 
+      | Good Morning 
+      strong.user-name  Fill Murry 
+      | Welcome to AYDYN EIS :)

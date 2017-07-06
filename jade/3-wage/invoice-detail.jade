@@ -1,0 +1,121 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #wage.container.nav-wage-4
+      nav.nav
+      .wrap
+        include ../include/header-invoice-detail
+        .content
+          aside.section-version
+            ul.nav-version
+              li 2016-10-19
+              li 2016-12-12
+          include ../include/toolbar-view-delete
+          section.form-block.section-block
+            form.from-group
+              table.table.table-hover.table-form.table-side-header.table-side-header-right
+                tbody
+                  tr
+                    td.col-sm-2 狀態
+                    td 待審
+                  tr
+                    td.col-sm-2 部門
+                    td RD
+                  tr
+                    td 人員
+                    td Fill Murray
+                  tr
+                    td 員工編號
+                    td 9527
+                  tr
+                    td 類別
+                    td 誤餐費
+                  tr
+                    td 內容
+                    td EIS system 
+                  tr
+                    td 加班日期
+                    td 2016/11/12
+                  tr
+                    td 發票日期
+                    td 2016/11/12
+                  tr
+                    td 金額
+                    td 5000
+                  tr
+                    td 證明
+                    td
+                      a(href="#").pop
+                        img(src="../../assets/img/invoice.jpg", alt="")
+                  tr.field-reply
+                    td 回覆內容
+                    td 
+                      input.form-control(type="text" readonly value="")
+            .btns-group
+              button.btn.btn-danger(data-toggle="modal" data-target="#modalReject") 退回
+              button.btn.btn-success(data-toggle="modal" data-target="#modalConfirm") 通過
+          section.section-block.section-history
+
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    $('.field-reply').hide();
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    $('body').on('click','#modalConfirm .modal-btn-2',function(event){
+      setReplied();
+    });
+    $('body').on('click','#modalReject .modal-btn-2',function(event){
+      //- setReplied();
+    });
+    
+    function setReplied(){
+      $('.field-reply').show();
+      $('.content .btns-group').hide();
+    }
+    
+    var data = [
+      {'date':'2016-10-10','state':'通過','reason':'reson1','amount':1000,'attach':'../../assets/img/clinic.jpg','content':'content1'},
+      {'date':'2016-12-12','state':'未通過','reason':'reson1','amount':2000,'content':'Lorem'}];
+    
+    $('.nav-version li').click(function(){
+      var select_data = data[$(this).index()];
+      var strVar='';
+      strVar += '<div class="section-title"><br/></div>';
+      strVar += '<div class="section-toolbar">'+ select_data.date +'</div>';
+      strVar += '<table class="table table-hover table-form table-side-header table-side-header-right">';
+      strVar += '<tbody>';
+      strVar += '<tr>';
+      strVar += '<td class="col-sm-2">狀態</td>';
+      strVar += '<td>'+ select_data.state +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>核銷原因</td>';
+      strVar += '<td> '+ select_data.reason +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>核銷金額</td>';
+      strVar += '<td>'+ select_data.amount +'</td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>證明</td>';
+      strVar += select_data.attach? '<td> <a href="#" class="pop"><img src="'+ select_data.attach +'" alt=""></a></td>':'<td></td>';
+      strVar += '</tr>';
+      strVar += '<tr>';
+      strVar += '<td>回覆內容</td>';
+      strVar += '<td> '+ select_data.content +'</td>';
+      strVar += '</tr>';
+      strVar += '</tbody>';
+      strVar += '</table>';
+
+
+      $('.section-history').html(strVar).show();
+    });

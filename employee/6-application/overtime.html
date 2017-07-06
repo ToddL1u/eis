@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../../assets/css/employee-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div id="application" class="container nav-application-2">
+    <header class="header"></header>
+    <div class="wrap">
+      <nav class="nav"></nav>
+      <div class="content">
+        <div class="info">
+          <div class="title">
+            <h3>申請表單</h3>
+            <h2>補休申請單</h2>
+          </div>
+          <section>
+            <form id="myForm" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">狀態</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" value="未送出" readonly>
+                </div>
+              </div>
+            </form>
+          </section>
+          <section>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">加班區間</label>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='startDate'>
+                      <input type='text' class="form-control" placeholder="Start Date" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='input-group date' id='endDate'>
+                      <input type='text' class="form-control" placeholder="End Date" required>
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label required">工作內容</label>
+                <div class="col-sm-11">
+                  <input type="text" class="form-control" placeholder="請填寫工作內容" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">加班時數</label>
+                <div class="col-sm-1">
+                  <input type="number" class="form-control" name="field_overtime" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label note">*系統自動帶入</label>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-1 control-label">補休時數</label>
+                <div class="col-sm-1">
+                  <input type="number" class="form-control" name="field_credit" readonly>
+                </div>
+                <label class="col-sm-0 control-label">HR</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="control-label note">*系統自動帶入</label>
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button type="reset" class="btn btn-default">Clear</button>
+                  <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </div>
+
+
+
+  </body>
+  <script src="../../assets/js/moment.js"></script>
+  <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="../../assets/js/function.js"></script>
+  <script type="text/javascript">
+
+    $('#startDate').on('dp.change', function (e) {
+      console.log('here');
+      caculate();
+    });
+    $('#endDate').on('dp.change', function (e) {
+      caculate();
+    });
+
+    function caculate(){
+      if($('#startDate input').val()!='' && $('#endDate input').val()!= ''){
+        var sd = new Date($('#startDate input').val());
+        var ed = new Date($('#endDate input').val());
+        var overtime = parseInt(ed.getHours()) - parseInt(sd.getHours());
+        if(parseInt(ed.getMinutes()) - parseInt(sd.getMinutes()) >30 ) overtime+=.5;
+        $('input[name="field_overtime"]').val(overtime);
+        $('input[name="field_credit"]').val(overtime * getCreadit(sd.getDay()));
+      }
+    }
+
+    function getCreadit(weekdays){
+      switch (weekdays) {
+        case 0:
+        case 6:
+          return 1;
+        default:
+          return 1.5;
+      }
+    }
+
+    // $("input").blur(function(){
+    //   alert( "Handler for .blur() called." );
+    // })
+  </script>
+</html>

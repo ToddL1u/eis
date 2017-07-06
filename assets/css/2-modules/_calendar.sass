@@ -1,0 +1,102 @@
+#datetimepicker12
+  .timepicker
+    display: none
+  .datepicker
+    .day.today.active
+      background-color: #337ab7
+      // &.dayactive
+      //   background-color: $e-warn-color
+      //   color: #fff
+    .day.dayactive
+      background-color: $e-warn-color
+      color: #fff
+    td.inactive
+      background-color: rgba($e-warn-color,0.6)
+
+section.time-block
+  margin-top: 20px
+  padding: 0
+  div:first-child
+    text-align: center
+  .info
+    position: relative
+    span
+      position: absolute
+      top: 0
+      left: 58px
+    h6
+      position: absolute
+      right: 0
+      top: 29px
+  table
+    tr
+      border: none !important
+    td
+      font-size: 14px
+      height: 20px;
+      line-height: 20px;
+      width: 20px;
+      padding: 6px !important
+      text-align: center;
+      border-radius: 4px;
+      border: none
+      p
+        margin-bottom: 0 !important
+      &.active
+        background-color: $e-warn-color
+        color: #fff
+        &:hover
+          background-color: $e-warn-color
+          color: $primary-color
+      &:hover
+        background-color: #eeeeee
+        cursor: pointer
+
+
+// .rent-calendar
+//   section
+//     padding: 0
+//     .info
+//       position: relative
+//       span
+//         position: absolute
+//         font-size: 16px
+//         margin-left: 5px
+//       h2,h5
+//         display: inline-block
+//       h5
+//         position: absolute
+//         right: 0
+//         bottom: 0
+//         margin-bottom: 0 !important
+//         padding-right: 0 !important
+//         color: #f3b12b !important
+//     .fa-chevron-down
+//       font-size: 30px
+//     table
+//       text-align: center
+//       border-collapse: initial
+//       &.table-time
+//         span
+//           font-size: 12px
+//           padding: 12px 10px 
+//       th
+//         border: none !important
+//         text-align: center
+//         padding: 10px !important
+//       td
+//         border: none !important
+//         padding: 20px !important
+//         padding-left: 0 !important
+//         padding-right: 0 !important
+//         span
+//           border: 1px solid #000
+//           padding: 10px 38px
+//           margin: 0 5px
+//           cursor: pointer
+//           margin-right: 0 !important
+//           &.active:not(.inactive)
+//             background-color: #f3b12b
+//             color: #fff
+//           &.inactive
+//             background-color: rgba(#f3b12b,0.3)

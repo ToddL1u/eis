@@ -1,0 +1,165 @@
+section#profile 
+  ul.toolbar.toolbar-right
+    li.btn-print
+  .section-block.form-block
+    .table-header.table-header-primary 基本資料
+      ul.toolbar.toolbar-right.section-toolbar
+        include ../include/toolbar-edit
+    form.form-group
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 姓名
+          td.col-sm-4
+            input.form-control(type="text" readonly value="墨瑞")
+          td.col-sm-2 部門
+          td.col-sm-4
+            input.form-control(type="text" readonly value="")
+        tr
+          td 到職日期
+          td
+            include ../include/select-date-disabled
+          td 底薪
+          td
+            input.form-control(type="number" readonly value="")
+        tr
+          td 離職日期
+          td
+            include ../include/select-date-disabled
+          td 伙食津貼
+          td
+            input.form-control(type="number" readonly value="")
+        tr
+          td 試用期
+          td
+            input.form-control(type="number" readonly value="")
+          td 技能加給
+          td
+            input.form-control(type="number" readonly value="")
+        tr
+          td 累計年資
+          td
+            input.form-control(type="number" readonly value="")
+          td 全薪/日薪
+          td
+            input.form-control(type="text" readonly value="")
+  .section-block.form-block
+    .table-header.table-header-primary 薪轉銀行
+      ul.toolbar.toolbar-right.section-toolbar
+        include ../include/toolbar-edit
+    form.form-group
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 開戶銀行
+          td.col-sm-4
+            input.form-control(type="text" readonly value="墨瑞")
+          td.col-sm-2 銀行分行
+          td.col-sm-4
+            input.form-control(type="text" readonly value="Fill Murry")
+        tr
+          td 開戶戶名
+          td
+            input.form-control(type="text" readonly value="")
+          td 銀行帳號
+          td
+            input.form-control(type="text" readonly value="")
+  .section-block.form-block
+    .table-header.table-header-primary 健康保險
+      ul.toolbar.toolbar-right.section-toolbar
+        include ../include/toolbar-edit
+    form.form-group
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 投保級距
+          td.col-sm-4
+            input.form-control(type="text" readonly value="墨瑞")
+          td.col-sm-2 公司付擔
+          td.col-sm-4
+            input.form-control(type="text" readonly value="Fill Murry")
+        tr
+          td 加保日
+          td
+            input.form-control(type="text" readonly value="")
+          td 員工付擔
+          td
+            input.form-control(type="number" readonly value="")
+        tr
+          td 員工付擔眷屬(月)
+          td
+            input.form-control(type="number" readonly value="")
+  .section-block.form-block
+    .table-header.table-header-primary 勞工保險
+      ul.toolbar.toolbar-right.section-toolbar
+        include ../include/toolbar-edit
+    form.form-group
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 投保級距
+          td.col-sm-4
+            input.form-control(type="text" readonly value="墨瑞")
+          td.col-sm-2 公司付擔
+          td.col-sm-4
+            input.form-control(type="text" readonly value="Fill Murry")
+        tr
+          td 加保日
+          td
+            input.form-control(type="text" readonly value="")
+          td 員工付擔
+          td
+            input.form-control(type="text" readonly value="")
+  .section-block.form-block
+    .table-header.table-header-primary 勞工退休金
+      ul.toolbar.toolbar-right.section-toolbar
+        include ../include/toolbar-edit
+    form.form-group
+      table.table.table-form.table-side-header
+        tr
+          td.col-sm-2 投保級距
+          td.col-sm-4
+            input.form-control(type="text" readonly value="墨瑞")
+          td.col-sm-2 公司提撥6%
+          td.col-sm-4
+            input.form-control(type="text" readonly value="Fill Murry")
+        tr
+          td 提撥日
+          td
+            input.form-control(type="text" readonly value="")
+          td 員工自提
+          td
+            input.form-control(type="text" readonly value="")
+  
+  .section-block#salaryInsurance
+    .table-header.table-header-primary 健康保險眷屬投保資料
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    form.form-group
+      table.table.table-form.table-sort
+        thead.table-subheader
+          tr
+            th 姓名
+            th 身分證字號
+            th.col-sm-3 加保日期
+            th.col-sm-3 退保日期
+            td.col-sm-1
+        tbody
+          tr.form-block
+            td 
+              input.form-control(type="text" readonly value="") 
+            td 
+              input.form-control(type="text" readonly value="") 
+            td 
+              include ../include/select-date-disabled
+            td 
+              include ../include/select-date-disabled
+            td
+              include ../include/toolbar-delete-edit
+          tr.form-block
+            td 
+              input.form-control(type="text") 
+            td 
+              input.form-control(type="text") 
+            td 
+              include ../include/select-date
+            td 
+              include ../include/select-date
+            td
+              include ../include/toolbar-delete-edit

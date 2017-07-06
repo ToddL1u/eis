@@ -1,0 +1,16 @@
+section.section-block#personnel
+  .table-header.table-header-primary 人事作業 - 員工生日提醒
+  form.form-group
+    table.table-form
+      thead.table-subheader
+        tr
+          th 天數 (於生日前__天提醒通知)
+          td
+        tbody
+          tr.form-block
+            td
+              input.form-control(type="number" readonly value="14") 
+            td
+              ul.toolbar.toolbar-right
+                include ../include/toolbar-edit
+          tr

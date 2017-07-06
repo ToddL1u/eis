@@ -1,0 +1,148 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-1.header-img
+      nav.nav
+      .wrap
+        include ../include/header-workshop-application-post
+        .content.on-search#post
+          section
+            form
+              .section-block.post
+                .section-title AYDYN 官網公告
+                table.table.table-form
+                  thead.table-subheader
+                    tr
+                      th(colspan="2") 使用○○○符號表示課程稱謂 xxx符號表示課程連結
+                  tbody
+                    tr
+                      td(colspan="2")
+                        span.select
+                          select.form-control.select-template
+                            option(value="0") 選擇範本標題
+                            option(value="1") 範本1
+                            option(value="2") 範本2
+                    tr
+                      td(colspan="2")
+                        #contentEditormd_0
+                          - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                          textarea(style='display:none;') #{some_variable}
+                    tr.add-template
+                      td.col-sm-3
+                        label 
+                          input(type="checkbox" name="cb_content").checkbox-square
+                          | 儲存為範本
+                      td.col-sm-9
+                        input.form-control(type="text" name="field_content_title" placeholder="輸入範本標題")
+                        .checkbox
+                    tr
+              .section-block.post
+                .section-title EIS 公告
+                table.table.table-form
+                  thead.table-subheader
+                    tr
+                      th(colspan="2") 使用○○○符號表示課程稱謂 xxx符號表示課程連結
+                  tbody
+                    tr.add-template.content-astop
+                      td(colspan="2")
+                        label 
+                          input(type="checkbox" name="cb_content").checkbox-square.content-same
+                          | 內容同上
+                    tr
+                      td(colspan="2")
+                        span.select
+                          select.form-control.select-template
+                            option(value="0") 選擇範本標題
+                            option(value="1") 範本1
+                            option(value="2") 範本2
+                    tr
+                      td(colspan="2")
+                        #contentEditormd_1
+                          - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                          textarea(style='display:none;') #{some_variable}
+                    tr.add-template
+                      td.col-sm-3
+                        label 
+                          input(type="checkbox" name="cb_content").checkbox-square
+                          | 儲存為範本
+                      td.col-sm-9
+                        input.form-control(type="text" name="field_content_title" placeholder="輸入範本標題")
+                        .checkbox
+                    tr
+              .section-block.post
+                .section-title 通知信
+                table.table.table-form
+                  thead.table-subheader
+                    tr
+                      th(colspan="2") 使用○○○符號表示課程稱謂 xxx符號表示課程連結
+                  tbody
+                    tr
+                      td(colspan="2")
+                        span.select
+                          select.form-control
+                            option(value="0") 選擇範本標題
+                            option(value="1") 範本1
+                            option(value="2") 範本2
+                    tr
+                      td(colspan="2")
+                        #contentEditormd_2
+                          - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                          textarea(style='display:none;') #{some_variable}
+                    tr.add-template
+                      td.col-sm-3
+                        label 
+                          input(type="checkbox" name="cb_content").checkbox-square
+                          | 儲存為範本
+                      td.col-sm-9
+                        input.form-control(type="text" name="field_content_title" placeholder="輸入範本標題")
+                        .checkbox
+                    tr
+                      td(style="background-color: #DDF0F6; border-right: 10px solid #fff; padding-top: 15px") 選擇寄送對象
+                      td 
+                        ul
+                          -var states = ["該課授課講師","該課程學員","全會員","偏好該類別之會員"]
+                          -each state in states
+                            li
+                              .checkbox
+                                label 
+                                  input(type="checkbox").checkbox-square
+                                  =state
+                    tr
+              .btns-group
+                button.btn.modal-btn-cancel.btn-lg(type="button" data-toggle="modal" data-target="#modalCancel1") 取消
+                button.btn.btn-primary.btn-lg(type="button" data-toggle="modal" data-target="#modalPost") 發佈
+
+    
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableCourse').tablesorter();
+      loadMD('0');
+      loadMD('1');
+      loadMD('2');
+    }
+        
+    window.onload = init;
+    //二次發布帶入前次發布舊文
+    var action = getUrlParameter('action');
+    if( action == 'postagain'){
+      $('.select-template').parents('tr').hide();
+    }
+    $('input.content-same').click(function(){
+      if($(this).is(':checked')){
+        var top_content = $('#wmd-input').val();
+        $('#wmd-input-second').val(top_content);
+      }
+    })
+    
+    
+    
+    

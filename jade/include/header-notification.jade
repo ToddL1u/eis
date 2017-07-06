@@ -1,0 +1,40 @@
+extends header
+block content
+  ul.aydyn-breakcrumb
+    li 表單匣
+  .subnav-subtitle
+    include ../include/toolbar-collapsible
+  
+  form.subnav-search
+    span * 表示可多選
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 表單類型*
+      ul
+        -var types = ["假單","補修申請單","教育訓練","單據核銷"]
+        -each type in types
+          li
+            .checkbox
+              label 
+                input(type="checkbox").checkbox-square.checkbox-square-dark
+                =type
+              
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 對象
+      span.select.select-dark
+        select.form-control.select-deps
+          option(value="0") 全體部門
+      span.select.select-dark
+        select.form-control.select-employee
+          option(value="0") 全體人員
+        
+    .search-form-group.col-sm-12
+      span.search-form-label.col-sm-1 區間
+      include ../include/select-search-month
+      span.select-date-label-to
+      include ../include/select-search-month
+      
+    .search-form-buttons
+      button.btn.btn-default(type="reset") Reset
+      button.btn.btn-default(tＦype="submit")
+        span.fa.fa-search
+        | Searching

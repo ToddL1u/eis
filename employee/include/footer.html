@@ -1,0 +1,71 @@
+&copy; 2016 AYDYN TECHNOLOGY LIMITED.
+<!-- Modal -->
+<!-- <div id="modalAvatar" tabindex="-1" role="dialog" aria-labelledby="modalAvatar" class="modal fade bs-example-modal-lg">
+  <div role="document" class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span>&times;</span></button>
+      </div>
+      <div class="modal-body"> 
+        <div id="kv-avatar-errors-2" style="width:800px; display:none" class="center-block"></div>
+        <form action="/avatar_upload.php" method="post" enctype="multipart/form-data" class="text-center"></form>
+        <div style="width:200px" class="kv-avatar center-block">
+          <input id="avatar-2" name="avatar-2" type="file" class="file-loading"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalAvatar" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-window-close"></span></button>
+      <div class="modal-title">
+        <h2>上傳大頭貼</h2>
+      </div>
+      <div class="modal-body"> 
+        <div id="kv-avatar-errors-2" style="width:800px; display:none" class="center-block"></div>
+        <form action="/avatar_upload.php" method="post" enctype="multipart/form-data" class="text-center"></form>
+        <div style="width:200px" class="kv-avatar center-block">
+          <input id="avatar-2" name="avatar-2" type="file" class="file-loading"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-12 text-center">
+          <button type="reset" class="btn btn-default fileinput-remove fileinput-remove-button" data-dismiss="modal" aria-label="Close">Cancel</button>
+          <a type="submit" class="btn btn-submit"  data-dismiss="modal"  aria-label="Close">Save</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<script src="../../assets/js/fileinput.js"></script>
+<script src="../../assets/js/fileinput_locale_fr.js"></script>
+<script src="../../assets/js/fileinput_locale_es.js"></script>
+<script>
+var btnCust = '<button type="button" class="btn btn-info" title="Add picture tags" ' +
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="glyphicon glyphicon-tag"></i>' +
+    '</button>';
+  $("#avatar-2").fileinput({
+      overwriteInitial: true,
+      maxFileSize: 1500,
+      showClose: false,
+      showCaption: false,
+      showBrowse: false,
+      browseOnZoneClick: true,
+      removeLabel: '',
+      removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+      removeTitle: 'Cancel or reset changes',
+      elErrorContainer: '#kv-avatar-errors-2',
+      msgErrorClass: 'alert alert-block alert-danger',
+      defaultPreviewContent: '<img src="//www.fillmurray.com/150/150" alt="Your Avatar" style="width:160px; margin:0 auto;"><h6 class="text-muted">Click to select</h6>',
+      layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
+      allowedFileExtensions: ["jpg", "png", "gif"],
+  });
+</script>
+

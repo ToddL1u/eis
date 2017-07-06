@@ -1,0 +1,73 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #workshop.container.nav-workshop-2.nav-salary-personal
+      nav.nav
+      .wrap
+        include ../include/header-workshop-member-detail
+        .content
+          include section-profile
+          include section-teacher
+          include section-course
+          include section-account
+        footer
+                  
+                  
+  script(src="../../assets/js/function.js")
+  script.
+    $('section').not('#profile').hide();
+    //- $('#profile').hide();
+
+    $('.subnav-tabs').on('click','li', function(){
+      $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+    });
+
+    $('.subnav-tabs').on('click', '#tabProfile', function(event){
+      console.log('here');
+      $('#profile').show().siblings('section').hide();
+    });
+    
+    $('.subnav-tabs').on('click', '#tabCourse', '.courselink', function(event){
+      $('#course').show().siblings('section').hide();
+    });
+
+    $('.subnav-tabs').on('click', '#tabTeacher', function(event){
+      $('#teacher').show().siblings('section').hide();
+    });
+
+    $('.subnav-tabs').on('click', '#tabAccount', function(event){
+      $('#account').show().siblings('section').hide();
+    });
+
+    $('body').on('click','.courselink', function(event){
+      $('#tabCourse').addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+      $('#course').show().siblings('section').hide();
+    });
+
+    $('body').on('click','.teacherlink', function(event){
+      $('#tabTeacher').addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+      $('#teacher').show().siblings('section').hide();
+    });
+
+    //線上帳戶table================================================
+    $('#tableAccount').tablesorter();
+    $('#tableAccount tbody td:empty').append('--');
+    $('tbody td:contains("待處理")').css('color','#EFA331');
+    $('tbody td:contains("處理中")').css('color','#24aca8');
+
+    //jump to another tab========================================
+//-     function jumpTo(tab, id) {
+//-       $('#tabs').tabs('select', tab);
+//-       setTimeout(function() { scrollTo(0, $('a[name=' + id + ']').offset().top); }, 100);
+//-       return false;
+//-     }
+
+//- <a href="#" onclick=jumpTo('tabID', 'locationName')">Link</a>
+//- <a name="locationName">Content</a>

@@ -1,0 +1,66 @@
+<ul>
+  <li>01</li>
+  <li>02</li>
+  <li>03</li>
+  <li>04</li>
+  <li>05</li>
+  <li>06</li>
+  <li>07</li>
+  <li>08</li>
+  <li>09</li>
+  <li>10</li>
+  <li>11</li>
+  <li>12</li>
+</ul>
+<section>
+  <span>2016</span>
+  <ol>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">02/01</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">03/01</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">05/01</li>
+    <li class="active" data-toggle="popover" data-placement="top" data-style="coupon" data-title="課程贈送" data-content="課程名稱課程名稱課程名稱">07/01</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">08/01</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">09/01</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">11/01</li>
+    <li class="inactive" data-toggle="popover" data-placement="top" data-style="out" data-title="申請退課" data-content="課程名稱課程名稱課程名稱">12/01</li>
+  </ol>
+</section>
+<div class="gap">
+  <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+</div>
+<section>
+  <span>2017</span>
+  <ol>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">02/04</li>
+    <li class="active" data-toggle="popover" data-placement="top" data-style="coupon" data-title="課程贈送" data-content="課程名稱課程名稱課程名稱">04/02</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">04/08</li>
+    <li  data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">04/20</li>
+    <li data-toggle="popover" data-placement="top" data-title="結業" data-content="課程名稱課程名稱課程名稱">05/30</li>
+  </ol>
+</section>
+
+<script>
+  $('li').each(function(){
+    var month = parseInt($(this).text().slice(0,2));
+    var date = parseInt($(this).text().slice(3,5));
+    var length = ((month-1)*30+date)*2.808-20;
+    $(this).css('left',length);
+  });
+
+  $('li').mouseenter(function(){
+    $(this).css('z-index','1');
+  })
+
+  $('li').mouseleave(function(){
+    $(this).css('z-index','auto');
+  })
+
+  $('li').popover({ trigger: "hover" });
+
+  $('li.inactive').popover(function(){
+    var $this = $('.popover-title:contains("結業")'); 
+    $this.css('background-color','black');
+    $this.parent().css('background-color','black');
+  })
+
+</script>

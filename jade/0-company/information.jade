@@ -1,0 +1,140 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #company.container.nav-company-1
+      nav.nav
+      .wrap
+        include ../include/header-information
+        .content
+          include ../include/toolbar-export-print-add
+          section.company-group.section-block.form-block
+            .section-title 英屬維京群島商艾頓技術有限公司台灣分公司
+            .section-toolbar
+              include ../include/toolbar-delete-edit
+            
+            form.form-horizontal
+              table.table.table-form.table-side-header
+                tr
+                  td 公司名稱
+                  td(colspan="3")
+                    input.form-control(type="text" placeholder="公司名稱" name="c_name" readonly value="英屬維京群島商艾頓技術有限公司台灣分公司")
+                tr
+                  td.col-sm-2 負責人
+                  td.col-sm-4
+                    input.form-control(type="text" placeholder="負責人" readonly value="王德賢")
+                  td.col-sm-2 公司統編
+                  td.col-sm-4
+                    input.form-control(type="text" placeholder="公司統編" readonly value="24808671")
+                tr
+                  td 公司地址
+                  td 
+                    ul.select-address
+                      li
+                        span.select
+                          select.county.form-control(data-selected="台北市" disabled)
+                      li
+                        span.select
+                          select.district.form-control(disabled data-selected="內湖區")
+                      li
+                        input.form-control(type="text" placeholder="公司地址" readonly value="新湖一路85號4樓")
+                    
+                  td 公司信箱
+                  td
+                    input.form-control(type="text" placeholder="公司信箱" readonly value="25170403")
+                tr
+                  td 電話
+                  td 
+                    input.form-control(type="text" placeholder="電話" readonly value="02-2795-1399")
+                  td 勞保字號
+                  td 
+                    input.form-control(type="text" placeholder="勞保字號" readonly value="25170403")
+                tr
+                  td 傳真
+                  td 
+                    input.form-control(type="text" placeholder="傳真" readonly value="02-2795-1366")
+                  td 健保字號
+                  td 
+                    input.form-control(type="text" placeholder="健保字號" readonly value="25170403")
+          section.company-group.section-block.form-block
+            .section-title &nbsp;
+            .section-toolbar
+              include ../include/toolbar-delete-edit
+            
+            form.form-horizontal
+              table.table.table-form.table-side-header
+                tr
+                  td 公司名稱
+                  td(colspan="3")
+                    
+                    input.form-control(type="text" placeholder="公司名稱" )
+                tr
+                  td.col-sm-2 負責人
+                  td.col-sm-4
+                    input.form-control(type="text" placeholder="負責人" )
+                  td.col-sm-2 公司統編
+                  td.col-sm-4
+                    input.form-control(type="text" placeholder="公司統編" )
+                tr
+                  td 公司地址
+                  td 
+                    ul.select-address
+                      li
+                        span.select
+                          select.county.form-control(disabled)
+                      li
+                        span.select
+                          select.district.form-control(disabled)
+                      li
+                        input.form-control(type="text" placeholder="公司地址" )
+                  td 公司信箱
+                  td
+                    input.form-control(type="text" placeholder="公司信箱" )
+                tr
+                  td 電話
+                  td 
+                    input.form-control(type="text" placeholder="電話" )
+                  td 勞保字號
+                  td 
+                    input.form-control(type="text" placeholder="勞保字號" )
+                tr
+                  td 傳真
+                  td 
+                    input.form-control(type="text" placeholder="傳真" )
+                  td 健保字號
+                  td 
+                    input.form-control(type="text" placeholder="健保字號" )
+          include ../include/pagination
+        footer
+script(src="../../assets/js/function.js")
+script.
+  var $section = $('.content').children('section:last')
+  $section.hide();
+  $section.find('.btn-edit').trigger('click');
+  $('.btn-add').click(function(){
+    var $row = $(this).parents('.content').children('section:last');
+    $row.prev().after('<section class="company-group section-block form-block">' + $row.html() + '</section>');
+  });
+  
+  $('input[name="c_name"]').on('keyup',function(){
+    var $title = '&nbsp';
+    if($(this).val() != ''){
+      $title = $(this).val();
+    }
+    
+    $(this).parents('form').siblings('.section-title').html($title);
+    
+  });
+  
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    var section_block = $form_section.parents('.form-block');
+    section_block.remove();
+  });
+    
+  $('form').tw_citySelector('.county', '.district');

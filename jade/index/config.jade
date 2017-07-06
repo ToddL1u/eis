@@ -1,0 +1,271 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+    script(src="../../assets/js/daterangepicker.js")
+  body
+    #config.container
+      nav.nav
+      .wrap(style="position: absolute; width: calc(100% - 300px);")
+        include ../include/header-cofig
+        .content
+        
+          include section-personnel
+          include section-wage
+          include section-attendance
+          include section-training
+          include section-workshop-0
+          include section-workshop-1
+          include section-workshop-2
+          
+        footer
+        .modal.fade.bs-example-modal-lg#modalMarkdown(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                label(style="margin-left:20px")
+                  .checkbox
+                    input(type="checkbox").checkbox-square
+                    | 啟用
+                input.form-control(type="text" name="field_content_title" placeholder="範例標題")
+                #contentEditormd
+                  - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                  textarea(style='display:none;') #{some_variable}
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+                  button.btn.modal-btn-2.btn-success 確定
+        .modal.fade.bs-example-modal-lg#modalMarkdown1(tabindex="-1" role="dialog" aria-labelledby="modalCancel")
+          .modal-dialog.modal-lg(role="document")
+            .modal-content
+              .modal-header
+                button(type="button" data-dismiss="modal" aria-label="Close").close
+                  span &times;
+              .modal-body 
+                label(style="margin-left:20px") 使用條款
+                #contentEditormd_term
+                  - var some_variable = '### Settings\n<div style="color:red">text with color</div>\n```javascript\nvar testEditor = editormd("test-editormd", {\nautoHeight : true\n});\n```\n[![Everything Is AWESOME](http://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")';
+                  textarea(style='display:none;') #{some_variable}
+                .btns-group
+                  button(type="button" data-dismiss="modal" aria-label="Close").btn.modal-btn-cancel 取消
+                  button.btn.modal-btn-2.btn-success 確定
+                  
+script(src="../../assets/js/function.js")
+script.
+  //add new row for each table
+  var $tr = $('.table-form tbody tr:last-child');
+  $tr.find('.btn-edit').trigger('click');
+  $tr.hide();
+  var $last_row;
+  $('.btn-add').click(function(){
+    var $row = $(this).parents('.section-block').find('table:not(.table-side-header) tbody').children('tr:last-child');
+    $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+    $('input[name="datefilter"]').daterangepicker({
+      locale: {
+          format: 'YYYY/MM/DD'
+        },
+    });
+  });
+  
+  $('.add-sample').click(function(){
+    var $row = $(this).parents('.section-block').find('table:not(.table-side-header) tbody').children('tr:last-child');
+    $row.before('<tr class="form-block">' + $row.html() + '</tr>');
+  });
+  
+  
+  
+  var $last_row = $(this).parents('.section-block').find('tbody').children('tr:last-child');
+  //add new div for table(橫)
+  var $tr_show = $('.table-row tbody tr:last-child');
+  $tr_show.show();
+  var $last_div = $('.table-row tbody .table-row-group:last-child');
+  $last_div.find('.btn-edit').trigger('click');
+  $last_div.hide();
+  $('.btn-add-row, button:contains("新增國定假日")').click(function(){
+    var $row = $(this).parents('.section-block').find('.table-row-group:last-child');
+    $row.before('<div class="form-block table-row-group">' + $row.html() + '</div>');
+  });
+    
+  $('body').on('click','#modalDelete .modal-btn-2',function(event){
+    var section_block = $form_section.parents('.form-block');
+    section_block.remove();
+  });
+  
+  $('body').on('click','a',function(){
+    var target = $(this).data('target');
+    if( target == '#modalMarkdown'){
+      loadMD();
+      $('#modalMarkdown').modal('show');
+    }else if(target == '#modalMarkdown1'){
+      loadMD('term');
+      $('#modalMarkdown1').modal('show');
+    }
+  })
+  
+  $('body').on('click','#modalCancel .modal-btn-2',function(event){
+    //- setMarkdown(false);
+  });
+  
+  $('body').on('click','#inform .btn-edit-only',function(){
+    $('#modalMarkdown').find('label').hide();
+  })
+  
+  $('body').on('click','#modalMarkdown .modal-btn-2',function(event){
+    var $title = $('input[name="field_content_title"]');
+    if($title.val() == ''){
+      $title.css('border','1px solid red');
+    }else{
+      $title.css('border','none');
+      $('#modalMarkdown').modal('hide');
+      $last_row.before('<tr class="form-block">' + $last_row.html() + '</tr>');
+      $last_row.prev().find('.field-content-title').val($title.val());
+      //- $last_row.prev().find('.field-content').html(marked($('textarea[name="content"]').val()));
+    }
+  });
+  
+  $('.subnav-tabs').on('click','li', function(){
+    $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+  });
+  
+  $('section').not('#personnel').hide();
+  //- $('#profile').hide();
+  
+  $('.subnav-tabs').on('click','li', function(){
+    $(this).addClass('subnav-tab-active').siblings().removeClass('subnav-tab-active');
+  });
+  
+  $('.subnav-tabs').on('click', '#tabPersonnel', function(event){
+    $('#personnel').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabWage', function(event){
+    $('#wage').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabAttendance', function(event){
+    $('#attendance').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabTraining', function(event){
+    $('#training').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabWorkshop-0', function(event){
+    $('#workshop-0').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabWorkshop-1', function(event){
+    $('#workshop-1').show().siblings('section').hide();
+  });
+  
+  $('.subnav-tabs').on('click', '#tabWorkshop-2', function(event){
+    $('#workshop-2').show().siblings('section').hide();
+  });
+  
+  
+  $('.float-content').html(marked('**親愛的○○○小姐/先生**<br>感謝你這個月為公司的付出blablablaLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'));
+  
+  $('body').on('focus',".timepicker", function(){
+    //- $(this).timepicker().on('show.timepicker', function(e) {
+    //-   console.log('The time is ' + e.time.value);
+    //-   console.log('The hour is ' + e.time.hours);
+    //-   console.log('The minute is ' + e.time.minutes);
+    //-   console.log('The meridian is ' + e.time.meridian);
+    //- });
+    $(this).timepicker();
+    //- console.log('here');
+  });
+  //- setMarkdown(false);
+
+  $('.field-content-title[data-toggle="popover"]').popover({
+  		html: true,
+      content: function() {
+        //replace content
+        return $('.float-content').html();
+      }
+      ,placement: 'top'
+    });
+    
+  //- $('body').on('mousemove','.field-content-title',function(e){
+  //-   var $offset = $(this).offset();
+  //-   //- $(this).val('');
+  //-   //- alert($offset);
+  //-   $('.float-content').show();
+  //-   $('.float-content').css({left: $offset.left  + "px", top: $offset.top - 800 + "px"});
+  //- 
+  //- })
+  
+  $('table').mousemove(function(){
+    $('.float-content').hide();
+  })
+  
+  $(".fa-angle-right").hide();
+  $(".collapse-header").click(function(){
+    $(this).find(".fa-angle-right, .fa-angle-down").toggle();
+  });
+  
+  $(".fa-chevron-right").hide();
+  $(".arrow").click(function(){
+    $(this).parents('.section-toolbar').find(".fa-chevron-down, .fa-chevron-right").toggle();
+  });
+
+  file_upload();
+  edit_trigger_table();
+  hide_table();
+  
+  function hide_table(){
+    $('#locationDetail form .table-header-primary').click(function(){
+      $(this).siblings('table').toggleClass('table-hide');
+    }); 
+  }
+
+  function edit_trigger_table(){
+    $('#locationDetail .btn-edit').click(function(){
+      $(this).parents('form').find('table').removeClass('table-hide');
+    })
+  }
+  
+  function file_upload(){
+    $(".file-loading").fileinput({
+        browseLabel: '選擇檔案',
+        cancelLabel: '取消',
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-remove btn btn-xs btn-default" title="Remove file" data-url="" data-key="2"><i class="glyphicon glyphicon-trash text-danger"></i></button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        uploadUrl: '/file-upload-batch/2',
+        maxFilePreviewSize: 10240,
+        initialCaption: "選擇多檔案"
+    });
+  }
+
+
+  var html_location ='<form class="form-horizontal form-block section-block"><div class="table-header table-header-primary">02 場地名稱B</div><div class="section-toolbar"><ul class="toolbar toolbar-right"><li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li><li class="btn-edit"></li><li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li><li class="btn-confirm toolbar-btn-hide"></li></ul></div><table class="table table-form table-side-header"><tbody><tr><td>啟用場地</td><td colspan="3"><input type="checkbox" disabled="" class="checkbox-square">&nbsp;&nbsp;啟用場地</td></tr><tr><td>場地名稱</td><td colspan="3"><input type="text" readonly=""  class="form-control"></td></tr><tr><td>地址</td><td colspan="3"><input type="text" readonly="" class="form-control"></td></tr><tr><td>坪數</td><td><input type="number" readonly=""  class="form-control" placeholder="0"></td></tr><tr><td>最大容納人數</td><td><input type="number" readonly=""  class="form-control" placeholder="0"></td></tr><tr><td>環境描述</td><td colspan="3"><input type="text" readonly="" class="form-control"></td></tr><tr><td>設備提供</td><td colspan="3"><input type="text" readonly="" class="form-control"></td></tr><tr><td>照片</td><td colspan="3"><input name="input24[]" type="file" multiple="multiple" class="file-loading"/></td></tr><tr><td class="col-sm-3">小時出租</td><td class="col-sm-3"><input type="checkbox" disabled="" class="checkbox-square">&nbsp;&nbsp;啟用</td><td style="background-color: #fff;"><a href="rent.html?type=hr" style="background-color: #ddd;" class="btn"><i class="fa fa-pencil-square-o"></i>小時出租設定</a></td></tr><tr><td class="col-sm-3">時段出租</td><td class="col-sm-3"><input type="checkbox" disabled="" class="checkbox-square">&nbsp;&nbsp;啟用</td><td style="background-color: #fff;"><a href="rent.html" style="background-color: #ddd;" class="btn"><i class="fa fa-pencil-square-o"></i>時段出租設定</a></td></tr><tr><td class="col-sm-3">人數出租</td><td class="col-sm-3"><input type="checkbox" disabled=""  class="checkbox-square">&nbsp;&nbsp;啟用</td><td style="background-color: #fff;"><a href="rent.html?type=people" style="background-color: #ddd;" class="btn"> <i class="fa fa-pencil-square-o"></i>人數出租設定</a></td></tr><tr style="display: none;"></tr></tbody></table></form>'
+
+  $('#locationDetail .btn-add-only').click(function(){
+    $(this).parents('#locationDetail').append(html_location);
+    file_upload();
+    edit_trigger_table();
+    hide_table();
+    $('#locationDetail form:last-child .btn-edit').trigger('click');
+  })
+
+  
+
+
+
+  
+
+  

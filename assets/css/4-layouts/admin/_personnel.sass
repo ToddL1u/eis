@@ -1,0 +1,55 @@
+.nav-personal
+  .subnav:after
+    display: none
+
+  .content
+    $subnav-margin: 55px
+    margin-top: 187px + $subnav-margin
+    min-height: calc(100vh - 187px - 55.6px - #{$subnav-margin})
+
+    #formProfile
+      display: flex
+      flex-direction: column
+      align-items: center
+      img
+        width: 160px
+        height: 160px
+        margin: 10px auto
+        border: gray solid 1px
+        padding: 5px
+  .file-preview
+    border: none
+  .file-thumbnail-footer
+    display: none
+  button[title="Add picture tags"]
+    display: none
+  .kv-avatar
+    text-align: center
+  .select-address
+    li:last-child
+      width: calc(100% - 267px)
+
+.nav-personnel
+  .content
+    &.on-search
+      margin-top: 430px
+  .select-exp
+    width: 120px
+
+  @media print and (max-width: 2000px)
+    .content
+      margin: 0px
+      padding: 0px
+      // min-height: calc(100vh - 187px - 55.6px - #{$subnav-margin})
+
+#personnel #profile
+  table
+    tr:first-child
+      td:nth-child(2),td:nth-child(4)
+        // display: none
+        .form-control
+          display: inline-block !important
+          &:first-child
+            width: 40% 
+          &:last-child
+            width: 59% 

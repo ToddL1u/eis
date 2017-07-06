@@ -1,0 +1,220 @@
+.form-control[readonly], .form-control[disabled], .checkbox
+  background: $clear-color
+  border-width: 0
+  box-shadow: none
+  color: black!important
+  cursor: default
+  padding-left: 0
+
+
+.form-control, .checkbox
+  color: $success-color
+  border-width: 0
+  // border-color: $success-color
+  background: lighten(#eee, 4%)
+  box-shadow: none
+  padding-right: 0
+
+
+.checkbox
+  background: $clear-color
+
+.form-block
+  position: relative
+
+.input-dark
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  width: 120px
+
+.pl0
+  padding-left: 0
+
+.note
+  margin-top: 6px
+  font-size: 13px
+  font-weight: 300
+  color: #ddd
+
+select
+  +appearance(none)
+  &:hover, &:active
+    outline: none
+select::-ms-expand
+  display: none
+
+.select
+  position: relative
+  display: block
+  margin-right: 10px
+  // width: 100%
+  &:after
+    content: $fa-var-caret-down
+    font-family: FontAwesome
+    color: $success-color
+    +position(absolute, 5px 10px null null)
+    // z-index: 1
+    // width: 10%
+    // height: 100%
+    pointer-events: none
+
+.select-dark
+  background: $dark-color
+  select
+    background: rgba(0 , 0, 0, .4)
+    color: white
+    // border: 1px solid white
+
+    option
+      background: $dark-color
+      &:hover
+        background: black
+
+  &:after
+    color: white
+
+.select-date-label
+  display: none
+
+.select-date-label-to
+  @extend .fa-arrows-h
+  @extend .fa
+  padding-top: 10px
+  margin: 0 10px
+
+
+
+.select-date
+  li
+    display: inline-block
+    .select
+      width: 70px
+
+
+.select-address
+  // padding-left: 10px
+  .select:after
+    padding-right: 10px
+
+  li
+    display: inline-block
+    .select
+      width: 120px
+
+.select-deps, .select-employee, .select-course, .select-interval
+  width: 120px
+
+.select-time
+  width: 80px
+
+.searchbar:before
+  content: "TEST"
+  content: red
+  position: absolute
+
+
+
+.addr-county,.addr-district
+  @extend .form-control
+.addr-zip
+  display: none
+
+
+.checkbox-square
+  // visibility: hidden
+  &[type="checkbox"]
+    &:before
+      position: relative
+      display: block
+      width: 11px
+      height: 11px
+      border: 0
+      font-family: FontAwesome
+      content: $fa-var-square-o
+      // color: black
+      background: $bg-color
+
+    &:after
+      position: relative
+      display: block
+      left: 2px
+      top: -11px
+      width: 7px
+      height: 7px
+      border: 0
+      content: ""
+    &:checked:before
+      font-family: FontAwesome
+      content: $fa-var-square
+      // color: black
+    &:disabled:after
+      -webkit-filter: opacity(0.4)
+  &.large
+    height: 22px
+    width: 22px
+    &[type="checkbox"]
+      &:before
+        width: 20px
+        height: 20px
+      &:after
+        top: -20px
+        width: 16px
+        height: 16px
+
+
+.checkbox-circle
+  &[type=checkbox] //原本的checkbox隱藏訂定尺寸
+    visibility: hidden
+    position: relative
+
+    margin-left: 5px
+    width: 20px
+    height: 20px
+    &:before
+      content: ""
+      visibility: visible
+      position: absolute
+
+      border: 1px solid #a5a5a5
+      background-color: #E6E6E6
+      border-radius: 100%
+      box-shadow: inset 2px 1px 2px rgba(0,0,0,.1)
+
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+    &:checked:before
+      background-color: $warn-color
+      box-shadow: 0px 0px 2px 2px rgba(255,255,255,.5)
+
+.checkbox-blue
+  &[type=checkbox] 
+    &:checked:before
+      background-color: $success-color
+
+
+
+.checkbox-square-dark[type="checkbox"]
+  &:before
+    background: $dark-color
+
+
+.bootstrap-timepicker
+  width: 120px
+  bottom: -4px
+  position: relative
+  margin: 0 5px
+
+.file-input *
+  z-index: 0!important
+
+#fieldUpload
+  width: 98%!important
+
+.btn-input-remove
+  background: $danger-color
+  color: white
+//
+// .attach-file
+//   background: green

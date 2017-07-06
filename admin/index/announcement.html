@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="index" class="container nav-announcement">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li> <a href="../index">首頁</a></li>
+              <li>公司公告</li>
+            </ul>
+            <div class="subnav-subtitle">2016-11-12</div>
+          </div>
+        </header>
+        <div class="content">
+          <ul class="toolbar toolbar-right">
+            <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+            <li class="btn-edit"></li>
+            <li data-toggle="modal" data-target="#modalCancel" class="btn-cancel toolbar-btn-hide"></li>
+            <li class="btn-confirm toolbar-btn-hide"></li>
+          </ul>
+          <section class="section-block">
+            <form class="form-horizontal form-table">
+              <table class="table-form table table-side-header table-side-header-right">
+                <tr>
+                  <td class="col-sm-2">標題</td>
+                  <td class="col-sm-10">
+                    <input type="text" name="title" value="AYDYN 12/23~12/24 尾牙陽明山溫泉旅館" readonly class="form-control">
+                  </td>
+                </tr>
+                <tr>
+                  <td class="col-sm-2">內容</td>
+                  <td>
+                    <div class="wmd-panel">
+                      <div id="wmd-button-bar"></div>
+                      <textarea rows="10" name="content" style="resize:none" id="wmd-input" class="form-control wmd-input">**日月潭湖畔的力麗哲園會館擁有獨一無二的美麗景緻，湖景儼然呈現於窗外。**無論是春天的明媚可人、夏天的豔麗非凡、秋天的優雅浪漫及冬天的開闊豪氣，零距離的湖水一年四季展現不同的動人風情。對旅人來說，哲園會館不只是一間會館，更是心之嚮往的度假天堂(入住日潭館或月潭館旅客皆可使用本館設施)。日月潭湖畔的力麗哲園會館擁有獨一無二的美麗景緻，湖景儼然呈現於窗外。無論是春天的明媚可人、夏天的豔麗非凡、秋天的優雅浪漫及冬天的開闊豪氣，零距離的湖水一年四季展現不同的動人風情。對旅人來說，哲園會館不只是一間會館，更是心之嚮往的度假天堂(入住日潭館或月潭館旅客皆可使用本館設施)。</textarea>
+                    </div>
+                    <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>檔案</td>
+                  <td class="col-sm-10">
+                    <div style="position: relative"><span class="attach-file">
+                        <div class="form-block"><a href="http://eshare.stust.edu.tw/EshareFile/2010_6/2010_6_409b0224.doc"><span class="btn-clip"> </span>飯店介紹</a>
+                          <div class="section-toolbar">
+                            <ul class="toolbar">
+                              <li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>
+                            </ul>
+                          </div>
+                        </div></span></div>
+                    <div id="fieldUpload">
+                      <input id="annouoment-attach" name="input24[]" type="file" multiple class="file-loading">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('body').on('click','#modalDelete .modal-btn-2',function(event){
+      goBack();
+    });
+    
+    $('body').on('click','#modalCancel .modal-btn-2',function(event){
+      setInput(true);
+    });
+    
+    $('#wmd-button-bar').hide();
+    $('textarea[name="content"]').hide();
+    $('#fieldUpload').hide();
+    /*
+    $('#annouoment-attach').fileinput({
+        browseLabel: '選擇檔案',
+        cancelLabel: '取消',
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> 刪除</button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        deleteUrl: "/site/file-delete",
+        overwriteInitial: false,
+        maxFileSize: 100,
+        initialCaption: "選擇多檔案"
+    });*/
+    $("#annouoment-attach").fileinput({
+        browseLabel: '選擇檔案',
+        cancelLabel: '取消',
+        layoutTemplates: {
+            actions: '<div class="file-actions">\n' +
+                    '    <div class="file-footer-buttons" style="float:none">\n' +
+                    '        {upload}<button type="button" class="kv-file-remove btn btn-xs btn-default" title="Remove file" data-url="" data-key="2"><i class="glyphicon glyphicon-trash text-danger"></i></button>{other}' +
+                    '    </div>\n' +
+                    '</div>',
+            actionDelete: '<button type="button" class="kv-file-remove btn btn-danger btn-block" {dataUrl}{dataKey}><i class="fa fa-trash-o"></i> Delete</button>',
+            actionUpload: '',
+        },
+        uploadUrl: '/file-upload-batch/2',
+        maxFilePreviewSize: 10240,
+        initialCaption: "選擇多檔案"
+    });
+    
+    var action = getUrlParameter('action');
+    if( action == 'edit'){
+      $('.btn-edit').trigger("click");
+      setInput(false);
+      
+    }else if(action == 'add'){
+      $('.btn-edit').trigger("click");
+      $('input').val('');
+      $('textarea').val('');
+      setInput(false);
+      $('.attach-file').hide();
+      
+    }
+    
+    var id = getUrlParameter('id');
+    if (id != null){
+      $('input[name="title"]').val('教育訓練發佈');
+      var strVar='';
+      strVar += '<div class="form-block"><a href="#"><span class="btn-clip"> </span>教育訓練公告</a>';
+      strVar += '<div class="section-toolbar">';
+      strVar += '<ul class="toolbar">';
+      strVar += '<li data-toggle="modal" data-target="#modalDelete" class="btn-delete"></li>';
+      strVar += '</ul>';
+      strVar += '</div>';
+      strVar += '</div>';
+    
+      $('.attach-file').html(strVar)
+      $('textarea[name="content"]').html('**員工xxx 於** *2016/12/11起*<br>進行Javascript教育訓練<br>詳細內容請見附加檔案');
+    }
+    
+    $('.btn-edit').click(function(){
+      setInput(false);
+    })
+    
+    $('.btn-confirm').click(function(){
+      setInput(true);
+    })
+    
+    function setInput(read){
+      $('input').attr("readonly", read);
+      if(read){
+        $('#wmd-button-bar').hide();
+        $('textarea[name="content"]').hide();
+        $('#fieldUpload').hide();
+        $('.section-toolbar').hide();
+      }else{
+        $('#wmd-button-bar').show();
+        $('textarea[name="content"]').show();
+        $('#fieldUpload').show();
+        $('.section-toolbar').show();
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,594 @@
+@mixin size($w,$h){
+	width: $w;
+	height: $h;
+}
+
+@mixin circle($w,$bgc){
+	width: $w;
+	height: $w;
+	background-color: $bgc;
+	border-radius: 100%;
+}
+@mixin text($size,$color,$weight,$spacing){
+	font-size: $size;
+	color: $color;
+	font-weight: $weight;
+	letter-spacing: $spacing;
+}
+
+@mixin center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+// *{
+// 	border: 1px solid #000;
+// }
+hr{
+	border: solid #b8b8b8;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 10px 0 30px;
+    height: 0;
+}
+.course-view{
+	padding: 0;
+	margin: 0;
+	margin-bottom: 20px;
+	overflow: hidden;
+	ul{
+		list-style: none;
+		padding-left: 0;
+		li{
+			display: inline-block;
+			margin: 0 10px;
+		}
+	}
+	i{
+		margin-right: 10px;
+	}
+	.course-header{
+		position: relative;
+		@include size(100%,300px);
+	}
+	.course-photo{
+		@include size(100%,300px);
+	}
+	.mask{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		opacity: .4;
+	}
+	.courde-info{
+		@include center;
+		color: white;
+		text-align: center;
+		width: 100%;
+		.course-title{
+			@include text(34px,#fff,500,3px);
+			margin-bottom: 10px;
+			margin-top: 5px;
+		}
+	}
+}
+.course-bottom{
+	.tab{
+		height: 40px;
+		position: relative;
+		padding: 0 60px;
+		margin-top: 15px;
+		border-bottom: .5px solid  #ddd;
+	}
+	.nav-tabs{
+		margin: 0;padding: 0;
+		li{
+			padding: 0 20px;
+			margin: 0;
+		}
+		li.active > a{
+			padding: 0 20px;
+		}
+	}
+	.enroll{
+		position: absolute;
+		top: -12px;
+		right: 30px;
+		.course-money, .btn{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.course-money{
+			@include text(30px,$success-color,700,1px);
+		}
+		.btn{
+			margin-left: 20px;
+		}
+	}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+		padding-bottom: 11px;
+	}
+	.tab-content{
+		padding: 0 80px;
+		margin-bottom: 40px;
+		section{
+			padding: 0;
+			margin: 0;
+			padding-top: 20px;
+		}
+		.title{
+			@include text(24px,$primary-color,400,1px);
+		}
+		.tab-pane-left,.tab-pane-right{
+			display: inline-block;
+			vertical-align: top;
+		}
+		.tab-pane-left{
+			margin-top: 20px;
+			width: 70%;
+			.subtitle{
+				@include text(14px,$success-color,400,1px);
+			}
+		}
+		.tab-pane-right{
+			margin-top: 20px;
+			width: 30%;
+			padding-left: 100px;
+			text-align: center;
+			form{
+				padding-top: 15px;
+				margin-top: 8px;
+				border: 1px solid #ddd !important;
+				margin-bottom: 25px;
+				input{
+					padding-left: 0px;
+					margin-left: -10px;
+				}
+			}
+			img{
+				@include circle(150px,transparent)
+				margin-top: 5px;
+			}
+			.teacher-info{
+				border-bottom: 1px solid #ddd;
+				.name{
+					@include text(22px,$primary-color,500,0px);
+					margin-top: 15px;
+				}
+				.jobtitle{
+					@include text(16px,$e-note-color,300,0px);
+				}
+				.social-media li{
+					margin: 0 6px;
+				}
+				ul{
+					margin-top: 10px;
+				}
+				.introduction{
+					// @include text(14px,$e-note-color,300,0px);
+					font-size: 14px;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+#discussion,#student-list,#contact{
+	.title{
+		margin-top: 20px;
+	}
+}
+
+.course-item{
+	// @extend .col-md-3;
+	padding: 15px;
+	box-sizing: border-box;
+	width: 25%;
+	// min-width: 265px;
+	max-width: 337px;
+	float: left;
+	@media screen and (min-width: 1560px) {
+    width: 20%;
+  }
+}
+
+
+#discussion, #comments, #contact{
+	img{
+		@include circle(100px,transparent)
+		margin-right: 20px;
+	}
+	img, .message-block{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.name{
+		@include text(16px,$primary-color,500,0px);
+		margin-bottom: 5px;
+	}
+	.message-block{
+		width: calc(100% - 124px);
+		button{
+			float: right;
+			margin-right: 0;
+		}
+	}
+	textarea{
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 6px 12px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	.message{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		margin: 30px 0;
+		padding: 20px 40px;
+		img{
+			@include circle(85px,transparent)
+		}
+		.name, .star-rating, .time{
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		.name{
+			margin-right: 10px;
+		}
+		.time{
+			float: right;
+			@include text(14px,$e-note-color,300,0px);
+			font-style: italic;
+		}
+		button{
+			float: left;
+			padding: 0;
+			border: none;
+			margin-top: -10px;
+			&:hover{
+				color: $primary-color;
+				background-color: transparent;
+				opacity: .8;
+			}
+		}
+	}
+}
+#comments{
+	p{
+		margin-bottom: 10px;
+	}
+}
+// workshop star rating
+#workshop{
+	.rating-container .star{
+		margin: 0;
+	}
+	.rating-xs{
+		font-size: 20px;
+	}
+	.clear-rating {
+		display: none;
+	}
+	.rating-container .filled-stars{
+		color: #ffc23f;
+	}
+	.rating-disabled .rating{
+		cursor: auto;
+	}
+}
+// *{
+// 	border: 1px solid #000;
+// }
+.btn-submit-success{
+	color: white;
+	background-color: $danger-color;
+	border: 2px solid $danger-color;
+	&:hover{
+		background-color: transparent;
+		color: $danger-color;
+	}
+}
+
+.fa-eye{
+	vertical-align: text-bottom;
+    font-size: 17px;
+    padding-left: 10px;
+}
+#student-list{
+	.cancel{
+		margin-left: 10px;
+	}
+	.progress-info{
+		// color: white;
+		padding: 10px 4%;
+		// background-color: $e-light-color;
+		// border: 2px solid $primary-color;
+		border-radius: 10px;
+		margin-bottom: 20px;
+	}
+	.progress{
+		width: 75%;
+		margin-top: 7px;
+		margin-bottom: 0;
+	}
+	.progress, .progress-text,.progress-bar{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.progress-text{
+		width: 15%;
+	}
+	.text-right{
+		float: right;
+		width: 9%;
+	}
+	.progress-bar{
+		width: 60%;
+		background-color: $danger-color;
+	}
+	.student-number{
+		margin-top: -10px;
+		margin-bottom: 20px;
+	}
+	.number{
+		text-align: center;
+		width: 33%;
+		display: inline-block;
+	}
+	.student-number-title{
+		font-size: 15px;
+	}
+	.student-number-amount{
+		font-size: 42px;
+		font-weight: bold;
+		padding-left: 10px;
+	}
+	.number:last-child {
+		color: $e-note-color;
+	}
+}
+// *{
+// 	border: 1px solid #000;
+// }
+// 留言板=========================================================
+#comments-container{
+	width: 100%;
+	margin: 0 auto;
+}
+#comments-container ul.navigation{
+	display: none;
+}
+#comments-container{
+	.textarea{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 6px 12px;
+		height: 100px !important;
+		width: 95% !important;
+		float: right;
+		margin-bottom: 3px;
+	}
+	span.send{
+		color: $primary-color;
+		opacity: 1;
+		background-color: transparent !important;
+		border: 2px solid $primary-color;
+		padding: 4.5px 20px;
+		border-radius: 4px;
+		transition: .5s;
+		&:hover{
+			color: #fff;
+			background-color: $primary-color !important;
+		}
+	}
+}
+#comments-container-contact{
+	width: 100%;
+	margin: 0 auto;
+}
+#comments-container-contact ul.navigation{
+	display: none;
+}
+#comments-container-contact{
+	.textarea{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 6px 12px;
+		height: 100px !important;
+		width: 95% !important;
+		float: right;
+		margin-bottom: 3px;
+	}
+	span.send{
+		color: $primary-color;
+		opacity: 1;
+		background-color: transparent !important;
+		border: 2px solid $primary-color;
+		padding: 4.5px 20px;
+		border-radius: 4px;
+		transition: .5s;
+		&:hover{
+			color: #fff;
+			background-color: $primary-color !important;
+		}
+	}
+}
+#comment-list{
+	li{
+		margin: 0;
+		margin-top: 15px;
+	}
+	li.comment{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		width: 100%;
+		padding: 10px 50px;
+	}
+	.child-comments{
+		li.comment{
+			border: none;
+			width: 100%;
+			padding-right: 0;
+			margin-top: 0;
+			padding-top: 10px;
+			padding-bottom: 0px;
+		}
+		.comment-wrapper{
+			padding-top: 20px;
+			border-top: 1px #ccc solid;
+		}
+		.textarea{
+			width: 100% !important;
+		}
+		// .commenting-field{
+		// 	img{
+		// 		margin-right: 0;
+		// 		margin-left: 40px;
+		// 	}
+		// }
+		// .by-current-user .edit .commenting-field{
+		// 	img{
+		// 		display: none;
+		// 	}
+		// }
+		.textarea-wrapper{
+			.textarea{
+				width: 100% !important;
+			}
+		}
+	}
+	.name{
+		color: $primary-color;
+		margin-bottom: 10px;
+	}
+	.content{
+		margin: 0;padding: 0;
+		height: auto;
+		line-height: 1.6;
+	}
+	button.action.upvote, span.separator{
+		display: none;
+	}
+	button.reply{
+		margin-top: 10px;
+		color: $primary-color;
+		font-size: 15px;
+		font-weight: normal;
+		&:before{
+			font-family: FontAwesome;
+			content: "\f112";
+			padding-right: 10px;
+		}
+		&:hover{
+			opacity: .9;
+		}
+	}
+	time{
+		font-size: 14px;
+		color: #a0a0a0;
+		font-style: italic;
+		letter-spacing: 1px;
+		font-weight: 300;
+	}
+	.profile-picture{
+		margin-right: 40px;
+	}
+	.highlight-font-bold{
+		color: $success-color !important;
+	}
+}
+
+span.upload{
+	color: $primary-color !important;
+	margin-top: 7px !important;
+    font-size: 19px !important;
+    background-color: transparent !important; 
+	i{
+		margin-right: 0;
+	}
+}
+
+.textarea-wrapper:before, .textarea-wrapper:before{
+	display: none;
+}
+.jquery-comments [contentEditable=true]:empty:not(:focus):before {
+	color: #A9A9B1;
+}
+.jquery-comments ul.main li.comment .comment-wrapper{
+	border: none;
+}
+#comment-list .child-comments .commenting-field img{
+	margin-left: 40px;
+}
+#comment-list .by-current-user .commenting-field img{
+	display: none;
+}
+#comment-list .by-current-user{
+	.textarea{
+		width: 100% !important;
+	}
+}
+#comments-container .commenting-field img{
+	display: none;
+}
+#comments-container .main img{
+	display: block;
+}
+
+#comments-container-contact .commenting-field img{
+	display: none;
+}
+#comments-container-contact .main img{
+	display: block;
+}
+span.delete{
+	color: $danger-color !important;
+	opacity: 1;
+	background-color: transparent !important;
+	border: 2px solid $danger-color !important;
+	padding: 4.5px 20px !important;
+	border-radius: 4px;
+	transition: .5s;
+	&:hover{
+		color: #fff !important;
+		background-color: $danger-color !important;
+	}
+}
+span.save.highlight-background.update{
+	color: #fff !important;
+	opacity: 1;
+	background-color: $primary-color !important;
+	border: 2px solid $primary-color !important;
+	padding: 4.5px 20px !important;
+	border-radius: 4px;
+	transition: .5s;
+	&:hover{
+		color: $primary-color !important;
+		background-color: #fff !important;
+	}
+}
+
+.jquery-comments .textarea-wrapper:after{
+	display: none !important;
+}
+
+// *{
+// 	border: 1px solid #000;
+// }
+
+.nav-tabs{
+	margin-top: 39px;
+}
+.jquery-comments .profile-picture{
+	max-width: 70px;
+    max-height: 70px;
+}
+#comments{
+	.star-rating{
+		margin-top: -7px;
+	}
+}

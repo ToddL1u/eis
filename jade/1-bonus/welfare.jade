@@ -1,0 +1,53 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #bonus.container.nav-bonus-2
+      nav.nav
+      .wrap
+        include ../include/header-welfare
+        .content
+          include ../include/toolbar-export-print-add
+          section 
+            table.table.table-hover.table-list.table-sort#tableWelfare
+              thead.table-subheader
+                tr
+                  th.col-sm-2 項目
+                  th.col-sm-1 試用期員工
+                  th.col-sm-1 正式員工
+                  th 狀態
+                  th 異動時間
+                  td
+              tbody
+                -for(var i=0; i< 15; i++){
+                  tr(data-href="welfare-detail.html")
+                    td 特休假(依勞基法)
+                    td
+                      span.fa.fa-square-o 
+                    td 
+                      span.fa.fa-square
+                    td 生效中(v2)
+                    td 2016/11/09 09:38
+                    td
+                      ul.toolbar.toolbar-right
+                        li
+                          a(href="welfare-detail.html?action=edit").btn-edit-only
+                -}
+            include ../include/pagination
+        footer
+script(src="../../assets/js/function.js")
+script.
+  $('.btn-add').click(function(){
+    window.location.href = "welfare-detail.html?action=add";
+  });
+  function init() {
+      //- var sorter = tsorter.create('tableWelfare');
+      $('#tableWelfare').tablesorter();
+  }
+  window.onload = init;

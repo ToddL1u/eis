@@ -1,0 +1,69 @@
+#rent
+  p
+    margin-bottom: 20px
+
+  select.form-control[disabled]
+    background-color: #e2e2e2
+    color: #a0a0a0 !important
+    border: 1px solid #BFBFBF
+    padding: 6px 12px
+
+  ul.toolbar
+    display: inline-block
+    float: right
+
+  table
+    width: 100%
+  
+  .add-sample,.add-item
+    margin-top: 20px
+    height: 34px
+    span.select, select, button
+      display: inline-block
+    span.select
+      display: none
+      select
+        width: 90%
+    button
+      float: right
+
+  .table-header span
+    color: #E96471
+    margin-left: 10px
+
+  .item-detail
+    border: 1px solid #000
+    border-bottom: none
+    &:last-child
+      border-bottom: 1px solid #000
+    div
+      padding: 10px 30px
+      font-size: 16px
+      &:first-child
+        font-size: 20px
+        background-color: #ddf0f6
+        border-bottom: 1px solid #000
+      h4,span 
+        display: inline-block
+      h4
+        font-size: 20px
+        margin-bottom: 10px
+        font-weight: normal
+        color: #4E4D4D
+      span
+        margin-left: 20px
+        letter-spacing: 2px
+
+  .item-refresh
+    .item-detail
+      div:nth-child(2)
+        background-color: #fff
+      div:nth-child(3)
+        color: #E96471
+        background-color: #FFE8F2
+
+  // .fa-refresh
+  //   transition: all 2s linear
+  //   &.rotate
+  //     transform:rotate(180deg)
+

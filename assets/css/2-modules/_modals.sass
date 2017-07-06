@@ -1,0 +1,53 @@
+.modal
+  .modal-content
+  .modal-body
+    h4
+      margin-bottom: 50px
+      text-align: center
+    button
+      color: white
+      // border-color: $clear-color
+      border: 0
+      padding: 10px
+      width: 100px
+      margin-right: 10px
+      opacity: .8
+      &:hover
+        opacity: 1
+
+      &.modal-btn-cancel
+        background: gray
+        // color: black
+        // border: 1px solid gray
+      &.modal-btn-delete
+        background: $danger-color
+
+#modalAvatar
+  .kv-avatar .file-input
+    display: block
+    margin: 0 auto
+  .modal-body
+    text-align: center
+    margin: 0 auto
+    button
+      width: auto
+  .file-preview
+    border: 0
+  .file-preview-thumbnails
+    // .file-preview-frame
+    //   width: 100%!imporant
+    img
+      border-radius: 50%
+      width: 160px
+      height: 160px
+
+#modalConfirm-ws
+  form
+    label
+      padding: 5px 30px
+      background-color: $form-table-header
+      border-right: 10px solid #fff
+    label,input
+      margin-bottom: 9px
+    .col-sm-9
+      padding: 0

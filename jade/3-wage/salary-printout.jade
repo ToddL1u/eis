@@ -1,0 +1,145 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+    mixin slaryDetail(items)
+      ul.salary-detail
+        -each item in items
+          li
+            span #{item.name}
+            span #{item.amount}
+  body
+    #wage.container.nav-wage-3
+      nav.nav
+      .wrap
+        include ../include/header-salary-printout
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+          span#searchResult 請選擇搜尋條件
+          table.table.table-list.table-sort#tableDep(style="display:none")
+            thead.table-subheader
+              tr
+                th 薪資區間
+                th 部門
+                th 人數
+                th 全薪
+                th 綜合加項
+                th 綜合扣項
+                th 新制退休金
+                th 實領綜合
+            tbody
+              -for(var i=0;i<5;i++){
+                tr
+                  td 2016 /10
+                  td 設計
+                  td 5
+                  td 5
+                  td 700
+                  td 500
+                  td 45000
+                  td 45000
+              -}
+              tr(style="background-color: #ea6374;color:white")
+                td 2016-10 ~ 2016-11
+                td 設計
+                td 5
+                td 5
+                td 700
+                td 500
+                td 45000
+                td 45000
+              
+          table.table.table-list.table-sort#tableIndividual(style="display:none")
+            thead.table-subheader
+              tr
+                th.col-sm-2 薪資區間
+                th.col-sm-1 姓名
+                th.col-sm-2 全薪
+                th.col-sm-2 綜合加項
+                th.col-sm-2 綜合扣項
+                th.col-sm-1 新制退休金
+                th.col-sm-2 實領總額
+            tbody
+              -for(var i=0;i<2;i++){
+                tr
+                  td 2016 /10
+                  td Murry
+                  td 45000
+                    //- +slaryDetail([
+                    //-   {'name':'底薪','amount':500},
+                    //-   {'name':'伙食津貼','amount':500}])
+                  td 700
+                    //- +slaryDetail([
+                    //-   {'name':'誤餐費(NT$100/日)','amount':500},
+                    //-   {'name':'夜點費(NT$200/日)','amount':500},
+                    //-   {'name':'獎金','amount':500},
+                    //-   {'name':'其他加項','amount':500}])
+                  td 500
+                    //- +slaryDetail([
+                    //-   {'name':'請假','amount':500},
+                    //-   {'name':'勞保費','amount':500},
+                    //-   {'name':'健保費(自)','amount':500},
+                    //-   {'name':'健保費(眷)','amount':500},
+                    //-   {'name':'其他扣項','amount':500}])
+                  td 700
+                    //- +slaryDetail([
+                    //-   {'name':'公司提撥','amount':500},
+                    //-   {'name':'員工自提','amount':500}])
+                  td 45000
+              -}
+              tr(style="background-color: #ea6374;color:white")
+                td 2016/10~2016/12
+                td Murry
+                td 5
+                td 700
+                td 500
+                td 45000
+                td 45000
+              
+        footer
+script(src="../../assets/js/function.js")
+script.
+  $('#formSearch').submit(function(event){
+    if($('.select-employee').val() != 0){
+      $('#tableIndividual').show();
+      $('#tableDep').hide();
+      $('#searchResult').html('');
+    }else{
+      $('#tableIndividual').hide();
+      if($('.select-deps').val() == 0){
+        $('#tableDep').hide();
+        if($('.select-employee').val() == 0)$('#searchResult').html('請選擇搜尋條件');
+      }else{
+        $('#tableDep').show();
+        $('#tableIndividual').hide();
+        $('#searchResult').html('');
+      }
+    }
+    event.preventDefault();
+  });
+  
+  $('button[type="reset"]').click(function(){
+    $('#salaryIndividual').hide();
+    $('#salaryDep').hide();
+  });
+  
+  
+  //- $('tr').click(function(){
+  //-   $(this).find('.salary-detail').toggle('.salary-detail-show');
+  //- })
+  
+  function init() {
+    $('#tableDep').tablesorter();
+    $('#tableIndividual').tablesorter();
+    //- var sorter = tsorter.create('tableDep');
+    //- var sorter = tsorter.create('tableIndividual');
+  }
+      
+  window.onload = init;
+    

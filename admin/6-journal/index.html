@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="journal" class="container nav-journal">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>員工工作日誌</li>
+            </ul>
+            <div class="subnav-subtitle">
+              <ul class="toolbar toolbar-right">
+                <li class="btn-expand toolbar-btn-hide"></li>
+                <li class="btn-collapse"></li>
+              </ul>
+            </div>
+            <form class="subnav-search">
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">對象</span><span class="select select-dark">
+                  <select class="form-control select-deps">
+                    <option value="0">全體部門</option>
+                  </select></span><span class="select select-dark">
+                  <select class="form-control select-employee">
+                    <option value="0">全體人員</option>
+                  </select></span></div>
+              <div class="search-form-group col-sm-12"><span class="search-form-label col-sm-1">區間</span>
+                <ul class="select-date">
+                  <li><span class="select select-dark">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-months form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-days form-control"></select></span></li>
+                </ul><span class="select-date-label-to"></span>
+                <ul class="select-date">
+                  <li><span class="select select-dark">
+                      <select class="select-years form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-months form-control"></select></span></li>
+                  <li><span class="select select-dark">
+                      <select class="select-days form-control"></select></span></li>
+                </ul>
+              </div>
+              <div class="search-form-buttons">
+                <button type="reset" class="btn btn-default">Reset</button>
+                <button tＦype="submit" class="btn btn-default"><span class="fa fa-search"></span>Searching</button>
+              </div>
+            </form>
+          </div>
+        </header>
+        <div class="content on-search">
+          <ul class="toolbar toolbar-right">
+            <li class="btn-export"></li>
+            <li class="btn-print"></li>
+          </ul>
+          <section> 
+            <table id="tableJournal" class="table table-hover table-list table-sort">
+              <thead class="table-subheader">
+                <tr>
+                  <th class="col-sm-2">日期</th>
+                  <th class="col-sm-1">部門</th>
+                  <th class="col-sm-1">姓名</th>
+                  <th class="col-sm-2">主要工作項目</th>
+                  <th class="col-sm-4">工作內容</th>
+                  <td class="col-sm-2"></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/22  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>計畫工作人力配置<span class="badge-hour aydyn-badge">2hrs</span></li>
+                      <li>預期績效與產出項目<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">3hrs</span></li>
+                    </ol>
+                  </td>
+                  <td>
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">8hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2016/11/11  (二)</td>
+                  <td>設計</td>
+                  <td>Fill Murray</td>
+                  <td>設計EIS</td>
+                  <td> 
+                    <ol class="journal-list">
+                      <li>javascript<span class="badge-hour aydyn-badge">3hrs</span></li>
+                      <li>效益評估之內容與機制<span class="badge-hour aydyn-badge">6hrs</span></li>
+                    </ol>
+                  </td>
+                  <td> 
+                    <ul class="toolbar">
+                      <li data-toggle="popover" data-trigger="hover" class="btn-comment field-content-title"></li>
+                      <li class="btn-clip"></li>
+                      <li> <span class="badge-hour aydyn-badge">9 hrs</span></li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="float-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ea commodo consequa</div>
+          </section>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    function init() {
+      $('#tableJournal').tablesorter();
+    }
+        
+    window.onload = init;
+    
+    //- $('body').on('mousemove','.btn-comment',function(event){
+    //-   var $offset = $(this).position();
+    //-   $('.float-content').show();
+    //-   $('.float-content').css({'left': $offset.left - 520 , 'top': $offset.top-80});
+    //- })
+    
+    //- $('table').mousemove(function(){
+    //-   $('.float-content').hide();
+    //- })
+    
+    $('.field-content-title[data-toggle="popover"]').popover({
+      html: true,
+      content: function() {
+        //replace content
+        return $('.float-content').html();
+      }
+      ,placement: 'top'
+    });
+  </script>
+</html>

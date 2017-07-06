@@ -1,0 +1,95 @@
+doctype 
+html
+  head
+    meta(charset='utf-8')
+    title AYDYN EIS
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='../../assets/css/admin-main.css')
+    include ../include/javascripts
+  body
+    #journal.container.nav-journal
+      nav.nav
+      .wrap
+        include ../include/header-journal
+        .content.on-search
+          ul.toolbar.toolbar-right
+            include ../include/toolbar-export
+            li.btn-print
+          section 
+            table.table.table-hover.table-list#tableJournal.table-sort
+              thead.table-subheader
+                tr
+                  th.col-sm-2 日期
+                  th.col-sm-1 部門
+                  th.col-sm-1 姓名
+                  th.col-sm-2 主要工作項目
+                  th.col-sm-4 工作內容
+                  td.col-sm-2
+              tbody
+                -for(var i=0;i<8;i++){
+                  tr
+                    td 2016/11/22  (二)
+                    td 設計
+                    td Fill Murray
+                    td 設計EIS
+                    td 
+                      ol.journal-list
+                        li 計畫工作人力配置
+                          span.badge-hour.aydyn-badge 2hrs
+                        li 預期績效與產出項目
+                          span.badge-hour.aydyn-badge 3hrs
+                        li 效益評估之內容與機制
+                          span.badge-hour.aydyn-badge 3hrs
+                    td
+                      ul.toolbar
+                        li.btn-comment.field-content-title(data-toggle="popover" data-trigger="hover")
+                        li.btn-clip
+                        li 
+                          span.badge-hour.aydyn-badge 8hrs
+                -}
+                tr
+                  td 2016/11/11  (二)
+                  td 設計
+                  td Fill Murray
+                  td 設計EIS
+                  td 
+                    ol.journal-list
+                      li javascript
+                        span.badge-hour.aydyn-badge 3hrs
+                      li 效益評估之內容與機制
+                        span.badge-hour.aydyn-badge 6hrs
+                  td 
+                    ul.toolbar
+                      li.btn-comment.field-content-title(data-toggle="popover" data-trigger="hover")
+                      li.btn-clip
+                      li 
+                        span.badge-hour.aydyn-badge 9 hrs
+            .float-content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ea commodo consequa
+        footer
+  script(src="../../assets/js/function.js")
+  script.
+    function init() {
+      $('#tableJournal').tablesorter();
+    }
+        
+    window.onload = init;
+    
+    //- $('body').on('mousemove','.btn-comment',function(event){
+    //-   var $offset = $(this).position();
+    //-   $('.float-content').show();
+    //-   $('.float-content').css({'left': $offset.left - 520 , 'top': $offset.top-80});
+    //- })
+    
+    //- $('table').mousemove(function(){
+    //-   $('.float-content').hide();
+    //- })
+
+    $('.field-content-title[data-toggle="popover"]').popover({
+      html: true,
+      content: function() {
+        //replace content
+        return $('.float-content').html();
+      }
+      ,placement: 'top'
+    });

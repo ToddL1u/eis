@@ -1,0 +1,79 @@
+section#abilities
+  ul.toolbar.toolbar-right
+    li.btn-print
+  form.section-block
+    .table-header.table-header-primary 語言能力
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 語言種類
+          th 聽
+          th 說
+          th 讀
+          th 寫
+          th
+      tbody
+        tr.form-block
+          td 
+            input.form-control(type="text" readonly value="英文") 
+          td
+            input.rb-rating(type="number" readonly)
+          td
+            input.rb-rating(type="number" readonly)
+          td
+            input.rb-rating(type="number" readonly)
+          td
+            input.rb-rating(type="number" readonly)
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td 
+            input.form-control(type="text" ) 
+          td
+            input.rb-rating(type="number")
+          td
+            input.rb-rating(type="number")
+          td
+            input.rb-rating(type="number")
+          td
+            input.rb-rating(type="number")
+          td
+            include ../include/toolbar-delete-edit
+            
+  .section-block
+    .table-header.table-header-primary 證照
+      ul.toolbar.toolbar-right.section-toolbar
+        li.btn-add
+    table.table.table-form
+      thead.table-subheader
+        tr
+          th.col-sm-2 證照類別
+          th 名稱
+          th 成績
+          th 備註
+          th
+      tbody
+        tr.form-block
+          td
+            input.form-control(type="text" readonly value="英文") 
+          td
+            input.form-control(type="text" readonly value="TOEIC") 
+          td
+            input.form-control(type="text" readonly value="699") 
+          td
+            input.form-control(type="text" readonly)
+          td
+            include ../include/toolbar-delete-edit
+        tr.form-block
+          td
+            input.form-control(type="text") 
+          td
+            input.form-control(type="text") 
+          td
+            input.form-control(type="text") 
+          td
+            input.form-control(type="text")
+          td
+            include ../include/toolbar-delete-edit

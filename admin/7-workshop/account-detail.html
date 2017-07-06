@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AYDYN EIS</title>
+    <meta name="description" content="">
+    <!--meta(name='viewport', content='width=device-width, initial-scale=1')-->
+    <link rel="stylesheet" href="../../assets/css/admin-main.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../../assets/js/jasny-bootstrap.min.js"></script>
+    <script src="../../assets/js/fileinput.js"></script>
+    <script src="../../assets/js/editormd/editormd.js"></script>
+    <script src="../../assets/lib/prettify.min.js"></script>
+    <script src="../../assets/lib/rephael.min.js"></script>
+    <script src="../../assets/js/marked.js"></script>
+    <script src="../../assets/lib/underscore.min.js"></script>
+    <script src="../../assets/js/star-rating.js"></script>
+    <script src="../../assets/js/moment.js"></script>
+    <script src="../../assets/js/bootstrap-timepicker.js"></script>
+    <script src="../../assets/js/jquery.tablesorter.js"></script>
+    <script src="../../assets/js/jquery.tw-city-selector.min.js"></script>
+    <script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../assets/js/jquery-comments.min.js"></script>
+  </head>
+  <body>
+    <div id="workshop" class="container nav-workshop-3">
+      <nav class="nav"></nav>
+      <div class="wrap">
+        <header>
+          <div class="header-base"><a id="logo" href="../index">&nbsp;</a>
+            <ul class="toolbar toolbar-right top-right">
+              <li> <span class="badge-notification aydyn-badge">50</span><a href="../index/notification.html"><span class="btn-notification"></span></a></li>
+              <li><a href="../index/config.html"><span class="btn-cofig"></span></a></li>
+              <li> <a href="../../"><span class="btn-logout"></span>Log out</a></li>
+            </ul>
+          </div>
+          <div class="subnav">
+            <ul class="aydyn-breakcrumb">
+              <li>工作坊</li>
+              <li>會員款項</li>
+              <li>款項明細</li>
+            </ul>
+            <div class="subnav-subtitle">2016/11/12</div>
+          </div>
+        </header>
+        <div class="content">
+          <section class="form-block section-block">
+            <table class="table table-account-detail">
+              <thead class="table-subheader">
+                <tr>
+                  <th> 
+                    <input type="checkbox" class="checkbox-circle">基本資料
+                    <ul>
+                    </ul>
+                  </th>
+                  <th>提領明細</th>
+                  <th>匯款資訊</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <form>
+                      <div class="form-group">
+                        <label class="control-label col-sm-5">請款日</label>
+                        <div class="col-sm-7">
+                          <input readonly value="2016/10/10" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-5">姓名</label>
+                        <div class="col-sm-7">
+                          <input readonly value="Jake Gyllenhaal" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-5">類別</label>
+                        <div class="col-sm-7">
+                          <input readonly value="講師請款" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-5">狀態</label>
+                        <div class="col-sm-7">
+                          <input readonly value="待處理" class="form-control text-warn">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-5">請款編號</label>
+                        <div class="col-sm-7">
+                          <input readonly value="A12345" class="form-control">
+                        </div>
+                      </div>
+                    </form>
+                  </td>
+                  <td>
+                    <form class="form-course-list">
+                      <div class="form-group">
+                        <label class="control-label col-sm-7">
+                           
+                          JavaScript程式設計新手村(上)
+                          <p>11/16~11/19<span>11/16~11/19</span></p>
+                        </label>
+                        <div class="col-sm-5">
+                          <input readonly type="number" value="50000" class="form-control text-warn">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-7">
+                           
+                          JavaScript程式設計新手村(上)
+                          <p>11/16~11/19<span>9堂</span></p>
+                        </label>
+                        <div class="col-sm-5">
+                          <input readonly type="number" value="50000" class="form-control text-warn">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-7">金額</label>
+                        <div class="col-sm-5">
+                          <input readonly type="number" value="100000" class="form-control text-warn">
+                        </div>
+                      </div>
+                    </form>
+                  </td>
+                  <td>
+                    <form class="form-course-list form-info">
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <p>808<span>1234567123567</span></p>
+                          <label class="control-label col-sm-7">手續費0</label>
+                          <div class="col-sm-5">
+                            <input readonly type="number" value="50000" class="form-control text-warn">
+                          </div>
+                        </div>
+                        <div class="col-sm-4"><i class="fa fa-picture-o"></i></div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <p>808<span>1234567123567</span></p>
+                          <label class="control-label col-sm-7">手續費0</label>
+                          <div class="col-sm-5">
+                            <input readonly type="number" value="50000" class="form-control text-warn">
+                          </div>
+                        </div>
+                        <div class="col-sm-4"><i class="fa fa-picture-o"></i></div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label class="control-label col-sm-7"></label>
+                          <div class="col-sm-5">
+                            <input readonly type="number" value="100000" class="form-control text-warn">
+                          </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                      </div>
+                    </form>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <textarea placeholder="備註..."></textarea>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </section>
+          <div class="text-right m-t-5">
+            <button class="btn btn-default btn-warn btn-flat-table">匯出匯款資訊</button><a href="account.html">
+              <button class="btn btn-default btn-flat-table">回前頁</button></a>
+          </div>
+        </div>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+  <script src="../../assets/js/function.js"></script>
+  <script>
+    $('tfoot').hide();
+    $('input[type="checkbox"]').hide();
+  </script>
+</html>
