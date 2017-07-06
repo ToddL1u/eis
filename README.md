@@ -86,24 +86,4 @@ http://www.terrill.ca/sorting/table_sort_example.html
 http://dennykuo.github.io/tw-city-selector/
 
 
-15th March 2017
-=====================================================================
-replace new markdown, please make sure you install the files below
-  -assets/img/editormd
-  -assets/js/editormd
-  -assets/lib
-  -assets/php
-  -assets/plugins
-  -assets/js/function
-  -assets/css/admin-main.css
-
-new functionality
-
-setContent:
-  set a markdown textarea with content
-
-mkEditSwitch:
-  set markdown textarea read or edit
-
-loadMD:
-  load markdown textarea
+Notice: this version only for demonstration, including none confidentail data and connect none api
